@@ -1,0 +1,37 @@
+
+🧠 Knowledge Areas Tested on Exam AI-102
+1. Plan and Manage an Azure AI Solution (20–25%)
+Select appropriate Azure AI services for generative AI, computer vision, natural language processing, speech, information extraction, and knowledge mining solutions.
+
+Plan, create, and deploy AI services, including responsible AI principles, choosing models, deployment options, using SDKs and APIs, integrating with CI/CD pipelines, and container deployment.
+
+Manage, monitor, and secure AI services, such as resource monitoring, cost management, key protection, and authentication.
+
+Implement responsible AI solutions, including content moderation, responsible AI insights, content filters, and preventing harmful behavior.
+
+2. Implement Generative AI Solutions (15–20%)
+Build generative AI solutions with Azure AI Studio, including hub/project planning, model selection, prompt flows, Retrieval-Augmented Generation (RAG), evaluation, and app integration.
+
+Use Azure OpenAI Service to generate content, such as deploying models (e.g., GPT, DALL·E), prompt engineering, and generating text or images.
+
+Implement Document Intelligence solutions using prebuilt and custom models for document data extraction.
+
+Extract information with Azure AI Content Understanding, such as OCR, summarization, classification, entity and table extraction, and processing varied document types.
+
+3. Implement Computer Vision Solutions (10–15%)
+Analyze images and videos using Azure AI Vision, including image recognition, object detection, custom models, and video analysis.
+
+4. Implement Natural Language Processing (NLP) Solutions (15–20%)
+Analyze text and speech with Azure AI Speech and Azure AI Language services, covering text analytics, speech processing, and language translation.
+
+Build and manage language understanding models, including custom language models and Q&A solutions.
+
+5. Implement Knowledge Mining and Information Extraction (15–20%)
+Implement Azure AI Search solutions, including index creation and app integration.
+
+Deploy Document Intelligence solutions, also covered in Generative AI.
+
+Extract insights with Azure AI Content Understanding, reused from earlier topics.
+
+6. Implement Agent Solutions (5–10%)
+Develop custom agents using Azure AI Studio, including planning, building, and deploying agents that interact with users or systems.

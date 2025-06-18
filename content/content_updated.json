@@ -1,0 +1,612 @@
+{
+  "AZ-900": {
+    "exam_name": "Microsoft Azure Fundamentals",
+    "name": "Microsoft Azure Fundamentals",
+    "skills_measured": [
+      {
+        "skill_area": "Describe cloud concepts",
+        "percentage": "20–25%",
+        "subtopics": [
+          {
+            "topic": "Identify the benefits and considerations of using cloud services",
+            "details": [
+              "Cost Effectiveness: Pay for what you consume, no upfront cost, pay-as-you-go, and shared costs with thousands of customers.",
+              "Global Reach: Launch workloads anywhere in the world by choosing a region.",
+              "Security: Cloud providers handle physical security, and cloud services can be secured by default or configured with granular access controls.",
+              "Reliability: Features include data backups, disaster recovery, data replication, and fault tolerance.",
+              "Scalability: Ability to increase or decrease resources and services based on demand.",
+              "Elasticity: Automated scaling during spikes and drops in demand.",
+              "Current: Underlying hardware and software are patched, upgraded, and replaced by the cloud provider without interruption."
+            ]
+          },
+          {
+            "topic": "Describe the differences between categories of cloud services",
+            "details": [
+              "Software as a Service (SaaS): A product run and managed by the service provider; users don't worry about maintenance. Examples include Salesforce, Gmail, and Office 365.",
+              "Platform as a Service (PaaS): Focuses on application development and management, abstracting hardware and OS provisioning. Examples include AWS Elastic Beanstalk, Heroku, and Google App Engine.",
+              "Infrastructure as a Service (IaaS): Provides basic building blocks like networking, compute, and storage; users don't worry about IT staff or data centers. Examples include Microsoft Azure, AWS, and Oracle Cloud."
+            ]
+          },
+          {
+            "topic": "Describe the differences between types of cloud computing",
+            "details": [
+              "Public Cloud: Everything is built on the cloud service provider's infrastructure (e.g., Azure), with no on-premise components.",
+              "Private Cloud: Everything is built on the company's own data centers (on-premise), potentially running open-source cloud software like OpenStack.",
+              "Hybrid Cloud: Uses a combination of both on-premise infrastructure and cloud service providers, connected together (e.g., via ExpressRoute)."
+            ]
+          }
+        ]
+      },
+      {
+        "skill_area": "Describe Azure architecture and services",
+        "percentage": "35–40%",
+        "subtopics": [
+          {
+            "topic": "Describe the core architectural components of Azure",
+            "details": [
+              "Regions and Geographies: A region is a grouping of multiple datacenters (availability zones). Azure has 58 regions across 140 countries. A geography is a discrete market of two or more regions preserving data residency and compliance boundaries (e.g., United States, Canada).",
+              "Paired Regions: Each region is paired with another region ~300 miles away for disaster recovery and higher availability during updates.",
+              "Availability Zones (AZs): A physical location made up of one or more datacenters within an Azure region. Generally, a region contains three AZs for high availability.",
+              "Fault Domains: Logical grouping of hardware within an AZ to avoid single points of failure (e.g., VMs sharing a common power source).",
+              "Update Domains: Logical grouping of hardware ensuring that Azure applies updates to underlying infrastructure without taking all machines offline simultaneously.",
+              "Resource Groups: A logical grouping of multiple resources within a subscription.",
+              "Subscriptions: An Azure subscription is the equivalent of an Azure account, granting access to Azure services based on billing and support.",
+              "Management Groups: A way of managing multiple subscriptions in a hierarchical structure.",
+              "Azure Resource Manager (ARM): A service that allows you to manage Azure resources (create, update, delete resources, apply access controls, locks, tags)."
+            ]
+          },
+          {
+            "topic": "Describe Azure compute and networking services",
+            "details": [
+              "Azure Virtual Machines (VMs): Highly configurable servers that run Windows or Linux OS, offering choices for memory, CPU, and storage.",
+              "Azure Container Instances (ACI): Fully managed Docker as a service, allowing deployment of containerized apps without managing underlying VMs.",
+              "Azure Kubernetes Service (AKS): Kubernetes as a service, for deploying, managing, and scaling containerized applications using the open-source Kubernetes orchestration.",
+              "Azure Functions: Event-driven serverless compute, running small bits of code (functions) in various languages, paying only for the execution time.",
+              "Azure Batch: Enables planning, scheduling, and executing batch compute workloads across hundreds of jobs in parallel, often using low-priority VMs for cost savings.",
+              "Azure Virtual Network (VNet): A logically isolated section of your Azure Network where you launch your Azure resources.",
+              "Network Interfaces (NICs): Virtual network devices that allow VMs to communicate using IP protocols.",
+              "Subnets: Logical divisions of an address space within a VNet, allowing for virtual isolation and application of Network Security Groups.",
+              "Azure DNS: A hosting service for DNS domains, providing name resolution. Can be public (internet-facing) or private (internal-facing).",
+              "Virtual Private Networks (VPNs): Extend a private network across a public network securely.",
+              "Virtual Network Gateway: The software VPN device for your Azure Virtual Network, facilitating VPN connections.",
+              "Azure ExpressRoute: Creates private connections between Azure data centers and on-premise infrastructure, offering reliability, faster speeds, consistent latencies, and higher security compared to the public internet.",
+              "Azure Private Link: Establishes secure connections between Azure resources, keeping traffic within your Azure Network.",
+              "Azure Load Balancer: Operates at OSI layer 4 (transport), distributing TCP and UDP network traffic.",
+              "Azure Application Gateway: Operates at OSI layer 7 (application), providing HTTP/HTTPS web traffic load balancing and advanced routing based on request content."
+            ]
+          },
+          {
+            "topic": "Describe Azure storage services",
+            "details": [
+              "Azure Blob Storage: Object serverless storage optimized for storing massive amounts of unstructured data (text and binary), with unlimited capacity.",
+              "Azure Disk Storage: Virtual volumes (SSD or HDD) attached to Virtual Machines, providing encryption by default.",
+              "Azure File Storage: A shared volume accessible and managed like a file server using protocols like SMB and NFS, useful for sharing files among multiple VMs or users.",
+              "Azure Queue Storage: A messaging queue service for reliably delivering messages between applications; categorized under storage but used for application integration.",
+              "Azure Table Storage: A NoSQL database (wide column) for unstructured data, independent of any schema; also listed under storage.",
+              "Azure Data Box: A rugged briefcase computer and storage device designed for moving terabytes or petabytes of data physically when internet transfer is too slow.",
+              "Azure Archive Storage: Long-term cold storage for infrequently accessed data, offering the cheapest storage options.",
+              "Azure Data Lake Storage: A centralized repository for vast amounts of raw structured and unstructured data at any scale, extended from Azure Blob Storage."
+            ]
+          },
+          {
+            "topic": "Describe Azure identity, access, and security",
+            "details": [
+              "Azure Active Directory (Azure AD) / Microsoft Entra ID: A cloud-based identity and access management service for managing users, sign-ins, and access to resources (internal and external SaaS apps).",
+              "Single Sign-On (SSO): Allows users to authenticate once with Entra ID and access multiple applications without re-authenticating.",
+              "Multi-Factor Authentication (MFA): A security control requiring a second device (e.g., phone) to confirm identity after entering username and password.",
+              "Conditional Access: Provides an extra layer of security by setting policies that specify conditions under which authenticated users can access data or assets.",
+              "Azure Key Vault: Safeguards cryptographic keys and other secrets (tokens, passwords, certificates, API keys) used by cloud apps and services.",
+              "Azure Defender: Provides advanced protection for Azure and on-premise workloads, found within the Azure Security Center, offering security alerts and insights.",
+              "DDoS Protection: Protects Azure resources from Distributed Denial of Service (DDoS) attacks, which flood websites with fake traffic.",
+              "Azure Firewall: A managed cloud-based network security service that protects Azure VNets and resources, acting as a fully stateful firewall as a service.",
+              "Role-Based Access Control (RBAC): Manages who has access to Azure resources, what they can do with them, and what areas they have access to, through role assignments."
+            ]
+          }
+        ]
+      },
+      {
+        "skill_area": "Describe Azure management and governance",
+        "percentage": "30–35%",
+        "subtopics": [
+          {
+            "topic": "Describe cost management in Azure",
+            "details": [
+              "Total Cost of Ownership (TCO) Calculator: Estimates cost savings by migrating on-premise workloads to Azure.",
+              "Azure Pricing Calculator: Configures and estimates the cost of Azure products without signing in, allowing export of cost estimates.",
+              "Azure Cost Management: Allows visualization of Azure spending and creation of budgets with alerts for thresholds.",
+              "Azure Hybrid Benefit (HUB): Allows customers to repurpose existing Windows Server and SQL Server licenses for virtual machines on Azure to save costs.",
+              "Service Level Agreements (SLAs): Describes Azure's commitment to uptime and connectivity for individual services, expressed as performance targets (e.g., 99.9% availability).",
+              "Service Credits: Discounts on Azure bills as compensation for underperforming Azure products or services that fall below their SLA guarantees."
+            ]
+          },
+          {
+            "topic": "Describe features and tools in Azure for governance and compliance",
+            "details": [
+              "Resource Tags: Key-value pairs assigned to Azure resources for organization, cost management, operations management, and security classification.",
+              "Azure Policy: Enforces organizational standards and assesses compliance at scale by defining rules for resource configurations.",
+              "Resource Locks: Prevents accidental deletion or modification of critical Azure resources at the subscription, resource group, or resource level (CannotDelete, ReadOnly).",
+              "Azure Blueprints: Enables quick creation of governed subscriptions by composing artifacts (role assignments, policy assignments, ARM templates) into reusable blueprints."
+            ]
+          },
+          {
+            "topic": "Describe features and tools for managing and deploying Azure resources",
+            "details": [
+              "Azure Portal: A web-based, unified console for managing Azure subscriptions and resources through a graphical interface.",
+              "Azure Cloud Shell: An interactive, authenticated, browser-accessible shell (Bash or PowerShell) for managing Azure resources.",
+              "Azure PowerShell: A command-line shell and scripting language (for Windows) with cmdlets for managing Azure resources.",
+              "Azure CLI: A command-line interface (for Windows, Mac, Linux) for processing commands to Azure resources via text lines, allowing programmatic creation, update, and deletion.",
+              "Azure Resource Manager (ARM) Templates: JSON files that define Azure resources and configurations for provisioning, acting as infrastructure as code (IaC) in a declarative way.",
+              "Azure Bicep: A more productive way to write infrastructure as code for Azure, compiling down to ARM templates.",
+              "Terraform: A popular third-party IaC tool that works with Azure and other cloud providers."
+            ]
+          },
+          {
+            "topic": "Describe monitoring tools in Azure",
+            "details": [
+              "Azure Monitor: A comprehensive solution for collecting, analyzing, and acting on telemetry data from cloud and on-premise environments, including metrics, logs, and traces.",
+              "Azure Service Health: Provides information about current and upcoming issues that may affect Azure service availability (service-impacting events, planned maintenance).",
+              "Azure Advisor: A personalized cloud consultant that provides recommendations to optimize Azure deployments across categories like high availability, security, performance, cost, and operational excellence.",
+              "Application Insights: An Application Performance Management (APM) service that automatically detects performance anomalies and provides analytics tools for diagnosing issues in web applications."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "DP-900": {
+    "exam_name": "Microsoft Azure Data Fundamentals",
+    "name": "Microsoft Azure Data Fundamentals",
+    "skills_measured": [
+      {
+        "skill_area": "Describe core data concepts",
+        "percentage": "25–30%",
+        "subtopics": [
+          {
+            "topic": "Describe ways to represent data",
+            "details": [
+              "Data: Units of information in various forms like numbers, text, images, videos, audio, or physical handwriting.",
+              "Data Documents: Define the collective form in which data exists, such as datasets, databases, data stores, data warehouses, and notebooks.",
+              "Data Sets: Logical groupings of data units that are generally closely related or share the same data structure, often unstructured or semi-structured.",
+              "Data Types: Single units of data that tell a compiler or interpreter how data is intended to be used, varying greatly by programming language. Common types include numeric (integer, float), text (character, string), composite (array, hash/dictionary), binary (byte, boolean), and enumeration (enums)."
+            ]
+          },
+          {
+            "topic": "Identify options for data storage",
+            "details": [
+              "Unstructured Data: Loose data with no organization or relations, not optimized for search or analysis (e.g., random files). Services include SharePoint, Azure Blob Storage, Azure Files, Azure Data Lake.",
+              "Semi-structured Data: Data with some form of relationship but no strict schema, allowing for Browse and limited searching (e.g., XML, JSON, Avro, Parquet). Services include Azure Tables, Azure Cosmos DB.",
+              "Structured Data: Data with a defined schema and relationships, easily browsed and searched (e.g., tabular data in relational databases). Services include Azure PostgreSQL, Azure SQL Database, Azure Synapse Analytics.",
+              "Data Store: A broad term for a repository for persistently storing and managing collections of unstructured or semi-structured data.",
+              "Database: A data store that specifically handles semi-structured and structured data, requiring formal design and modeling techniques.",
+              "Data Warehouse: A relational data store designed for analytic workloads, generally column-oriented for fast aggregation of vast amounts of historical data.",
+              "Data Mart: A subset of a data warehouse, storing generally under 100 GB and having a single business focus for specific team use cases.",
+              "Data Lake: A centralized storage repository for vast amounts of raw, big data in semi-structured or unstructured formats, allowing storage without upfront design for future use.",
+              "Data Lakehouse: Combines elements of both data lakes and data warehouses, supporting diverse data types, data science/ML, streaming/ETL, and BI tasks, with data generally residing in a data lake or blob store."
+            ]
+          },
+          {
+            "topic": "Describe common data workloads",
+            "details": [
+              "Batch Processing: Sending collections of data to be processed, generally scheduled and not real-time. Ideal for very large processing workloads and typically more cost-efficient than stream processing.",
+              "Stream Processing: Processing data as soon as it arrives, involving producers sending data to a stream and consumers pulling from it. Good for real-time analytics and more expensive than batch processing.",
+              "Relational Data: Data organized in tables with defined relationships between them, using concepts like views, indexes, constraints, triggers, primary keys, and foreign keys.",
+              "Non-relational Data: Data stored in a non-tabular form, optimized for different data structures like key-value stores, document stores, columnar stores (sometimes), and graph databases.",
+              "Data Mining: The extraction of patterns and knowledge from large amounts of data, not just data extraction itself. Involves phases like business understanding, data understanding, data preparation, modeling, evaluation, and deployment.",
+              "Data Wrangling: The process of transforming and mapping raw data into another format to make it more appropriate and valuable for downstream purposes like analytics. Involves discovery, structuring, cleaning, standardizing, enriching, validating, and publishing data.",
+              "Data Modeling: An abstract model that organizes data elements and standardizes their relationships to real-world entities. Models can be conceptual, logical, or physical.",
+              "ETL vs. ELT: ETL (Extract, Transform, Load) moves data to a staging server for transformation before loading into a target system, common for on-premise structured data. ELT (Extract, Load, Transform) loads directly into the target system for large-scale cloud-based unstructured data.",
+              "Data Analytics: Examining, transforming, and arranging data to extract useful information. Involves data ingestion, cleaning, transformation, dimensional reduction, analysis, and visualization.",
+              "Key Performance Indicators (KPIs): Performance measurements used by organizations to determine performance over time, can be quantitative (numerical results) or qualitative (personal feelings, opinions)."
+            ]
+          },
+          {
+            "topic": "Identify roles and responsibilities for data workloads",
+            "details": [
+              "Database Administrator: Configures and maintains databases, responsible for database management, security, access, backups, monitoring, and performance. Tools include Azure Data Studio, SQL Management Studio, Azure Portal, CLI.",
+              "Data Engineer: Designs and implements data tasks related to the transfer and storage of big data, including database pipelines, data ingestion, storage, and preparing data for analytics. Tools include Azure Synapse Studio, SQL, Azure CLI, HDInsight, Azure Databricks, Blob Storage, Data Lakes.",
+              "Data Analyst: Analyzes business data to reveal important information, providing insights, visual reporting, and data modeling for analysis. Tools include Power BI Desktop, Power BI Portal/Service, Power BI Report Builder."
+            ]
+          }
+        ]
+      },
+      {
+        "skill_area": "Identify considerations for relational data on Azure",
+        "percentage": "20–25%",
+        "subtopics": [
+          {
+            "topic": "Describe relational concepts",
+            "details": [
+              "Schema vs. Schema-less: A schema formally describes the structure of data (blueprint), typically for relational databases. Schema-less databases (e.g., NoSQL) allow for flexible data types without upfront data modeling.",
+              "Query and Querying: A query is a request for data results (reads) or to perform operations (writes). Querying is the act of performing a query using a query language like SQL.",
+              "Data Consistency: Ensuring data matches exactly when duplicated in different places. Can be strongly consistent (guaranteed consistent data within x time) or eventually consistent (may get inconsistent/stale data but will become consistent over time).",
+              "Synchronous vs. Asynchronous: Synchronous data streams are continuous and synchronized by a timer, guaranteeing consistency and time of access. Asynchronous streams are separated by start/stop bits, offering faster access but no guarantee of immediate consistency.",
+              "Online Transactional Processing (OLTP): Databases built to store current transactions and enable fast access to specific transactions for ongoing business processing (e.g., adding items to a shopping cart). Characterized by short, frequent queries with emphasis on writes.",
+              "Online Analytical Processing (OLAP): Data warehouses built to store large quantities of historical data and enable fast, complex queries across all data for reports and analytics (e.g., generating reports). Characterized by long, complex queries with emphasis on reads."
+            ]
+          },
+          {
+            "topic": "Describe relational Azure data services",
+            "details": [
+              "Azure SQL Family: Microsoft's version of SQL Server offerings, including:",
+              "SQL Server on Azure Virtual Machines: For OS-level control, lift-and-shift migrations of existing SQL Servers from on-prem, and leveraging Azure Hybrid Benefit with existing licenses.",
+              "SQL Managed Instance: For modernizing existing databases with broad SQL Server engine compatibility, high availability, and automated backups, often used for migrations where OS access isn't needed.",
+              "Azure SQL Database: A fully managed SQL database designed for fault tolerance, high availability, and scaling, offering single database, elastic pool, and database server options.",
+              "Azure Elastic Pools: A feature of Azure SQL Database for managing and scaling multiple databases with varying and unpredictable usage demands on a single server to optimize price-performance.",
+              "Azure Databases for MySQL, PostgreSQL, and MariaDB: Fully managed and scalable services for open-source relational databases, offering high availability and security.",
+              "Read Replicas: Copies of your primary database kept in sync to improve read contention by offloading read operations to a secondary database, available for Azure SQL and Managed Instances.",
+              "Azure Synapse Analytics: A data warehouse and unified analytics platform that allows for ETL/ELT processes, deeply integrates with Apache Spark, and supports T-SQL queries on both data warehouse and Spark engines.",
+              "PolyBase: A data virtualization feature of SQL Server instances that enables querying data with T-SQL directly from various external data sources (e.g., SQL Server, Oracle, Hadoop, Cosmos DB) without separate client connection software.",
+              "Azure Data Lake Analytics: An on-demand analytics job service that simplifies big data processing by allowing users to write U-SQL queries to transform data in data lakes."
+            ]
+          }
+        ]
+      },
+      {
+        "skill_area": "Describe considerations for working with non-relational data on Azure",
+        "percentage": "15–20%",
+        "subtopics": [
+          {
+            "topic": "Describe capabilities of Azure storage",
+            "details": [
+              "Azure Blob Storage: An object store optimized for massive amounts of unstructured data (text and binary). Composed of storage accounts, containers (folders), and blobs (data). Supports Block Blobs (primary), Append Blobs (logging), and Page Blobs (virtual hard drives).",
+              "Azure Files: A fully managed file share in the cloud, acting as a centralized server for storage allowing multiple connections via SMB or NFS protocols. Used for file server replacement, cloud deployments, diagnostic shares, dev/test tools, and containerization.",
+              "Azure Storage Explorer: A standalone, cross-platform application for Windows, Mac, and Linux that provides an easy way to work with Azure storage data (blobs, files, queues, tables, disks)."
+            ]
+          },
+          {
+            "topic": "Describe capabilities and features of Azure Cosmos DB",
+            "details": [
+              "Azure Cosmos DB: A fully managed NoSQL database service designed for scale and high performance, supporting various NoSQL database engines (APIs) like Core (SQL) API (document datastore), MongoDB API, Cassandra API (graph database), Gremlin API, and Azure Table API.",
+              "Core (SQL) API: The default Cosmos DB offering, serving as a document database that can be queried using SQL.",
+              "MongoDB API: Provides a MongoDB database, storing BSON (Binary JSON) documents for efficient storage and scan speed.",
+              "Gremlin API: A graph database using Gremlin (a graph traversal language from Apache TinkerPop) to traverse nodes and edges, representing relationships.",
+              "Azure Table API: Offers Azure Table storage capabilities within Cosmos DB, designed for scale across multiple regions with guaranteed single-digit millisecond latency, unlike Azure Tables in Storage Accounts."
+            ]
+          }
+        ]
+      },
+      {
+        "skill_area": "Describe an analytics workload on Azure",
+        "percentage": "25–30%",
+        "subtopics": [
+          {
+            "topic": "Describe common elements of large-scale analytics",
+            "details": [
+              "Apache Hadoop: An open-source framework for distributed processing of large datasets, allowing distribution across many servers and computing queries in parallel. Includes HDFS (file system), MapReduce (parallel processing), Hbase (big data store), YARN (resource management), Hive (SQL-based reports), and Pig (scripting for data transformations).",
+              "Apache Kafka: An open-source streaming platform for high-performance data pipelines, streaming analytics, and data integration. Stores data in partitions on a distributed cluster, with producers publishing messages to topics and consumers listening on topics.",
+              "Apache Spark: An open-source unified analytics engine for big data and machine learning, significantly faster than Hadoop (100x in memory, 10x on disk). Composed of Spark Core, Spark SQL (with DataFrames), Spark Streaming, GraphX, and MLlib.",
+              "Azure Databricks: A partnership between Microsoft and Databricks (creators of Apache Spark) to offer a fully managed Apache Spark platform within the Azure portal, with integrations to Azure data services for building data pipelines and SQL analytics on data lakes."
+            ]
+          },
+          {
+            "topic": "Describe consideration for real-time data analytics",
+            "details": [
+              "Azure Data Factory (ADF): A managed service for ETL/ELT and data integration, allowing creation of data-driven workflows and transformation pipelines visually without code. Components include pipelines, activities, datasets, linked services, data flows, and control flows.",
+              "SQL Server Integration Services (SSIS): A platform for building enterprise-level data integration and transformation solutions, used to automate SQL database servers and can be an integration runtime for Azure Data Factory.",
+              "Azure Data Studio: A cross-platform database tool (Windows, Mac, Linux) resembling Visual Studio Code, used for querying, designing, and managing databases and data warehouses, with extensions for various data platforms.",
+              "SQL Server Management Studio (SSMS): An IDE (Windows-only) for managing any SQL infrastructure (SQL Server, Azure SQL Database, Azure Synapse Analytics), offering object explorer, query editor, and template explorer.",
+              "SQL Server Data Tools (SSDT): A Visual Studio tool for data development, enabling building, debugging, maintaining, and refactoring databases with a declarative model and visual designers."
+            ]
+          },
+          {
+            "topic": "Describe data visualization in Microsoft Power BI",
+            "details": [
+              "Microsoft Power BI: A business intelligence (BI) tool for visualizing business data and empowering data-driven decisions.",
+              "Power BI Desktop: A downloadable, free Windows application for designing and adjusting reports, connecting to many data sources, and creating interactive reports for publishing to Power BI Service.",
+              "Power BI Service (Portal): A cloud-based service where users view and interact with reports and create interactive, shareable dashboards by pinning various data sets and reports.",
+              "Power BI Mobile: A mobile web application for viewing reports on the go.",
+              "Power BI Report Builder: A standalone Windows application used to design 'pixel perfect' paginated (printable) reports.",
+              "Power BI Embedded: A PaaS analytics embedding solution to quickly embed visuals, reports, and dashboards into an application for independent software vendors.",
+              "Interactive Reports: Reports generated in Power BI Desktop and Service that are interactive, allowing users to filter, slice, and view underlying data models, unlike dashboards.",
+              "Dashboards: Single-page canvases in Power BI Service that tell a story through visualizations (called 'tiles') pinned from reports or datasets. Dashboards do not support filtering, alerts (except on tiles), or viewing underlying data models directly.",
+              "Data Visualizations and Chart Types: Power BI offers many visualization types, including bar/column charts, line charts, matrix, key influencers, tree map charts, scatter graphs, bubble charts, dot plot charts, and filled maps."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "AI-900": {
+    "exam_name": "Microsoft Azure AI Fundamentals",
+    "name": "Microsoft Azure AI Fundamentals",
+    "skills_measured": [
+      {
+        "skill_area": "Describe Artificial Intelligence workloads and considerations",
+        "percentage": "15–20%",
+        "subtopics": [
+          {
+            "topic": "Identify features of common AI workloads",
+            "details": [
+              "Artificial Intelligence (AI): Machines performing jobs that mimic human behavior.",
+              "Machine Learning (ML): Machines getting better at a task without explicit programming.",
+              "Deep Learning (DL): Machines with an artificial neural network (inspired by the human brain) to solve complex problems.",
+              "Anomaly Detection: Detecting outliers or suspicious/malicious patterns within a dataset.",
+              "Computer Vision (CV): Machines gaining high-level understanding of digital images or videos.",
+              "Natural Language Processing (NLP): Machines processing human languages and inferring contexts.",
+              "Conversational AI: Technology that can participate in conversations with humans (e.g., chatbots, voice assistants).",
+              "Knowledge Mining: A discipline in AI that uses intelligent services to quickly learn from vast amounts of information, uncover hidden insights, and find relationships/patterns at scale."
+            ]
+          },
+          {
+            "topic": "Identify guiding principles for responsible AI",
+            "details": [
+              "Fairness: AI systems should treat all people fairly, mitigating stereotypical bias in development.",
+              "Reliability and Safety: AI software must be rigorously tested to ensure expected performance, with quantified risks and harms reported to end-users.",
+              "Privacy and Security: AI systems should be secure and respect privacy, protecting vast amounts of data used for training.",
+              "Inclusiveness: AI systems should empower everyone and engage people, designing solutions for minority users that can benefit the majority.",
+              "Transparency: AI systems should be understandable, allowing end-users to comprehend their behavior and helping developers debug.",
+              "Accountability: People should be accountable for AI systems, with structures in place to consistently enact AI principles and work within ethical/legal standards."
+            ]
+          }
+        ]
+      },
+      {
+        "skill_area": "Describe fundamental principles of machine learning on Azure",
+        "percentage": "15–20%",
+        "subtopics": [
+          {
+            "topic": "Identify common machine learning techniques",
+            "details": [
+              "Supervised Learning: Data is labeled for training, considered task-driven for making predictions where labels are known and a precise outcome is needed (e.g., classification, regression).",
+              "Unsupervised Learning: Data is not labeled, and the ML model needs to do its own labeling, considered data-driven for recognizing structure or patterns when labels are unknown and precise outcomes are not required (e.g., clustering, dimensionality reduction).",
+              "Reinforcement Learning: No initial data; an ML model generates data through attempts to reach a goal in an environment, considered decision-driven (e.g., game AI, robot navigation).",
+              "Regression: Finding a function to equate a labeled dataset into a continuous variable number (predicting a future value).",
+              "Classification: Finding a function to divide a labeled dataset into classes or categories (predicting a category).",
+              "Clustering: Grouping unlabeled data based on similarity and differences.",
+              "Deep Learning: A neural network with three or more hidden layers, making its internal workings not human-readable."
+            ]
+          },
+          {
+            "topic": "Describe core machine learning concepts",
+            "details": [
+              "Data Set: A logical grouping of units of data that are closely related or share the same data structure, often publicly available for learning.",
+              "Data Labeling: Process of identifying raw data (images, text, videos) and adding meaningful labels to provide context for ML model learning, a prerequisite for supervised learning.",
+              "Ground Truth: A properly labeled dataset used as the objective standard to train and assess a given model.",
+              "Neural Network (NN): Often described as mimicking the brain, where a neuron or node represents an algorithm, and data is passed through weighted connections in layers (input, hidden, output).",
+              "Forward Feed Neural Network (FNN): Neural networks where connections between nodes do not form a cycle, always moving data forward.",
+              "Backpropagation: A process in forward feed networks where the neural net moves backward, adjusting weights to improve the outcome on the next iteration, using a loss function.",
+              "Activation Functions: Algorithms applied to hidden layer nodes that affect connected output, part of the backpropagation and learning process.",
+              "GPU (Graphics Processing Unit): Specialized processors designed for quick rendering of high-resolution images/videos, capable of parallel operations on multiple data sets, commonly used for ML and scientific computation.",
+              "Machine Learning Pipeline: An execution workflow of a complete machine learning task, typically including data labeling, feature engineering, training, hyperparameter tuning, serving (deploying), and inference.",
+              "Performance/Evaluation Metrics: Used to evaluate different machine learning algorithms and determine if an ML model is working as intended (e.g., accuracy, precision, recall for classification; MSE, RMSE, MAE for regression)."
+            ]
+          },
+          {
+            "topic": "Describe Azure Machine Learning capabilities",
+            "details": [
+              "Azure Machine Learning Service: Simplifies running AI/ML workloads by allowing flexible, automated ML pipelines using Python/R, and supporting deep learning.",
+              "Azure Machine Learning Studio: A web-based environment within the service for building and managing ML models, providing notebooks, automated ML, and a visual designer.",
+              "Compute Instances: Development workstations for data scientists to work with data and models.",
+              "Compute Clusters: Scalable clusters of VMs for on-demand processing and experimentation.",
+              "Automated Machine Learning (AutoML): Automates the process of creating an ML model by supplying a dataset and choosing a task type, allowing it to train and tune the model. Supports classification, regression, and time series forecasting.",
+              "Azure Machine Learning Designer: A drag-and-drop interface to visually build, test, and deploy machine learning models and pipelines without writing code.",
+              "Data Labeling Service: Allows creating data labeling jobs with human-in-the-loop or ML-assisted labeling to prepare ground truth for supervised learning.",
+              "Data Stores: Securely connect to storage services on Azure (e.g., Azure Blob Storage, Azure File Share, Azure Data Lake Storage Gen 2, Azure SQL) without exposing credentials.",
+              "Data Sets: Easy registration of data sets for ML workloads, allowing multiple versions and profile generation.",
+              "Open Data Sets: Publicly hosted data sets commonly used for learning how to build ML models (e.g., MNIST, COCO).",
+              "Experiments: Logical groupings of Azure runs, where a run is the act of executing an ML task on a VM or container.",
+              "Pipelines: Executable workflows of complete machine learning tasks, composed of independent steps, buildable via Designer or Python SDK.",
+              "Models (Model Registry): Allows creation, management, and tracking of registered models as incremental versions with metadata tags.",
+              "Endpoints: Allow deployment of machine learning models as web services (real-time or pipeline endpoints) for inference via REST API or SDK."
+            ]
+          }
+        ]
+      },
+      {
+        "skill_area": "Describe features of computer vision workloads on Azure",
+        "percentage": "15–20%",
+        "subtopics": [
+          {
+            "topic": "Identify common types of computer vision solution",
+            "details": [
+              "Image Classification: Looking at an image or video and classifying its place in a category.",
+              "Object Detection: Identifying objects within an image or video and applying labels and location boundaries.",
+              "Semantic Segmentation: Identifying segments or objects by drawing pixel masks around them, useful for objects and movement.",
+              "Image Analysis: Analyzing an image or video to apply descriptive context labels.",
+              "Optical Character Recognition (OCR): Finding text in images or videos and extracting it into digital, editable text.",
+              "Facial Detection: Detecting faces in a photo or video, drawing a location boundary, and labeling expressions."
+            ]
+          },
+          {
+            "topic": "Identify Azure tools and services for computer vision tasks",
+            "details": [
+              "Azure AI Vision (formerly Computer Vision service): Analyzes content in images and videos, extracts descriptions, tags, objects, and texts.",
+              "Azure AI Custom Vision (formerly Custom Vision service): Customizes image classification and object detection models using your own images.",
+              "Azure AI Face (formerly Face service): Detects and identifies people and emotions in images.",
+              "Azure AI Document Intelligence (formerly Form Recognizer): Specialized OCR service that translates printed text into digital and editable content while preserving the structure and relationships of form-like data (e.g., invoices, receipts)."
+            ]
+          }
+        ]
+      },
+      {
+        "skill_area": "Describe features of Natural Language Processing (NLP) workloads on Azure",
+        "percentage": "15–20%",
+        "subtopics": [
+          {
+            "topic": "Identify features of common NLP Workload Scenarios",
+            "details": [
+              "Key Phrase Extraction: Quickly identifying the main concepts in text.",
+              "Entity Recognition: Detecting and categorizing entities in text (e.g., people, places, objects, quantities).",
+              "Sentiment Analysis: Determining the emotional tone (negative, neutral, positive, mixed) of text at sentence and document level.",
+              "Language Modeling: Understanding and generating human-like text.",
+              "Speech Recognition: Transcribing audible speech into readable, searchable text.",
+              "Speech Synthesis: Converting text to lifelike speech for natural interfaces.",
+              "Translation: Automatically translating spoken or written phrases and sentences between languages."
+            ]
+          },
+          {
+            "topic": "Identify Azure tools and services for NLP workloads",
+            "details": [
+              "Azure AI Language (formerly Text Analytics service): Provides sentiment analysis, key phrase extraction, language detection, and named entity recognition.",
+              "Azure AI Speech (formerly Speech service): Offers speech-to-text, text-to-speech, and speech translation capabilities.",
+              "Azure AI Translator (formerly Translator Text service): Provides real-time text translation with multi-language support.",
+              "Azure AI Language Understanding (LUIS): A no-code ML service to build natural language understanding into apps, bots, and IoT devices, focusing on user intention and extraction.",
+              "Q&A Maker: A cloud-based NLP service to create a natural conversational layer over your data, commonly used for building conversational clients (chatbots) from existing content."
+            ]
+          }
+        ]
+      },
+      {
+        "skill_area": "Describe features of generative AI workloads on Azure",
+        "percentage": "20–25%",
+        "subtopics": [
+          {
+            "topic": "Identify features of generative AI solutions",
+            "details": [
+              "Generative AI: A subset of AI focused on creating new, novel, and realistic content or data (text, images, music, speech).",
+              "Large Language Models (LLMs): Complex automatic systems that recognize patterns and make predictions after being trained on massive amounts of text data, understanding context to predict the next word and generate coherent text.",
+              "Transformer Models: A type of machine learning model especially good at understanding and generating language, built with an encoder (reads/understands input) and a decoder (generates new text).",
+              "Tokenization: The process of breaking down sentences into pieces (tokens) and assigning a unique numeric code to each, allowing computers to understand words and their relationships.",
+              "Embeddings: Special numeric codes for tokens that capture the meaning of words, where words with similar meanings have similar codes.",
+              "Positional Encoding: A technique used to ensure that a language model retains the order of words in a sentence by adding a positional vector to each word's embedding.",
+              "Attention Mechanism: A way for the model to figure out how important each word or token is to the meaning of a sentence, especially in relation to other words, helping the AI understand and create language."
+            ]
+          },
+          {
+            "topic": "Identify generative AI services and capabilities in Microsoft Azure",
+            "details": [
+              "Azure OpenAI Service: A cloud-based platform to deploy and manage advanced language models from OpenAI, combining OpenAI's models with Azure's security and scalability. Offers GPT-4, GPT-3.5, embedding models, and DALL-E models.",
+              "Prompts and Completions: Users provide a text command (prompt) to the API, and the model generates a text response (completion).",
+              "Tokens: Azure OpenAI breaks down text into tokens (words or character chunks) to process requests, affecting response latency and throughput.",
+              "Resources: Azure OpenAI operates like other Azure products, requiring users to create a resource within their Azure subscription.",
+              "Deployments: Users must deploy a model via deployment APIs to use the service, choosing a specific model.",
+              "Prompt Engineering: The process of refining prompts (instructions) given to an AI application to generate higher-quality responses.",
+              "Grounding: A technique in prompt engineering where specific, relevant context is provided within a prompt to help the AI produce more accurate responses.",
+              "Azure OpenAI Studio: A web-based environment where AI professionals can deploy, test, and manage LLMs that support generative AI app development on Azure.",
+              "Co-pilots: New computing tools integrated with applications to help users with common tasks using generative AI models (e.g., Microsoft Copilot, GitHub Copilot)."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "AI-102": {
+    "exam_name": "Designing and Implementing an Azure AI Solution",
+    "name": "Microsoft Azure AI Engineer Associate",
+    "skills_measured": [
+      {
+        "skill_area": "Plan and Manage Azure AI Solutions",
+        "percentage": "20–25%",
+        "subtopics": [
+          {
+            "topic": "Select and design AI solutions using Azure AI services",
+            "details": [
+              "Choose appropriate Azure AI services for generative AI, computer vision, NLP, speech, information extraction, and knowledge mining scenarios.",
+              "Compare managed AI offerings to custom ML solutions, considering tradeoffs and use cases.",
+              "Plan responsible AI solutions, including fairness, safety, privacy, transparency, and accountability.",
+              "Apply content moderation, content filters, and prevention of harmful outputs."
+            ]
+          },
+          {
+            "topic": "Plan, deploy, and integrate Azure AI services",
+            "details": [
+              "Create and deploy AI services using SDKs, REST APIs, and containers.",
+              "Integrate AI services with CI/CD pipelines for DevOps best practices.",
+              "Use Azure AI Studio for project and hub setup, resource management, and collaboration."
+            ]
+          },
+          {
+            "topic": "Manage, monitor, and secure AI services",
+            "details": [
+              "Implement authentication, API key management, and access controls.",
+              "Monitor resource usage and costs; scale resources appropriately.",
+              "Audit AI system performance and mitigate risks with monitoring tools."
+            ]
+          }
+        ]
+      },
+      {
+        "skill_area": "Implement Generative AI Solutions",
+        "percentage": "15–20%",
+        "subtopics": [
+          {
+            "topic": "Develop solutions with Azure OpenAI and Azure AI Studio",
+            "details": [
+              "Deploy and use large language models (GPT, DALL·E) for text and image generation.",
+              "Design and evaluate prompt engineering strategies, including prompt flows.",
+              "Implement Retrieval-Augmented Generation (RAG) to improve output accuracy using external data.",
+              "Integrate generative AI solutions into business applications using SDKs and REST APIs."
+            ]
+          },
+          {
+            "topic": "Implement Document Intelligence and Content Understanding",
+            "details": [
+              "Extract data from documents using prebuilt and custom models in Azure AI Document Intelligence.",
+              "Perform OCR, summarization, classification, entity and table extraction.",
+              "Automate business processes with intelligent document processing workflows."
+            ]
+          }
+        ]
+      },
+      {
+        "skill_area": "Implement Computer Vision Solutions",
+        "percentage": "10–15%",
+        "subtopics": [
+          {
+            "topic": "Analyze images and video with Azure AI Vision",
+            "details": [
+              "Implement image recognition, tagging, and custom vision models.",
+              "Detect and classify objects, people, or activities in images and video.",
+              "Use video analytics for object tracking and activity detection."
+            ]
+          }
+        ]
+      },
+      {
+        "skill_area": "Implement Natural Language Processing (NLP) Solutions",
+        "percentage": "15–20%",
+        "subtopics": [
+          {
+            "topic": "Analyze text and speech with Azure AI services",
+            "details": [
+              "Perform sentiment analysis, key phrase extraction, language detection, and entity recognition.",
+              "Implement language translation and speech synthesis/recognition using Azure AI Speech and Translator.",
+              "Recognize PII and other sensitive information in text."
+            ]
+          },
+          {
+            "topic": "Develop and manage custom language models and Q&A",
+            "details": [
+              "Build, train, and deploy custom language understanding models using Azure Language Understanding.",
+              "Create Q&A solutions (e.g., with QnA Maker, now Custom Q&A), integrating with bots and applications."
+            ]
+          }
+        ]
+      },
+      {
+        "skill_area": "Implement Knowledge Mining and Information Extraction",
+        "percentage": "15–20%",
+        "subtopics": [
+          {
+            "topic": "Deploy and use Azure AI Search",
+            "details": [
+              "Create and manage full-text search indexes.",
+              "Integrate vector search for semantic and hybrid search scenarios.",
+              "Combine search and document intelligence for knowledge mining."
+            ]
+          },
+          {
+            "topic": "Extract insights from documents and unstructured data",
+            "details": [
+              "Use Document Intelligence for data extraction from various formats.",
+              "Integrate AI-powered knowledge mining into business workflows."
+            ]
+          }
+        ]
+      },
+      {
+        "skill_area": "Implement Agent Solutions",
+        "percentage": "5–10%",
+        "subtopics": [
+          {
+            "topic": "Build and deploy custom agents",
+            "details": [
+              "Develop, test, and deploy agents using Azure AI Studio and Azure Bot Service.",
+              "Integrate agents to interact with users or systems (e.g., chatbots, workflow agents)."
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

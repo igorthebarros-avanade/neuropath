@@ -1,0 +1,904 @@
+[
+  {
+    "exam_code": "AI-900",
+    "timestamp": "2025-05-30T20:23:04.855997",
+    "questions_attempted": [
+      {
+        "type": "yes_no",
+        "skill_area": "Describe guiding principles for responsible AI",
+        "question": "Is it necessary for AI systems to be transparent in order to align with responsible AI principles?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "qualitative",
+        "skill_area": "Describe fundamental principles of machine learning on Azure",
+        "question": "Describe the differences between supervised and unsupervised learning, and provide an example use case for each.",
+        "user_answer": "I dont know",
+        "user_score": null,
+        "scoring_criteria": [
+          "Defines supervised learning with labeled data.",
+          "Defines unsupervised learning with unlabeled data.",
+          "Explains the goal of supervised learning (prediction/classification).",
+          "Explains the goal of unsupervised learning (finding structure/patterns).",
+          "Provides a relevant use case example for each method."
+        ]
+      }
+    ]
+  },
+  {
+    "exam_code": "AI-900",
+    "timestamp": "2025-05-31T15:54:54.754474",
+    "questions_attempted": [
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Artificial Intelligence workloads and considerations",
+        "question": "Is anomaly detection used to identify outliers in a dataset?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Artificial Intelligence workloads and considerations",
+        "question": "Does deep learning always require labeled data for training?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Artificial Intelligence workloads and considerations",
+        "question": "Is knowledge mining primarily focused on uncovering hidden insights from large volumes of data?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Artificial Intelligence workloads and considerations",
+        "question": "Does conversational AI include chatbots and voice assistants?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Artificial Intelligence workloads and considerations",
+        "question": "Is fairness a guiding principle of responsible AI?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Artificial Intelligence workloads and considerations",
+        "question": "Should AI systems be designed to exclude minority users for efficiency?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Artificial Intelligence workloads and considerations",
+        "question": "Is transparency about AI system behavior important for responsible AI?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Artificial Intelligence workloads and considerations",
+        "question": "Is accountability only required during the development phase of AI systems?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Artificial Intelligence workloads and considerations",
+        "question": "Is computer vision the field of AI focused on enabling machines to understand images and videos?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Artificial Intelligence workloads and considerations",
+        "question": "Is natural language processing only concerned with translating text between languages?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe fundamental principles of machine learning on Azure",
+        "question": "Does supervised learning require labeled data?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe fundamental principles of machine learning on Azure",
+        "question": "Can unsupervised learning algorithms work with unlabeled data?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe fundamental principles of machine learning on Azure",
+        "question": "Does reinforcement learning rely on historical labeled datasets for training?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe fundamental principles of machine learning on Azure",
+        "question": "Is regression used to predict continuous numerical values?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe fundamental principles of machine learning on Azure",
+        "question": "Is classification used to assign data points to one of several categories?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe fundamental principles of machine learning on Azure",
+        "question": "Is clustering a supervised learning technique?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe fundamental principles of machine learning on Azure",
+        "question": "Does a neural network always have at least three hidden layers?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe fundamental principles of machine learning on Azure",
+        "question": "Is data labeling essential for supervised machine learning?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe fundamental principles of machine learning on Azure",
+        "question": "Is ground truth a properly labeled dataset used to train and assess models?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe fundamental principles of machine learning on Azure",
+        "question": "Is backpropagation a process used to adjust neural network weights to improve accuracy?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe fundamental principles of machine learning on Azure",
+        "question": "Are activation functions applied to the output layer only in neural networks?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe fundamental principles of machine learning on Azure",
+        "question": "Are GPUs commonly used for machine learning because they can process multiple data sets in parallel?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe fundamental principles of machine learning on Azure",
+        "question": "Is a machine learning pipeline a sequence of steps that automate ML tasks?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe fundamental principles of machine learning on Azure",
+        "question": "Are evaluation metrics like accuracy only relevant for regression tasks?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure Machine Learning capabilities",
+        "question": "Does Azure Machine Learning Service support automated ML pipelines?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure Machine Learning capabilities",
+        "question": "Is Azure Machine Learning Studio a web-based environment for building and managing ML models?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure Machine Learning capabilities",
+        "question": "Are compute clusters in Azure used for scalable, on-demand processing of ML experiments?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure Machine Learning capabilities",
+        "question": "Does Automated Machine Learning (AutoML) require manual feature engineering by the user?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure Machine Learning capabilities",
+        "question": "Can the Azure Machine Learning Designer be used to build machine learning models without writing code?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure Machine Learning capabilities",
+        "question": "Does Data Labeling Service in Azure support human-in-the-loop labeling?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure Machine Learning capabilities",
+        "question": "Are data stores used to securely connect to Azure storage services without exposing credentials?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure Machine Learning capabilities",
+        "question": "Are open data sets in Azure only available for commercial use?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure Machine Learning capabilities",
+        "question": "Can machine learning models in Azure be deployed as web service endpoints for real-time inference?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure Machine Learning capabilities",
+        "question": "Is an experiment in Azure ML a logical grouping of runs?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure Machine Learning capabilities",
+        "question": "Does the model registry in Azure ML allow versioning of models?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of computer vision workloads on Azure",
+        "question": "Is object detection used to identify individual items and their locations within an image?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of computer vision workloads on Azure",
+        "question": "Does image classification assign an image to a specific category?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of computer vision workloads on Azure",
+        "question": "Is semantic segmentation used to apply pixel-level masks to objects in images?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of computer vision workloads on Azure",
+        "question": "Does OCR stand for Optical Character Recognition?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of computer vision workloads on Azure",
+        "question": "Is facial detection only used to identify emotions in images?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of computer vision workloads on Azure",
+        "question": "Can Azure AI Vision extract descriptive labels and text from images?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of computer vision workloads on Azure",
+        "question": "Is Azure AI Custom Vision used for creating prebuilt object detection models only?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of computer vision workloads on Azure",
+        "question": "Can Azure AI Face detect and identify people in photos?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of computer vision workloads on Azure",
+        "question": "Does Azure AI Document Intelligence provide OCR capabilities for extracting information from forms?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of Natural Language Processing (NLP) workloads on Azure",
+        "question": "Is key phrase extraction used to identify main concepts in a text document?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of Natural Language Processing (NLP) workloads on Azure",
+        "question": "Does entity recognition categorize specific items like people and places in text?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of Natural Language Processing (NLP) workloads on Azure",
+        "question": "Is sentiment analysis used to determine the emotional tone of text?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of Natural Language Processing (NLP) workloads on Azure",
+        "question": "Is speech synthesis the process of converting audible speech into text?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of Natural Language Processing (NLP) workloads on Azure",
+        "question": "Is translation a core feature of NLP workloads on Azure?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of Natural Language Processing (NLP) workloads on Azure",
+        "question": "Can Azure AI Language provide sentiment analysis and key phrase extraction?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of Natural Language Processing (NLP) workloads on Azure",
+        "question": "Does Azure AI Speech only provide text-to-speech capabilities?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of Natural Language Processing (NLP) workloads on Azure",
+        "question": "Is Azure AI Translator capable of real-time translation between multiple languages?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of Natural Language Processing (NLP) workloads on Azure",
+        "question": "Can Q&A Maker be used to build conversational clients using existing data?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of Natural Language Processing (NLP) workloads on Azure",
+        "question": "Is LUIS a machine learning service for building language understanding into applications?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of generative AI workloads on Azure",
+        "question": "Is generative AI focused on creating new content such as text or images?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of generative AI workloads on Azure",
+        "question": "Are Large Language Models (LLMs) trained on small, domain-specific datasets only?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of generative AI workloads on Azure",
+        "question": "Do transformer models use encoder and decoder structures for understanding and generating text?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of generative AI workloads on Azure",
+        "question": "Is tokenization the process of combining multiple sentences into one token?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of generative AI workloads on Azure",
+        "question": "Are embeddings special numeric codes that capture the meaning of words?",
+        "user_answer": "yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of generative AI workloads on Azure",
+        "question": "Does positional encoding in language models help retain the order of words in a sentence?",
+        "user_answer": "yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of generative AI workloads on Azure",
+        "question": "Is the attention mechanism used in models to determine the relative importance of each word?",
+        "user_answer": "yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of generative AI workloads on Azure",
+        "question": "Is Azure OpenAI Service a platform for deploying and managing advanced language models?",
+        "user_answer": "yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of generative AI workloads on Azure",
+        "question": "Is prompt engineering the process of refining instructions for generative AI models?",
+        "user_answer": "yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of generative AI workloads on Azure",
+        "question": "Does Azure OpenAI Studio allow deployment and management of language models in a web-based environment?",
+        "user_answer": "yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of generative AI workloads on Azure",
+        "question": "Are co-pilots in Azure designed to help users with common tasks using generative AI?",
+        "user_answer": "yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of generative AI workloads on Azure",
+        "question": "Does grounding in prompt engineering involve providing specific context to improve AI responses?",
+        "user_answer": "yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of generative AI workloads on Azure",
+        "question": "Are deployments required in Azure OpenAI before using a specific language model?",
+        "user_answer": "no",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of generative AI workloads on Azure",
+        "question": "Is a prompt in Azure OpenAI Service the same as the model's completion?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Artificial Intelligence workloads and considerations",
+        "question": "Is reliability and safety a guiding principle for responsible AI in Azure?",
+        "user_answer": "yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Artificial Intelligence workloads and considerations",
+        "question": "Should privacy and security be considered when designing AI systems?",
+        "user_answer": "yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Artificial Intelligence workloads and considerations",
+        "question": "Are all AI workloads considered machine learning workloads?",
+        "user_answer": "no",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Artificial Intelligence workloads and considerations",
+        "question": "Does inclusiveness mean designing AI for just the majority of users?",
+        "user_answer": "no",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe fundamental principles of machine learning on Azure",
+        "question": "Does unsupervised learning involve the model assigning its own labels to data?",
+        "user_answer": "yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe fundamental principles of machine learning on Azure",
+        "question": "Can performance metrics for classification include accuracy, precision, and recall?",
+        "user_answer": "yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe fundamental principles of machine learning on Azure",
+        "question": "Is a forward feed neural network characterized by cycles in its connections?",
+        "user_answer": "yes",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure Machine Learning capabilities",
+        "question": "Are data sets in Azure ML allowed to have multiple versions registered?",
+        "user_answer": "yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure Machine Learning capabilities",
+        "question": "Can pipelines in Azure ML be built using both the Designer and Python SDK?",
+        "user_answer": "yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure Machine Learning capabilities",
+        "question": "Does Azure ML require users to expose their storage credentials when connecting data stores?",
+        "user_answer": "no",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of computer vision workloads on Azure",
+        "question": "Can image analysis apply descriptive context labels to images?",
+        "user_answer": "yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of computer vision workloads on Azure",
+        "question": "Is facial detection limited to recognizing faces in videos only?",
+        "user_answer": "no",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of computer vision workloads on Azure",
+        "question": "Does Azure AI Custom Vision allow users to build custom image classifiers?",
+        "user_answer": "yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of computer vision workloads on Azure",
+        "question": "Is Azure AI Document Intelligence used for translating spoken language?",
+        "user_answer": "no",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of Natural Language Processing (NLP) workloads on Azure",
+        "question": "Does language modeling in NLP involve generating human-like text?",
+        "user_answer": "yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of Natural Language Processing (NLP) workloads on Azure",
+        "question": "Does Azure AI Speech service provide both speech-to-text and text-to-speech capabilities?",
+        "user_answer": "no",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of Natural Language Processing (NLP) workloads on Azure",
+        "question": "Is Azure AI Language Understanding (LUIS) a code-first solution for NLP?",
+        "user_answer": "no",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of Natural Language Processing (NLP) workloads on Azure",
+        "question": "Is Q&A Maker designed for building chatbots using frequently asked questions?",
+        "user_answer": "no",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of generative AI workloads on Azure",
+        "question": "Do generative AI models only work with text data?",
+        "user_answer": "no",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of generative AI workloads on Azure",
+        "question": "Are DALL-E models in Azure OpenAI Service used for generating images?",
+        "user_answer": "yed",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of generative AI workloads on Azure",
+        "question": "Does the number of tokens in a prompt affect the response latency in Azure OpenAI Service?",
+        "user_answer": "yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of generative AI workloads on Azure",
+        "question": "Are resources required for using Azure OpenAI services to be created within an Azure subscription?",
+        "user_answer": "yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      }
+    ]
+  },
+  {
+    "exam_code": "AI-900",
+    "timestamp": "2025-06-13T16:31:42.219872",
+    "questions_attempted": [
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Artificial Intelligence workloads and considerations",
+        "question": "Is anomaly detection considered a type of machine learning workload that focuses on identifying outliers or suspicious patterns in data?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe fundamental principles of machine learning on Azure",
+        "question": "Does supervised learning require labeled data for training machine learning models?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure Machine Learning capabilities",
+        "question": "Is Azure Machine Learning Designer a code-only interface for building and deploying machine learning models?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of computer vision workloads on Azure",
+        "question": "Can Azure AI Face service be used for detecting emotions in images?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of generative AI workloads on Azure",
+        "question": "Is tokenization the process of extracting high-level features from images in computer vision tasks?",
+        "user_answer": "N",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "qualitative",
+        "skill_area": "Describe guiding principles for responsible AI",
+        "question": "Describe the principle of 'Fairness' in responsible AI and provide an example of how it can be implemented in an Azure-based AI solution.",
+        "user_answer": "Its about everyone being treated equally",
+        "user_score": null,
+        "scoring_criteria": [
+          "Defines 'Fairness' in AI context.",
+          "Explains the importance of mitigating bias.",
+          "Mentions the need to treat all users or data groups equitably.",
+          "Provides a relevant Azure-based scenario (e.g., using fairness metrics in Azure ML).",
+          "Includes an example of a practical step, such as bias detection or dataset balancing."
+        ]
+      },
+      {
+        "type": "qualitative",
+        "skill_area": "Describe features of generative AI workloads on Azure",
+        "question": "Explain how Azure OpenAI Service enables developers to build generative AI solutions, and discuss the importance of prompt engineering in achieving accurate results.",
+        "user_answer": "Its about everyone being treated equally",
+        "user_score": null,
+        "scoring_criteria": [
+          "Describes Azure OpenAI Service's role in deploying/managing LLMs.",
+          "Mentions available models (e.g., GPT-4, DALL-E) and their use cases.",
+          "Explains how developers interact with models (prompts, completions).",
+          "Discusses the concept of prompt engineering.",
+          "Explains why clear and contextual prompts are critical for output quality."
+        ]
+      }
+    ]
+  },
+  {
+    "exam_code": "AI-900",
+    "timestamp": "2025-06-16T15:53:06.969831",
+    "questions_attempted": [
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Artificial Intelligence workloads and considerations",
+        "question": "Is anomaly detection considered a type of machine learning workload that focuses on identifying outliers or suspicious patterns in data?",
+        "user_answer": "s",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe fundamental principles of machine learning on Azure",
+        "question": "Does supervised learning require labeled data for training machine learning models?",
+        "user_answer": "s",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure Machine Learning capabilities",
+        "question": "Is Azure Machine Learning Designer a code-only interface for building and deploying machine learning models?",
+        "user_answer": "s",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of computer vision workloads on Azure",
+        "question": "Can Azure AI Face service be used for detecting emotions in images?",
+        "user_answer": "s",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features of generative AI workloads on Azure",
+        "question": "Is tokenization the process of extracting high-level features from images in computer vision tasks?",
+        "user_answer": "s",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "qualitative",
+        "skill_area": "Describe guiding principles for responsible AI",
+        "question": "Describe the principle of 'Fairness' in responsible AI and provide an example of how it can be implemented in an Azure-based AI solution.",
+        "user_answer": "s",
+        "user_score": null,
+        "scoring_criteria": [
+          "Defines 'Fairness' in AI context.",
+          "Explains the importance of mitigating bias.",
+          "Mentions the need to treat all users or data groups equitably.",
+          "Provides a relevant Azure-based scenario (e.g., using fairness metrics in Azure ML).",
+          "Includes an example of a practical step, such as bias detection or dataset balancing."
+        ]
+      },
+      {
+        "type": "qualitative",
+        "skill_area": "Describe features of generative AI workloads on Azure",
+        "question": "Explain how Azure OpenAI Service enables developers to build generative AI solutions, and discuss the importance of prompt engineering in achieving accurate results.",
+        "user_answer": "s",
+        "user_score": null,
+        "scoring_criteria": [
+          "Describes Azure OpenAI Service's role in deploying/managing LLMs.",
+          "Mentions available models (e.g., GPT-4, DALL-E) and their use cases.",
+          "Explains how developers interact with models (prompts, completions).",
+          "Discusses the concept of prompt engineering.",
+          "Explains why clear and contextual prompts are critical for output quality."
+        ]
+      }
+    ]
+  }
+]

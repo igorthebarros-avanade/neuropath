@@ -1,0 +1,66 @@
+{
+  "exam_code": "AI-900",
+  "questions": [
+    {
+      "type": "yes_no",
+      "skill_area": "Describe Artificial Intelligence workloads and considerations",
+      "question": "Is anomaly detection considered a type of machine learning workload that focuses on identifying outliers or suspicious patterns in data?",
+      "expected_answer": "Yes",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe fundamental principles of machine learning on Azure",
+      "question": "Does supervised learning require labeled data for training machine learning models?",
+      "expected_answer": "Yes",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe Azure Machine Learning capabilities",
+      "question": "Is Azure Machine Learning Designer a code-only interface for building and deploying machine learning models?",
+      "expected_answer": "No",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe features of computer vision workloads on Azure",
+      "question": "Can Azure AI Face service be used for detecting emotions in images?",
+      "expected_answer": "Yes",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe features of generative AI workloads on Azure",
+      "question": "Is tokenization the process of extracting high-level features from images in computer vision tasks?",
+      "expected_answer": "No",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe guiding principles for responsible AI",
+      "question": "Describe the principle of 'Fairness' in responsible AI and provide an example of how it can be implemented in an Azure-based AI solution.",
+      "purpose": "Scaled Assessment",
+      "scoring_criteria": [
+        "Defines 'Fairness' in AI context.",
+        "Explains the importance of mitigating bias.",
+        "Mentions the need to treat all users or data groups equitably.",
+        "Provides a relevant Azure-based scenario (e.g., using fairness metrics in Azure ML).",
+        "Includes an example of a practical step, such as bias detection or dataset balancing."
+      ]
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe features of generative AI workloads on Azure",
+      "question": "Explain how Azure OpenAI Service enables developers to build generative AI solutions, and discuss the importance of prompt engineering in achieving accurate results.",
+      "purpose": "Scaled Assessment",
+      "scoring_criteria": [
+        "Describes Azure OpenAI Service's role in deploying/managing LLMs.",
+        "Mentions available models (e.g., GPT-4, DALL-E) and their use cases.",
+        "Explains how developers interact with models (prompts, completions).",
+        "Discusses the concept of prompt engineering.",
+        "Explains why clear and contextual prompts are critical for output quality."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "exam_code": "AI-900",
+  "questions": [
+    {
+      "type": "yes_no",
+      "skill_area": "Describe Artificial Intelligence workloads and considerations",
+      "question": "Is image classification an example of a computer vision AI workload?",
+      "expected_answer": "Yes"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe Artificial Intelligence workloads and considerations",
+      "question": "Does natural language processing (NLP) focus on interpreting and generating text or speech?",
+      "expected_answer": "Yes"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe Artificial Intelligence workloads and considerations",
+      "question": "Is regression analysis primarily used for predicting categorical outcomes?",
+      "expected_answer": "No"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe Artificial Intelligence workloads and considerations",
+      "question": "Are recommendation systems typically based on AI workloads?",
+      "expected_answer": "Yes"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe Artificial Intelligence workloads and considerations",
+      "question": "Is speech recognition an example of a generative AI workload?",
+      "expected_answer": "No"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe fundamental principles of machine learning on Azure",
+      "question": "Does unsupervised learning require labeled data?",
+      "expected_answer": "No"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe fundamental principles of machine learning on Azure",
+      "question": "Is reinforcement learning based on reward feedback mechanisms?",
+      "expected_answer": "Yes"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe Azure Machine Learning capabilities",
+      "question": "Can Azure Machine Learning automate hyperparameter tuning for models?",
+      "expected_answer": "Yes"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe features of computer vision workloads on Azure",
+      "question": "Does Azure Computer Vision API support extracting text from images?",
+      "expected_answer": "Yes"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe features of generative AI workloads on Azure",
+      "question": "Can Azure OpenAI Service be used to generate images as well as text?",
+      "expected_answer": "Yes"
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe Artificial Intelligence workloads and considerations",
+      "question": "List and briefly describe two common AI workloads and provide an example Azure service for each.",
+      "purpose": "Assess understanding of AI workload types and Azure services.",
+      "scoring_criteria": [
+        "Mentions at least two AI workload types (e.g., vision, NLP, anomaly detection).",
+        "Gives a brief description of each workload.",
+        "Associates each workload with a relevant Azure service (e.g., Computer Vision, Text Analytics)."
+      ]
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe fundamental principles of machine learning on Azure",
+      "question": "Explain the difference between supervised and unsupervised learning, providing an example for each.",
+      "purpose": "Evaluate knowledge of key machine learning paradigms.",
+      "scoring_criteria": [
+        "Defines supervised learning.",
+        "Defines unsupervised learning.",
+        "Provides a clear example of supervised learning.",
+        "Provides a clear example of unsupervised learning."
+      ]
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe Azure Machine Learning capabilities",
+      "question": "Describe the workflow for training and deploying a machine learning model using Azure Machine Learning.",
+      "purpose": "Test understanding of the end-to-end ML process on Azure.",
+      "scoring_criteria": [
+        "Mentions data preparation.",
+        "Describes model training.",
+        "Explains model evaluation.",
+        "Mentions deployment to an endpoint or web service."
+      ]
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe features of computer vision workloads on Azure",
+      "question": "What capabilities does Azure Face API provide, and how might it be used in a real-world application?",
+      "purpose": "Assess knowledge of Face API features and practical use.",
+      "scoring_criteria": [
+        "Mentions at least two capabilities (e.g., face detection, emotion recognition, face verification).",
+        "Describes a real-world application scenario."
+      ]
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe features of generative AI workloads on Azure",
+      "question": "How can you use prompt engineering to improve results when using Azure OpenAI GPT models?",
+      "purpose": "Evaluate understanding of prompt engineering in generative AI.",
+      "scoring_criteria": [
+        "Defines prompt engineering.",
+        "Explains why prompt wording/context matters.",
+        "Gives an example of an improved prompt and its impact."
+      ]
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe guiding principles for responsible AI",
+      "question": "Describe one way Azure Machine Learning supports responsible AI practices in model development.",
+      "purpose": "Test knowledge of responsible AI tools and features in Azure.",
+      "scoring_criteria": [
+        "Mentions a responsible AI feature (e.g., interpretability, fairness dashboard, data privacy tools).",
+        "Describes how it is used in the ML workflow."
+      ]
+    }
+  ]
+}

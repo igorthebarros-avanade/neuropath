@@ -1,0 +1,39 @@
+{
+  "exam_code": "DP-900",
+  "questions": [
+    {
+      "type": "yes_no",
+      "skill_area": "Describe core data concepts",
+      "question": "Is unstructured data typically stored in Azure SQL Database?",
+      "expected_answer": "No",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Identify considerations for relational data on Azure",
+      "question": "Does Azure Synapse Analytics support both SQL and Spark-based analytics workloads?",
+      "expected_answer": "Yes",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe considerations for working with non-relational data on Azure",
+      "question": "Can Azure Cosmos DB natively support multiple NoSQL APIs, such as MongoDB and Gremlin?",
+      "expected_answer": "Yes",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe an analytics workload on Azure",
+      "question": "Describe the main differences between Power BI Dashboards and Power BI Reports, and outline scenarios where you would use each.",
+      "purpose": "Scaled Assessment",
+      "scoring_criteria": [
+        "Explain that dashboards are single-page, while reports can have multiple pages.",
+        "Mention dashboards are only in Power BI Service; reports can be created in Desktop and Service.",
+        "Describe interactivity: reports support filtering and viewing underlying data, dashboards do not.",
+        "Discuss typical use cases: dashboards for high-level monitoring, reports for detailed exploration.",
+        "Provide examples of when to use each in a business intelligence context."
+      ]
+    }
+  ]
+}

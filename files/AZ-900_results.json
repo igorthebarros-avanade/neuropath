@@ -1,0 +1,704 @@
+[
+  {
+    "exam_code": "AZ-900",
+    "timestamp": "2025-05-31T14:35:28.426725",
+    "questions_attempted": [
+      {
+        "type": "yes_no",
+        "skill_area": "Describe cloud concepts",
+        "question": "Does pay-as-you-go pricing mean you only pay for the resources you consume in Azure?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe cloud concepts",
+        "question": "Is an upfront hardware purchase required to use Azure services?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe cloud concepts",
+        "question": "Does global reach allow you to deploy Azure workloads in different regions worldwide?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe cloud concepts",
+        "question": "Are all cloud providers responsible for the security of customer data stored within their services?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe cloud concepts",
+        "question": "Is scalability the ability to automatically increase or decrease resources based on application demand?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe cloud concepts",
+        "question": "Does elasticity in Azure refer to manually adjusting resources at scheduled intervals?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe cloud concepts",
+        "question": "Can Azure services be patched and updated by Microsoft without customer intervention?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe cloud concepts",
+        "question": "Is Software as a Service (SaaS) managed entirely by the service provider, including hardware and software maintenance?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe cloud concepts",
+        "question": "Do users manage operating systems and networking in Platform as a Service (PaaS)?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe cloud concepts",
+        "question": "Is Infrastructure as a Service (IaaS) responsible for providing physical data centers to users?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe cloud concepts",
+        "question": "Is Microsoft Azure considered an example of IaaS?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe cloud concepts",
+        "question": "Does public cloud only use infrastructure owned by the cloud service provider?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe cloud concepts",
+        "question": "Can a hybrid cloud deployment include both on-premises and public cloud resources?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe cloud concepts",
+        "question": "Does a private cloud always run in Microsoft Azure data centers?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe cloud concepts",
+        "question": "Is ExpressRoute required for every hybrid cloud deployment?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe core architectural components of Azure",
+        "question": "Is an Azure region a collection of multiple data centers?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe core architectural components of Azure",
+        "question": "Do Azure geographies always contain only a single region?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe core architectural components of Azure",
+        "question": "Is each Azure region paired with another region for disaster recovery purposes?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe core architectural components of Azure",
+        "question": "Are availability zones designed to improve high availability within a region?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe core architectural components of Azure",
+        "question": "Is a fault domain a physical separation of hardware to prevent a single point of failure?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe core architectural components of Azure",
+        "question": "Can update domains in Azure ensure that all resources are updated at once to minimize downtime?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe core architectural components of Azure",
+        "question": "Is a resource group used to logically organize Azure resources?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe core architectural components of Azure",
+        "question": "Does an Azure subscription define billing boundaries for resources?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe core architectural components of Azure",
+        "question": "Are management groups used to manage resources within a single subscription only?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe core architectural components of Azure",
+        "question": "Can Azure Resource Manager (ARM) apply access controls and resource locks?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure compute and networking services",
+        "question": "Can Azure Virtual Machines run both Windows and Linux operating systems?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure compute and networking services",
+        "question": "Do you need to manage the underlying virtual machines when using Azure Container Instances?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure compute and networking services",
+        "question": "Is Azure Kubernetes Service (AKS) used for orchestrating containerized applications?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure compute and networking services",
+        "question": "Does Azure Functions require users to provision virtual machines manually?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure compute and networking services",
+        "question": "Is Azure Batch commonly used for running parallel batch workloads?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure compute and networking services",
+        "question": "Does a Virtual Network (VNet) allow you to isolate Azure resources for security?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure compute and networking services",
+        "question": "Are subnets used to divide a VNet into smaller network segments?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure compute and networking services",
+        "question": "Is Azure DNS only available for public, internet-facing domains?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure compute and networking services",
+        "question": "Does Azure ExpressRoute provide private connections between on-premises infrastructure and Azure?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure compute and networking services",
+        "question": "Can Azure Load Balancer distribute HTTP requests based on URL paths?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure compute and networking services",
+        "question": "Does Azure Application Gateway operate at the application layer (OSI layer 7)?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure storage services",
+        "question": "Is Azure Blob Storage optimized for storing large amounts of unstructured data?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure storage services",
+        "question": "Does Azure Disk Storage provide encryption by default?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure storage services",
+        "question": "Can Azure File Storage be accessed using the SMB protocol?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure storage services",
+        "question": "Is Azure Table Storage considered a relational database service?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure storage services",
+        "question": "Does Azure Queue Storage support reliable delivery of messages between distributed applications?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure storage services",
+        "question": "Is Azure Data Box a physical device used for transferring large amounts of data to Azure?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure storage services",
+        "question": "Is Azure Archive Storage suitable for frequently accessed data?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure storage services",
+        "question": "Does Azure Data Lake Storage build upon Azure Blob Storage for storing large datasets?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure identity, access, and security",
+        "question": "Is Azure Active Directory (Azure AD) used to manage user access to Azure resources?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure identity, access, and security",
+        "question": "Does Single Sign-On (SSO) allow users to access multiple applications with a single authentication?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure identity, access, and security",
+        "question": "Is Multi-Factor Authentication (MFA) optional for all Azure users by default?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure identity, access, and security",
+        "question": "Can Azure Key Vault store API keys and certificates securely?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure identity, access, and security",
+        "question": "Does Azure Defender offer protection for both cloud and on-premises workloads?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure identity, access, and security",
+        "question": "Is DDoS Protection automatically enabled for all Azure resources?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure identity, access, and security",
+        "question": "Can Azure Firewall be used to protect Virtual Networks in Azure?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure identity, access, and security",
+        "question": "Does Role-Based Access Control (RBAC) allow assignment of granular permissions to users?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe cost management in Azure",
+        "question": "Can the Total Cost of Ownership (TCO) Calculator help estimate savings when migrating to Azure?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe cost management in Azure",
+        "question": "Is the Azure Pricing Calculator only accessible by users with an Azure subscription?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe cost management in Azure",
+        "question": "Does Azure Cost Management allow you to set budgets and receive alerts for spending thresholds?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe cost management in Azure",
+        "question": "Is the Azure Hybrid Benefit available for Linux licenses?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe cost management in Azure",
+        "question": "Do Service Level Agreements (SLAs) define Azure's commitment to service uptime?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe cost management in Azure",
+        "question": "Are service credits issued when Azure services meet or exceed their SLA targets?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features and tools in Azure for governance and compliance",
+        "question": "Can resource tags help organize and classify Azure resources for cost management purposes?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features and tools in Azure for governance and compliance",
+        "question": "Does Azure Policy enforce organizational standards and assess compliance at scale?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features and tools in Azure for governance and compliance",
+        "question": "Are resource locks used to prevent accidental deletion or modification of Azure resources?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features and tools in Azure for governance and compliance",
+        "question": "Can Azure Blueprints be used to create reusable sets of governance artifacts?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features and tools for managing and deploying Azure resources",
+        "question": "Is the Azure Portal a web-based graphical interface for managing Azure resources?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features and tools for managing and deploying Azure resources",
+        "question": "Can Azure Cloud Shell only be used from a local command-line terminal?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features and tools for managing and deploying Azure resources",
+        "question": "Does Azure PowerShell require Windows to run?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features and tools for managing and deploying Azure resources",
+        "question": "Can you use Azure CLI on Mac, Linux, and Windows operating systems?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features and tools for managing and deploying Azure resources",
+        "question": "Are ARM templates written in a declarative JSON format to define Azure infrastructure?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features and tools for managing and deploying Azure resources",
+        "question": "Is Azure Bicep a graphical tool for drawing Azure architecture diagrams?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features and tools for managing and deploying Azure resources",
+        "question": "Does Terraform work with Azure as well as other cloud providers?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe monitoring tools in Azure",
+        "question": "Can Azure Monitor collect and analyze telemetry data from both cloud and on-premises environments?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe monitoring tools in Azure",
+        "question": "Does Azure Service Health provide information about planned maintenance events affecting Azure resources?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe monitoring tools in Azure",
+        "question": "Is Azure Advisor used to automatically apply security patches to Azure VMs?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe monitoring tools in Azure",
+        "question": "Can Application Insights help detect performance anomalies in web applications hosted on Azure?",
+        "user_answer": "YES",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe cloud concepts",
+        "question": "Are shared costs a benefit of using cloud computing?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe cloud concepts",
+        "question": "Is fault tolerance a feature that helps improve the reliability of cloud services?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe cloud concepts",
+        "question": "Does a user need to know the physical location of cloud resources to use Azure services?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe cloud concepts",
+        "question": "Is Gmail an example of Software as a Service (SaaS)?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe core architectural components of Azure",
+        "question": "Is the concept of paired regions implemented to improve disaster recovery in Azure?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe core architectural components of Azure",
+        "question": "Is an update domain a physical separation of virtual machines within a datacenter?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure compute and networking services",
+        "question": "Can Azure Virtual Network Gateway facilitate secure VPN connections?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure compute and networking services",
+        "question": "Is Azure Private Link used to keep traffic between Azure resources on the public internet?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure storage services",
+        "question": "Can Azure File Storage be mounted by multiple virtual machines simultaneously?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure storage services",
+        "question": "Is Azure Archive Storage the most suitable choice for short-term, high-access workloads?",
+        "user_answer": "No",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe Azure identity, access, and security",
+        "question": "Does Conditional Access in Azure provide an additional layer of security based on user conditions?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe cost management in Azure",
+        "question": "Is the Azure Pricing Calculator able to export cost estimates for sharing and review?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe features and tools for managing and deploying Azure resources",
+        "question": "Are ARM templates used for declaratively defining and provisioning Azure resources?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "type": "yes_no",
+        "skill_area": "Describe monitoring tools in Azure",
+        "question": "Does Azure Monitor include features for acting on collected telemetry data?",
+        "user_answer": "yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      }
+    ]
+  }
+]

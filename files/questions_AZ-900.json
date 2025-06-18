@@ -1,0 +1,222 @@
+{
+  "exam_code": "AZ-900",
+  "questions": [
+    {
+      "type": "yes_no",
+      "skill_area": "Describe cloud concepts",
+      "question": "Is the pay-as-you-go pricing model a primary benefit of cloud computing?",
+      "expected_answer": "Yes",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe cloud concepts",
+      "question": "Does the public cloud model require organizations to own and maintain physical data centers?",
+      "expected_answer": "No",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe cloud concepts",
+      "question": "Is cloud elasticity the ability to automatically scale resources based on demand?",
+      "expected_answer": "Yes",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe cloud concepts",
+      "question": "Does Software as a Service (SaaS) require customers to manage the underlying hardware?",
+      "expected_answer": "No",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe cloud concepts",
+      "question": "Can a hybrid cloud contain both on-premise and cloud-based resources?",
+      "expected_answer": "Yes",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe cloud concepts",
+      "question": "Is Platform as a Service (PaaS) mainly focused on infrastructure provisioning and management?",
+      "expected_answer": "No",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe cloud concepts",
+      "question": "Does IaaS (Infrastructure as a Service) provide customers with full control over operating systems and deployed applications?",
+      "expected_answer": "Yes",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe cloud concepts",
+      "question": "Is data residency and compliance a consideration when selecting a cloud region?",
+      "expected_answer": "Yes",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe core architectural components of Azure",
+      "question": "Are Azure regions made up of multiple datacenters?",
+      "expected_answer": "Yes",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe core architectural components of Azure",
+      "question": "Does an Azure resource group span multiple subscriptions by default?",
+      "expected_answer": "No",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe core architectural components of Azure",
+      "question": "Do paired regions in Azure provide disaster recovery capabilities?",
+      "expected_answer": "Yes",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe core architectural components of Azure",
+      "question": "Does Azure Resource Manager (ARM) allow you to assign tags to resources for better organization?",
+      "expected_answer": "Yes",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe core architectural components of Azure",
+      "question": "Is a fault domain a physical separation of hardware within an availability zone to reduce single points of failure?",
+      "expected_answer": "Yes",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe core architectural components of Azure",
+      "question": "Are update domains used in Azure to ensure that all VMs in a group are updated at the same time?",
+      "expected_answer": "No",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe core architectural components of Azure",
+      "question": "Can you organize multiple Azure subscriptions under a single management group?",
+      "expected_answer": "Yes",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe Azure compute and networking services",
+      "question": "Is Azure Functions considered a serverless compute service?",
+      "expected_answer": "Yes",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe Azure compute and networking services",
+      "question": "Does Azure Container Instances require you to manage the underlying virtual machines?",
+      "expected_answer": "No",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe Azure compute and networking services",
+      "question": "Are Azure Virtual Machines primarily intended for running containerized workloads?",
+      "expected_answer": "No",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe Azure compute and networking services",
+      "question": "Does Azure Batch allow you to run large-scale parallel and high-performance computing applications efficiently in the cloud?",
+      "expected_answer": "Yes",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe Azure compute and networking services",
+      "question": "Is Azure ExpressRoute used to create private connections between on-premise infrastructure and Azure datacenters?",
+      "expected_answer": "Yes",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe Azure compute and networking services",
+      "question": "Does Azure Load Balancer operate at the application layer (OSI Layer 7)?",
+      "expected_answer": "No",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe Azure compute and networking services",
+      "question": "Can an Azure Virtual Network (VNet) be used to securely isolate resources within Azure?",
+      "expected_answer": "Yes",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe Azure storage services",
+      "question": "Does Azure Blob Storage primarily store relational data?",
+      "expected_answer": "No",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe Azure storage services",
+      "question": "Is Azure File Storage accessible via SMB and NFS protocols?",
+      "expected_answer": "Yes",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe Azure storage services",
+      "question": "Is Azure Table Storage a schema-dependent relational database?",
+      "expected_answer": "No",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe Azure storage services",
+      "question": "Does Azure Archive Storage provide a cost-effective option for infrequently accessed data?",
+      "expected_answer": "Yes",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe Azure storage services",
+      "question": "Is Azure Data Lake Storage suitable for storing both structured and unstructured data at any scale?",
+      "expected_answer": "Yes",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe Azure identity, access, and security",
+      "question": "Is Azure Active Directory (Azure AD) used for managing on-premise servers without any cloud integration?",
+      "expected_answer": "No",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe Azure identity, access, and security",
+      "question": "Does Multi-Factor Authentication (MFA) enhance security by requiring an additional verification step beyond a password?",
+      "expected_answer": "Yes",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe Azure identity, access, and security",
+      "question": "Can Role-Based Access Control (RBAC) be used to grant granular permissions to Azure resources?",
+      "expected_answer": "Yes",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe Azure identity, access, and security",
+      "question": "Is Azure Key Vault designed to store and manage cryptographic keys and secrets?",
+      "expected_answer": "Yes",
+      "purpose": "Binary Assessment"
+    }
+  ]
+}
