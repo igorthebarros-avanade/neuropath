@@ -1,0 +1,89 @@
+Question,Answer
+What is 'Describe Artificial Intelligence workloads and considerations' in Azure?,"This skill area covers: Identify features of common AI workloads, Identify guiding principles for responsible AI"
+Explain 'Identify features of common AI workloads' in Azure.,"Artificial Intelligence (AI): Machines performing jobs that mimic human behavior.
+Machine Learning (ML): Machines getting better at a task without explicit programming.
+Deep Learning (DL): Machines with an artificial neural network (inspired by the human brain) to solve complex problems.
+Anomaly Detection: Detecting outliers or suspicious/malicious patterns within a dataset.
+Computer Vision (CV): Machines gaining high-level understanding of digital images or videos.
+Natural Language Processing (NLP): Machines processing human languages and inferring contexts.
+Conversational AI: Technology that can participate in conversations with humans (e.g., chatbots, voice assistants).
+Knowledge Mining: A discipline in AI that uses intelligent services to quickly learn from vast amounts of information, uncover hidden insights, and find relationships/patterns at scale."
+Explain 'Identify guiding principles for responsible AI' in Azure.,"Fairness: AI systems should treat all people fairly, mitigating stereotypical bias in development.
+Reliability and Safety: AI software must be rigorously tested to ensure expected performance, with quantified risks and harms reported to end-users.
+Privacy and Security: AI systems should be secure and respect privacy, protecting vast amounts of data used for training.
+Inclusiveness: AI systems should empower everyone and engage people, designing solutions for minority users that can benefit the majority.
+Transparency: AI systems should be understandable, allowing end-users to comprehend their behavior and helping developers debug.
+Accountability: People should be accountable for AI systems, with structures in place to consistently enact AI principles and work within ethical/legal standards."
+What is 'Describe fundamental principles of machine learning on Azure' in Azure?,"This skill area covers: Identify common machine learning techniques, Describe core machine learning concepts, Describe Azure Machine Learning capabilities"
+Explain 'Identify common machine learning techniques' in Azure.,"Supervised Learning: Data is labeled for training, considered task-driven for making predictions where labels are known and a precise outcome is needed (e.g., classification, regression).
+Unsupervised Learning: Data is not labeled, and the ML model needs to do its own labeling, considered data-driven for recognizing structure or patterns when labels are unknown and precise outcomes are not required (e.g., clustering, dimensionality reduction).
+Reinforcement Learning: No initial data; an ML model generates data through attempts to reach a goal in an environment, considered decision-driven (e.g., game AI, robot navigation).
+Regression: Finding a function to equate a labeled dataset into a continuous variable number (predicting a future value).
+Classification: Finding a function to divide a labeled dataset into classes or categories (predicting a category).
+Clustering: Grouping unlabeled data based on similarity and differences.
+Deep Learning: A neural network with three or more hidden layers, making its internal workings not human-readable."
+Explain 'Describe core machine learning concepts' in Azure.,"Data Set: A logical grouping of units of data that are closely related or share the same data structure, often publicly available for learning.
+Data Labeling: Process of identifying raw data (images, text, videos) and adding meaningful labels to provide context for ML model learning, a prerequisite for supervised learning.
+Ground Truth: A properly labeled dataset used as the objective standard to train and assess a given model.
+Neural Network (NN): Often described as mimicking the brain, where a neuron or node represents an algorithm, and data is passed through weighted connections in layers (input, hidden, output).
+Forward Feed Neural Network (FNN): Neural networks where connections between nodes do not form a cycle, always moving data forward.
+Backpropagation: A process in forward feed networks where the neural net moves backward, adjusting weights to improve the outcome on the next iteration, using a loss function.
+Activation Functions: Algorithms applied to hidden layer nodes that affect connected output, part of the backpropagation and learning process.
+GPU (Graphics Processing Unit): Specialized processors designed for quick rendering of high-resolution images/videos, capable of parallel operations on multiple data sets, commonly used for ML and scientific computation.
+Machine Learning Pipeline: An execution workflow of a complete machine learning task, typically including data labeling, feature engineering, training, hyperparameter tuning, serving (deploying), and inference.
+Performance/Evaluation Metrics: Used to evaluate different machine learning algorithms and determine if an ML model is working as intended (e.g., accuracy, precision, recall for classification; MSE, RMSE, MAE for regression)."
+Explain 'Describe Azure Machine Learning capabilities' in Azure.,"Azure Machine Learning Service: Simplifies running AI/ML workloads by allowing flexible, automated ML pipelines using Python/R, and supporting deep learning.
+Azure Machine Learning Studio: A web-based environment within the service for building and managing ML models, providing notebooks, automated ML, and a visual designer.
+Compute Instances: Development workstations for data scientists to work with data and models.
+Compute Clusters: Scalable clusters of VMs for on-demand processing and experimentation.
+Automated Machine Learning (AutoML): Automates the process of creating an ML model by supplying a dataset and choosing a task type, allowing it to train and tune the model. Supports classification, regression, and time series forecasting.
+Azure Machine Learning Designer: A drag-and-drop interface to visually build, test, and deploy machine learning models and pipelines without writing code.
+Data Labeling Service: Allows creating data labeling jobs with human-in-the-loop or ML-assisted labeling to prepare ground truth for supervised learning.
+Data Stores: Securely connect to storage services on Azure (e.g., Azure Blob Storage, Azure File Share, Azure Data Lake Storage Gen 2, Azure SQL) without exposing credentials.
+Data Sets: Easy registration of data sets for ML workloads, allowing multiple versions and profile generation.
+Open Data Sets: Publicly hosted data sets commonly used for learning how to build ML models (e.g., MNIST, COCO).
+Experiments: Logical groupings of Azure runs, where a run is the act of executing an ML task on a VM or container.
+Pipelines: Executable workflows of complete machine learning tasks, composed of independent steps, buildable via Designer or Python SDK.
+Models (Model Registry): Allows creation, management, and tracking of registered models as incremental versions with metadata tags.
+Endpoints: Allow deployment of machine learning models as web services (real-time or pipeline endpoints) for inference via REST API or SDK."
+What is 'Describe features of computer vision workloads on Azure' in Azure?,"This skill area covers: Identify common types of computer vision solution, Identify Azure tools and services for computer vision tasks"
+Explain 'Identify common types of computer vision solution' in Azure.,"Image Classification: Looking at an image or video and classifying its place in a category.
+Object Detection: Identifying objects within an image or video and applying labels and location boundaries.
+Semantic Segmentation: Identifying segments or objects by drawing pixel masks around them, useful for objects and movement.
+Image Analysis: Analyzing an image or video to apply descriptive context labels.
+Optical Character Recognition (OCR): Finding text in images or videos and extracting it into digital, editable text.
+Facial Detection: Detecting faces in a photo or video, drawing a location boundary, and labeling expressions."
+Explain 'Identify Azure tools and services for computer vision tasks' in Azure.,"Azure AI Vision (formerly Computer Vision service): Analyzes content in images and videos, extracts descriptions, tags, objects, and texts.
+Azure AI Custom Vision (formerly Custom Vision service): Customizes image classification and object detection models using your own images.
+Azure AI Face (formerly Face service): Detects and identifies people and emotions in images.
+Azure AI Document Intelligence (formerly Form Recognizer): Specialized OCR service that translates printed text into digital and editable content while preserving the structure and relationships of form-like data (e.g., invoices, receipts)."
+What is 'Describe features of Natural Language Processing (NLP) workloads on Azure' in Azure?,"This skill area covers: Identify features of common NLP Workload Scenarios, Identify Azure tools and services for NLP workloads"
+Explain 'Identify features of common NLP Workload Scenarios' in Azure.,"Key Phrase Extraction: Quickly identifying the main concepts in text.
+Entity Recognition: Detecting and categorizing entities in text (e.g., people, places, objects, quantities).
+Sentiment Analysis: Determining the emotional tone (negative, neutral, positive, mixed) of text at sentence and document level.
+Language Modeling: Understanding and generating human-like text.
+Speech Recognition: Transcribing audible speech into readable, searchable text.
+Speech Synthesis: Converting text to lifelike speech for natural interfaces.
+Translation: Automatically translating spoken or written phrases and sentences between languages."
+Explain 'Identify Azure tools and services for NLP workloads' in Azure.,"Azure AI Language (formerly Text Analytics service): Provides sentiment analysis, key phrase extraction, language detection, and named entity recognition.
+Azure AI Speech (formerly Speech service): Offers speech-to-text, text-to-speech, and speech translation capabilities.
+Azure AI Translator (formerly Translator Text service): Provides real-time text translation with multi-language support.
+Azure AI Language Understanding (LUIS): A no-code ML service to build natural language understanding into apps, bots, and IoT devices, focusing on user intention and extraction.
+Q&A Maker: A cloud-based NLP service to create a natural conversational layer over your data, commonly used for building conversational clients (chatbots) from existing content."
+What is 'Describe features of generative AI workloads on Azure' in Azure?,"This skill area covers: Identify features of generative AI solutions, Identify generative AI services and capabilities in Microsoft Azure"
+Explain 'Identify features of generative AI solutions' in Azure.,"Generative AI: A subset of AI focused on creating new, novel, and realistic content or data (text, images, music, speech).
+Large Language Models (LLMs): Complex automatic systems that recognize patterns and make predictions after being trained on massive amounts of text data, understanding context to predict the next word and generate coherent text.
+Transformer Models: A type of machine learning model especially good at understanding and generating language, built with an encoder (reads/understands input) and a decoder (generates new text).
+Tokenization: The process of breaking down sentences into pieces (tokens) and assigning a unique numeric code to each, allowing computers to understand words and their relationships.
+Embeddings: Special numeric codes for tokens that capture the meaning of words, where words with similar meanings have similar codes.
+Positional Encoding: A technique used to ensure that a language model retains the order of words in a sentence by adding a positional vector to each word's embedding.
+Attention Mechanism: A way for the model to figure out how important each word or token is to the meaning of a sentence, especially in relation to other words, helping the AI understand and create language."
+Explain 'Identify generative AI services and capabilities in Microsoft Azure' in Azure.,"Azure OpenAI Service: A cloud-based platform to deploy and manage advanced language models from OpenAI, combining OpenAI's models with Azure's security and scalability. Offers GPT-4, GPT-3.5, embedding models, and DALL-E models.
+Prompts and Completions: Users provide a text command (prompt) to the API, and the model generates a text response (completion).
+Tokens: Azure OpenAI breaks down text into tokens (words or character chunks) to process requests, affecting response latency and throughput.
+Resources: Azure OpenAI operates like other Azure products, requiring users to create a resource within their Azure subscription.
+Deployments: Users must deploy a model via deployment APIs to use the service, choosing a specific model.
+Prompt Engineering: The process of refining prompts (instructions) given to an AI application to generate higher-quality responses.
+Grounding: A technique in prompt engineering where specific, relevant context is provided within a prompt to help the AI produce more accurate responses.
+Azure OpenAI Studio: A web-based environment where AI professionals can deploy, test, and manage LLMs that support generative AI app development on Azure.
+Co-pilots: New computing tools integrated with applications to help users with common tasks using generative AI models (e.g., Microsoft Copilot, GitHub Copilot)."
