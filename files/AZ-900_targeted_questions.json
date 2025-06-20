@@ -1,0 +1,100 @@
+{
+  "exam_code": "AZ-900",
+  "questions": [
+    {
+      "type": "yes_no",
+      "skill_area": "Describe cloud concepts",
+      "question": "Does Azure's elasticity feature allow resources to automatically scale in response to changing workload demands?",
+      "expected_answer": "Yes"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe cloud concepts",
+      "question": "In a public cloud, are all underlying hardware and infrastructure owned by the cloud provider?",
+      "expected_answer": "Yes"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe cloud concepts",
+      "question": "Is it the customer's responsibility to secure their own data in the cloud under the shared responsibility model?",
+      "expected_answer": "Yes"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe cloud concepts",
+      "question": "In Platform as a Service (PaaS), does the service provider manage the operating system for you?",
+      "expected_answer": "Yes"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe cloud concepts",
+      "question": "Does a hybrid cloud always require a dedicated network connection like ExpressRoute?",
+      "expected_answer": "No"
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe cloud concepts",
+      "question": "Explain the primary differences between IaaS, PaaS, and SaaS, focusing on the levels of management and customer responsibility.",
+      "purpose": "Evaluate understanding of cloud service models and roles of provider vs. customer.",
+      "scoring_criteria": [
+        "Describes who manages infrastructure, OS, and applications in each model",
+        "Correctly identifies customer vs. provider responsibilities",
+        "Provides clear examples of each model",
+        "Mentions at least one use case for each model",
+        "Explains the benefit of provider-managed services in PaaS/SaaS"
+      ]
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe cloud concepts",
+      "question": "Describe at least three key benefits of using the cloud compared to traditional on-premises infrastructure.",
+      "purpose": "Assess knowledge of core cloud advantages.",
+      "scoring_criteria": [
+        "Mentions scalability or elasticity",
+        "Mentions cost efficiency or pay-as-you-go",
+        "Mentions global reach or availability",
+        "Mentions reduced management overhead",
+        "Provides real-world examples or scenarios"
+      ]
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe cloud concepts",
+      "question": "What is the shared responsibility model in cloud computing, and how does it apply to customer data security?",
+      "purpose": "Test understanding of security responsibilities in cloud.",
+      "scoring_criteria": [
+        "Describes the division of responsibilities between provider and customer",
+        "Explains what aspects the provider is responsible for (e.g., physical security, infrastructure)",
+        "Explains what aspects the customer is responsible for (e.g., data, access, identity management)",
+        "Provides an example of a customer responsibility",
+        "Mentions how responsibilities change with SaaS/PaaS/IaaS"
+      ]
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe cloud concepts",
+      "question": "Compare public, private, and hybrid cloud deployment models, giving one advantage and one limitation of each.",
+      "purpose": "Evaluate knowledge of deployment models and their trade-offs.",
+      "scoring_criteria": [
+        "Defines each deployment model correctly",
+        "Provides an advantage for each model",
+        "Provides a limitation for each model",
+        "Mentions example scenarios for at least two models",
+        "Differentiates between who owns/operates the infrastructure"
+      ]
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe cloud concepts",
+      "question": "Why is pay-as-you-go pricing considered a benefit in cloud computing, and what risks might customers face if they don't monitor usage?",
+      "purpose": "Assess understanding of cloud pricing and cost management.",
+      "scoring_criteria": [
+        "Explains pay-as-you-go as paying only for used resources",
+        "Describes why this is cost-effective",
+        "Mentions the need for monitoring usage",
+        "Identifies potential risks of unmonitored usage (e.g., unexpected costs)",
+        "Provides a mitigation strategy or Azure tool for cost monitoring"
+      ]
+    }
+  ]
+}
