@@ -6,7 +6,7 @@ An MVP AI-powered application designed to assist students that want to apply for
 
 Before getting started, make sure you have:
 
-- Python 3.9 or higher installed
+- Python 3.11 or higher installed
 - A [Microsoft Azure](https://portal.azure.com/) account
 - An **Azure AI Foundry Resource** created
 
@@ -62,10 +62,16 @@ Then, install all required packages:
 
 pip install -r req.txt
 
-📝 Note: It's recommended to use a virtual environment:
+📝 Note: It's recommended to use a virtual environment. But first, we need to allow PowerShell to run Python's scripts.
+
+Open PowerShell as an administrator and run:
+
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+Now, you can run:
 
 python -m venv venv
-soruce venv\Scripts\activate
+.\venv\Scripts\Activate.ps1
 
 ---
 
