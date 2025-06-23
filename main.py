@@ -2,8 +2,10 @@
 import sys
 from pathlib import Path
 import os
-from dotenv import load_dotenv
 import json
+
+# TODO: Remove after adding poetry as default environment manager
+from dotenv import load_dotenv
 
 # Adjust the path to import the new service classes
 current_dir = Path(__file__).resolve().parent
@@ -19,8 +21,6 @@ from services.flashcard_export_service import FlashcardExportService
 from services.concept_extractor import ConceptExtractor
 from services.image_generation_service import ImageGenerationService
 from services.podcast_generation_service import PodcastGenerationService
-from prompts.prompts import QUESTION_GENERATION_INSTRUCTIONS
-from utils.utils import wrap_text
 
 
 def display_menu():
@@ -50,6 +50,11 @@ def display_image_styles_menu():
 
 def main():
     load_dotenv()
+    
+    # Display demo mode status
+    demo_mode = os.getenv("DEMO_MODE", "false").lower() == "true"
+    mode_text = "DEMO MODE" if demo_mode else "LIVE MODE"
+    print(f"\n=== Welcome to Avanade's Azure Certification Coach (Neuropath) [{mode_text}] ===")
 
     files_dir = Path("files")
     files_dir.mkdir(parents=True, exist_ok=True)
