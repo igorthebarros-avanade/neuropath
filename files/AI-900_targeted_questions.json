@@ -1,0 +1,135 @@
+{
+  "exam_code": "AI-900",
+  "questions": [
+    {
+      "type": "yes_no",
+      "skill_area": "Describe Artificial Intelligence workloads and considerations",
+      "question": "Is image classification considered a computer vision workload in Azure?",
+      "expected_answer": "Yes"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe Artificial Intelligence workloads and considerations",
+      "question": "Can natural language processing be used to analyze sentiment in customer feedback?",
+      "expected_answer": "Yes"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe Artificial Intelligence workloads and considerations",
+      "question": "Is speech recognition a type of anomaly detection workload?",
+      "expected_answer": "No"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe Artificial Intelligence workloads and considerations",
+      "question": "Do Azure AI services include tools for knowledge mining?",
+      "expected_answer": "Yes"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe Artificial Intelligence workloads and considerations",
+      "question": "Are recommendation engines typically considered part of computer vision workloads?",
+      "expected_answer": "No"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe fundamental principles of machine learning on Azure",
+      "question": "Does unsupervised learning require labeled data for training?",
+      "expected_answer": "No"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe Azure Machine Learning capabilities",
+      "question": "Can Azure Machine Learning automate hyperparameter tuning?",
+      "expected_answer": "Yes"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe features of computer vision workloads on Azure",
+      "question": "Can Azure Computer Vision service extract text from images using OCR?",
+      "expected_answer": "Yes"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe features of generative AI workloads on Azure",
+      "question": "Is GPT-4 a model available in Azure OpenAI Service for text generation tasks?",
+      "expected_answer": "Yes"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe guiding principles for responsible AI",
+      "question": "Is transparency a principle included in responsible AI guidelines?",
+      "expected_answer": "Yes"
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe Artificial Intelligence workloads and considerations",
+      "question": "Compare computer vision and natural language processing workloads, and give an Azure service example for each.",
+      "purpose": "Assess understanding of different AI workload types and Azure services.",
+      "scoring_criteria": [
+        "Defines computer vision workloads.",
+        "Defines natural language processing workloads.",
+        "Provides a relevant Azure service for computer vision (e.g., Azure Computer Vision, Face API).",
+        "Provides a relevant Azure service for NLP (e.g., Azure Text Analytics, Language Service)."
+      ]
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe fundamental principles of machine learning on Azure",
+      "question": "Describe the difference between supervised and unsupervised learning and provide a real-world example for each using Azure services.",
+      "purpose": "Test knowledge of ML paradigms and Azure application.",
+      "scoring_criteria": [
+        "Defines supervised learning.",
+        "Defines unsupervised learning.",
+        "Gives a real-world example of supervised learning with Azure (e.g., classification with Azure ML).",
+        "Gives a real-world example of unsupervised learning with Azure (e.g., clustering with Azure ML)."
+      ]
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe Azure Machine Learning capabilities",
+      "question": "Explain how Azure Machine Learning supports the end-to-end machine learning lifecycle.",
+      "purpose": "Evaluate understanding of Azure ML platform features.",
+      "scoring_criteria": [
+        "Mentions data preparation.",
+        "Describes model training.",
+        "Covers model deployment.",
+        "Explains monitoring and management.",
+        "References automation features (e.g., AutoML, pipelines)."
+      ]
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe features of computer vision workloads on Azure",
+      "question": "Explain how Azure Video Indexer can be used to analyze video content and extract insights.",
+      "purpose": "Assess knowledge of Azure's computer vision analysis tools.",
+      "scoring_criteria": [
+        "Describes Azure Video Indexer's capabilities (e.g., speech-to-text, face detection).",
+        "Mentions extraction of metadata (e.g., keywords, topics).",
+        "Explains practical use cases (e.g., content moderation, accessibility)."
+      ]
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe features of generative AI workloads on Azure",
+      "question": "Describe a scenario where prompt engineering is critical for using Azure OpenAI Service effectively, and explain best practices.",
+      "purpose": "Evaluate understanding of prompt engineering with generative AI on Azure.",
+      "scoring_criteria": [
+        "Provides a scenario requiring prompt engineering (e.g., customer support bot).",
+        "Explains why prompt clarity matters.",
+        "Lists at least two best practices (e.g., using examples, context)."
+      ]
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe guiding principles for responsible AI",
+      "question": "Outline the key principles of responsible AI and briefly explain the importance of each in the context of Azure AI solutions.",
+      "purpose": "Test knowledge of responsible AI principles.",
+      "scoring_criteria": [
+        "Lists at least three responsible AI principles (e.g., fairness, reliability, privacy, transparency, accountability).",
+        "Explains each principle's importance in AI solutions.",
+        "References how Azure supports or enforces these principles."
+      ]
+    }
+  ]
+}

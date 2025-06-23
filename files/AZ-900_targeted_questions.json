@@ -4,96 +4,90 @@
     {
       "type": "yes_no",
       "skill_area": "Describe cloud concepts",
-      "question": "Does Azure's elasticity feature allow resources to automatically scale in response to changing workload demands?",
-      "expected_answer": "Yes"
-    },
-    {
-      "type": "yes_no",
-      "skill_area": "Describe cloud concepts",
-      "question": "In a public cloud, are all underlying hardware and infrastructure owned by the cloud provider?",
-      "expected_answer": "Yes"
-    },
-    {
-      "type": "yes_no",
-      "skill_area": "Describe cloud concepts",
-      "question": "Is it the customer's responsibility to secure their own data in the cloud under the shared responsibility model?",
-      "expected_answer": "Yes"
-    },
-    {
-      "type": "yes_no",
-      "skill_area": "Describe cloud concepts",
-      "question": "In Platform as a Service (PaaS), does the service provider manage the operating system for you?",
-      "expected_answer": "Yes"
-    },
-    {
-      "type": "yes_no",
-      "skill_area": "Describe cloud concepts",
-      "question": "Does a hybrid cloud always require a dedicated network connection like ExpressRoute?",
+      "question": "Is high capital expenditure (CapEx) a typical advantage of cloud computing?",
       "expected_answer": "No"
     },
     {
+      "type": "yes_no",
+      "skill_area": "Describe cloud concepts",
+      "question": "Does a public cloud deployment provide resources exclusively for one organization?",
+      "expected_answer": "No"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe cloud concepts",
+      "question": "In PaaS, is the user responsible for the application and data only?",
+      "expected_answer": "Yes"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe cloud concepts",
+      "question": "Does elasticity mean resources automatically scale up and down as needed?",
+      "expected_answer": "Yes"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe cloud concepts",
+      "question": "Is Azure Stack an example of private cloud technology?",
+      "expected_answer": "Yes"
+    },
+    {
       "type": "qualitative",
       "skill_area": "Describe cloud concepts",
-      "question": "Explain the primary differences between IaaS, PaaS, and SaaS, focusing on the levels of management and customer responsibility.",
-      "purpose": "Evaluate understanding of cloud service models and roles of provider vs. customer.",
+      "question": "Compare the main differences between IaaS, PaaS, and SaaS in terms of user responsibilities.",
+      "purpose": "Test understanding of cloud service models and their shared responsibility.",
       "scoring_criteria": [
-        "Describes who manages infrastructure, OS, and applications in each model",
-        "Correctly identifies customer vs. provider responsibilities",
-        "Provides clear examples of each model",
-        "Mentions at least one use case for each model",
-        "Explains the benefit of provider-managed services in PaaS/SaaS"
+        "Correctly defines IaaS, PaaS, SaaS",
+        "Explains what users manage in each model",
+        "Explains what the provider manages in each model",
+        "Gives at least one example per model"
       ]
     },
     {
       "type": "qualitative",
       "skill_area": "Describe cloud concepts",
-      "question": "Describe at least three key benefits of using the cloud compared to traditional on-premises infrastructure.",
-      "purpose": "Assess knowledge of core cloud advantages.",
+      "question": "List and describe three financial benefits of cloud computing compared to traditional on-premises IT.",
+      "purpose": "Assess knowledge of cloud financial advantages.",
       "scoring_criteria": [
-        "Mentions scalability or elasticity",
-        "Mentions cost efficiency or pay-as-you-go",
-        "Mentions global reach or availability",
-        "Mentions reduced management overhead",
-        "Provides real-world examples or scenarios"
+        "Mentions no upfront capital expense",
+        "Mentions pay-as-you-go/operational expense model",
+        "Mentions reduced IT maintenance/management costs",
+        "Provides clear descriptions"
       ]
     },
     {
       "type": "qualitative",
       "skill_area": "Describe cloud concepts",
-      "question": "What is the shared responsibility model in cloud computing, and how does it apply to customer data security?",
-      "purpose": "Test understanding of security responsibilities in cloud.",
+      "question": "Explain what is meant by 'shared responsibility model' in cloud computing.",
+      "purpose": "Assess understanding of the division of responsibilities between cloud providers and customers.",
       "scoring_criteria": [
-        "Describes the division of responsibilities between provider and customer",
-        "Explains what aspects the provider is responsible for (e.g., physical security, infrastructure)",
-        "Explains what aspects the customer is responsible for (e.g., data, access, identity management)",
-        "Provides an example of a customer responsibility",
-        "Mentions how responsibilities change with SaaS/PaaS/IaaS"
+        "Defines shared responsibility model",
+        "Distinguishes between provider and customer responsibilities",
+        "Mentions data security as a customer responsibility",
+        "Provides a relevant example"
       ]
     },
     {
       "type": "qualitative",
       "skill_area": "Describe cloud concepts",
-      "question": "Compare public, private, and hybrid cloud deployment models, giving one advantage and one limitation of each.",
-      "purpose": "Evaluate knowledge of deployment models and their trade-offs.",
+      "question": "Describe two scenarios where a hybrid cloud deployment is advantageous.",
+      "purpose": "Test ability to identify when hybrid cloud is beneficial.",
       "scoring_criteria": [
-        "Defines each deployment model correctly",
-        "Provides an advantage for each model",
-        "Provides a limitation for each model",
-        "Mentions example scenarios for at least two models",
-        "Differentiates between who owns/operates the infrastructure"
+        "Provides two different hybrid cloud scenarios",
+        "Explains the benefit in each scenario",
+        "Relates answer to business or compliance needs"
       ]
     },
     {
       "type": "qualitative",
       "skill_area": "Describe cloud concepts",
-      "question": "Why is pay-as-you-go pricing considered a benefit in cloud computing, and what risks might customers face if they don't monitor usage?",
-      "purpose": "Assess understanding of cloud pricing and cost management.",
+      "question": "What is the main difference between scalability and elasticity in cloud computing?",
+      "purpose": "Test understanding of key cloud characteristics.",
       "scoring_criteria": [
-        "Explains pay-as-you-go as paying only for used resources",
-        "Describes why this is cost-effective",
-        "Mentions the need for monitoring usage",
-        "Identifies potential risks of unmonitored usage (e.g., unexpected costs)",
-        "Provides a mitigation strategy or Azure tool for cost monitoring"
+        "Defines scalability",
+        "Defines elasticity",
+        "Highlights the difference",
+        "Gives example for each"
       ]
     }
   ]
