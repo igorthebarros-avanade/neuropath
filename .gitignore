@@ -4,6 +4,8 @@
 /files/*_targeted_questions.json
 # These should be "simulated" during at "runtime" (not to be "influenced" by other user runs)
 /files/*_results.json
+# These should be "simulated" during at "runtime" (not to be "influenced" by other user runs)
+/files/questions_*.json
 # TODO: To be removed after first stakeholder meeting
 # /files/images/*
 # /files/podcasts/*
