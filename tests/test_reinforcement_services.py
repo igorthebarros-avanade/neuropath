@@ -1,8 +1,8 @@
 import os
 import requests
 
-endpoint = "https://ricar-mb5f5eic-australiaeast.cognitiveservices.azure.com"
-api_key = "4PDlfnRLCS43XJaWDOUGTjSrxILu0hFuF9T3I6zrkRFyzhZ7x7HqJQQJ99BEACL93NaXJ3w3AAAAACOGAkGH"
+endpoint = "" # Replace with your Azure OpenAI endpoint
+api_key = "" # Replace with your Azure OpenAI API key
 
 url = f"{endpoint}/openai/deployments/dall-e-3/images/generations?api-version=2024-02-01"
 
