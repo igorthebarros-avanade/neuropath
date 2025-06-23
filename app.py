@@ -9,6 +9,7 @@ from services.azure_ai_client import AzureAIClient
 from services.question_service import QuestionService
 from services.simulation_service import SimulationService
 from services.feedback_service import FeedbackService
+from services.feedback_web_service import FeedbackWebService
 from services.flashcard_export_service import FlashcardExportService
 from services.concept_extractor import ConceptExtractor
 from services.image_generation_service import ImageGenerationService
@@ -69,6 +70,9 @@ elif menu == "Feedback and Reinforcement":
             feedback_service = FeedbackService(ai_client)
             feedback_service.provide_feedback_and_new_questions(exam_code_for_feedback)
             st.success(f"Feedback and new questions provided for {exam_code_for_feedback}.")
+            
+            feedback_web_service = FeedbackWebService(ai_client)
+            feedback_web_service.provide_feedback_and_new_questions(exam_code_for_feedback)
     else:
         st.error("No simulation results found. Please conduct a simulation first.")
 

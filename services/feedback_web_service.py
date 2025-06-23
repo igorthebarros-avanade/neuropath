@@ -9,7 +9,7 @@ from prompts.prompts import *
 from utils.utils import *
 from tabulate import tabulate
 
-class FeedbackService:
+class FeedbackWebService:
     def __init__(self, ai_client: AzureAIClient):
         self.ai_client = ai_client
         self.files_dir = Path("files") # Define the files directory
