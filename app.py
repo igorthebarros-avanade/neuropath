@@ -69,10 +69,9 @@ elif menu == "Feedback and Reinforcement":
             exam_code_for_feedback = selected_result_file_path.stem.split('_')[0]
             feedback_service = FeedbackService(ai_client)
             feedback_service.provide_feedback_and_new_questions(exam_code_for_feedback)
-            st.success(f"Feedback and new questions provided for {exam_code_for_feedback}.")
             
             feedback_web_service = FeedbackWebService(ai_client)
-            feedback_web_service.provide_feedback_and_new_questions(exam_code_for_feedback)
+            feedback_web_service.write_feedback_and_new_questions(exam_code_for_feedback)
     else:
         st.error("No simulation results found. Please conduct a simulation first.")
 

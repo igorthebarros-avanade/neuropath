@@ -1,20 +1,21 @@
 # feedback_service.py
 import json
 from pathlib import Path
+import streamlit as st
+import pandas as pd
 
 from services.exam_data_loader import ExamDataLoader
 from services.azure_ai_client import AzureAIClient
 
 from prompts.prompts import *
 from utils.utils import *
-from tabulate import tabulate
 
 class FeedbackWebService:
     def __init__(self, ai_client: AzureAIClient):
         self.ai_client = ai_client
         self.files_dir = Path("files") # Define the files directory
 
-    def provide_feedback_and_new_questions(self, selected_exam_code, results_file_suffix="results.json", output_file_suffix="targeted_questions.json"):
+    def write_feedback_and_new_questions(self, selected_exam_code, results_file_suffix="results.json", output_file_suffix="targeted_questions.json"):
         """
         Provides performance feedback with a bar chart and generates new questions based on weak areas.
         
@@ -31,16 +32,16 @@ class FeedbackWebService:
             with open(results_file, 'r', encoding='utf-8') as f:
                 all_results = json.load(f)
             if not all_results:
-                print(f"No simulation results found in '{results_file}'. Please run a simulation first.")
+                st.error(f"No simulation results found in '{results_file}'. Please run a simulation first.")
                 return
             latest_results = all_results[-1] 
             results_context = json.dumps(latest_results, indent=2)
 
         except FileNotFoundError:
-            print(f"Error: Results file '{results_file}' not found. Please run a simulation first.")
+            st.error(f"Error: Results file '{results_file}' not found. Please run a simulation first.")
             return
         except json.JSONDecodeError:
-            print(f"Error: Could not decode JSON from '{results_file}'. File might be corrupted.")
+            st.error(f"Error: Could not decode JSON from '{results_file}'. File might be corrupted.")
             return
 
         exam_code = latest_results.get("exam_code", "Unknown Exam")
@@ -71,7 +72,7 @@ class FeedbackWebService:
             )
             
             if response_content is None:
-                print("API call failed or returned empty content.")
+                st.error("API call failed or returned empty content.")
                 return
 
             analysis_data = json.loads(response_content)
@@ -90,31 +91,33 @@ class FeedbackWebService:
                 notes = wrap_text(q_scored.get("notes", "N/A"), width=50)
                 table_data.append([q_type, question_text, user_ans, score, notes])
             
-            print(tabulate(table_data, headers=headers, tablefmt="grid"))
+            df = pd.DataFrame(table_data, columns=headers)
+            st.dataframe(df, hide_index=True)
 
 
             # Performance by Category Bar Chart
-            print("\n### Performance by Exam Category:")
+            st.write("\n### Performance by Exam Category:")
             performance_data = analysis_data.get("performance_by_category", [])
-            bar_chart = generate_text_bar_chart(
-                performance_data,
-                label_key="skill_area",
-                value_key="average_score_percent",
-                max_width=40 # Adjust width for better display
-            )
-            print(bar_chart)
+            formatted_performance_data = []
+            for data in performance_data:
+                formatted_performance_data.append({
+                    "Skill Area": data.get("skill_area"), 
+                    "Average Score": f"{data.get("average_score_percent")}%"
+                })
+            df = pd.DataFrame(formatted_performance_data)
+            st.dataframe(df, hide_index=True)
 
 
             # Save new targeted questions
             if analysis_data.get("new_questions_for_weak_areas"):
                 with open(new_questions_output_file, 'w', encoding='utf-8') as f:
                     json.dump(analysis_data["new_questions_for_weak_areas"], f, indent=2)
-                print(f"\nNew targeted questions based on weak areas saved to '{new_questions_output_file}'.")
+                st.write(f"\n###### New targeted questions based on weak areas saved to '{new_questions_output_file}'.")
             else:
-                print("\nNo new targeted questions were generated.")
+                st.write("\n###### No new targeted questions were generated.")
 
         except json.JSONDecodeError as e:
-            print(f"Error decoding JSON from API response during feedback generation: {e}")
-            print(f"Raw response content: {response_content}")
+            st.error(f"Error decoding JSON from API response during feedback generation: {e}")
+            st.error(f"Raw response content: {response_content}")
         except Exception as e:
-            print(f"An unexpected error occurred during feedback and question generation: {e}")
+            st.error(f"An unexpected error occurred during feedback and question generation: {e}")
