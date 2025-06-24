@@ -29,6 +29,8 @@ ai_client = AzureAIClient(
     deployment_whisper=os.getenv("AZURE_OPENAI_DEPLOYMENT_WHISPER")
 )
 
+demo_mode = os.getenv("DEMO_MODE", "false").lower() == "true"
+
 st.title("Hello, traveler!")
 
 st.sidebar.title("Navigation")
@@ -45,7 +47,14 @@ elif menu == "Generate Diagnostic Questions":
         exam_options = {f"{code} - {name}": code for code, name in available_exams}
         selected_exam = st.selectbox("Select an Azure Certification Exam:", list(exam_options.keys()))
         num_yes_no = st.number_input("Number of Yes/No questions:", min_value=1, value=30)
-        num_qualitative = st.number_input("Number of Qualitative questions:", min_value=1, value=30)
+
+        # Added check for demo mode - this will disable qualitative questions (if any)
+        if demo_mode:
+            num_qualitative = 0
+            # st.info("Demo mode only supports Yes/No questions. Qualitative questions disabled.") # Optional info message (off by default)
+        else:
+            num_qualitative = st.number_input("Number of Qualitative questions:", min_value=1, value=30)
+        
         if st.button("Generate Questions"):
             selected_exam_code = exam_options[selected_exam]
             question_service = QuestionService(exam_data_loader, ai_client)
@@ -55,6 +64,11 @@ elif menu == "Generate Diagnostic Questions":
         st.error("No exam data loaded. Please check the content.json path or its content.")
 
 elif menu == "Conduct Simulation":
+    
+    # # Optional info message (off by default)
+    # if demo_mode:
+        # st.warning("Simulation is only available in the console version (main.py). Please use the command line interface for interactive simulations.")
+
     simulation_service = SimulationService()
     simulation_service.conduct_simulation()
     st.success("Simulation conducted successfully.")
