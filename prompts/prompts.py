@@ -163,14 +163,14 @@ QUESTION CREATION GUIDELINES:
 - Avoid generic questions that could apply to other topics
 - Ensure questions are exam-appropriate for {exam_code} level
 - Create varied question formats (Does X do Y?, Is X a type of Y?, Can X be used for Y?)
+- Focus on concrete details rather than abstract concepts
 
 OUTPUT FORMAT (JSON):
 {{
   "questions": [
     {{
       "question_text": "Does [specific factual question based on detail]?",
-      "expected_answer": "Yes|No",
-      "skill_area": "{skill_area}"
+      "expected_answer": "Yes|No"
     }}
   ]
 }}

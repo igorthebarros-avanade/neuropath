@@ -55,7 +55,7 @@ def main():
     demo_mode = os.getenv("DEMO_MODE", "false").lower() == "true"
     mode_text = "DEMO MODE" if demo_mode else "LIVE MODE"
     print(f"\n=== Welcome to Avanade's Azure Certification Coach (Neuropath) [{mode_text}] ===")
-
+        
     files_dir = Path("files")
     files_dir.mkdir(parents=True, exist_ok=True)
     (files_dir / "images").mkdir(parents=True, exist_ok=True)
@@ -119,8 +119,17 @@ def main():
             
             if selected_exam_code:
                 try:
+                    # Check if we're in demo mode
+                    demo_mode = os.getenv("DEMO_MODE", "false").lower() == "true"
                     num_yes_no = int(input("Enter number of Yes/No questions (e.g., 30): "))
-                    num_qualitative = int(input("Enter number of Qualitative questions (e.g., 30): "))
+                    
+                    if demo_mode:
+                        # Demo mode only supports yes/no questions
+                        num_qualitative = 0
+                        print("Note: Demo mode currenlty only supports Yes/No questions. Qualitative questions set to 0.")
+                    else:
+                        num_qualitative = int(input("Enter number of Qualitative questions (e.g., 30): "))
+                    
                     question_service.generate_diagnostic_questions(selected_exam_code, num_yes_no, num_qualitative)
                 except ValueError:
                     print("Invalid input for number of questions. Please enter a number.")
