@@ -19,6 +19,12 @@ from services.podcast_generation_service import PodcastGenerationService
 
 
 # --- Initial Setup and Service Loading ---
+st.set_page_config(
+    page_title="Azure Certification Buddy",
+    page_icon="💡",
+    layout="centered"
+)
+
 def initialize_services():
     """
     Initializes environment variables and necessary services for the application.
@@ -426,12 +432,6 @@ def exit_page():
 
 
 # --- Main Streamlit Application Layout ---
-
-st.set_page_config(
-    page_title="Azure Certification Buddy",
-    page_icon="💡",
-    layout="centered"
-)
 
 st.title("Hello, traveler!", anchor=False)
 
