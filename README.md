@@ -1,14 +1,12 @@
 # NeuroPath 🧠
 
-An MVP AI-powered application designed to assist students that want to apply for IT exams and get certifications.
+An MVP AI-powered application designed to assist students preparing for IT certification exams.
 
 ## ✅ Prerequisites
 
-Before getting started, make sure you have:
-
-- Python 3.11 or higher installed
-- A [Microsoft Azure](https://portal.azure.com/) account
-- An **Azure AI Foundry Resource** created
+- Python 3.11 or higher
+- [Microsoft Azure](https://portal.azure.com/) account
+- **Azure AI Foundry Resource**
 
 ---
 
@@ -16,69 +14,97 @@ Before getting started, make sure you have:
 
 ### 0. Create an Azure AI Foundry Resource
 
-Before cloning the application and running it, you shall configure a Azure AI Foundry resource group.
+Before cloning and running the application, configure an Azure AI Foundry resource.
 
-Do you have requested access to Azure?
+**Have Azure access?**
+- ✅ Yes: Go to https://portal.azure.com/
+- ⚠️ No: Go to https://my.visualstudio.com/ and request access
 
-✅ Yes: Go to https://portal.azure.com/
-⚠️ No: Go to https://my.visualstudio.com/ and request access
-
-0. At Azure portal, search for Resource Group.
-
-1. Create a new resource giving the name neuropath-project.
-
-2. Deploy the resource.
-
-3. After is deployed, you can click on the button that says "Go to Azure AI Foundry portal".
-
-4. Once inside the Foundry portal, look at the right side bar for "Models + endpoints".
-
-5. Deploy a new base model based on gpt-4.1.
-
-6. After deployed, make sure to copy the endpoint's **API key** and **Target URI**.
+1. Search for "Resource Group" in Azure portal
+2. Create new resource named `neuropath-project`
+3. Deploy the resource
+4. Click "Go to Azure AI Foundry portal"
+5. Navigate to "Models + endpoints" in right sidebar
+6. Deploy new base model (gpt-4o or gpt-4)
+7. Copy the endpoint's **API key** and **Target URI**
 
 ---
 
 ### 1. Clone the Repository
 
+```bash
 git clone https://github.com/igorthebarros-avanade/neuropath.git
-cd neuro-path
+cd neuropath
+```
 
-0. On .env file, add the previous copied data and add to AZURE_OPENAI_ENDPOINT_TEXT_AUDIO_WHISPER and AZURE_OPENAI_API_KEY_TEXT_AUDIO_WHISPER.
+### 2. Install Poetry
 
-1. Get the path, from the git cloned project directory, that points to NeuroPath/content/content.json and add to the EXAM_DATA_JSON_PATH on .env file.
+**Linux/WSL:**
+```bash
+curl -sSL https://install.python-poetry.org | python3 -
+```
 
-🗒️Note: At this point, you should be able to connect to Azure AI Foundry and test the application on your resource at Azure.
+**Windows (PowerShell):**
+```powershell
+(Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | py -
+```
+
+Restart your terminal and verify installation:
+```bash
+poetry --version
+```
+
+#### 📦 Poetry Commands Reference
+- **Activate environment**: `poetry env activate`
+- **Add package**: `poetry add package_name`
+- **Install dependencies**: `poetry install`
+- **Update dependencies**: `poetry update`
+- **Show dependencies**: `poetry show`
+- **Exit environment**: `exit` or `deactivate`
+- **[Poetry's official documentaiton guide](https://python-poetry.org/docs/basic-usage/)**
+
+### 3. Install Dependencies
+
+Create virtual environment and install packages:
+```bash
+poetry install
+```
+
+If `pyproject.toml` doesn't exist yet, initialize Poetry and add dependencies:
+```bash
+poetry init
+poetry add streamlit openai python-dotenv pandas pathlib tenacity tabulate # Example in-line specification of multiple modules
+```
+
+### 4. Configure Environment
+
+Create `.env` file in project root:
+```bash
+cp .env.example .env  # If example exists, otherwise create manually
+```
+
+Add your Azure credentials to `.env`:
+```
+AZURE_OPENAI_ENDPOINT_TEXT_AUDIO_WHISPER=your_target_uri_here
+AZURE_OPENAI_API_KEY_TEXT_AUDIO_WHISPER=your_api_key_here
+AZURE_OPENAI_API_VERSION=2024-02-01
+AZURE_OPENAI_DEPLOYMENT_TEXT=your_deployment_name
+EXAM_DATA_JSON_PATH=./content/content_updated.json
+```
+
+### 5. Run the Application
+
+Activate Poetry environment and run:
+```bash
+poetry env activate
+poetry run python main.py
+```
+
+Alternatively, run without activating shell:
+```bash
+poetry run python main.py
+```
 
 ---
 
-### 2. Install Dependencies with pip
-
-Make sure `pip` is installed by running:
-
-pip --version
-
-Then, install all required packages:
-
-pip install -r req.txt
-
-📝 Note: It's recommended to use a virtual environment. But first, we need to allow PowerShell to run Python's scripts.
-
-Open PowerShell as an administrator and run:
-
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
-
-Now, you can run:
-
-python -m venv venv
-.\venv\Scripts\Activate.ps1
-
----
-
-### 3. Run the application
-
-To start the application, execute the main Python file:
-
-python main.py
-
-🚀 Congratulations! You are now ready to go!
+🚀 **You're ready to go!**
