@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask, request, jsonify
+from flask import Flask, jsonify
 
 from services.question_service import QuestionService
 from services.exam_data_loader import ExamDataLoader
@@ -24,8 +24,8 @@ question_service = QuestionService(exam_data_loader, ai_client)
 app = Flask(__name__)
 
 @app.route("/api/questions/<exam>/<yesno>/<qualitative>")
-def questions(exam, yesno, qualitative):
-    questions = question_service.generate_diagnostic_questions(exam, yesno, qualitative)
+def questions(examCode, yesNoQuestions, qualitativeQuestions):
+    questions = question_service.generate_diagnostic_questions(examCode, yesNoQuestions, qualitativeQuestions)
     return jsonify(questions), 200
 
 if __name__ == "__main__":
