@@ -1,4 +1,5 @@
 # simulation_service.py
+import os
 import json
 from pathlib import Path
 from datetime import datetime
@@ -51,6 +52,14 @@ class SimulationService:
 
         exam_code = questions_data.get("exam_code", "Unknown Exam")
         questions = questions_data.get("questions", [])
+        
+        # Filter questions based on demo mode if applicable
+        demo_mode = os.getenv("DEMO_MODE", "false").lower() == "true"
+        if demo_mode:
+            original_count = len(questions)
+            questions = [q for q in questions if q.get('type') == 'yes_no']
+            if len(questions) < original_count:
+                print(f"Note: Demo mode filtered out {original_count - len(questions)} qualitative questions.")
 
         if not questions:
             print(f"No questions found in '{questions_source_file}' for exam {exam_code}.")
