@@ -54,7 +54,7 @@ def main():
     # Display demo mode status
     demo_mode = os.getenv("DEMO_MODE", "false").lower() == "true"
     mode_text = "DEMO MODE" if demo_mode else "LIVE MODE"
-    print(f"\n=== Welcome to Avanade's Azure Certification Coach (Neuropath) [{mode_text}] ===")
+    print(f"\n=== Welcome to Avanade's Azure Certification Buddy (Neuropath) [{mode_text}] ===")
         
     files_dir = Path("files")
     files_dir.mkdir(parents=True, exist_ok=True)
