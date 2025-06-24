@@ -1,0 +1,94 @@
+{
+  "exam_code": "AZ-900",
+  "questions": [
+    {
+      "type": "yes_no",
+      "skill_area": "Describe cloud concepts",
+      "question": "Is high capital expenditure (CapEx) a typical advantage of cloud computing?",
+      "expected_answer": "No"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe cloud concepts",
+      "question": "Does a public cloud deployment provide resources exclusively for one organization?",
+      "expected_answer": "No"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe cloud concepts",
+      "question": "In PaaS, is the user responsible for the application and data only?",
+      "expected_answer": "Yes"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe cloud concepts",
+      "question": "Does elasticity mean resources automatically scale up and down as needed?",
+      "expected_answer": "Yes"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe cloud concepts",
+      "question": "Is Azure Stack an example of private cloud technology?",
+      "expected_answer": "Yes"
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe cloud concepts",
+      "question": "Compare the main differences between IaaS, PaaS, and SaaS in terms of user responsibilities.",
+      "purpose": "Test understanding of cloud service models and their shared responsibility.",
+      "scoring_criteria": [
+        "Correctly defines IaaS, PaaS, SaaS",
+        "Explains what users manage in each model",
+        "Explains what the provider manages in each model",
+        "Gives at least one example per model"
+      ]
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe cloud concepts",
+      "question": "List and describe three financial benefits of cloud computing compared to traditional on-premises IT.",
+      "purpose": "Assess knowledge of cloud financial advantages.",
+      "scoring_criteria": [
+        "Mentions no upfront capital expense",
+        "Mentions pay-as-you-go/operational expense model",
+        "Mentions reduced IT maintenance/management costs",
+        "Provides clear descriptions"
+      ]
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe cloud concepts",
+      "question": "Explain what is meant by 'shared responsibility model' in cloud computing.",
+      "purpose": "Assess understanding of the division of responsibilities between cloud providers and customers.",
+      "scoring_criteria": [
+        "Defines shared responsibility model",
+        "Distinguishes between provider and customer responsibilities",
+        "Mentions data security as a customer responsibility",
+        "Provides a relevant example"
+      ]
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe cloud concepts",
+      "question": "Describe two scenarios where a hybrid cloud deployment is advantageous.",
+      "purpose": "Test ability to identify when hybrid cloud is beneficial.",
+      "scoring_criteria": [
+        "Provides two different hybrid cloud scenarios",
+        "Explains the benefit in each scenario",
+        "Relates answer to business or compliance needs"
+      ]
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe cloud concepts",
+      "question": "What is the main difference between scalability and elasticity in cloud computing?",
+      "purpose": "Test understanding of key cloud characteristics.",
+      "scoring_criteria": [
+        "Defines scalability",
+        "Defines elasticity",
+        "Highlights the difference",
+        "Gives example for each"
+      ]
+    }
+  ]
+}
