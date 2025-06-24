@@ -93,14 +93,7 @@ class ExamDataLoader:
     def get_structured_exam_content(self, exam_codes=None):
         """
         Returns structured exam content (skill areas and subtopics) as a list of dictionaries.
-        This is suitable for generating flashcards directly from the exam data.
-
-        Args:
-            exam_codes (list): A list of exam codes to filter the content.
-                                If None, all exams in the loaded data will be included.
-        Returns:
-            list: A list of dictionaries, where each dict represents a concept for flashcards.
-                  Each dict has 'question' and 'answer' keys.
+        Updated to handle both legacy (string) and new (object) detail formats.
         """
         structured_content = []
         
@@ -121,19 +114,38 @@ class ExamDataLoader:
 
                 # Add the main skill area as a flashcard
                 if skill_area:
+                    # Extract subtopic names for overview
+                    subtopic_names = []
+                    for s in subtopics:
+                        if isinstance(s, dict):
+                            subtopic_names.append(s.get('topic', 'Unknown'))
+                        else:
+                            subtopic_names.append(str(s))
+                    
                     structured_content.append({
                         "question": f"What is '{skill_area}' in Azure?",
-                        "answer": f"This skill area covers: {', '.join([s.get('topic', s) if isinstance(s, dict) else s for s in subtopics])}"
+                        "answer": f"This skill area covers: {', '.join(subtopic_names)}"
                     })
 
                 for sub_item in subtopics:
                     if isinstance(sub_item, dict):
                         topic_name = sub_item.get("topic", "N/A")
                         details_list = sub_item.get("details", [])
+                        
                         if topic_name != "N/A":
+                            # Handle both string and object detail formats
+                            detail_descriptions = []
+                            for detail in details_list:
+                                if isinstance(detail, dict):
+                                    # New format - extract description
+                                    detail_descriptions.append(detail.get("description", ""))
+                                else:
+                                    # Legacy format - use as string
+                                    detail_descriptions.append(str(detail))
+                            
                             structured_content.append({
                                 "question": f"Explain '{topic_name}' in Azure.",
-                                "answer": "\n".join(details_list) if details_list else "No specific details provided."
+                                "answer": "\n".join(detail_descriptions) if detail_descriptions else "No specific details provided."
                             })
                     elif isinstance(sub_item, str):
                         # For simple string subtopics, use them as questions
