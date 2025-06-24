@@ -4,62 +4,41 @@
     {
       "type": "yes_no",
       "skill_area": "Describe Artificial Intelligence workloads and considerations",
-      "question": "Is anomaly detection considered a type of machine learning workload that focuses on identifying outliers or suspicious patterns in data?",
+      "question": "Is anomaly detection primarily used to find outliers or unusual patterns within a dataset?",
       "expected_answer": "Yes",
       "purpose": "Binary Assessment"
     },
     {
       "type": "yes_no",
       "skill_area": "Describe fundamental principles of machine learning on Azure",
-      "question": "Does supervised learning require labeled data for training machine learning models?",
-      "expected_answer": "Yes",
-      "purpose": "Binary Assessment"
-    },
-    {
-      "type": "yes_no",
-      "skill_area": "Describe Azure Machine Learning capabilities",
-      "question": "Is Azure Machine Learning Designer a code-only interface for building and deploying machine learning models?",
-      "expected_answer": "No",
-      "purpose": "Binary Assessment"
-    },
-    {
-      "type": "yes_no",
-      "skill_area": "Describe features of computer vision workloads on Azure",
-      "question": "Can Azure AI Face service be used for detecting emotions in images?",
-      "expected_answer": "Yes",
-      "purpose": "Binary Assessment"
-    },
-    {
-      "type": "yes_no",
-      "skill_area": "Describe features of generative AI workloads on Azure",
-      "question": "Is tokenization the process of extracting high-level features from images in computer vision tasks?",
+      "question": "Can supervised learning be performed without labeled data?",
       "expected_answer": "No",
       "purpose": "Binary Assessment"
     },
     {
       "type": "qualitative",
-      "skill_area": "Describe guiding principles for responsible AI",
-      "question": "Describe the principle of 'Fairness' in responsible AI and provide an example of how it can be implemented in an Azure-based AI solution.",
+      "skill_area": "Describe features of computer vision workloads on Azure",
+      "question": "Describe the differences between image classification and object detection in computer vision solutions, and provide a practical example for each.",
       "purpose": "Scaled Assessment",
       "scoring_criteria": [
-        "Defines 'Fairness' in AI context.",
-        "Explains the importance of mitigating bias.",
-        "Mentions the need to treat all users or data groups equitably.",
-        "Provides a relevant Azure-based scenario (e.g., using fairness metrics in Azure ML).",
-        "Includes an example of a practical step, such as bias detection or dataset balancing."
+        "Define image classification and its goal.",
+        "Define object detection and its goal.",
+        "Explain that classification assigns a single label to an entire image.",
+        "Explain that detection locates and labels multiple objects within an image.",
+        "Provide a real-world example for both image classification and object detection."
       ]
     },
     {
       "type": "qualitative",
       "skill_area": "Describe features of generative AI workloads on Azure",
-      "question": "Explain how Azure OpenAI Service enables developers to build generative AI solutions, and discuss the importance of prompt engineering in achieving accurate results.",
+      "question": "Explain the role of tokenization and embeddings in large language models (LLMs) and why they are essential for understanding and generating human language.",
       "purpose": "Scaled Assessment",
       "scoring_criteria": [
-        "Describes Azure OpenAI Service's role in deploying/managing LLMs.",
-        "Mentions available models (e.g., GPT-4, DALL-E) and their use cases.",
-        "Explains how developers interact with models (prompts, completions).",
-        "Discusses the concept of prompt engineering.",
-        "Explains why clear and contextual prompts are critical for output quality."
+        "Define tokenization and its function in processing text.",
+        "Describe how embeddings represent tokens as numeric vectors.",
+        "Explain why numeric representations enable mathematical processing of language.",
+        "Discuss how embeddings capture semantic similarity between words.",
+        "Highlight the importance of both concepts for LLMs to understand and generate text."
       ]
     }
   ]

@@ -1,11 +1,14 @@
 import os
+from dotenv import load_dotenv
 
 from flask import Flask, jsonify
+from flask_cors import CORS
 
 from services.question_service import QuestionService
 from services.exam_data_loader import ExamDataLoader
 from services.azure_ai_client import AzureAIClient
 
+load_dotenv()
 exam_data_loader = ExamDataLoader(json_file_path=os.getenv("EXAM_DATA_JSON_PATH"))
 ai_client = AzureAIClient(
     endpoint_text_audio_whisper=os.getenv("AZURE_OPENAI_ENDPOINT_TEXT_AUDIO_WHISPER"),
@@ -18,12 +21,13 @@ ai_client = AzureAIClient(
     deployment_audio=os.getenv("AZURE_OPENAI_DEPLOYMENT_AUDIO"),
     deployment_whisper=os.getenv("AZURE_OPENAI_DEPLOYMENT_WHISPER")
 )
-    
+
 question_service = QuestionService(exam_data_loader, ai_client)
 
 app = Flask(__name__)
+CORS(app)
 
-@app.route("/api/questions/<exam>/<yesno>/<qualitative>")
+@app.route("/api/questions/<examCode>/<yesNoQuestions>/<qualitativeQuestions>")
 def questions(examCode, yesNoQuestions, qualitativeQuestions):
     questions = question_service.generate_diagnostic_questions(examCode, yesNoQuestions, qualitativeQuestions)
     return jsonify(questions), 200
