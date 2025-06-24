@@ -9,11 +9,6 @@ from services.azure_ai_client import AzureAIClient
 from services.question_service import QuestionService
 from services.simulation_web_service import SimulationWebService
 from services.feedback_web_service import FeedbackWebService
-# from services.feedback_service import FeedbackService
-# from services.flashcard_export_service import FlashcardExportService
-# from services.concept_extractor import ConceptExtractor
-# from services.image_generation_service import ImageGenerationService
-# from services.podcast_generation_service import PodcastGenerationService
 
 st.set_page_config(
     page_title="Azure Certification Buddy",
@@ -86,7 +81,14 @@ def generate_diagnostic_questions_page():
 
             # Input for number of questions with validation
             num_yes_no = st.number_input("Number of Yes/No questions:", min_value=1, max_value=100, value=30, step=1)
-            num_qualitative = st.number_input("Number of Qualitative questions:", min_value=1, max_value=100, value=30, step=1)
+            
+            # Check demo mode for qualitative questions
+            demo_mode = os.getenv("DEMO_MODE", "false").lower() == "true"
+            if demo_mode:
+                num_qualitative = 0
+                st.info("Demo mode only supports Yes/No questions. Qualitative questions disabled.")
+            else:
+                num_qualitative = st.number_input("Number of Qualitative questions:", min_value=1, max_value=100, value=30, step=1)
 
             if st.button("Generate Questions"):
                 if not selected_exam:
@@ -107,6 +109,9 @@ def generate_diagnostic_questions_page():
 def conduct_simulation_page():
     st.header("Conduct Simulation", anchor=False)
     
+    # Check demo mode
+    demo_mode = os.getenv("DEMO_MODE", "false").lower() == "true"
+    
     # Initializes the service (use session_state for persistence)
     if 'simulation_service' not in st.session_state:
         st.session_state.simulation_service = SimulationWebService()
@@ -118,49 +123,132 @@ def conduct_simulation_page():
         st.session_state.simulation_loaded = False
     
     if not st.session_state.simulation_loaded:
-        question_files = sim_service.get_available_question_files()
         
-        if not question_files:
-            st.warning("No question files found. Please generate questions first.")
-            return
-        
-        file_mapping = {}
-        for file in question_files:
-            if file.name.startswith("questions_") and file.name.endswith(".json"):
-                exam_code = file.name.replace("questions_", "").replace(".json", "")
+        # Special handling for demo mode
+        if demo_mode:
+            st.info("Demo mode: Using curated yes/no questions from fundamentals exam content.")
+            
+            available_exams = exam_data_loader.get_available_exams()
+            fundamentals_exams = [(code, name) for code, name in available_exams 
+                                if code in ["AZ-900", "AI-900", "DP-900"]]
+            
+            if not fundamentals_exams:
+                st.warning("No fundamentals exam data available.")
+                return
+            
+            exam_options = {f"{code} - {name}": code for code, name in fundamentals_exams}
+            selected_exam = st.selectbox(
+                "Select an Azure Fundamentals Certification:",
+                list(exam_options.keys()),
+                help="Demo mode uses curated yes/no questions only"
+            )
+            
+            num_questions = st.number_input(
+                "Number of questions for simulation:", 
+                min_value=1, 
+                max_value=15, # lower max value 
+                value=5, 
+                step=1
+            )
+            
+            if st.button("🚀 Load Questions", type="primary"):
+                selected_exam_code = exam_options[selected_exam]
                 
-                exam_descriptions = {
-                    "AI-900": "AI-900 - Azure AI Fundamentals",
-                    "AZ-900": "AZ-900 - Azure Fundamentals", 
-                    "DP-900": "DP-900 - Azure Data Fundamentals",
-                    "AZ-104": "AZ-104 - Azure Administrator Associate",
-                    "AZ-204": "AZ-204 - Azure Developer Associate",
-                    "AZ-305": "AZ-305 - Azure Solutions Architect Expert"
+                # Check if exam exists in content data
+                if selected_exam_code not in exam_data_loader.df.index:
+                    st.error(f"Exam {selected_exam_code} not found in content data.")
+                    return
+                
+                # Extract existing yes/no questions from content structure
+                demo_questions = []
+                exam_data = exam_data_loader.df.loc[selected_exam_code].to_dict()
+                
+                for skill_area in exam_data["skills_measured"]:
+                    for subtopic in skill_area["subtopics"]:
+                        for detail in subtopic.get("details", []):
+                            if isinstance(detail, dict) and detail.get("question_text") and detail.get("expected_answer"):
+                                # Only include if it's already a yes/no question
+                                if detail.get("expected_answer") in ["Yes", "No"]:
+                                    demo_questions.append({
+                                        "type": "yes_no",
+                                        "skill_area": skill_area["skill_area"],
+                                        "question": detail["question_text"],
+                                        "expected_answer": detail["expected_answer"]
+                                    })
+                
+                if not demo_questions:
+                    st.warning(f"No yes/no questions found in {selected_exam_code} content.")
+                    return
+                
+                # Create demo question data structure
+                demo_question_data = {
+                    "exam_code": selected_exam_code,
+                    "questions": demo_questions[:num_questions]  # Use user input
                 }
                 
-                friendly_name = exam_descriptions.get(exam_code, f"{exam_code} - Azure Certification")
-                file_mapping[friendly_name] = file
-            else:
-                file_mapping[file.name] = file
+                # Save temp file and load into simulation service
+                temp_file = Path('files') / f"demo_{selected_exam_code}.json"
+                with open(temp_file, 'w', encoding='utf-8') as f:
+                    json.dump(demo_question_data, f, indent=2)
+                
+                success, message = sim_service.load_questions(temp_file)
+                
+                # Clean up temp file
+                if temp_file.exists():
+                    temp_file.unlink()
+                
+                if success:
+                    st.success(f"Loaded {len(demo_questions[:num_questions])} demo questions for {selected_exam_code}")
+                    st.session_state.simulation_loaded = True
+                    st.rerun()
+                else:
+                    st.error(message)
         
-        selected_friendly_name = st.selectbox(
-            "Available Exams Question Files:", 
-            list(file_mapping.keys()),
-            help="Select an exam to load questions for simulation"
-        )
-        
-        selected_file = file_mapping[selected_friendly_name]
-        st.info(f"📁 Selected file: `{selected_file.name}`")
-        
-        if st.button("🚀 Load Questions", type="primary"):
-            success, message = sim_service.load_questions(selected_file)
+        # Normal mode: Use generated question files
+        else:
+            question_files = sim_service.get_available_question_files()
             
-            if success:
-                st.success(message)
-                st.session_state.simulation_loaded = True
-                st.rerun()
-            else:
-                st.error(message)
+            if not question_files:
+                st.warning("No question files found. Please generate questions first.")
+                return
+            
+            file_mapping = {}
+            for file in question_files:
+                if file.name.startswith("questions_") and file.name.endswith(".json"):
+                    exam_code = file.name.replace("questions_", "").replace(".json", "")
+                    
+                    exam_descriptions = {
+                        "AI-900": "AI-900 - Azure AI Fundamentals",
+                        "AZ-900": "AZ-900 - Azure Fundamentals", 
+                        "DP-900": "DP-900 - Azure Data Fundamentals",
+                        "AZ-104": "AZ-104 - Azure Administrator Associate",
+                        "AZ-204": "AZ-204 - Azure Developer Associate",
+                        "AZ-305": "AZ-305 - Azure Solutions Architect Expert"
+                    }
+                    
+                    friendly_name = exam_descriptions.get(exam_code, f"{exam_code} - Azure Certification")
+                    file_mapping[friendly_name] = file
+                else:
+                    file_mapping[file.name] = file
+            
+            selected_friendly_name = st.selectbox(
+                "Available Exams Question Files:", 
+                list(file_mapping.keys()),
+                help="Select an exam to load questions for simulation"
+            )
+            
+            selected_file = file_mapping[selected_friendly_name]
+            st.info(f"📁 Selected file: `{selected_file.name}`")
+            
+            if st.button("🚀 Load Questions", type="primary"):
+                success, message = sim_service.load_questions(selected_file)
+                
+                if success:
+                    st.success(message)
+                    st.session_state.simulation_loaded = True
+                    st.rerun()
+                else:
+                    st.error(message)
     
     # Step 2: Conducting the simulation
     else:
