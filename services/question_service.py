@@ -67,6 +67,8 @@ class QuestionService:
                 json.dump(questions_data, f, indent=2)
             print(f"Successfully generated and saved questions to {output_file}")
 
+            return questions_data
+
         except json.JSONDecodeError as e:
             print(f"Error decoding JSON from API response during question generation: {e}")
             print(f"Raw response content: {response_content}")
