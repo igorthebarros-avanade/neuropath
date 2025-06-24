@@ -8,7 +8,8 @@ from services.exam_data_loader import ExamDataLoader
 from services.azure_ai_client import AzureAIClient
 from services.question_service import QuestionService
 from services.simulation_web_service import SimulationWebService
-from services.feedback_service import FeedbackService
+from services.feedback_web_service import FeedbackWebService
+# from services.feedback_service import FeedbackService
 # from services.flashcard_export_service import FlashcardExportService
 # from services.concept_extractor import ConceptExtractor
 # from services.image_generation_service import ImageGenerationService
@@ -21,8 +22,6 @@ st.set_page_config(
 )
 
 # --- Initial Setup and Service Loading ---
-
-@st.cache_resource
 def initialize_services():
 
     load_dotenv()
@@ -359,11 +358,8 @@ def feedback_and_reinforcement_page():
                 # Extracts exam code from the file name
                 exam_code_for_feedback = selected_result_file_path.stem.split('_')[0]
 
-                feedback_service = FeedbackService(ai_client)
-
-                with st.spinner(f"Providing feedback and new questions for {exam_code_for_feedback}..."):
-                    feedback_service.provide_feedback_and_new_questions(exam_code_for_feedback)
-                st.success(f"Feedback and new questions provided for {exam_code_for_feedback} successfully!")
+                feedback_web_service = FeedbackWebService(ai_client)
+                feedback_web_service.write_feedback_and_new_questions(exam_code_for_feedback)
         else:
             st.error("No simulation results found in the 'files' folder. Please conduct a simulation first.")
     except Exception as e:
