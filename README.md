@@ -12,9 +12,30 @@ An MVP AI-powered application designed to assist students preparing for IT certi
 
 ## 🔧 Step-by-Step Setup
 
-### 0. Create an Azure AI Foundry Resource
+### 0. Install Python 3.11+
 
-Before cloning and running the application, configure an Azure AI Foundry resource.
+**Check current version:**
+```bash
+python --version
+```
+
+**If Python < 3.11, install:**
+
+**Windows:**
+Download from [python.org/downloads](https://www.python.org/downloads/) (select version 3.11 or higher)
+
+**Linux/WSL:**
+```bash
+sudo apt update
+sudo apt install python3.11 python3.11-pip python3.11-venv
+```
+
+**macOS:**
+```bash
+brew install python@3.11
+```
+
+### 1. Create an Azure AI Foundry Resource
 
 **Have Azure access?**
 - ✅ Yes: Go to https://portal.azure.com/
@@ -28,16 +49,14 @@ Before cloning and running the application, configure an Azure AI Foundry resour
 6. Deploy new base model (gpt-4o or gpt-4)
 7. Copy the endpoint's **API key** and **Target URI**
 
----
-
-### 1. Clone the Repository
+### 2. Clone the Repository
 
 ```bash
 git clone https://github.com/igorthebarros-avanade/neuropath.git
 cd neuropath
 ```
 
-### 2. Install Poetry
+### 3. Install Poetry
 
 **Linux/WSL:**
 ```bash
@@ -54,29 +73,24 @@ Restart your terminal and verify installation:
 poetry --version
 ```
 
-#### 📦 Poetry Commands Reference
-- **Activate environment**: `poetry env activate`
-- **Add package**: `poetry add package_name`
-- **Install dependencies**: `poetry install`
-- **Update dependencies**: `poetry update`
-- **Show dependencies**: `poetry show`
-- **Exit environment**: `exit` or `deactivate`
-- **[Poetry's official documentaiton guide](https://python-poetry.org/docs/basic-usage/)**
+### 4. Install Dependencies
 
-### 3. Install Dependencies
-
-Create virtual environment and install packages:
 ```bash
 poetry install
 ```
 
-If `pyproject.toml` doesn't exist yet, initialize Poetry and add dependencies:
+If `pyproject.toml` doesn't exist, initialize Poetry:
 ```bash
 poetry init
-poetry add streamlit openai python-dotenv pandas pathlib tenacity tabulate # Example in-line specification of multiple modules
+poetry add streamlit openai python-dotenv pandas tenacity tabulate
 ```
 
-### 4. Configure Environment
+If it does, then simply load it:
+```bash
+poetry env activate # Will automatically use more up to date version of packages
+```
+
+### 5. Configure Environment
 
 Create `.env` file in project root:
 ```bash
@@ -84,7 +98,7 @@ cp .env.example .env  # If example exists, otherwise create manually
 ```
 
 Add your Azure credentials to `.env`:
-```
+```env
 AZURE_OPENAI_ENDPOINT_TEXT_AUDIO_WHISPER=your_target_uri_here
 AZURE_OPENAI_API_KEY_TEXT_AUDIO_WHISPER=your_api_key_here
 AZURE_OPENAI_API_VERSION=2024-02-01
@@ -92,19 +106,37 @@ AZURE_OPENAI_DEPLOYMENT_TEXT=your_deployment_name
 EXAM_DATA_JSON_PATH=./content/content_updated.json
 ```
 
-### 5. Run the Application
+### 6. Run the Application
 
-Activate Poetry environment and run:
+**CLI Interface:**
 ```bash
-poetry env activate
-poetry run python main.py
+poetry shell
+python main.py
 ```
 
-Alternatively, run without activating shell:
+**Streamlit Interface:**
+```bash
+poetry shell
+streamlit run app.py
+```
+
+**Or run without activating shell:**
 ```bash
 poetry run python main.py
+poetry run streamlit run app.py
 ```
 
 ---
+
+## 📦 Poetry Commands Reference
+
+- **Activate environment**: `poetry env activate`
+- **Add package**: `poetry add package_name`
+- **Install dependencies**: `poetry install`
+- **Update dependencies**: `poetry update`
+- **Show dependencies**: `poetry show`
+- **Exit environment**: `exit`
+
+📖 [Poetry Documentation](https://python-poetry.org/docs/basic-usage/)
 
 🚀 **You're ready to go!**
