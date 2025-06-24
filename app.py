@@ -8,22 +8,7 @@ from services.exam_data_loader import ExamDataLoader
 from services.azure_ai_client import AzureAIClient
 from services.question_service import QuestionService
 from services.simulation_web_service import SimulationWebService
-from services.feedback_service import FeedbackService
-<<<<<<< HEAD
 from services.feedback_web_service import FeedbackWebService
-<<<<<<< HEAD
-from services.flashcard_export_service import FlashcardExportService
-from services.concept_extractor import ConceptExtractor
-from services.image_generation_service import ImageGenerationService
-from services.podcast_generation_service import PodcastGenerationService
-=======
-# from services.flashcard_export_service import FlashcardExportService
-# from services.concept_extractor import ConceptExtractor
-# from services.image_generation_service import ImageGenerationService
-# from services.podcast_generation_service import PodcastGenerationService
->>>>>>> 95f5716 (feat: enabling caching in app)
-=======
->>>>>>> 852caf2 (Updated streamlit app to properly handle demo mode with minimal impact)
 
 st.set_page_config(
     page_title="Azure Certification Buddy",
@@ -31,27 +16,10 @@ st.set_page_config(
     layout="centered"
 )
 
-<<<<<<< HEAD
-demo_mode = os.getenv("DEMO_MODE", "false").lower() == "true"
-
-st.title("Hello, traveler!")
-=======
 # --- Initial Setup and Service Loading ---
-<<<<<<< HEAD
-st.set_page_config(
-    page_title="Azure Certification Buddy",
-    page_icon="💡",
-    layout="centered"
-)
-
-=======
-
-@st.cache_resource
->>>>>>> 95f5716 (feat: enabling caching in app)
 def initialize_services():
 
     load_dotenv()
->>>>>>> fc3812e (feat: conduct simulation page and refactor on the rendering of the application.)
 
     try:
         exam_data_path = os.getenv("EXAM_DATA_JSON_PATH")
@@ -97,59 +65,11 @@ def home_page():
     """Displays the home page of the application."""
     st.write("Welcome to Avanade's Azure Buddy. Use the navigation menu to select an option.")
     image_path = Path(__file__).parent / 'utils' / 'assets' / 'avanade_buddy.png'
-<<<<<<< HEAD
-    st.image(image_path, caption="Azure Certification Coach", use_container_width=True)
-
-elif menu == "Generate Diagnostic Questions":
-    available_exams = exam_data_loader.get_available_exams()
-    if available_exams:
-        exam_options = {f"{code} - {name}": code for code, name in available_exams}
-        selected_exam = st.selectbox("Select an Azure Certification Exam:", list(exam_options.keys()))
-        num_yes_no = st.number_input("Number of Yes/No questions:", min_value=1, value=30)
-
-        # Added check for demo mode - this will disable qualitative questions (if any)
-        if demo_mode:
-            num_qualitative = 0
-            # st.info("Demo mode only supports Yes/No questions. Qualitative questions disabled.") # Optional info message (off by default)
-        else:
-            num_qualitative = st.number_input("Number of Qualitative questions:", min_value=1, value=30)
-        
-        if st.button("Generate Questions"):
-            selected_exam_code = exam_options[selected_exam]
-            question_service = QuestionService(exam_data_loader, ai_client)
-            question_service.generate_diagnostic_questions(selected_exam_code, num_yes_no, num_qualitative)
-            st.success(f"Generated {num_yes_no + num_qualitative} questions for {selected_exam_code}.")
-=======
     if image_path.exists():
         st.image(str(image_path), caption="Azure Certification Coach", use_container_width=True)
->>>>>>> fc3812e (feat: conduct simulation page and refactor on the rendering of the application.)
     else:
         st.warning(f"Image not found at: {image_path}. Please check the path.")
 
-<<<<<<< HEAD
-elif menu == "Conduct Simulation":
-    
-    # # Optional info message (off by default)
-    # if demo_mode:
-        # st.warning("Simulation is only available in the console version (main.py). Please use the command line interface for interactive simulations.")
-
-    simulation_service = SimulationService()
-    simulation_service.conduct_simulation()
-    st.success("Simulation conducted successfully.")
-
-elif menu == "Feedback and Reinforcement":
-    result_files = list(Path('files').glob('*_results.json'))
-    if result_files:
-        result_file = st.selectbox("Select a results file to analyze:", [file.name for file in result_files])
-        if st.button("Analyze Results"):
-            selected_result_file_path = Path('files') / result_file
-            exam_code_for_feedback = selected_result_file_path.stem.split('_')[0]
-            feedback_service = FeedbackService(ai_client)
-            feedback_service.provide_feedback_and_new_questions(exam_code_for_feedback)
-            
-            feedback_web_service = FeedbackWebService(ai_client)
-            feedback_web_service.write_feedback_and_new_questions(exam_code_for_feedback)
-=======
 def generate_diagnostic_questions_page():
     """Logic for the Diagnostic Question Generation page."""
     st.header("Generate Diagnostic Questions")
@@ -331,7 +251,6 @@ def conduct_simulation_page():
                     st.error(message)
     
     # Step 2: Conducting the simulation
->>>>>>> fc3812e (feat: conduct simulation page and refactor on the rendering of the application.)
     else:
         progress = sim_service.get_simulation_progress()
         
@@ -527,11 +446,8 @@ def feedback_and_reinforcement_page():
                 # Extracts exam code from the file name
                 exam_code_for_feedback = selected_result_file_path.stem.split('_')[0]
 
-                feedback_service = FeedbackService(ai_client)
-
-                with st.spinner(f"Providing feedback and new questions for {exam_code_for_feedback}..."):
-                    feedback_service.provide_feedback_and_new_questions(exam_code_for_feedback)
-                st.success(f"Feedback and new questions provided for {exam_code_for_feedback} successfully!")
+                feedback_web_service = FeedbackWebService(ai_client)
+                feedback_web_service.write_feedback_and_new_questions(exam_code_for_feedback)
         else:
             st.error("No simulation results found in the 'files' folder. Please conduct a simulation first.")
     except Exception as e:
