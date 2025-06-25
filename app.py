@@ -3,6 +3,8 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 import json
+import pandas as pd
+import altair as alt
 
 from services.exam_data_loader import ExamDataLoader
 from services.azure_ai_client import AzureAIClient
@@ -428,29 +430,163 @@ def conduct_simulation_page():
                             st.session_state.results_saved = False  
                             st.rerun()
 
-def feedback_and_reinforcement_page():
-    """Logic for the Feedback and Reinforcement page."""
-    st.header("Feedback and Reinforcement")
+def feedback_page():
+    """Feedback dashboard with interactive charts and improved UX."""
+    st.header("Feedback")
     try:
         result_files = list(Path('files').glob('*_results.json'))
-        if result_files:
-            # Ensures file names are readable and selectable
-            display_files = {file.name: file for file in result_files}
-            selected_result_name = st.selectbox("Select a results file to analyze:", list(display_files.keys()))
-
-            if st.button("Analyze Results"):
-                if not selected_result_name:
-                    st.warning("Please select a results file.")
-                    return
-
-                selected_result_file_path = display_files[selected_result_name]
-                # Extracts exam code from the file name
-                exam_code_for_feedback = selected_result_file_path.stem.split('_')[0]
-
-                feedback_web_service = FeedbackWebService(ai_client)
-                feedback_web_service.write_feedback_and_new_questions(exam_code_for_feedback)
-        else:
+        if not result_files:
             st.error("No simulation results found in the 'files' folder. Please conduct a simulation first.")
+            return
+
+        display_files = {file.name: file for file in result_files}
+        selected_result_name = st.selectbox("Select a results file to analyze:", list(display_files.keys()))
+        selected_exam_code = selected_result_name.split("_results.json")[0]
+
+        if st.button("Analyze Results"):
+            # Use the FeedbackWebService to get feedback data
+            feedback_service = FeedbackWebService(ai_client)
+            # The function will return the analysis data (dict) instead of rendering directly
+            analysis_data = feedback_service.get_feedback_data(selected_exam_code)
+
+            if not analysis_data:
+                st.error("No feedback data available.")
+                return
+
+            # --- Layout: Use columns for a clean dashboard ---
+            with st.container():
+                st.subheader("Performance by Exam Category")
+                perf_data = analysis_data.get("performance_by_category", [])
+                if perf_data:
+                    perf_df = pd.DataFrame(perf_data)
+                    # Convert score to numeric for charting
+                    perf_df["average_score_percent"] = perf_df["average_score_percent"].astype(float)
+                    # Bar chart with Altair for better customization
+                    bar_chart = alt.Chart(perf_df).mark_bar(size=35, cornerRadiusTopLeft=8, cornerRadiusTopRight=8).encode(
+                        x=alt.X("average_score_percent:Q", title="Average Score (%)", scale=alt.Scale(domain=[0, 100])),
+                        y=alt.Y("skill_area:N", title="Skill Area", sort='-x'),
+                        color=alt.Color("average_score_percent:Q", scale=alt.Scale(scheme='blues'), legend=None),
+                        tooltip=["skill_area", "average_score_percent"]
+                    ).properties(height=300)
+                    st.altair_chart(bar_chart, use_container_width=True)
+                else:
+                    st.info("No category performance data available.")
+
+            st.markdown("---")
+
+            with st.container():
+                st.subheader("Detailed Question Review")
+                scored_questions = analysis_data.get("scored_questions", [])
+                if scored_questions:
+                    q_df = pd.DataFrame(scored_questions)
+                    
+                    # Fix: handle both numeric and percentage string values for score
+                    def parse_score(val):
+                        if isinstance(val, str) and val.strip().endswith('%'):
+                            try:
+                                return float(val.strip().replace('%', ''))
+                            except Exception:
+                                return 0.0
+                        try:
+                            return float(val)
+                        except Exception:
+                            return 0.0
+                    q_df["score"] = q_df["score"].apply(parse_score)
+                    q_df["Correct"] = q_df["score"] > 0
+                    cards_per_row = 3
+                    card_min_height = 220  # px, adjust as needed
+                    # Add custom CSS for tooltip and icon
+                    st.markdown(
+                        '''<style>
+                        .card-tooltip-container { position: relative; display: flex; flex-direction: column; justify-content: space-between; height: ''' + str(card_min_height) + '''px; }
+                        .info-icon {
+                            position: absolute;
+                            right: 18px;
+                            bottom: 18px;
+                            width: 28px;
+                            height: 28px;
+                            background: #fff;
+                            border-radius: 50%;
+                            border: 2px solid #888;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 1.2em;
+                            color: #388e3c;
+                            cursor: pointer;
+                            box-shadow: 0 2px 8px #0001;
+                            z-index: 2;
+                        }
+                        .info-icon.incorrect { color: #c62828; border-color: #c62828; }
+                        .card-tooltip {
+                            visibility: hidden;
+                            opacity: 0;
+                            width: 320px;
+                            background: #fff;
+                            color: #222;
+                            text-align: left;
+                            border-radius: 8px;
+                            border: 1.5px solid #888;
+                            box-shadow: 0 4px 16px #0002;
+                            padding: 1em 1.2em 1em 1.2em;
+                            position: absolute;
+                            bottom: 38px;
+                            right: 0;
+                            z-index: 10;
+                            transition: opacity 0.2s;
+                        }
+                        .info-icon:hover + .card-tooltip, .info-icon:focus + .card-tooltip {
+                            visibility: visible;
+                            opacity: 1;
+                        }
+                        .card-tooltip strong { color: #222; }
+                        .card-tooltip .score {
+                            background: #f1f8e9;
+                            border-radius: 6px;
+                            padding: 0.4em 0.8em;
+                            margin: 0.5em 0 0.5em 0;
+                            display: inline-block;
+                            font-weight: bold;
+                        }
+                        .card-tooltip .notes {
+                            background: #fff3cd;
+                            border-radius: 6px;
+                            padding: 0.7em 1em;
+                            margin-top: 0.7em;
+                            margin-bottom: 0.2em;
+                            display: block;
+                        }
+                        </style>''', unsafe_allow_html=True
+                    )
+                    for i in range(0, len(q_df), cards_per_row):
+                        cols = st.columns(cards_per_row)
+                        for j, row in enumerate(q_df.iloc[i:i+cards_per_row].itertuples()):
+                            color = "#d0f5dd" if row.Correct else "#ffebee"
+                            border_color = "#388e3c" if row.Correct else "#c62828"
+                            icon_class = "info-icon" + (" incorrect" if not row.Correct else "")
+                            tooltip_html = f'''
+                                <div class="{icon_class}" tabindex="0" title="Show details">&#9432;</div>
+                                <div class="card-tooltip">
+                                    <div><strong>Type:</strong> {row.type}</div>
+                                    <div><strong>Your Answer:</strong> {row.user_answer}</div>
+                                    <div class="score">Score: {row.score}</div>
+                                    <div class="notes"><strong>Notes:</strong> {row.notes}</div>
+                                </div>
+                            '''
+
+                            with cols[j]:
+                                st.markdown(
+                                    f"""
+                                    <div class='card-tooltip-container' style='background-color:{color};border:2px solid {border_color};padding:1em 1em 0.5em 1em;border-radius:10px;margin-bottom:16px;box-shadow:0 2px 8px #0001;position:relative;'>
+                                        <div style='font-size:1.1em;font-weight:bold;margin-bottom:0.5em;'>Q{i+j+1}: {row.question}</div>
+                                        <div style='flex:1'></div>
+                                    </div>
+                                        {tooltip_html}
+                                    """, unsafe_allow_html=True
+                                )
+                else:
+                    st.info("No detailed question data available.")
+
     except Exception as e:
         st.error(f"Error processing feedback and reinforcement: {e}")
 
@@ -495,7 +631,7 @@ menu_options = {
     "Home": home_page,
     "Generate Diagnostic Questions": generate_diagnostic_questions_page,
     "Conduct Simulation": conduct_simulation_page,
-    "Feedback and Reinforcement": feedback_and_reinforcement_page,
+    "Feedback": feedback_page,
     "Ask a Question": ask_question_page,
     "Exit": exit_page,
 }
