@@ -142,4 +142,45 @@ Next up, Azure Blob Storage! If you've ever wondered where to put all your unstr
 
 Provide the plain text script for the concepts.
 """
-  
+
+# NEW: Prompt for generating detailed yes/no questions DEMO_MODE=true only (applicable only for Azure fundamentals)
+DEMO_DETAIL_QA_GENERATION_PROMPT = """
+Generate exactly {questions_count} yes/no questions for the Azure certification exam {exam_code}.
+
+SPECIFIC REQUIREMENTS:
+- All questions must be YES/NO type only
+- Focus specifically on this detail from the topic "{topic}" under skill area: "{skill_area}"
+- Base questions exclusively on the provided detail text
+- Questions should test specific facts mentioned in the detail
+- Each question must have a clear, unambiguous yes/no answer
+
+DETAIL TEXT TO BASE QUESTIONS ON:
+{detail_text}
+
+QUESTION CREATION GUIDELINES:
+- Extract specific facts, features, or characteristics from the detail text
+- Test understanding of key concepts mentioned
+- Avoid generic questions that could apply to other topics
+- Ensure questions are exam-appropriate for {exam_code} level
+- Create varied question formats (Does X do Y?, Is X a type of Y?, Can X be used for Y?)
+- Focus on concrete details rather than abstract concepts
+
+OUTPUT FORMAT (JSON):
+{{
+  "questions": [
+    {{
+      "question_text": "Does [specific factual question based on detail]?",
+      "expected_answer": "Yes|No"
+    }}
+  ]
+}}
+
+IMPORTANT:
+- Generate exactly {questions_count} questions, no more, no less
+- Each question must test something specific mentioned in the detail text
+- Ensure balanced mix of Yes and No answers
+- Questions should be precise and unambiguous
+- Do not reference other topics or details
+
+Return only valid JSON with the questions array.
+"""

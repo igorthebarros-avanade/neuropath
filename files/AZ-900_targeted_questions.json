@@ -4,101 +4,90 @@
     {
       "type": "yes_no",
       "skill_area": "Describe cloud concepts",
-      "question": "Does Azure allow you to overprovision resources with no additional cost?",
+      "question": "Is high capital expenditure (CapEx) a typical advantage of cloud computing?",
       "expected_answer": "No"
     },
     {
       "type": "yes_no",
       "skill_area": "Describe cloud concepts",
-      "question": "Is Platform as a Service (PaaS) responsible for automatic scaling of application resources?",
+      "question": "Does a public cloud deployment provide resources exclusively for one organization?",
+      "expected_answer": "No"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe cloud concepts",
+      "question": "In PaaS, is the user responsible for the application and data only?",
       "expected_answer": "Yes"
     },
     {
       "type": "yes_no",
       "skill_area": "Describe cloud concepts",
-      "question": "Can a public cloud deployment be hosted in a customer's own data center?",
-      "expected_answer": "No"
+      "question": "Does elasticity mean resources automatically scale up and down as needed?",
+      "expected_answer": "Yes"
     },
     {
       "type": "yes_no",
       "skill_area": "Describe cloud concepts",
-      "question": "Is elasticity in cloud computing the same as scalability?",
-      "expected_answer": "No"
-    },
-    {
-      "type": "yes_no",
-      "skill_area": "Describe cloud concepts",
-      "question": "Are cost predictability and global reach both benefits of cloud adoption?",
+      "question": "Is Azure Stack an example of private cloud technology?",
       "expected_answer": "Yes"
     },
     {
       "type": "qualitative",
       "skill_area": "Describe cloud concepts",
-      "question": "Explain the shared responsibility model in cloud computing and describe which aspects are managed by the customer versus the provider in different cloud service models.",
-      "purpose": "Assess understanding of security and management responsibilities in IaaS, PaaS, and SaaS.",
+      "question": "Compare the main differences between IaaS, PaaS, and SaaS in terms of user responsibilities.",
+      "purpose": "Test understanding of cloud service models and their shared responsibility.",
       "scoring_criteria": [
-        "Correctly describes the shared responsibility model concept",
-        "Identifies provider responsibilities in IaaS (e.g., physical security, host OS)",
-        "Identifies customer responsibilities in IaaS (e.g., data, applications)",
-        "Explains the shift of responsibility in PaaS and SaaS",
-        "Gives at least one example for each service model",
-        "Emphasizes the importance of understanding these boundaries"
+        "Correctly defines IaaS, PaaS, SaaS",
+        "Explains what users manage in each model",
+        "Explains what the provider manages in each model",
+        "Gives at least one example per model"
       ]
     },
     {
       "type": "qualitative",
       "skill_area": "Describe cloud concepts",
-      "question": "Compare private, public, and hybrid cloud deployment models, including their advantages and typical use cases.",
-      "purpose": "Test understanding of deployment models and when to use each.",
+      "question": "List and describe three financial benefits of cloud computing compared to traditional on-premises IT.",
+      "purpose": "Assess knowledge of cloud financial advantages.",
       "scoring_criteria": [
-        "Defines private, public, and hybrid cloud models accurately",
-        "Describes at least one advantage of each",
-        "Provides at least one use case for each model",
-        "Explains differences in control, security, and scalability",
-        "Mentions integration challenges or benefits for hybrid",
-        "Uses clear, concise language"
+        "Mentions no upfront capital expense",
+        "Mentions pay-as-you-go/operational expense model",
+        "Mentions reduced IT maintenance/management costs",
+        "Provides clear descriptions"
       ]
     },
     {
       "type": "qualitative",
       "skill_area": "Describe cloud concepts",
-      "question": "List and briefly explain three key benefits of cloud computing over traditional on-premises infrastructure.",
-      "purpose": "Evaluate the ability to articulate core business benefits.",
+      "question": "Explain what is meant by 'shared responsibility model' in cloud computing.",
+      "purpose": "Assess understanding of the division of responsibilities between cloud providers and customers.",
       "scoring_criteria": [
-        "Mentions cost savings or operational expenditure benefits",
-        "Mentions scalability or elasticity",
-        "Mentions global reach or high availability",
-        "Provides brief explanations for each benefit",
-        "Uses non-technical language suitable for business stakeholders",
-        "Avoids overlap or repetition"
+        "Defines shared responsibility model",
+        "Distinguishes between provider and customer responsibilities",
+        "Mentions data security as a customer responsibility",
+        "Provides a relevant example"
       ]
     },
     {
       "type": "qualitative",
       "skill_area": "Describe cloud concepts",
-      "question": "Describe the main characteristics that differentiate SaaS, PaaS, and IaaS.",
-      "purpose": "Check knowledge of service models and their characteristics.",
+      "question": "Describe two scenarios where a hybrid cloud deployment is advantageous.",
+      "purpose": "Test ability to identify when hybrid cloud is beneficial.",
       "scoring_criteria": [
-        "Defines SaaS, PaaS, and IaaS clearly",
-        "Explains who manages what in each model",
-        "Gives one example of each model",
-        "Describes at least one benefit per model",
-        "Highlights the level of user control in each",
-        "Uses accurate terminology"
+        "Provides two different hybrid cloud scenarios",
+        "Explains the benefit in each scenario",
+        "Relates answer to business or compliance needs"
       ]
     },
     {
       "type": "qualitative",
       "skill_area": "Describe cloud concepts",
-      "question": "Why is cloud elasticity important for businesses, and how does Azure provide this feature?",
-      "purpose": "Assess understanding of elasticity and its business value.",
+      "question": "What is the main difference between scalability and elasticity in cloud computing?",
+      "purpose": "Test understanding of key cloud characteristics.",
       "scoring_criteria": [
-        "Defines elasticity correctly",
-        "Explains its importance for handling variable workloads",
-        "Describes at least one Azure feature/service that enables elasticity",
-        "Links elasticity to cost optimization",
-        "Mentions automation or auto-scaling",
-        "Provides a business-oriented example"
+        "Defines scalability",
+        "Defines elasticity",
+        "Highlights the difference",
+        "Gives example for each"
       ]
     }
   ]
