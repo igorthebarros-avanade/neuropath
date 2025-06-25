@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
 
-from flask import Flask, jsonify
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 from services.question_service import QuestionService
@@ -31,6 +31,16 @@ CORS(app)
 def questions(examCode, yesNoQuestions, qualitativeQuestions):
     questions = question_service.generate_diagnostic_questions(examCode, yesNoQuestions, qualitativeQuestions)
     return jsonify(questions), 200
+
+@app.route("/api/ask", methods=["POST"])
+def ask():
+    body = request.get_json()
+    messages = [
+        {"role": "system", "content": "You are an expert on Microsoft Azure certification exams."},
+        {"role": "user", "content": body.get("question")}
+    ]
+    response = ai_client.call_chat_completion(messages=messages, max_tokens=4096, temperature=0.7)
+    return response, 200
 
 if __name__ == "__main__":
     app.run(debug=True)
