@@ -2309,7 +2309,7 @@
             "details": [
               "Azure Portal: A web-based, unified console for managing Azure subscriptions and resources through a graphical interface.",
               "Azure Cloud Shell: An interactive, authenticated, browser-accessible shell (Bash or PowerShell) for managing Azure resources.",
-              "Azure PowerShell: A command-line shell and scripting language (for Windows) with cmdlets for managing Azure resources.",
+              "Azure PowerShell: A command-line shell and scripting language, primarily developed for Windows, with cmdlets for managing Azure resources. Microsoft introduced Az PowerShell module and PowerShell is now cross-platform, because it runs on .Net Core and is available for macOS and Linux.", 
               "Azure CLI: A command-line interface (for Windows, Mac, Linux) for processing commands to Azure resources via text lines, allowing programmatic creation, update, and deletion.",
               "Azure Resource Manager (ARM) Templates: JSON files that define Azure resources and configurations for provisioning, acting as infrastructure as code (IaC) in a declarative way.",
               "Azure Bicep: A more productive way to write infrastructure as code for Azure, compiling down to ARM templates.",
