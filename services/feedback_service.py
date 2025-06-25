@@ -1,8 +1,10 @@
-# feedback_service.py
 import json
+import csv
 from pathlib import Path
+from datetime import datetime
+import pandas as pd
 
-from services.exam_data_loader import ExamDataLoader
+# from services.exam_data_loader import ExamDataLoader
 from services.azure_ai_client import AzureAIClient
 
 from prompts.prompts import *
@@ -12,18 +14,84 @@ from tabulate import tabulate
 class FeedbackService:
     def __init__(self, ai_client: AzureAIClient):
         self.ai_client = ai_client
-        self.files_dir = Path("files") # Define the files directory
+        self.files_dir = Path("files")
+        self.feedback_csv = self.files_dir / "consolidated_feedback.csv"
+
+    def _save_feedback_to_csv(self, analysis_data: dict, exam_code: str, timestamp: str):
+        """Save feedback data to consolidated CSV file."""
+        
+        def parse_score(score_value):
+            """Parse score value, handling both string percentages and numeric values."""
+            if isinstance(score_value, str):
+                # Remove % symbol and convert to float
+                return float(score_value.replace('%', '')) if score_value.replace('%', '').replace('.', '').isdigit() else 0
+            return float(score_value) if score_value is not None else 0
+        
+        # Prepare row data
+        overall_score = 0
+        total_questions = len(analysis_data.get("scored_questions", []))
+        
+        if total_questions > 0:
+            total_score = sum(parse_score(q.get("score", 0)) for q in analysis_data.get("scored_questions", []))
+            overall_score = total_score / total_questions
+        
+        # Skill area performance
+        skill_performance = {}
+        for perf in analysis_data.get("performance_by_category", []):
+            skill_area = perf.get("skill_area", "Unknown")
+            score = perf.get("average_score_percent", 0)
+            skill_performance[skill_area] = score
+        
+        # Base row data
+        row_data = {
+            "timestamp": timestamp,
+            "exam_code": exam_code,
+            "total_questions": total_questions,
+            "overall_score_percent": round(overall_score, 2),
+            "yes_no_questions": len([q for q in analysis_data.get("scored_questions", []) if q.get("type") == "yes_no"]),
+            "qualitative_questions": len([q for q in analysis_data.get("scored_questions", []) if q.get("type") == "qualitative"]),
+        }
+        
+        # Add skill area scores as separate columns
+        for skill_area, score in skill_performance.items():
+            # Clean skill area name for column header
+            clean_skill = skill_area.replace(" ", "_").replace("-", "_").lower()
+            row_data[f"skill_{clean_skill}_percent"] = score
+        
+        # Check if CSV exists and load existing data
+        df_existing = pd.DataFrame()
+        if self.feedback_csv.exists():
+            try:
+                df_existing = pd.read_csv(self.feedback_csv)
+            except Exception as e:
+                print(f"Warning: Could not read existing CSV: {e}")
+        
+        # Create new row DataFrame
+        df_new = pd.DataFrame([row_data])
+        
+        # Combine with existing data
+        if not df_existing.empty:
+            # Align columns
+            all_columns = set(df_existing.columns) | set(df_new.columns)
+            for col in all_columns:
+                if col not in df_existing.columns:
+                    df_existing[col] = None
+                if col not in df_new.columns:
+                    df_new[col] = None
+            
+            df_combined = pd.concat([df_existing, df_new], ignore_index=True)
+        else:
+            df_combined = df_new
+        
+        # Save to CSV
+        df_combined.to_csv(self.feedback_csv, index=False)
+        print(f"Feedback data appended to {self.feedback_csv}")
 
     def provide_feedback_and_new_questions(self, selected_exam_code, results_file_suffix="results.json", output_file_suffix="targeted_questions.json"):
         """
-        Provides performance feedback with a bar chart and generates new questions based on weak areas.
-        
-        Args:
-            selected_exam_code (str): The code of the exam for which feedback is being provided.
-            results_file_suffix (str): The suffix for the results file (e.g., "results.json").
-            output_file_suffix (str): The suffix for the targeted questions file (e.g., "targeted_questions.json").
+        Provides performance feedback with a bar chart, generates new questions, and saves to CSV.
         """
-        # Construct results and output file paths within the 'files' directory
+        # Construct results and output file paths
         results_file = self.files_dir / f"{selected_exam_code}_{results_file_suffix}"
         new_questions_output_file = self.files_dir / f"{selected_exam_code}_{output_file_suffix}"
 
@@ -44,6 +112,7 @@ class FeedbackService:
             return
 
         exam_code = latest_results.get("exam_code", "Unknown Exam")
+        timestamp = latest_results.get("timestamp", datetime.now().isoformat())
 
         print(f"\n--- Analyzing Performance for Exam: {exam_code} ---")
 
@@ -65,7 +134,7 @@ class FeedbackService:
         try:
             response_content = self.ai_client.call_chat_completion(
                 messages=messages,
-                max_tokens=32768, # Further increased token limit for feedback generation
+                max_tokens=32768,
                 temperature=0.7,
                 response_format={"type": "json_object"}
             )
@@ -92,7 +161,6 @@ class FeedbackService:
             
             print(tabulate(table_data, headers=headers, tablefmt="grid"))
 
-
             # Performance by Category Bar Chart
             print("\n### Performance by Exam Category:")
             performance_data = analysis_data.get("performance_by_category", [])
@@ -100,10 +168,12 @@ class FeedbackService:
                 performance_data,
                 label_key="skill_area",
                 value_key="average_score_percent",
-                max_width=40 # Adjust width for better display
+                max_width=40
             )
             print(bar_chart)
 
+            # Save to CSV
+            self._save_feedback_to_csv(analysis_data, exam_code, timestamp)
 
             # Save new targeted questions
             if analysis_data.get("new_questions_for_weak_areas"):
@@ -118,3 +188,9 @@ class FeedbackService:
             print(f"Raw response content: {response_content}")
         except Exception as e:
             print(f"An unexpected error occurred during feedback and question generation: {e}")
+
+    def get_feedback_summary(self) -> pd.DataFrame:
+        """Get consolidated feedback summary from CSV."""
+        if self.feedback_csv.exists():
+            return pd.read_csv(self.feedback_csv)
+        return pd.DataFrame()

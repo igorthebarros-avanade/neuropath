@@ -1,0 +1,4 @@
+timestamp,exam_code,total_questions,overall_score_percent,yes_no_questions,qualitative_questions,skill_describe_cloud_concepts_percent,skill_describe_azure_architecture_and_services_percent,skill_describe_azure_management_and_governance_percent
+2025-06-25T17:48:00.736252,AZ-900,10,50.0,10,0,20,100.0,33.0
+2025-06-25T17:51:43.133127,AZ-900,10,50.0,10,0,50,66.67,33.33
+2025-06-25T18:05:17.460886,AZ-900,10,60.0,10,0,50,66.67,66.67
