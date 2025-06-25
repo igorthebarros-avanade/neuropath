@@ -1,59 +1,92 @@
-# simulation_service.py
 import os
 import json
 from pathlib import Path
 from datetime import datetime
+# from services.question_service import QuestionService
 
 class SimulationService:
     def __init__(self):
-        self.files_dir = Path("files") # Define the files directory
+        self.files_dir = Path("files")
+
+    def get_available_question_files(self):
+        """Get available question files with better formatting."""
+        question_files = list(self.files_dir.glob('questions_*.json'))
+        
+        if not question_files:
+            return []
+            
+        # Enhanced display with question count and generation method
+        formatted_files = []
+        for file_path in question_files:
+            try:
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                exam_code = data.get("exam_code", "Unknown")
+                question_count = len(data.get("questions", []))
+                
+                # Detect if stratified sampling was used (demo mode indicator)
+                demo_mode = os.getenv("DEMO_MODE", "false").lower() == "true"
+                method = "Stratified Sampling" if demo_mode else "AI Generated"
+                
+                formatted_files.append({
+                    'file': file_path,
+                    'display': f"{exam_code} ({question_count} questions, {method})",
+                    'exam_code': exam_code,
+                    'count': question_count
+                })
+            except:
+                formatted_files.append({
+                    'file': file_path,
+                    'display': file_path.name,
+                    'exam_code': 'Unknown',
+                    'count': 0
+                })
+        
+        return formatted_files
 
     def conduct_simulation(self, results_file_suffix="results.json"):
-        """
-        Prompts the user with questions and stores their answers.
-        Handles both "live" and demo mode question formats.
-        """
-        question_files = list(self.files_dir.glob('questions_*.json'))
-        if not question_files:
+        """Enhanced simulation with better file selection and demo mode support."""
+        
+        # Check for existing files
+        formatted_files = self.get_available_question_files()
+        if not formatted_files:
             print("No question files found. Please generate questions first using option 1.")
             return
 
         print("\nAvailable Question Files for Simulation:")
-        for i, file_path in enumerate(question_files):
-            print(f"{i + 1}. {file_path.name}")
+        for i, file_info in enumerate(formatted_files):
+            print(f"{i + 1}. {file_info['display']}")
 
+        # File selection
         selected_file_path = None
         while True:
             try:
                 choice = input("Enter the number of the question file you want to use for simulation: ")
                 selected_index = int(choice) - 1
-                if 0 <= selected_index < len(question_files):
-                    selected_file_path = question_files[selected_index]
-                    print(f"You selected: {selected_file_path.name}")
+                if 0 <= selected_index < len(formatted_files):
+                    selected_file_path = formatted_files[selected_index]['file']
+                    print(f"You selected: {formatted_files[selected_index]['display']}")
                     break
                 else:
                     print("Invalid number. Please try again.")
             except ValueError:
                 print("Invalid input. Please enter a number.")
 
-        questions_source_file = str(selected_file_path)
-        selected_exam_code = selected_file_path.stem.replace("questions_", "")
-        results_file = self.files_dir / f"{selected_exam_code}_{results_file_suffix}"
-
+        # Load and validate questions
         try:
-            with open(questions_source_file, 'r', encoding='utf-8') as f:
+            with open(selected_file_path, 'r', encoding='utf-8') as f:
                 questions_data = json.load(f)
         except FileNotFoundError:
-            print(f"Error: Questions file '{questions_source_file}' not found.")
+            print(f"Error: Questions file '{selected_file_path}' not found.")
             return
         except json.JSONDecodeError:
-            print(f"Error: Could not decode JSON from '{questions_source_file}'. File might be corrupted.")
+            print(f"Error: Could not decode JSON from '{selected_file_path}'. File might be corrupted.")
             return
 
         exam_code = questions_data.get("exam_code", "Unknown Exam")
         questions = questions_data.get("questions", [])
         
-        # Filter questions based on demo mode if applicable
+        # Demo mode filtering
         demo_mode = os.getenv("DEMO_MODE", "false").lower() == "true"
         if demo_mode:
             original_count = len(questions)
@@ -62,13 +95,29 @@ class SimulationService:
                 print(f"Note: Demo mode filtered out {original_count - len(questions)} qualitative questions.")
 
         if not questions:
-            print(f"No questions found in '{questions_source_file}' for exam {exam_code}.")
+            print(f"No questions found in '{selected_file_path}' for exam {exam_code}.")
             return
+
+        # Show sampling info if available
+        if demo_mode:
+            skill_distribution = {}
+            for q in questions:
+                skill_area = q.get('skill_area', 'Unknown')
+                skill_distribution[skill_area] = skill_distribution.get(skill_area, 0) + 1
+            
+            print(f"\nQuestion distribution by skill area:")
+            for skill, count in skill_distribution.items():
+                print(f"  {skill}: {count} questions")
+
+        # Conduct simulation
+        selected_exam_code = questions_data.get("exam_code", "Unknown")
+        results_file = self.files_dir / f"{selected_exam_code}_{results_file_suffix}"
 
         print(f"\n--- Starting Simulation for Exam: {exam_code} ---")
         current_simulation_results = {
             "exam_code": exam_code,
             "timestamp": datetime.now().isoformat(),
+            "sampling_method": "stratified" if demo_mode else "ai_generated",
             "questions_attempted": []
         }
 
@@ -95,6 +144,7 @@ class SimulationService:
 
         print(f"\n--- Simulation for Exam: {exam_code} Complete! ---")
         
+        # Save results
         all_results = []
         if results_file.exists():
             try:
