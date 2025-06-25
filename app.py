@@ -17,6 +17,7 @@ st.set_page_config(
 )
 
 # --- Initial Setup and Service Loading ---
+@st.cache_resource
 def initialize_services():
 
     load_dotenv()
