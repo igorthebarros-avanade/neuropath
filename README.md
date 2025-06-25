@@ -73,6 +73,11 @@ Restart your terminal and verify installation:
 poetry --version
 ```
 
+If necessary, include poetry to path with:
+```bash
+$env:Path += ";$env:APPDATA\Python\Scripts"
+```
+
 ### 4. Install Dependencies
 
 ```bash
@@ -111,6 +116,14 @@ EXAM_DATA_JSON_PATH=./content/content_updated.json
 **CLI Interface:**
 ```bash
 poetry shell
+```
+
+On windows, if "poetry shell" doesn't work, try finding the env file location with "poetry env info --path":
+```bash
+& "$(poetry env info --path)\Scripts\activate.ps1"
+```
+
+```bash
 python main.py
 ```
 
