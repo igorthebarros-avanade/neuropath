@@ -74,10 +74,21 @@ def home_page():
 def generate_diagnostic_questions_page():
     """Logic for the Diagnostic Question Generation page with dynamic defaults."""
     st.header("Generate Diagnostic Questions")
+    demo_mode = os.getenv("DEMO_MODE", "false").lower() == "true"
+    
     try:
         available_exams = exam_data_loader.get_available_exams()
         if available_exams:
+            # Filter to fundamentals in demo mode
+            if demo_mode:
+                available_exams = [(code, name) for code, name in available_exams 
+                                  if code in ["AZ-900", "AI-900", "DP-900"]]
+                if not available_exams:
+                    st.warning("No fundamental exams available in demo mode.")
+                    return
+            
             exam_options = {f"{code} - {name}": code for code, name in available_exams}
+            
             selected_exam = st.selectbox("Select an Azure Certification Exam:", list(exam_options.keys()))
             
             # Get dynamic defaults based on selected exam
