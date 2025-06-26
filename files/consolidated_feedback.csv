@@ -1,7 +1,0 @@
-timestamp,exam_code,total_questions,overall_score_percent,yes_no_questions,qualitative_questions,skill_describe_cloud_concepts_percent,skill_describe_azure_architecture_and_services_percent,skill_describe_azure_management_and_governance_percent,skill_describe_features_of_generative_ai_workloads_on_azure_percent,skill_describe_features_of_computer_vision_workloads_on_azure_percent,skill_describe_artificial_intelligence_workloads_and_considerations_percent,skill_describe_fundamental_principles_of_machine_learning_on_azure_percent,skill_describe_features_of_natural_language_processing_(nlp)_workloads_on_azure_percent
-2025-06-25T17:48:00.736252,AZ-900,10,50.0,10,0,20,100.0,33.0,,,,,
-2025-06-25T17:51:43.133127,AZ-900,10,50.0,10,0,50,66.67,33.33,,,,,
-2025-06-25T18:05:17.460886,AZ-900,10,60.0,10,0,50,66.67,66.67,,,,,
-2025-06-25T18:30:31.527978,AZ-900,10,50.0,10,0,50,33.0,67.0,,,,,
-2025-06-25T18:30:31.527978,AZ-900,10,50.0,10,0,50,33.0,67.0,,,,,
-2025-06-25T19:00:35.157237,AI-900,10,60.0,10,0,,,,100,50,50,50,50
