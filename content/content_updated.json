@@ -176,11 +176,6 @@
                     "question_id": "az-900_cloud_concepts_a6ebcd66"
                   },
                   {
-                    "question_id": "az-900_cloud_concepts_9d3db2cc",
-                    "question_text": "Does data replication contribute to the reliability of cloud services?",
-                    "expected_answer": "Yes"
-                  },
-                  {
                     "question_text": "Is load balancing listed as a reliability feature in the provided detail?",
                     "expected_answer": "No",
                     "question_id": "az-900_cloud_concepts_5f8cc3b1"
@@ -208,11 +203,6 @@
                     "question_text": "Does scalability mean resources remain fixed regardless of changes in demand?",
                     "expected_answer": "No",
                     "question_id": "az-900_cloud_concepts_01aec913"
-                  },
-                  {
-                    "question_id": "az-900_cloud_concepts_ff804028",
-                    "question_text": "Does scalability allow you to increase resources based on demand?",
-                    "expected_answer": "Yes"
                   },
                   {
                     "question_text": "Is scalability limited to only increasing resources, not decreasing them?",
@@ -286,11 +276,6 @@
                     "question_id": "az-900_cloud_concepts_8848731e"
                   },
                   {
-                    "question_id": "az-900_cloud_concepts_53b23bb4",
-                    "question_text": "Does Platform as a Service (PaaS) abstract hardware and operating system provisioning?",
-                    "expected_answer": "Yes"
-                  },
-                  {
                     "question_text": "Is managing the underlying hardware a primary responsibility of users when using Platform as a Service (PaaS)?",
                     "expected_answer": "No",
                     "question_id": "az-900_cloud_concepts_0190a67f"
@@ -357,11 +342,6 @@
                     "question_id": "az-900_cloud_concepts_0403b2be",
                     "question_text": "Does Software as a Service (SaaS) require users to manage maintenance tasks?",
                     "expected_answer": "No"
-                  },
-                  {
-                    "question_text": "Is Office 365 an example of Software as a Service (SaaS)?",
-                    "expected_answer": "Yes",
-                    "question_id": "az-900_cloud_concepts_53f62d4c"
                   }
                 ]
               }
@@ -555,11 +535,6 @@
                     "question_id": "az-900_azure_architecture_and_2300e685",
                     "question_text": "Is a resource group a logical grouping of multiple resources within a subscription?",
                     "expected_answer": "Yes"
-                  },
-                  {
-                    "question_text": "Can a resource group exist outside of a subscription?",
-                    "expected_answer": "No",
-                    "question_id": "az-900_azure_architecture_and_c8c35ebf"
                   }
                 ]
               },
@@ -878,11 +853,6 @@
                     "question_id": "az-900_azure_architecture_and_7677c8f0"
                   },
                   {
-                    "question_id": "az-900_azure_architecture_and_0cf7955b",
-                    "question_text": "Does Azure Container Instances allow deployment of containerized applications without managing underlying virtual machines?",
-                    "expected_answer": "Yes"
-                  },
-                  {
                     "question_text": "Is Azure Container Instances a service that requires users to manage Docker on their own virtual machines?",
                     "expected_answer": "No",
                     "question_id": "az-900_azure_architecture_and_12194455"
@@ -1012,11 +982,6 @@
                     "question_text": "Does the definition of Azure Virtual Network (VNet) mention providing physical network isolation?",
                     "expected_answer": "No",
                     "question_id": "az-900_azure_architecture_and_caf60ca0"
-                  },
-                  {
-                    "question_id": "az-900_azure_architecture_and_326cf91a",
-                    "question_text": "Is an Azure Virtual Network (VNet) a logically isolated section of your Azure Network?",
-                    "expected_answer": "Yes"
                   },
                   {
                     "question_text": "Can you launch Azure resources outside of a Virtual Network (VNet) when using its logically isolated section?",
@@ -1150,11 +1115,6 @@
                     "question_id": "az-900_azure_architecture_and_dbcea0f5"
                   },
                   {
-                    "question_id": "az-900_azure_architecture_and_2d433517",
-                    "question_text": "Does Azure ExpressRoute create private connections between Azure data centers and on-premise infrastructure?",
-                    "expected_answer": "Yes"
-                  },
-                  {
                     "question_text": "Is Azure ExpressRoute primarily used to provide public internet access to Azure services?",
                     "expected_answer": "No",
                     "question_id": "az-900_azure_architecture_and_f80e8690"
@@ -1218,11 +1178,6 @@
                     "question_id": "az-900_azure_architecture_and_3176cf02"
                   },
                   {
-                    "question_id": "az-900_azure_architecture_and_9134b822",
-                    "question_text": "Is a Virtual Network Gateway a software VPN device for Azure Virtual Network?",
-                    "expected_answer": "Yes"
-                  },
-                  {
                     "question_text": "Can a Virtual Network Gateway be used for establishing storage connections instead of VPN connections?",
                     "expected_answer": "No",
                     "question_id": "az-900_azure_architecture_and_954364d0"
@@ -1250,11 +1205,6 @@
                     "question_text": "Is Azure Private Link designed to make Azure resource traffic public on the internet?",
                     "expected_answer": "No",
                     "question_id": "az-900_azure_architecture_and_05c0ea1b"
-                  },
-                  {
-                    "question_id": "az-900_azure_architecture_and_68ed04c5",
-                    "question_text": "Does Azure Private Link establish secure connections between Azure resources?",
-                    "expected_answer": "Yes"
                   },
                   {
                     "question_text": "Does Azure Private Link send traffic outside your Azure Network?",
@@ -1401,11 +1351,6 @@
                     "question_id": "az-900_azure_architecture_and_87f910c8"
                   },
                   {
-                    "question_id": "az-900_azure_architecture_and_4c916661",
-                    "question_text": "Does Azure Disk Storage provide encryption by default?",
-                    "expected_answer": "Yes"
-                  },
-                  {
                     "question_text": "Is Azure Disk Storage used to attach virtual volumes to physical servers?",
                     "expected_answer": "No",
                     "question_id": "az-900_azure_architecture_and_09ede72f"
@@ -1438,11 +1383,6 @@
                     "question_id": "az-900_azure_architecture_and_5de3e101",
                     "question_text": "Is Azure Table Storage a NoSQL database designed for unstructured data?",
                     "expected_answer": "Yes"
-                  },
-                  {
-                    "question_text": "Does Azure Table Storage require a predefined schema for data storage?",
-                    "expected_answer": "No",
-                    "question_id": "az-900_azure_architecture_and_f38becc8"
                   }
                 ]
               },
@@ -1501,11 +1441,6 @@
                     "question_text": "Is Azure Queue Storage primarily designed for storing large files such as images or videos?",
                     "expected_answer": "No",
                     "question_id": "az-900_azure_architecture_and_dc261962"
-                  },
-                  {
-                    "question_id": "az-900_azure_architecture_and_df57658b",
-                    "question_text": "Is Azure Queue Storage categorized under storage services?",
-                    "expected_answer": "Yes"
                   },
                   {
                     "question_text": "Can Azure Queue Storage only be used for storing files rather than integrating applications?",
@@ -1685,11 +1620,6 @@
                     "question_text": "Can Azure Defender be used to manage network routing?",
                     "expected_answer": "No",
                     "question_id": "az-900_azure_architecture_and_c3ecb5a2"
-                  },
-                  {
-                    "question_id": "az-900_azure_architecture_and_f4cf7ea8",
-                    "question_text": "Does Azure Defender provide advanced protection for both Azure and on-premise workloads?",
-                    "expected_answer": "Yes"
                   },
                   {
                     "question_text": "Is Azure Defender a standalone service completely separate from the Azure Security Center?",
@@ -2146,11 +2076,6 @@
                     "question_id": "az-900_azure_management_and_702ac060"
                   },
                   {
-                    "question_id": "az-900_azure_management_and_8f32fb9a",
-                    "question_text": "Does the Total Cost of Ownership (TCO) Calculator estimate cost savings when migrating on-premise workloads to Azure?",
-                    "expected_answer": "Yes"
-                  },
-                  {
                     "question_text": "Is the Total Cost of Ownership (TCO) Calculator designed to estimate costs for Azure-native workloads only?",
                     "expected_answer": "No",
                     "question_id": "az-900_azure_management_and_e005d0e0"
@@ -2309,7 +2234,7 @@
             "details": [
               "Azure Portal: A web-based, unified console for managing Azure subscriptions and resources through a graphical interface.",
               "Azure Cloud Shell: An interactive, authenticated, browser-accessible shell (Bash or PowerShell) for managing Azure resources.",
-              "Azure PowerShell: A command-line shell and scripting language, primarily developed for Windows, with cmdlets for managing Azure resources. Microsoft introduced Az PowerShell module and PowerShell is now cross-platform, because it runs on .Net Core and is available for macOS and Linux.", 
+              "Azure PowerShell: A command-line shell and scripting language, primarily developed for Windows, with cmdlets for managing Azure resources. Microsoft introduced Az PowerShell module and PowerShell is now cross-platform, because it runs on .Net Core and is available for macOS and Linux.",
               "Azure CLI: A command-line interface (for Windows, Mac, Linux) for processing commands to Azure resources via text lines, allowing programmatic creation, update, and deletion.",
               "Azure Resource Manager (ARM) Templates: JSON files that define Azure resources and configurations for provisioning, acting as infrastructure as code (IaC) in a declarative way.",
               "Azure Bicep: A more productive way to write infrastructure as code for Azure, compiling down to ARM templates.",
@@ -2335,11 +2260,6 @@
                     "question_text": "Is Azure Bicep itself an ARM template?",
                     "expected_answer": "No",
                     "question_id": "az-900_azure_management_and_71dd41a9"
-                  },
-                  {
-                    "question_id": "az-900_azure_management_and_af13c625",
-                    "question_text": "Does Azure Bicep compile down to ARM templates?",
-                    "expected_answer": "Yes"
                   },
                   {
                     "question_text": "Is Azure Bicep described as a less productive way to write infrastructure as code for Azure?",
@@ -2403,11 +2323,6 @@
                     "question_text": "Is Azure Cloud Shell designed primarily for managing non-Azure resources?",
                     "expected_answer": "No",
                     "question_id": "az-900_azure_management_and_c34e2e7c"
-                  },
-                  {
-                    "question_id": "az-900_azure_management_and_500f13e1",
-                    "question_text": "Is Azure Cloud Shell accessible through a web browser?",
-                    "expected_answer": "Yes"
                   },
                   {
                     "question_text": "Does Azure Cloud Shell only support Bash and not PowerShell?",
@@ -2584,11 +2499,6 @@
                     "question_id": "az-900_azure_management_and_cbeeb83f"
                   },
                   {
-                    "question_id": "az-900_azure_management_and_ab5abf8b",
-                    "question_text": "Does Azure Monitor collect telemetry data from both cloud and on-premise environments?",
-                    "expected_answer": "Yes"
-                  },
-                  {
                     "question_text": "Is Azure Monitor limited to collecting only metrics and does not handle logs or traces?",
                     "expected_answer": "No",
                     "question_id": "az-900_azure_management_and_b9ea5533"
@@ -2650,11 +2560,6 @@
                     "question_text": "Does Azure Service Health provide information about upcoming issues that could impact Azure services?",
                     "expected_answer": "Yes",
                     "question_id": "az-900_azure_management_and_025cd0a7"
-                  },
-                  {
-                    "question_id": "az-900_azure_management_and_649287f1",
-                    "question_text": "Does Azure Service Health provide information about planned maintenance that may affect Azure service availability?",
-                    "expected_answer": "Yes"
                   },
                   {
                     "question_text": "Can Azure Service Health be used to manage Azure resource permissions?",
@@ -2859,11 +2764,6 @@
                     "question_id": "dp-900_core_data_concepts_133aa3f6"
                   },
                   {
-                    "question_id": "dp-900_core_data_concepts_dace0cb8",
-                    "question_text": "Is physical handwriting considered a form in which data can exist?",
-                    "expected_answer": "Yes"
-                  },
-                  {
                     "question_text": "Can data only be represented in the form of numbers according to the detail?",
                     "expected_answer": "No",
                     "question_id": "dp-900_core_data_concepts_67ed7473"
@@ -2882,11 +2782,6 @@
                     "question_id": "dp-900_core_data_concepts_86f8b6b2",
                     "question_text": "Can data be represented in the form of numbers?",
                     "expected_answer": "Yes"
-                  },
-                  {
-                    "question_text": "Is physical handwriting considered a form in which data can exist?",
-                    "expected_answer": "Yes",
-                    "question_id": "dp-900_core_data_concepts_dace0cb8"
                   },
                   {
                     "question_text": "Does the definition of data in this context exclude audio as a form?",
@@ -3031,11 +2926,6 @@
                     "question_id": "dp-900_core_data_concepts_69e54d3a"
                   },
                   {
-                    "question_text": "Can Azure Cosmos DB be used to store semi-structured data?",
-                    "expected_answer": "Yes",
-                    "question_id": "dp-900_core_data_concepts_84e5f9f1"
-                  },
-                  {
                     "question_text": "Does semi-structured data allow for unlimited searching according to the detail?",
                     "expected_answer": "No",
                     "question_id": "dp-900_core_data_concepts_f5c065df"
@@ -3169,11 +3059,6 @@
                     "question_id": "dp-900_core_data_concepts_0aad8f64"
                   },
                   {
-                    "question_text": "Can a database be used to store only unstructured data according to the provided detail?",
-                    "expected_answer": "No",
-                    "question_id": "dp-900_core_data_concepts_a24fd881"
-                  },
-                  {
                     "question_text": "Are modeling techniques required for databases that manage semi-structured data?",
                     "expected_answer": "Yes",
                     "question_id": "dp-900_core_data_concepts_94803ec6"
@@ -3191,11 +3076,6 @@
                     "question_text": "Is a data warehouse primarily designed for transactional workloads?",
                     "expected_answer": "No",
                     "question_id": "dp-900_core_data_concepts_d44d4dba"
-                  },
-                  {
-                    "question_id": "dp-900_core_data_concepts_8fe28a2f",
-                    "question_text": "Is a data warehouse generally column-oriented to enable fast aggregation of large amounts of historical data?",
-                    "expected_answer": "Yes"
                   },
                   {
                     "question_text": "Can a data warehouse be classified as a relational data store designed specifically for analytic workloads?",
@@ -3216,16 +3096,6 @@
                     "question_id": "dp-900_core_data_concepts_9f180fdc",
                     "question_text": "Is a data warehouse a type of relational data store?",
                     "expected_answer": "Yes"
-                  },
-                  {
-                    "question_text": "Is a data warehouse primarily designed for transactional workloads?",
-                    "expected_answer": "No",
-                    "question_id": "dp-900_core_data_concepts_d44d4dba"
-                  },
-                  {
-                    "question_text": "Are data warehouses generally column-oriented to support fast aggregation?",
-                    "expected_answer": "Yes",
-                    "question_id": "dp-900_core_data_concepts_9e21bad4"
                   },
                   {
                     "question_text": "Does a data warehouse typically store only current data instead of historical data?",
@@ -3513,11 +3383,6 @@
                     "question_id": "dp-900_core_data_concepts_59f9ee88"
                   },
                   {
-                    "question_id": "dp-900_core_data_concepts_6570cc17",
-                    "question_text": "Does a data lakehouse support both data science and machine learning tasks?",
-                    "expected_answer": "Yes"
-                  },
-                  {
                     "question_text": "Is data in a data lakehouse generally stored in a relational database?",
                     "expected_answer": "No",
                     "question_id": "dp-900_core_data_concepts_d01584bd"
@@ -3541,26 +3406,6 @@
                     "question_text": "Can a Data Lakehouse support data science and machine learning (ML) tasks?",
                     "expected_answer": "Yes",
                     "question_id": "dp-900_core_data_concepts_9f49f0bd"
-                  },
-                  {
-                    "question_text": "Is data in a Data Lakehouse generally stored in a relational database?",
-                    "expected_answer": "No",
-                    "question_id": "dp-900_core_data_concepts_d01584bd"
-                  },
-                  {
-                    "question_text": "Does a Data Lakehouse support handling diverse data types?",
-                    "expected_answer": "Yes",
-                    "question_id": "dp-900_core_data_concepts_f1e4e093"
-                  },
-                  {
-                    "question_text": "Can a Data Lakehouse be used for business intelligence (BI) tasks?",
-                    "expected_answer": "Yes",
-                    "question_id": "dp-900_core_data_concepts_fcdc424c"
-                  },
-                  {
-                    "question_text": "Is streaming data processing excluded from the capabilities of a Data Lakehouse?",
-                    "expected_answer": "No",
-                    "question_id": "dp-900_core_data_concepts_de72e5ea"
                   }
                 ]
               }
@@ -3612,34 +3457,14 @@
                     "question_id": "dp-900_core_data_concepts_c4b1676f"
                   },
                   {
-                    "question_id": "dp-900_core_data_concepts_81ef7120",
-                    "question_text": "Does stream processing involve processing data as soon as it arrives?",
-                    "expected_answer": "Yes"
-                  },
-                  {
-                    "question_text": "Is stream processing typically less expensive than batch processing?",
-                    "expected_answer": "No",
-                    "question_id": "dp-900_core_data_concepts_a4b5992f"
-                  },
-                  {
                     "question_text": "Do producers send data to a stream in stream processing architectures?",
                     "expected_answer": "Yes",
                     "question_id": "dp-900_core_data_concepts_d6702f68"
                   },
                   {
-                    "question_text": "Is stream processing unsuitable for real-time analytics?",
-                    "expected_answer": "No",
-                    "question_id": "dp-900_core_data_concepts_c4b1676f"
-                  },
-                  {
                     "question_text": "Can consumers pull data from a stream in stream processing?",
                     "expected_answer": "Yes",
                     "question_id": "dp-900_core_data_concepts_3064042e"
-                  },
-                  {
-                    "question_text": "Does stream processing require waiting for all data to be collected before starting analysis?",
-                    "expected_answer": "No",
-                    "question_id": "dp-900_core_data_concepts_af704948"
                   }
                 ]
               },
@@ -3873,11 +3698,6 @@
                     "expected_answer": "Yes"
                   },
                   {
-                    "question_text": "Is data extraction alone sufficient to be considered data mining?",
-                    "expected_answer": "No",
-                    "question_id": "dp-900_core_data_concepts_4b550b73"
-                  },
-                  {
                     "question_text": "Does the data mining process include a phase called data preparation?",
                     "expected_answer": "Yes",
                     "question_id": "dp-900_core_data_concepts_919d5af8"
@@ -3912,11 +3732,6 @@
                     "question_id": "dp-900_core_data_concepts_8f587021"
                   },
                   {
-                    "question_id": "dp-900_core_data_concepts_f88d0b3b",
-                    "question_text": "Is batch processing generally scheduled rather than real-time?",
-                    "expected_answer": "Yes"
-                  },
-                  {
                     "question_text": "Is batch processing ideal for small processing workloads?",
                     "expected_answer": "No",
                     "question_id": "dp-900_core_data_concepts_8275e783"
@@ -3927,39 +3742,9 @@
                     "question_id": "dp-900_core_data_concepts_8d72e491"
                   },
                   {
-                    "question_text": "Is batch processing typically less cost-efficient than stream processing?",
-                    "expected_answer": "No",
-                    "question_id": "dp-900_core_data_concepts_8f587021"
-                  },
-                  {
-                    "question_id": "dp-900_core_data_concepts_f88d0b3b",
-                    "question_text": "Is batch processing generally scheduled rather than real-time?",
-                    "expected_answer": "Yes"
-                  },
-                  {
-                    "question_text": "Is batch processing ideal for handling very small data workloads?",
-                    "expected_answer": "No",
-                    "question_id": "dp-900_core_data_concepts_04fa037b"
-                  },
-                  {
-                    "question_text": "Does batch processing involve sending collections of data to be processed?",
-                    "expected_answer": "Yes",
-                    "question_id": "dp-900_core_data_concepts_8d72e491"
-                  },
-                  {
-                    "question_text": "Is stream processing typically more cost-efficient than batch processing?",
-                    "expected_answer": "No",
-                    "question_id": "dp-900_core_data_concepts_4692ada9"
-                  },
-                  {
                     "question_text": "Can batch processing be used for very large processing workloads?",
                     "expected_answer": "Yes",
                     "question_id": "dp-900_core_data_concepts_57f79cab"
-                  },
-                  {
-                    "question_text": "Is batch processing designed for real-time data processing?",
-                    "expected_answer": "No",
-                    "question_id": "dp-900_core_data_concepts_8417e17a"
                   }
                 ]
               },
@@ -4134,11 +3919,6 @@
                     "question_id": "dp-900_core_data_concepts_32a84af3"
                   },
                   {
-                    "question_text": "Does ELT load data directly into the target system before transformation?",
-                    "expected_answer": "Yes",
-                    "question_id": "dp-900_core_data_concepts_eb6f6e4e"
-                  },
-                  {
                     "question_text": "Is ELT typically used for small-scale, on-premise structured data?",
                     "expected_answer": "No",
                     "question_id": "dp-900_core_data_concepts_99577e1e"
@@ -4240,11 +4020,6 @@
                     "question_id": "dp-900_core_data_concepts_7f487fd0"
                   },
                   {
-                    "question_id": "dp-900_core_data_concepts_70a2ef59",
-                    "question_text": "Is configuring and maintaining databases a responsibility of a Database Administrator?",
-                    "expected_answer": "Yes"
-                  },
-                  {
                     "question_text": "Does a Database Administrator use Azure Data Studio as one of their tools?",
                     "expected_answer": "Yes",
                     "question_id": "dp-900_core_data_concepts_c4bbd4b7"
@@ -4258,11 +4033,6 @@
                     "question_text": "Can a Database Administrator use the Azure Portal for database management tasks?",
                     "expected_answer": "Yes",
                     "question_id": "dp-900_core_data_concepts_614db59a"
-                  },
-                  {
-                    "question_id": "dp-900_core_data_concepts_70a2ef59",
-                    "question_text": "Is configuring and maintaining databases a responsibility of a Database Administrator?",
-                    "expected_answer": "Yes"
                   },
                   {
                     "question_text": "Does a Database Administrator manage database backups?",
@@ -4513,11 +4283,6 @@
                     "question_id": "dp-900_identify_considerations_for_37181555"
                   },
                   {
-                    "question_id": "dp-900_identify_considerations_for_c48751a1",
-                    "question_text": "Do synchronous data streams guarantee consistency and time of access?",
-                    "expected_answer": "Yes"
-                  },
-                  {
                     "question_text": "Are asynchronous data streams synchronized by a timer?",
                     "expected_answer": "No",
                     "question_id": "dp-900_identify_considerations_for_080bb4e0"
@@ -4533,24 +4298,9 @@
                     "question_id": "dp-900_identify_considerations_for_0228ce7c"
                   },
                   {
-                    "question_id": "dp-900_identify_considerations_for_c48751a1",
-                    "question_text": "Do synchronous data streams guarantee consistency and time of access?",
-                    "expected_answer": "Yes"
-                  },
-                  {
-                    "question_text": "Are asynchronous data streams synchronized by a timer?",
-                    "expected_answer": "No",
-                    "question_id": "dp-900_identify_considerations_for_080bb4e0"
-                  },
-                  {
                     "question_text": "Do asynchronous streams provide faster access compared to synchronous streams?",
                     "expected_answer": "Yes",
                     "question_id": "dp-900_identify_considerations_for_77b4015f"
-                  },
-                  {
-                    "question_text": "Are start/stop bits used to separate synchronous data streams?",
-                    "expected_answer": "No",
-                    "question_id": "dp-900_identify_considerations_for_9648aaf7"
                   },
                   {
                     "question_text": "Can asynchronous streams guarantee immediate consistency?",
@@ -4612,11 +4362,6 @@
                     "question_id": "dp-900_identify_considerations_for_b74cfe82"
                   },
                   {
-                    "question_text": "Can a query be used to request data results in a relational database?",
-                    "expected_answer": "Yes",
-                    "question_id": "dp-900_identify_considerations_for_d0a384a4"
-                  },
-                  {
                     "question_text": "Is querying defined as the process of creating a new database?",
                     "expected_answer": "No",
                     "question_id": "dp-900_identify_considerations_for_a54fd405"
@@ -4661,24 +4406,9 @@
                     "question_id": "dp-900_identify_considerations_for_8edeb6be"
                   },
                   {
-                    "question_id": "dp-900_identify_considerations_for_2bb349af",
-                    "question_text": "Are OLTP databases designed to store current transactions?",
-                    "expected_answer": "Yes"
-                  },
-                  {
                     "question_text": "Do OLTP systems primarily handle long, infrequent queries?",
                     "expected_answer": "No",
                     "question_id": "dp-900_identify_considerations_for_f9dd2646"
-                  },
-                  {
-                    "question_text": "Is adding items to a shopping cart an example of an OLTP process?",
-                    "expected_answer": "Yes",
-                    "question_id": "dp-900_identify_considerations_for_8f16347a"
-                  },
-                  {
-                    "question_text": "Is the main emphasis of OLTP databases on read operations rather than writes?",
-                    "expected_answer": "No",
-                    "question_id": "dp-900_identify_considerations_for_a1c2f1e7"
                   },
                   {
                     "question_text": "Do OLTP databases enable fast access to specific transactions for ongoing business processing?",
@@ -4848,11 +4578,6 @@
                     "question_id": "dp-900_identify_considerations_for_1f64513b"
                   },
                   {
-                    "question_id": "dp-900_identify_considerations_for_d222c109",
-                    "question_text": "Can SQL Server on Azure Virtual Machines be used for lift-and-shift migrations of existing SQL Servers from on-premises?",
-                    "expected_answer": "Yes"
-                  },
-                  {
                     "question_text": "Does SQL Server on Azure Virtual Machines allow for OS-level control?",
                     "expected_answer": "Yes",
                     "question_id": "dp-900_identify_considerations_for_2d2b6897"
@@ -4866,11 +4591,6 @@
                     "question_text": "Is SQL Server on Azure Virtual Machines only suitable for new, cloud-native database deployments?",
                     "expected_answer": "No",
                     "question_id": "dp-900_identify_considerations_for_2d5f349a"
-                  },
-                  {
-                    "question_id": "dp-900_identify_considerations_for_d222c109",
-                    "question_text": "Can SQL Server on Azure Virtual Machines be used for lift-and-shift migrations of existing SQL Servers from on-premises?",
-                    "expected_answer": "Yes"
                   },
                   {
                     "question_text": "Does SQL Server on Azure Virtual Machines provide OS-level control?",
@@ -4910,11 +4630,6 @@
                     "question_text": "Does the Azure SQL Family exclude any SQL Server offerings from Microsoft?",
                     "expected_answer": "No",
                     "question_id": "dp-900_identify_considerations_for_a1b92f8b"
-                  },
-                  {
-                    "question_id": "dp-900_identify_considerations_for_ce2096a3",
-                    "question_text": "Is the Azure SQL Family Microsoft's version of SQL Server offerings?",
-                    "expected_answer": "Yes"
                   },
                   {
                     "question_text": "Does the Azure SQL Family include database offerings that are not related to SQL Server?",
@@ -4994,11 +4709,6 @@
                     "question_text": "Are Azure Elastic Pools designed to optimize price-performance for databases with varying usage?",
                     "expected_answer": "Yes",
                     "question_id": "dp-900_identify_considerations_for_fe099ceb"
-                  },
-                  {
-                    "question_id": "dp-900_identify_considerations_for_52fb3f32",
-                    "question_text": "Is Azure Elastic Pools a feature of Azure SQL Database?",
-                    "expected_answer": "Yes"
                   },
                   {
                     "question_text": "Can Azure Elastic Pools be used to manage and scale multiple databases with varying usage demands?",
@@ -5168,11 +4878,6 @@
                     "question_id": "dp-900_identify_considerations_for_085daff4"
                   },
                   {
-                    "question_id": "dp-900_identify_considerations_for_3f498bf6",
-                    "question_text": "Are Azure Databases for MySQL, PostgreSQL, and MariaDB fully managed services?",
-                    "expected_answer": "Yes"
-                  },
-                  {
                     "question_text": "Do Azure Databases for MySQL, PostgreSQL, and MariaDB lack high availability features?",
                     "expected_answer": "No",
                     "question_id": "dp-900_identify_considerations_for_541c883a"
@@ -5265,16 +4970,6 @@
                     "question_text": "Can T-SQL queries be executed on both data warehouse and Spark engines in Azure Synapse Analytics?",
                     "expected_answer": "Yes",
                     "question_id": "dp-900_identify_considerations_for_35143506"
-                  },
-                  {
-                    "question_text": "Does Azure Synapse Analytics lack integration with Apache Spark?",
-                    "expected_answer": "No",
-                    "question_id": "dp-900_identify_considerations_for_505c8b4f"
-                  },
-                  {
-                    "question_text": "Is Azure Synapse Analytics described as a unified analytics platform?",
-                    "expected_answer": "Yes",
-                    "question_id": "dp-900_identify_considerations_for_bc85451f"
                   },
                   {
                     "question_text": "Does Azure Synapse Analytics only support data warehouse workloads and not analytics?",
@@ -5442,11 +5137,6 @@
                     "question_text": "Is Azure Data Lake Analytics designed to simplify big data processing?",
                     "expected_answer": "Yes",
                     "question_id": "dp-900_identify_considerations_for_8c852798"
-                  },
-                  {
-                    "question_id": "dp-900_identify_considerations_for_64e550e1",
-                    "question_text": "Is Azure Data Lake Analytics an on-demand analytics job service?",
-                    "expected_answer": "Yes"
                   },
                   {
                     "question_text": "Can users write U-SQL queries in Azure Data Lake Analytics to transform data?",
@@ -5722,11 +5412,6 @@
                     "question_text": "Does the Core (SQL) API in Cosmos DB function as a document database?",
                     "expected_answer": "Yes",
                     "question_id": "dp-900_considerations_for_working_e4808526"
-                  },
-                  {
-                    "question_id": "dp-900_considerations_for_working_84db5dd5",
-                    "question_text": "Is the Core (SQL) API the default offering of Azure Cosmos DB?",
-                    "expected_answer": "Yes"
                   },
                   {
                     "question_text": "Does the Core (SQL) API in Azure Cosmos DB serve as a document database?",
@@ -6167,11 +5852,6 @@
                     "question_id": "dp-900_an_analytics_workload_8009887c"
                   },
                   {
-                    "question_id": "dp-900_an_analytics_workload_5f30e708",
-                    "question_text": "Is Azure Databricks a fully managed Apache Spark platform available within the Azure portal?",
-                    "expected_answer": "Yes"
-                  },
-                  {
                     "question_text": "Can Azure Databricks be used to build data pipelines on Azure?",
                     "expected_answer": "Yes",
                     "question_id": "dp-900_an_analytics_workload_99c4c0d5"
@@ -6185,11 +5865,6 @@
                     "question_text": "Is Azure Databricks the result of a partnership between Microsoft and Databricks, the creators of Apache Spark?",
                     "expected_answer": "Yes",
                     "question_id": "dp-900_an_analytics_workload_f9a65761"
-                  },
-                  {
-                    "question_id": "dp-900_an_analytics_workload_5f30e708",
-                    "question_text": "Is Azure Databricks a fully managed Apache Spark platform available within the Azure portal?",
-                    "expected_answer": "Yes"
                   },
                   {
                     "question_text": "Is Azure Databricks a standalone product developed independently by Microsoft without collaboration?",
@@ -6231,11 +5906,6 @@
                     "question_id": "dp-900_an_analytics_workload_269644f3"
                   },
                   {
-                    "question_id": "dp-900_an_analytics_workload_a44b8088",
-                    "question_text": "Does Apache Kafka store data in partitions on a distributed cluster?",
-                    "expected_answer": "Yes"
-                  },
-                  {
                     "question_text": "Is Apache Kafka a closed-source streaming platform?",
                     "expected_answer": "No",
                     "question_id": "dp-900_an_analytics_workload_6cb3784a"
@@ -6254,11 +5924,6 @@
                     "question_id": "dp-900_an_analytics_workload_19908750",
                     "question_text": "Is Apache Kafka an open-source streaming platform?",
                     "expected_answer": "Yes"
-                  },
-                  {
-                    "question_text": "Does Apache Kafka store data in partitions on a distributed cluster?",
-                    "expected_answer": "Yes",
-                    "question_id": "dp-900_an_analytics_workload_a44b8088"
                   },
                   {
                     "question_text": "Can consumers in Apache Kafka listen on topics to receive messages?",
@@ -6325,24 +5990,9 @@
                     "question_id": "dp-900_an_analytics_workload_b94f3f80"
                   },
                   {
-                    "question_id": "dp-900_an_analytics_workload_a30b43fc",
-                    "question_text": "Does SQL Server Data Tools (SSDT) enable building databases using a declarative model?",
-                    "expected_answer": "Yes"
-                  },
-                  {
                     "question_text": "Is SQL Server Data Tools (SSDT) a standalone application, unrelated to Visual Studio?",
                     "expected_answer": "No",
                     "question_id": "dp-900_an_analytics_workload_c84b3906"
-                  },
-                  {
-                    "question_text": "Can SQL Server Data Tools (SSDT) be used for debugging databases?",
-                    "expected_answer": "Yes",
-                    "question_id": "dp-900_an_analytics_workload_6270081b"
-                  },
-                  {
-                    "question_text": "Does SQL Server Data Tools (SSDT) provide visual designers for database development?",
-                    "expected_answer": "Yes",
-                    "question_id": "dp-900_an_analytics_workload_7523db8e"
                   },
                   {
                     "question_text": "Is maintaining and refactoring databases possible with SQL Server Data Tools (SSDT)?",
@@ -6367,11 +6017,6 @@
                     "question_text": "Can SQL Server Management Studio (SSMS) be used to manage Azure Synapse Analytics?",
                     "expected_answer": "Yes",
                     "question_id": "dp-900_an_analytics_workload_806eb8da"
-                  },
-                  {
-                    "question_id": "dp-900_an_analytics_workload_d5015b18",
-                    "question_text": "Is SQL Server Management Studio (SSMS) available on operating systems other than Windows?",
-                    "expected_answer": "No"
                   },
                   {
                     "question_text": "Can SQL Server Management Studio (SSMS) be used to manage Azure SQL Database?",
@@ -6402,16 +6047,6 @@
                     "question_text": "Is SQL Server Management Studio (SSMS) available for operating systems other than Windows?",
                     "expected_answer": "No",
                     "question_id": "dp-900_an_analytics_workload_a3e8c1f3"
-                  },
-                  {
-                    "question_text": "Can SQL Server Management Studio (SSMS) be used to manage Azure SQL Database?",
-                    "expected_answer": "Yes",
-                    "question_id": "dp-900_an_analytics_workload_32cefb02"
-                  },
-                  {
-                    "question_text": "Is object explorer a feature offered by SQL Server Management Studio (SSMS)?",
-                    "expected_answer": "Yes",
-                    "question_id": "dp-900_an_analytics_workload_86e18736"
                   },
                   {
                     "question_text": "Does SQL Server Management Studio (SSMS) only support managing on-premises SQL Servers and not any cloud-based SQL infrastructure?",
@@ -6500,11 +6135,6 @@
                     "question_id": "dp-900_an_analytics_workload_16d60008",
                     "question_text": "Is SQL Server Integration Services (SSIS) used to build enterprise-level data integration and transformation solutions?",
                     "expected_answer": "Yes"
-                  },
-                  {
-                    "question_text": "Can SQL Server Integration Services (SSIS) be used as an integration runtime for Azure Data Factory?",
-                    "expected_answer": "Yes",
-                    "question_id": "dp-900_an_analytics_workload_c864c068"
                   },
                   {
                     "question_text": "Does SQL Server Integration Services (SSIS) automate SQL database servers?",
@@ -6639,11 +6269,6 @@
                     "question_id": "dp-900_an_analytics_workload_a4fab973"
                   },
                   {
-                    "question_id": "dp-900_an_analytics_workload_9b02785f",
-                    "question_text": "Is Microsoft Power BI a business intelligence tool designed for visualizing business data?",
-                    "expected_answer": "Yes"
-                  },
-                  {
                     "question_text": "Does Microsoft Power BI primarily function as a transactional database system?",
                     "expected_answer": "No",
                     "question_id": "dp-900_an_analytics_workload_c13cc4a2"
@@ -6767,11 +6392,6 @@
                     "question_id": "dp-900_an_analytics_workload_46d83727"
                   },
                   {
-                    "question_id": "dp-900_an_analytics_workload_59337916",
-                    "question_text": "Is Power BI Report Builder a standalone Windows application?",
-                    "expected_answer": "Yes"
-                  },
-                  {
                     "question_text": "Can Power BI Report Builder be used to design paginated reports?",
                     "expected_answer": "Yes",
                     "question_id": "dp-900_an_analytics_workload_d976af77"
@@ -6787,24 +6407,9 @@
                     "question_id": "dp-900_an_analytics_workload_b8e791b8"
                   },
                   {
-                    "question_id": "dp-900_an_analytics_workload_59337916",
-                    "question_text": "Is Power BI Report Builder a standalone Windows application?",
-                    "expected_answer": "Yes"
-                  },
-                  {
-                    "question_text": "Can Power BI Report Builder be used to design paginated reports?",
-                    "expected_answer": "Yes",
-                    "question_id": "dp-900_an_analytics_workload_d976af77"
-                  },
-                  {
                     "question_text": "Is Power BI Report Builder primarily intended for creating 'pixel perfect' printable reports?",
                     "expected_answer": "Yes",
                     "question_id": "dp-900_an_analytics_workload_bb40db48"
-                  },
-                  {
-                    "question_text": "Is Power BI Report Builder used for designing interactive dashboards?",
-                    "expected_answer": "No",
-                    "question_id": "dp-900_an_analytics_workload_46f09cdc"
                   },
                   {
                     "question_text": "Can Power BI Report Builder be accessed directly through a web browser without installation?",
@@ -7107,11 +6712,6 @@
                     "question_id": "dp-900_an_analytics_workload_69c2a388"
                   },
                   {
-                    "question_id": "dp-900_an_analytics_workload_024a055e",
-                    "question_text": "Are dashboards in Power BI Service single-page canvases?",
-                    "expected_answer": "Yes"
-                  },
-                  {
                     "question_text": "Can dashboards in Power BI Service display visualizations called 'tiles' that are pinned from reports or datasets?",
                     "expected_answer": "Yes",
                     "question_id": "dp-900_an_analytics_workload_23169a01"
@@ -7174,11 +6774,6 @@
                     "question_id": "dp-900_an_analytics_workload_1f97a6ad",
                     "question_text": "Is Power BI Mobile described as a mobile web application?",
                     "expected_answer": "Yes"
-                  },
-                  {
-                    "question_text": "Can Power BI Mobile be used for viewing reports while on the go?",
-                    "expected_answer": "Yes",
-                    "question_id": "dp-900_an_analytics_workload_98006c92"
                   },
                   {
                     "question_text": "Is Power BI Mobile primarily intended for editing reports?",

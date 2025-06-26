@@ -131,7 +131,8 @@ class DemoQAGenerator:
             )
     
     def _generate_unique_question_identifier(self, question_text: str, exam_code: str, 
-                                           skill_area: str) -> str:
+                                        skill_area: str, topic_name: str, 
+                                        detail_description: str) -> str:
         """
         Generate a unique, deterministic identifier for a question using content hashing.
         
@@ -142,6 +143,8 @@ class DemoQAGenerator:
             question_text (str): The actual question text content
             exam_code (str): Certification exam identifier (e.g., "AZ-900")
             skill_area (str): Skill domain the question belongs to
+            topic_name (str): Specific topic within the skill area
+            detail_description (str): Additional context for the question
         
         Returns:
             str: Unique question identifier in format: {exam}_{skill_short}_{hash}
@@ -154,12 +157,10 @@ class DemoQAGenerator:
             ... )
             'az_900_describe_azure_storage_3f7a8b2c'
         """
-        # Create deterministic hash input from question and context
-        normalized_input = f"{exam_code}_{skill_area}_{question_text}".lower().strip()
+        normalized_input = f"{exam_code}_{skill_area}_{topic_name}_{detail_description}_{question_text}".lower().strip()
         content_hash = hashlib.md5(normalized_input.encode()).hexdigest()
         truncated_hash = content_hash[:self.QUESTION_ID_HASH_LENGTH]
         
-        # Generate human-readable skill area abbreviation
         skill_abbreviation = self._create_skill_area_abbreviation(skill_area)
         
         return f"{exam_code.lower()}_{skill_abbreviation}_{truncated_hash}"
@@ -468,7 +469,7 @@ class DemoQAGenerator:
                 for question_item in generated_questions:
                     question_text = question_item.get("question_text", "")
                     unique_id = self._generate_unique_question_identifier(
-                        question_text, exam_code, skill_area
+                        question_text, exam_code, skill_area, topic_name, detail_description
                     )
                     question_item["question_id"] = unique_id
                 
