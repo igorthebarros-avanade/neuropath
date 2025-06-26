@@ -2,11 +2,11 @@ import os
 import json
 from pathlib import Path
 from datetime import datetime
-# from services.question_service import QuestionService
 
 class SimulationService:
     def __init__(self):
         self.files_dir = Path("files")
+        self.demo_mode = os.getenv("DEMO_MODE", "false").lower() == "true"
 
     def get_available_question_files(self):
         """Get available question files with better formatting."""
@@ -25,8 +25,7 @@ class SimulationService:
                 question_count = len(data.get("questions", []))
                 
                 # Detect if stratified sampling was used (demo mode indicator)
-                demo_mode = os.getenv("DEMO_MODE", "false").lower() == "true"
-                method = "Stratified Sampling" if demo_mode else "AI Generated"
+                method = "Stratified Sampling" if self.demo_mode else "AI Generated"
                 
                 formatted_files.append({
                     'file': file_path,
@@ -87,8 +86,7 @@ class SimulationService:
         questions = questions_data.get("questions", [])
         
         # Demo mode filtering
-        demo_mode = os.getenv("DEMO_MODE", "false").lower() == "true"
-        if demo_mode:
+        if self.demo_mode:
             original_count = len(questions)
             questions = [q for q in questions if q.get('type') == 'yes_no']
             if len(questions) < original_count:
@@ -99,7 +97,7 @@ class SimulationService:
             return
 
         # Show sampling info if available
-        if demo_mode:
+        if self.demo_mode:
             skill_distribution = {}
             for q in questions:
                 skill_area = q.get('skill_area', 'Unknown')
@@ -117,7 +115,7 @@ class SimulationService:
         current_simulation_results = {
             "exam_code": exam_code,
             "timestamp": datetime.now().isoformat(),
-            "sampling_method": "stratified" if demo_mode else "ai_generated",
+            "sampling_method": "stratified" if self.demo_mode else "ai_generated",
             "questions_attempted": []
         }
 

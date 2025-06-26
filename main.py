@@ -128,7 +128,6 @@ def main():
             if selected_exam_code:
                 try:
                     # Check if we're in demo mode
-                    demo_mode = os.getenv("DEMO_MODE", "false").lower() == "true"
                     num_yes_no = int(input("Enter number of Yes/No questions (e.g., 30): "))
                     
                     if demo_mode:

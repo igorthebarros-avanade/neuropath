@@ -1,11 +1,10 @@
 # App-related data files that should not be tracked by git.
 /scripts/tmp/*
-# These should be "simulated" during at "runtime" (not to be "influenced" by other user runs)
+# These should be "simulated" at "runtime" (not to be "influenced" by other user runs)
 /files/*_targeted_questions.json
-# These should be "simulated" during at "runtime" (not to be "influenced" by other user runs)
 /files/*_results.json
-# These should be "simulated" during at "runtime" (not to be "influenced" by other user runs)
 /files/questions_*.json
+/files/*_feedback.csv
 # TODO: To be removed after first stakeholder meeting
 # /files/images/*
 # /files/podcasts/*
