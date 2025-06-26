@@ -165,52 +165,6 @@ def validate_unique_question_ids(auto_delete_duplicates: bool = False) -> None:
     else:
         print("✅ All question_ids are unique!")
 
-def get_question_id_stats(content_file_path: str | None = None) -> dict:
-    """
-    Get basic statistics about question_ids in the content file.
-    
-    Args:
-        content_file_path: Path to content file. If None, uses EXAM_DATA_JSON_PATH env var.
-        
-    Returns:
-        Dict with statistics: total_questions, questions_with_id, unique_ids
-    """
-    if content_file_path is None:
-        content_file_path = os.getenv("EXAM_DATA_JSON_PATH", "content/content_updated.json")
-    
-    content_file = Path(content_file_path)
-    
-    try:
-        with open(content_file, 'r', encoding='utf-8') as f:
-            content_data = json.load(f)
-    except (FileNotFoundError, json.JSONDecodeError):
-        return {"total_questions": 0, "questions_with_id": 0, "unique_ids": 0}
-    
-    total_questions = 0
-    question_ids = []
-    
-    for _, exam_data in content_data.items():
-        skills = exam_data.get("skills_measured", [])
-        
-        for skill in skills:
-            subtopics = skill.get("subtopics", [])
-            
-            for subtopic in subtopics:
-                details = subtopic.get("details", [])
-                
-                for detail in details:
-                    if isinstance(detail, dict):
-                        total_questions += 1
-                        question_id = detail.get("question_id")
-                        if question_id:
-                            question_ids.append(question_id)
-    
-    return {
-        "total_questions": total_questions,
-        "questions_with_id": len(question_ids),
-        "unique_ids": len(set(question_ids))
-    }
-
 def stratified_sample_questions(questions_by_skill: dict, total_requested: int) -> list:
     """
     Perform stratified sampling to ensure representation across skill areas.
@@ -318,8 +272,3 @@ def save_json_file(data: Any, file_path: Path) -> bool:
     except Exception as e:
         print(f"Error saving to '{file_path}': {e}")
         return False
-
-
-if __name__ == "__main__":
-    validate_unique_question_ids(auto_delete_duplicates=False)
-    print(get_question_id_stats())
