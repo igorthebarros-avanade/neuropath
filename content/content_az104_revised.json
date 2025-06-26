@@ -1,0 +1,463 @@
+{
+  "AZ-104": {
+    "exam_name": "Microsoft Azure Administrator",
+    "name": "Microsoft Azure Administrator",
+    "skills_measured": [
+      {
+        "skill_area": "Manage Azure identities and governance",
+        "percentage": "20–25%",
+        "subtopics": [
+          {
+            "topic": "Manage Microsoft Entra users and groups",
+            "details": [
+              "Microsoft Entra users and groups are identity objects in Azure AD used to manage authentication, authorization, and access to Azure resources.",
+              "You can create user accounts with properties such as name, department, location, and contact information.",
+              "External users can be invited to the Microsoft Entra ID organization for collaboration.",
+              "UserPrincipalName values containing '#EXT#' (e.g., user_domain.com#EXT#@tenant.onmicrosoft.com) indicate that the account is a guest or external (B2B) user invited from another directory.",
+              "Groups can be created with assigned or dynamic membership types to simplify access management.",
+              "Dynamic group membership uses queries based on user attributes like job title or department and requires premium licenses.",
+              "Dynamic group queries can be validated using the validate rules feature.",
+              "Microsoft Entra ID (formerly Azure Active Directory) is a cloud-based identity and access management service for managing users, sign-ins, and access to internal and external SaaS applications.",
+              "Microsoft Entra roles grant permissions to manage resources across Azure AD. Key roles include:",
+              "User Administrator: Can create and manage all aspects of users and groups, including resetting passwords for non-administrators and some admin roles. They can also manage support tickets and monitor service health.",
+              "Billing Administrator: Manages billing-related features but cannot manage users, groups, or most administrative settings.",
+              "Global Administrator: Has full access to all management features in Microsoft Entra ID and most Microsoft services.",
+              "Service Administrator: Typically refers to classic subscription/service administrative tasks; not specific to Entra user, group, ticket, or health monitoring management.",
+              "Self-Service Password Reset (SSPR) in Microsoft Entra ID enables cloud users to reset their passwords using multiple authentication methods (such as email, phone, or security questions) configured in the Azure portal under the Authentication methods settings for Password reset.",
+              "To allow synchronized users (from AD DS) to reset their AD DS passwords from the Azure portal, you must enable the Password writeback feature in Microsoft Entra Connect. This allows password changes in the cloud to be written back to the on-premises Active Directory.",
+              "In the Azure portal under Microsoft Entra ID > Password reset, you must configure the Authentication methods settings to specify the types and number of methods required for password reset (for example, requiring users to use two methods).",
+              "The Notifications and Registration settings affect user experience but are not required to enable password writeback or multiple authentication methods for reset.",
+              "Device writeback in Microsoft Entra Connect allows devices registered in Microsoft Entra ID to be written back to AD DS, but is not required for password reset/writeback scenarios.",
+              "Self-Service Password Reset (SSPR) with password writeback to on-premises Active Directory requires Microsoft Entra ID (Azure Active Directory) Premium P1 or P2 licenses. The Free edition does not support password writeback functionality."
+            ]
+          },
+          {
+            "topic": "Manage role-based access control (RBAC)",
+            "details": [
+              "Azure RBAC is an authorization system that manages who has access to Azure resources, what they can do, and where.",
+              "Roles are defined in JSON files, including actions, notActions, and assignableScopes.",
+              "Custom roles can be created to define specific permissions.",
+              "Built-in roles such as Owner, Contributor, and Reader can be assigned to control access to resources.",
+              "The Owner role grants full management of resources and the ability to delegate permissions to others.",
+              "The Contributor role allows creating, deleting, and configuring resources but does not allow granting permissions to other users.",
+              "The Reader role allows viewing of Azure resources, but not changing them.",
+              "Billing Reader role allows viewing of billing information such as invoices and usage, but cannot view or manage budgets or cost analysis.",
+              "Cost Management Contributor role allows viewing cost data and managing cost-related features such as budgets and exports, but cannot make changes to resources.",
+              "Permissions are inheritable; a permission granted at a higher scope propagates to all resources beneath it in the hierarchy.",
+              "The RBAC hierarchy is Management Group > Subscription > Resource Group > Resource.",
+              "Role assignments and changes can be monitored using the Azure Activity Log."
+            ]
+          },
+          {
+            "topic": "Manage Azure subscriptions and governance",
+            "details": [
+              "Azure subscriptions are containers that link resources to billing and act as a cost boundary.",
+              "Resources are always linked to a subscription; moving a subscription to another tenant moves its resources as well.",
+              "Organizations often use multiple subscriptions for environment isolation (development, testing, production) or for cost allocation by department.",
+              "Management groups logically organize subscriptions, allowing RBAC and Azure Policy to be assigned and inherited across multiple subscriptions.",
+              "Azure Policy enforces rules and effects on Azure resources to ensure compliance with IT governance standards.",
+              "Policy definitions are described in JSON format and specify conditions for resource compliance and the effect to take if conditions are met.",
+              "Policies can enforce conditions for newly created resources and assess compliance of existing resources through compliance scans.",
+              "Policy rules consist of an 'if' block for conditions and a 'then' block for the effect (e.g., deny, audit, deployIfNotExists, modify).",
+              "Policies can be applied at the Management Group, Subscription, Resource Group, or Resource level, and specific resources or groups can be excluded from the policy's scope.",
+              "Resource tags are key-value pairs assigned to Azure resources for organization, cost management, operations management, and security classification.",
+              "Tags can be applied at the Management group, Subscription, Resource Group, or Resource level.",
+              "Resource locks prevent accidental deletion or modification of critical Azure resources and can be applied at the subscription, resource group, or resource level.",
+              "Common lock levels include CannotDelete and ReadOnly. Locks override user permissions.",
+              "Technical remediation, such as automatically fixing or configuring non-compliant resources (for example, with \"deployIfNotExists\" or \"modify\" effects), is defined in the \"policyRule\" section of an Azure Policy definition.",
+              "Remediation information that provides human-readable guidance or recommendations for how users should remediate non-compliance (displayed in the portal for policy violations) should be specified in the \"remediationDescription\" field within the \"metadata\" section of an Azure Policy definition."
+            ]
+          }
+        ]
+      },
+      {
+        "skill_area": "Implement and manage storage",
+        "percentage": "15–20%",
+        "subtopics": [
+          {
+            "topic": "Configure and manage storage accounts",
+            "details": [
+              "Azure Storage accounts provide scalable, durable, and highly available storage for a variety of data objects in the cloud.",
+              "Storage accounts require a globally unique name.",
+              "You can select appropriate storage account types (e.g., StorageV2 for all four services, Premium for specialized high-performance).",
+              "Understand the cost implications of Standard vs. Premium storage accounts, especially regarding transactional costs.",
+              "Configure Azure Storage redundancy options: LRS, ZRS, GRS, RA-GRS, GZRS, and RA-GZRS.",
+              "LRS (Locally-redundant storage) stores 3 copies within a single datacenter, protecting against rack failures.",
+              "ZRS (Zone-redundant storage) stores 3 copies across different datacenters within the same region, protecting against datacenter failures.",
+              "GRS (Geo-redundant storage) stores 3 copies in the primary region and 3 copies in a secondary, geographically distant region, protecting against regional outages.",
+              "RA-GRS (Read-access geo-redundant storage) allows read access to the secondary region during a regional disaster.",
+              "GZRS (Geo-zone-redundant storage) combines ZRS and GRS, providing high availability within a region and disaster recovery across regions.",
+              "RA-GZRS provides GZRS benefits with read access to the secondary region.",
+              "Geo-redundant options replicate data, but failover typically involves a manual process that may temporarily convert the storage account to LRS.",
+              "Object replication can be configured to asynchronously copy blobs between containers in different regions for data distribution, latency reduction, and cost optimization.",
+              "To enable object replication, versioning must be enabled on the source storage account. Blob service versioning automatically maintains prior versions of blobs and is required for object replication to ensure blobs are replicated with their respective versions. If versioning is disabled, object replication cannot be enabled.",
+              "Blob versioning can be enabled to automatically maintain previous versions of an object for data recovery.",
+              "Blob versioning must also be enabled on the destination (target) storage account for object replication.",
+              "Change feed must be enabled on the source account before configuring object replication. Change feed is not required on the destination account.",
+              "Point-in-time restore is not required and does not need to be enabled on either source or destination account for object replication to work.",
+              "Storage Service Encryption (SSE) with 256-bit AES encrypts all data at rest by default.",
+              "Customer-managed keys (CMK) stored in Azure Key Vault can be implemented for greater control over encryption keys, in addition to platform-managed keys (PMK).",
+              "Storage account data can be managed using tools like Azure Storage Explorer (a graphical utility) and AzCopy (a command-line tool).",
+              "AzCopy is a command-line utility that supports data transfer to and from Azure Blob storage and Azure Files. It does not support Azure Table storage or Azure Queue storage.",
+              "Azure Data Lake Storage Gen2 provides hierarchical namespace and advanced big data analytics capabilities integrated into Azure Blob storage.",
+              "To use Data Lake Storage Gen2, create a storage account of type 'standard general-purpose v2 (StorageV2)' or 'premium block blobs.' Only these account types support enabling the hierarchical namespace required for Data Lake Storage Gen2.",
+              "Premium file shares and premium page blobs do not support Data Lake Storage Gen2 features.",
+              "AzCopy is a command-line utility for copying data to and from Azure Blob storage. To recursively copy all files in a local folder to an Azure Blob container, use: AzCopy copy <source-folder-path> <destination-blob-URL> --recursive",
+              "You can use AzCopy sync to synchronize the entire content of a local folder with a blob container (not  recommended for first-time migration): AzCopy sync <source-folder-path> <destination-blob-URL> --recursive",
+              "In Azure PowerShell, to upload multiple files from a local or network folder to an Azure Blob container, use Get-ChildItem to enumerate files and then pipe them to Set-AzStorageBlobContent: Get-ChildItem -Path <local-folder-path> -Recurse | Set-AzStorageBlobContent -Container <container-name>",
+              "Set-AzStorageBlobContent can upload a single file, rather than a folder, so to upload an entire directory, you must enumerate files recursively."
+            ]
+          },
+          {
+            "topic": "Configure Azure Files and Azure Blob Storage",
+            "details": [
+              "Azure Files and Azure Blob Storage are services for storing and sharing files and unstructured data in the cloud.",
+              "Azure file shares are fully managed cloud file shares accessible via SMB, NFS, and HTTP protocols.",
+              "Azure Files is a serverless PaaS offering, suitable for replacing on-premises file servers, supporting lift-and-shift applications, and storing shared application settings or diagnostic data.",
+              "File shares primarily use SMB protocol on port 445 for connectivity.",
+              "Azure File Sync can cache Azure Files shares on on-premises Windows Servers or cloud virtual machines, enhancing performance and enabling hybrid scenarios.",
+              "Cloud tiering within Azure File Sync automatically moves older, less-accessed data to Azure Files while keeping frequently accessed data locally cached.",
+              "Blob containers store unstructured data (Binary Large Objects or 'blobs') such as images, videos, and documents.",
+              "Blob types include Block Blobs (default for general use), Page Blobs (for virtual hard disks), and Append Blobs (for logging).",
+              "Access tiers (Hot, Cool, Cold, Archive) can be configured for blobs to optimize cost and performance based on data access frequency. Archive tier offers the lowest storage cost but highest access cost.",
+              "The Cool access tier is designed for data that is infrequently accessed but still needs to be retrieved quickly when needed; it offers lower storage costs than Hot but has higher access costs.",
+              "The Cold access tier (introduced in 2024) offers even lower storage costs than Cool, but read and write operations are slower and more costly compared to Cool. Cold is ideal for data accessed very infrequently but that must be quickly available when needed and with lower latency than Archive. Cold retrieval performance is lower than Cool, but still better than Archive, and there is no rehydration delay as there is with Archive.",
+              "The Cold access tier is optimized for storing large amounts of data that is accessed very infrequently but requires fast (hours to minutes, not days) retrieval when needed. It offers lower storage costs than both Hot and Cool tiers and is intended for backup, disaster recovery, and archival data that may need to be accessed quickly in rare situations.",
+              "The Archive tier offers the lowest storage cost but has the highest data retrieval costs and access latency, as blobs need to be rehydrated first and this can take several hours.",
+              "Soft delete for blobs and containers allows recovery of accidentally deleted data.",
+              "File share snapshots in Azure Files capture point-in-time, read-only copies of data, which are incremental and useful for quick data recovery, but are not a substitute for full backups.",
+              "Blob lifecycle management policies can automate the transition of data between access tiers and define expiration times for data based on its age and access patterns.",
+              "To apply lifecycle management rules that use the last access time of a blob (such as moving blobs to Cool storage after 30 days of no access), you must first enable access tracking for the storage account. Access tracking enables Azure Storage to update the last access time property on blobs, which the lifecycle management policy relies on.",
+              "Blob immutability policies (also known as write-once, read-many or WORM policies) can be configured at the container or blob level to prevent data from being modified or deleted for a specified retention period.",
+              "There are two types of immutability policies: time-based retention, which retains data for a specified number of days from the last modification date, and legal hold, which retains data until the hold is explicitly cleared.",
+              "Immutability policies are commonly used to meet regulatory or compliance requirements that require data to be preserved and protected against deletion or modification for a set time period.",
+              "Standard storage accounts of type StorageV2 (general-purpose v2) or premium file storage accounts are required to support large file share capability.",
+              "Large file shares must be enabled at the storage account level using the Azure PowerShell command: Set-AzStorageAccount -ResourceGroupName <ResourceGroupName> -Name <StorageAccountName> -EnableLargeFileShare.",
+              "After enabling large file share support, you can create or update Azure file shares in the storage account with a quota up to 100 TiB (102,400 GiB) using Az PowerShell commands.",
+              "To increase the quota to 100 TiB for an Azure File share, use the Update-AzStorageShare (or Set-AzRmStorageShare) command to specify a quota up to 102400 GiB (100 TiB = 102400 GiB).",
+              "The New-AzStorageShare and Update-AzStorageShare commands enable you to specify the quota in GiB, up to 102400, but the large file share capability must be enabled first."
+            ]
+          },
+          {
+            "topic": "Secure storage",
+            "details": [
+              "Securing Azure Storage involves controlling access, encrypting data, and ensuring secure network connectivity.",
+              "Shared Access Signature (SAS) tokens grant limited access to Azure Storage resources, defining permissions, validity period, and allowed IP ranges.",
+              "SAS tokens are recommended for delegating access to external users or applications over sharing full access keys.",
+              "Access keys provide full control over the entire storage account and should be stored securely and regenerated regularly.",
+              "Azure Key Vault can be used to manage and rotate storage account access keys securely.",
+              "Identity-based access for Azure Files can be configured using Microsoft Entra ID or AD DS identities synced to Microsoft Entra ID.",
+              "Secure network access to storage endpoints can be implemented by configuring public endpoints (default), Service Endpoints (restricting access to specific VNets), or Private Endpoints (assigning a private IP from a VNet and disabling public access).",
+              "Private Endpoints route traffic over the Azure backbone network for enhanced security and performance.",
+              "Private Endpoints require proper DNS configuration, often involving Private DNS Zones, to resolve the storage account's public name to its private IP.",
+              "Always use HTTPS for all data transfers to and from storage accounts to ensure data security in transit.",
+              "Shared Access Signature (SAS) tokens in Azure Storage require certain core parameters when generating an account-level SAS. The commonly required parameters are: 'SignedServices (ss)' to specify services (ex: blob, file, queue, table); 'SignedResourceTypes (srt)' to specify resource types (ex: service, container, object); and 'SignedPermissions (sp)' to specify operations allowed. Other optional parameters include 'SignedIP (sip)' for allowed IP address ranges, 'SignedStart (st)' and 'SignedExpiry (se)' for token validity period, and 'SignedProtocol (spr)'."
+            ]
+          }
+        ]
+      },
+      {
+        "skill_area": "Deploy and manage Azure compute resources",
+        "percentage": "20–25%",
+        "subtopics": [
+          {
+            "topic": "Automate deployment of resources by using Azure Resource Manager (ARM) templates or Bicep files",
+            "details": [
+              "ARM templates and Bicep files are declarative files that define Azure resources and configurations as Infrastructure as Code (IaC).",
+              "ARM templates are JSON files that specify resources and their properties.",
+              "Bicep is a domain-specific language that compiles to ARM templates, offering concise syntax and improved type safety.",
+              "Existing ARM templates or Bicep files can be modified to customize deployments.",
+              "Resources can be deployed using ARM templates or Bicep files via the Azure portal, Azure PowerShell, Azure CLI, REST API, SDKs, or Terraform.",
+              "PowerShell provides different cmdlets for deploying templates at different scopes:",
+              "New-AzResourceGroupDeployment deploys templates to a specific resource group.",
+              "New-AzSubscriptionDeployment deploys templates at the subscription scope.",
+              "New-AzManagementGroupDeployment deploys templates at the management group scope.",
+              "New-AzVM creates a single VM directly, not via an ARM template.",
+              "Existing Azure deployments can be exported as ARM templates from the portal for reuse and replication.",
+              "Bicep files can be compiled into ARM templates for deployment.",
+              "When deploying an ARM template with the New-AzDeployment cmdlet and the template is stored in an Azure Blob storage container (or accessible by HTTP/HTTPS URI), you should use the -TemplateUri parameter to reference the template.",
+              "During the deployment of a basic ARM template (such as from the Azure Quickstart Templates library), you are typically prompted to specify the resource group in which the resources will be deployed. While some parameters such as VM size and OS may be exposed as configurable parameters in the template definition, the resource group is always a configurable input as you must select or create the target resource group for the deployment. Disk configurations (such as disk size or type) and operating system choices may be fixed or parameterized depending on the template, but resource group selection is always available during deployment.",
+              "The 'Deployments' blade within a resource group in the Azure portal displays a history of deployment operations, including the date and time of each deployment, which allows you to verify when resources were created or updated by ARM templates.",
+              "Use the Export template operation from the VM or the containing resource group in the Azure portal, download the template, and deploy it using the New-AzResourceGroupDeployment cmdlet.",
+              "Use the Export template feature directly from the VM's pane in the portal, and select Deploy to create a new instance.",
+              "Use Get-AzVM and New-AzVM cmdlets in Azure PowerShell to capture configuration and create a new VM (note: this captures certain configuration parameters, but not all extensions or disk images).",
+              "Although you can use Get-AzVM and New-AzVM to duplicate basic VM configuration (such as size or network settings), this approach does not produce a full Azure Resource Manager (ARM) template and does not allow you to use the VM as a reusable template for comprehensive or scalable resource deployment. To use a VM as a template for creating new VMs with the same configuration, you must export an ARM template from the resource group or VM pane in the Azure portal (using 'Export template'), and then deploy it using the portal, PowerShell (New-AzResourceGroupDeployment), or by selecting Deploy directly from the VM's Export template pane.",
+              "Use the Save-AzDeploymentTemplate cmdlet to export the ARM template from an existing deployment, and then use New-AzResourceGroupDeployment to deploy a new resource with that template.",
+              "The Save-AzDeploymentScriptLog cmdlet is not used to export templates, but rather to download logs from deployment scripts.",
+              "The primary methods to deploy a new VM using an existing VM as a template are: exporting the template from resource group or VM in the portal, using Save-AzDeploymentTemplate, or using Get-AzVM/New-AzVM for configuration-based cloning."
+            ]
+          },
+          {
+            "topic": "Create and configure virtual machines",
+            "details": [
+              "Azure Virtual Machines (VMs) are scalable compute resources that can run Windows or Linux operating systems.",
+              "VM deployment planning involves considering factors such as VM size, disk types (Premium SSD, Standard SSD, Standard HDD), and operating system images (from Marketplace or custom).",
+              "VMs must be deployed into a virtual network and subnet in the same region.",
+              "Azure Disk Encryption can be configured for VHDs using BitLocker for Windows and dm-crypt for Linux.",
+              "VMs and their associated resources (NICs, IPs, disks) can be moved to another resource group, subscription, or region.",
+              "VM sizes can be managed to optimize performance and cost.",
+              "VMs can be deployed to availability zones for high availability against datacenter failures, ensuring at least two VMs are distributed across at least two zones for a 99.99% uptime SLA.",
+              "VMs can be deployed to availability sets to logically group related VMs, preventing a single point of failure and ensuring VMs are not updated simultaneously during host OS upgrades.",
+              "Availability sets use update domains and fault domains to achieve high availability.",
+              "When creating a new virtual machine in the Azure portal, you can add it to an existing or new virtual machine scale set by selecting the appropriate option under 'Availability options' during the VM creation process.",
+              "To move a managed data disk from one Azure VM to another, you must first detach the data disk from the source VM in the Azure portal or via PowerShell/CLI. After detaching, you can then attach the disk to the target VM; it is not required to stop or restart either VM.",
+              "An availability set uses update domains to logically separate resources for planned maintenance events. During planned maintenance, Azure only restarts resources in one update domain at a time. The maximum number of virtual machines unavailable simultaneously during planned maintenance is equal to the number of VMs per update domain.",
+              "To connect an Azure VM to multiple subnets, the VM must have multiple network interfaces (NICs), with each NIC connected to a different subnet within the same virtual network. You can add another NIC to the VM from the Azure portal, and then attach it to the desired subnet. Modifying IP configurations of an existing NIC will not allow you to connect it to multiple subnets, as each NIC is associated with only one subnet at a time.",
+              "To upload a VHD file from an on-premises Hyper-V virtual machine to an Azure Storage account for use as an Azure VM image or managed disk, use the Add-AzVhd cmdlet. This command uploads the VHD to a specified blob container within the storage account and is the supported method for preparing generalized (sysprepped) VHDs for deployment as Azure virtual machines."
+            ]
+          },
+          {
+            "topic": "Configure Azure App Service",
+            "details": [
+              "Azure App Service is a Platform as a Service (PaaS) solution for hosting web, mobile, and API applications supporting various runtime stacks.",
+              "App Service plans define the compute resources (CPU, memory, storage) and scaling options for web applications.",
+              "The Free (F1) plan provides limited resources, allows only 1 GB storage, supports a single instance, and does not allow custom domain names.",
+              "The Basic (B1, B2, B3) plan supports up to 3.5 GB RAM per instance, up to 50 GB storage, allows up to 3 instances, and supports custom domain names.",
+              "The Standard (S1, S2, S3) plan supports custom domain names, SSL, auto-scaling up to 10 instances (on Windows), and provides 50 GB storage per App Service plan.",
+              "The Premium (P1V2, P2V2, etc.) plans support advanced features, larger scaling limits (up to 20 instances or more), more memory, and 250 GB storage per plan.",
+              "Custom domain names require at least the Basic, Standard, or Premium App Service plans.",
+              "Free and Shared tiers are mainly for development and testing, not for production workloads needing scaling or custom domains.",
+              "Custom domain names can be configured for App Service apps, requiring ownership verification and SSL certificate upload for HTTPS traffic.",
+              "App Service deployment slots (e.g., staging, production) facilitate testing of new application versions and quick rollbacks.",
+              "App Service autoscaling can be configured based on metrics like CPU or memory consumption to dynamically adjust the number of instances or VM size.",
+              "Application backup and restore can be configured for App Service apps, including app configuration, file content, and connected databases.",
+              "Continuous integration and deployment (CI/CD) can be set up for App Service with services like Azure DevOps, GitHub, BitBucket, Docker Hub, and Azure Container Registry.",
+              "Azure Application Insights can be configured for monitoring web app performance, identifying bottlenecks, and performing availability tests from different regions.",
+              "When creating an Azure web app, the 'Publish' setting determines whether the app will run code (app code deployed to the service) or a custom container image (such as Docker). To use a Docker container image for an Azure web app, set the 'Publish' option to 'Docker Container' during app creation. The 'Runtime stack' option is used only for code deployments, not for custom container images.",
+              "Application Logging (FileSystem): Captures app-level logs and allows selection of severity level (Error, Warning, Information, Verbose). File system logs are typically used for development and are retained for a limited period.",
+              "Application Logging (FileSystem) logs are stored on the web server’s file system and are deleted after a maximum of 12 hours or when the log size quota is reached. Therefore, FileSystem logging is not suitable for persistent logging or scenarios where logs must be retained for more than a short period.",
+              "Application Logging (FileSystem) should NOT be enabled if you require log retention longer than 12 hours. For persistent or production-grade storage of diagnostic logs (such as storing logs for more than a week), only Application Logging (Blob) should be enabled.",
+              "When you need to store diagnostic logs for more than a few hours or to meet service support, auditing, or compliance requirements, you should use Application Logging (Blob). Application Logging (FileSystem) should only be used briefly during development and troubleshooting, as logs stored on the file system are automatically deleted after a maximum of 12 hours and are therefore unsuitable for scenarios with retention requirements longer than 12 hours.",
+              "Application Logging (Blob): Captures app-level logs and allows selection of severity level (Error, Warning, Information, Verbose). Blob storage provides longer retention and is recommended for production.",
+              "Application Logging (Blob) is recommended when you need to store diagnostic logs for more than several hours, especially for production workloads, because logs are saved to Azure Storage and can be retained as long as needed.",
+              "Detailed Error Message: Captures detailed error information for failed requests; this is enabled/disabled, not based on severity level.",
+              "Web Server Logging: Captures request and server logs at a selected level (Off, Error, Warning, Information, Verbose).",
+              "Severity levels for application logging (in order from lowest to highest): Verbose, Information, Warning, Error. Selecting 'Warning' will capture all logs with severity of Warning and Error. Selecting 'Verbose' will capture all levels, including Warning and Error.",
+              "To store all warnings or higher, configure Application Logging (Blob) and/or Application Logging (FileSystem) to the 'Warning' severity or above, and Web Server Logging to 'Warning' or above. Detailed Error Message does not filter logs by severity level."
+            ]
+          },
+          {
+            "topic": "Configure Azure Container Instances",
+            "details": [
+              "Azure Container Instances (ACI) is a serverless solution for quickly deploying individual containers without managing the underlying server infrastructure.",
+              "ACI provides lightweight isolation and uses fewer system resources compared to virtual machines.",
+              "Containers use Azure Disks for local storage for single nodes, or Azure Files for shared storage across multiple nodes.",
+              "Container groups are collections of containers scheduled on the same host machine.",
+              "ACI is ideal for scenarios requiring rapid provisioning, such as testing and development, but not typically for complex orchestration like Azure Kubernetes Service (AKS).",
+              "ACI supports deployment of Linux and Windows containers, and you can specify resource allocation per container (CPU, memory, GPU).",
+              "ACI can be deployed into an Azure virtual network, enabling containers to communicate securely with other Azure resources, VMs, or on-premises networks.",
+              "Environment variables and secure secrets can be injected into containers at creation.",
+              "Networking features include exposing container ports to the internet, or using private IPs within a virtual network.",
+              "You can deploy ACI using Azure CLI (az container create), ARM templates, Azure Portal, or REST API.",
+              "ACI logs and metrics can be monitored via Azure Monitor for troubleshooting and performance tracking.",
+              "Data persistence with Azure Files allows containers to access and share data even after container termination.",
+              "Container lifecycle commands (start, stop, restart, delete) can be managed via CLI, PowerShell, Portal, or API."
+            ]
+          },
+          {
+            "topic": "Configure Azure Container Apps",
+            "details": [
+              "Azure Container Apps is a serverless platform designed for running containerized applications, especially microservices and event-driven processing.",
+              "Azure Container Apps abstracts away Kubernetes complexities, providing a simpler experience for certain containerized workloads compared to AKS.",
+              "Azure Container Apps supports configuring scaling rules (KEDA-based scale triggers) that automatically add or remove app replicas based on specific metrics or events. Supported scale triggers include CPU usage, memory usage, HTTP requests, event-based triggers such as messages received on Azure Service Bus, Azure Storage queues, and more. To scale based on Azure Service Bus messages, you must use the 'event-driven' (Service Bus message) scale trigger.",
+              "Azure Container Apps supports jobs for background processing or event-triggered workloads. Jobs can be triggered manually, on a schedule, or by an event (e.g., when a message is added to a queue).",
+              "The az containerapp job create command is used to create a Container Apps job, with the --trigger-type parameter specifying how the job is triggered: 'Manual', 'Schedule', or 'Event'.",
+              "'Event' trigger-type allows the job to be executed when a new event occurs, such as a message in a linked Azure Storage queue or Service Bus queue.",
+              "'Manual' trigger-type requires you to start the job directly each time.",
+              "'Schedule' trigger-type runs jobs on a defined cron schedule.",
+              "To create a resource cleanup job that runs when a new message is added to a queue, use the az containerapp job create command with --trigger-type Event.",
+              "After creation, jobs can be started using az containerapp job start for manual and schedule-based triggers."
+            ]
+          },
+          {
+            "topic": "Secure access to Azure Kubernetes Service (AKS) API server",
+            "details": [
+              "Azure Kubernetes Service (AKS) API server access can be restricted to enhance security.",
+              "AKS supports two main mechanisms for limiting access to the cluster's Kubernetes API server:API Server Authorized IP Ranges and Private Cluster",
+              "API Server Authorized IP Ranges: You can specify a list of public IP address ranges so that only clients from these IPs are allowed to communicate with the Kubernetes API server endpoint.",
+              "Private Cluster: AKS clusters can be deployed as private clusters, which ensures that the Kubernetes API server is accessible only from within the virtual network (VNet); the API server does not have a public endpoint.",
+              "A public cluster exposes the API server endpoint to the internet, while a private cluster restricts it to a private VNet.",
+              "Azure tags are used for resource organization and do not control network access or API server reachability."
+            ]
+          }
+        ]
+      },
+      {
+        "skill_area": "Configure and manage virtual networking",
+        "percentage": "15–20%",
+        "subtopics": [
+          {
+            "topic": "Configure virtual networks",
+            "details": [
+              "Azure Virtual Networks (VNets) are logical isolations of Azure cloud resources, enabling secure communication between Azure resources, the internet, and on-premises networks.",
+              "Subnets within VNets are logical divisions of the IP address space that improve security, performance, and management.",
+              "VNet and subnet IP address ranges must be unique and not overlap.",
+              "Private IP addresses can be configured for internal communication within an Azure VNet or with on-premises networks via VPN/ExpressRoute.",
+              "Public IP addresses are used for internet accessibility, assigned to resources like load balancers, VPN gateways, and virtual machines.",
+              "Virtual network peering connects VNets securely within the same or different regions, keeping traffic on the Azure backbone network.",
+              "The hub-and-spoke topology uses a central hub VNet to host shared services and communicate with multiple spoke VNets.",
+              "Virtual network peering is not transitive by default, traffic cannot automatically pass through a peered VNet to another non-peered VNet, even in a hub-and-spoke topology.",
+              "For traffic originating from an external network (e.g., via VPN to the hub VNet) to reach a spoke VNet, explicit routing mechanisms, such as Network Virtual Appliances (NVAs) and User-Defined Routes (UDRs), are generally required.",
+              "Point-to-Site (P2S) VPN connections allow devices to connect securely to an Azure virtual network over the internet using VPN client software.",
+              "Authentication for P2S VPN can use certificates, Microsoft Entra ID, or RADIUS. Certificate authentication requires generating root and client certificates. The root certificate can be created using PowerShell's New-SelfSignedCertificate cmdlet.",
+              "Each Azure VPN gateway supports client configuration packages for P2S VPN clients. When network or gateway configuration changes (for example, enabling gateway transit on VNet peering), you must download and reinstall the VPN client configuration on all devices.",
+              "Private endpoints connect you privately to specific Azure services, not to virtual networks as a whole, and are not used for general VPN client or VNet peering connectivity.",
+              "Azure Front Door is a global load balancer and application accelerator for web applications and is not used for VPN or VNet peering traffic.",
+              "If you peer a virtual network that contains a VPN gateway to another VNet and want on-premises devices connected via VPN to access peered VNets, you must enable 'Use remote gateways' and 'Allow gateway transit' in the peering settings.",
+              "Peered VNets do not automatically provide gateway transit; these options must be explicitly configured.",
+              "If you configure a custom DNS server that is located in one virtual network and want virtual machines in other, separate virtual networks to use it, the virtual networks must be connected (for example, using Virtual Network Peering or VPN connectivity). Without a network connection between the virtual networks, virtual machines will not be able to reach the DNS server."
+            ]
+          },
+          {
+            "topic": "Configure network security groups (NSGs)",
+            "details": [
+              "Network Security Groups (NSGs) are used to limit network traffic to resources within a virtual network.",
+              "NSGs can be associated with subnets or network interfaces (NICs).",
+              "Inbound and outbound security rules are defined based on priority, direction, protocol, source, destination IP, and port range.",
+              "Application Security Groups (ASGs) group virtual machines based on their workload, simplifying NSG rule management.",
+              "To minimize the number of NSG rules when allowing traffic to specific virtual machines across multiple subnets, you can group those VMs into an Application Security Group (ASG). You can then configure a single NSG rule that allows traffic to the ASG as the destination, thus targeting only the intended VMs across all subnets.",
+              "NSGs are regional resources; an NSG can only be associated with subnets or network interfaces (NICs) that are located in the same Azure region as the NSG.",
+              "You cannot associate an NSG created in one region with a subnet or NIC in a different region.",
+              "Common Azure management and application protocols use some ports by default",
+              "Default Port for Remote Desktop Protocol (RDP) for Windows management: TCP port 3389",
+              "Default Port for Secure HTTPS traffic: TCP port 443",
+              "Default Port for HTTP traffic: TCP port 80",
+              "Default Port for SMTP: TCP port 25",
+              "Default Port for Authenticated email submission (SMTP submission): TCP port 587",
+              "You can create a new Network Security Group (NSG) in Azure using the PowerShell cmdlet `New-AzNetworkSecurityGroup`.",
+              "You can create a new network security rule configuration (such as to allow RDP or HTTP) using the PowerShell cmdlet `New-AzNetworkSecurityRuleConfig` and then add it to an NSG."
+            ]
+          },
+          {
+            "topic": "Implement Azure Load Balancer",
+            "details": [
+              "Azure Load Balancer is a service that evenly distributes incoming network traffic across a group of Azure virtual machines or Virtual Machine Scale Set instances.",
+              "It operates at OSI Layer 4 (transport layer), handling TCP and UDP protocols.",
+              "Load Balancer can be public (for internet-facing traffic) or internal (for private IP addresses).",
+              "Basic and Standard tiers are available, with Standard offering higher performance, ultra-low latency, and SLA guarantees.",
+              "Health probes ensure traffic is only directed to healthy backend instances.",
+              "Load Balancer is regional, balancing traffic for resources within the same Azure region.",
+              "Load balancing rules define how traffic is distributed to backend pool resources.",
+              "Inbound NAT rules can be created to direct external traffic to a specific VM in the backend pool by mapping a specific port of the Load Balancer to a port on the VM.",
+              "Backend pools consist of network interfaces (NICs) of VMs or scale set instances.",
+              "Outbound rules define source NAT for outbound connections.",
+              "The Standard Load Balancer is secure by default – you must create NSG rules to allow traffic.",
+              "Load Balancer diagnostics and metrics (e.g., health probe status, data path analytics) can be monitored in Azure Monitor.",
+              "Load Balancer supports high availability with zone-redundant SKUs in supported regions.",
+              "Load Balancer does not terminate SSL/TLS connections (use Application Gateway for that)."
+            ]
+          },
+          {
+            "topic": "Implement Azure Application Gateway",
+            "details": [
+              "Azure Application Gateway is a web traffic load balancer that operates at OSI Layer 7 (application layer).",
+              "It manages requests to web applications and supports features like HTTP/HTTPS load balancing, Web Application Firewall (WAF), and TLS/SSL encryption.",
+              "WAF protects web applications from common vulnerabilities like SQL injection and cross-site scripting.",
+              "Advanced routing is supported based on URL path or host headers (multisite and multipath routing).",
+              "A dedicated subnet within a virtual network is required.",
+              "Application Gateway can be used for external or internal traffic and supports custom domains and SSL certificates.",
+              "Application Gateway supports autoscaling to adjust capacity based on traffic.",
+              "Application Gateway has built-in session affinity (cookie-based affinity).",
+              "You can use custom probes to check the health of backend pool members.",
+              "Application Gateway supports multi-site hosting (multiple web apps behind one gateway using host-based routing).",
+              "Application Gateway integrates with Azure Web Application Firewall (WAF) policies.",
+              "Diagnostic logs for Application Gateway can be sent to Log Analytics or Storage Accounts for monitoring and troubleshooting.",
+              "Application Gateway supports end-to-end SSL (SSL passthrough) and SSL termination."
+            ]
+          },
+          {
+            "topic": "Configure Azure DNS",
+            "details": [
+              "Azure DNS is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure.",
+              "DNS zones hold configuration records, including A, AAAA, and CNAME records.",
+              "Alias record sets can point to Azure resources like Public IP addresses, Traffic Manager profiles, or CDN endpoints.",
+              "Private DNS Zones resolve names within Azure virtual networks without public exposure.",
+              "Private DNS Zones can be linked to specific virtual networks to allow VMs to resolve and auto-register their names.",
+              "Private DNS Zones are crucial for name resolution when using Private Endpoints for Azure services.",
+              "Azure DNS supports split-horizon DNS (public/private zone separation) using separate DNS zones.",
+              "You can configure custom DNS servers at the virtual network level to override Azure-provided name resolution.",
+              "DNS record updates in Azure DNS are available almost instantly, but propagation to global DNS resolvers is determined by record TTL values.",
+              "Azure DNS does not currently support DNS zone delegation at the record level (you delegate at the zone level).",
+              "You can import and export DNS zone files using Azure CLI or PowerShell.",
+              "Name resolution within Azure virtual networks can use Azure-provided DNS or custom servers. Name resolution across VNets (with peering) may require DNS forwarding."
+            ]
+          },
+          {
+            "topic": "Troubleshoot network connectivity",
+            "details": [
+              "Azure Network Watcher and Connection Monitor are tools for monitoring, diagnosing, and viewing metrics for Azure IaaS resources.",
+              "Network Watcher tools include Topology (to visualize resources in a VNet), Connection monitor (to test connectivity between VMs), and IP Flow Verify (to detect NSG rule effects).",
+              "User-Defined Routes (UDRs) can be configured to control traffic flow, for example, by directing traffic through a Network Virtual Appliance (NVA) for security or monitoring purposes.",
+              "Azure Network Watcher is a regional service that is enabled automatically in each Azure region where you deploy virtual networks, within a subscription. There will be one Network Watcher instance per region per subscription, regardless of the number of virtual networks in that region.",
+              "The Network Watcher Next Hop tool helps diagnose routing issues by showing which route and next-hop device traffic will use from a VM to a destination.",
+              "Network Security Group (NSG) Flow Logs can be used to capture and analyze traffic flow information through NSG rules for auditing or troubleshooting.",
+              "You can use packet capture, initiated from Network Watcher, to capture traffic to and from VMs for in-depth analysis.",
+              "Azure Resource Health provides information on the health of individual resources, helping diagnose if issues are due to platform problems.",
+              "When troubleshooting VM connectivity, common steps include: verifying VM status, checking NSG/UDR settings, validating public/private IP assignments, reviewing diagnostic logs, and confirming route tables.",
+              "You can use Service Endpoint monitoring to test connectivity to Azure service endpoints from within virtual networks."
+            ]
+          }
+        ]
+      },
+      {
+        "skill_area": "Monitor and maintain Azure resources",
+        "percentage": "10–15%",
+        "subtopics": [
+          {
+            "topic": "Monitor resources in Azure",
+            "details": [
+              "Azure Monitor is the central console for collecting, analyzing, and acting on telemetry data (metrics, logs, traces) from Azure and hybrid environments.",
+              "Log settings can be configured to send data to a Log Analytics workspace, Archive Storage, Event Hubs, or third-party tools.",
+              "Logs can be queried and analyzed using Kusto Query Language (KQL) in a Log Analytics workspace.",
+              "Workbooks provide flexible data analysis and rich visual reports, combining data from multiple sources.",
+              "Dashboards combine different types of monitoring data (metrics, logs, activity logs) into a single, consolidated view.",
+              "Alert rules can be set up in Azure Monitor based on specific metrics and thresholds (e.g., CPU usage, disk space).",
+              "Action groups define notification methods (e.g., email, SMS) when an alert is triggered.",
+              "Alert processing rules can be implemented to suppress notifications during planned maintenance or specific events.",
+              "Azure Monitor Insights provide detailed performance, capacity, and availability views for virtual machines, storage accounts, and networks.",
+              "Azure Network Watcher can be used to troubleshoot network connectivity and diagnose network issues within Azure IaaS resources.",
+              "Azure Advisor recommendations and alerts can be integrated with Azure Monitor alert rules. To automatically notify admins when an Advisor alert is triggered, you can configure an Azure Monitor alert that uses an action group, which defines the notification methods (such as email or SMS) to minimize administrative effort.",
+              "When you pin a Log Analytics query as a chart to a shared Azure dashboard, the maximum time range for displaying data on the dashboard is 30 days.",
+              "The state of an Azure Monitor alert indicates its lifecycle: when the alert condition is detected, the state is set to 'Active.' If the alert condition is no longer present, the alert state is automatically transitioned to 'Resolved.' An alert may also be manually closed by an administrator, setting its state to 'Closed.'",
+              "In Kusto Query Language (KQL) used in Azure Monitor and Log Analytics, the operator 'summarize' is used to aggregate results by specified columns (for example, 'summarize count() by Account'). Other common operators include: 'extend' (adds calculated columns), 'project' (selects specific columns), and 'where' (filters rows based on conditions). To group or aggregate your data by a column, you use 'summarize'.",
+              "To collect custom log files (such as application logs in JSON format) from Azure virtual machines (Windows or Linux) and send them to a Log Analytics workspace, you should install the Azure Monitor agent on the VM. The Azure Monitor agent supports collecting custom logs on both Windows and Linux VMs, and these logs can then be consumed and queried in the Log Analytics workspace. Other extensions, such as VMAccess, Custom Script, or DSC, are not designed for log collection.",
+              "To monitor the volume of network traffic to and from a virtual machine using Azure Monitor, you can configure metric collection for \"Network In\" and \"Network Out\" on the VM. These metrics provide aggregated data about incoming and outgoing network traffic on a per-VM basis, but do not capture packet-level details or traffic between specific VMs.",
+              "\"Packet capture\" is an advanced feature of Azure Network Watcher that enables you to capture the actual network packets sent to and from a specific VM for in-depth traffic analysis. Using packet capture, you can inspect all network traffic between two VMs, including the source and destination IPs, ports, and payloads.",
+              "To perform a packet capture using Azure Network Watcher on a VM, you must install the AzureNetworkWatcherExtension on the target VM. This extension allows Network Watcher to capture traffic on the VM's network interfaces.",
+              "While \"Network In\" and \"Network Out\" metrics provide traffic volume information, combining them with packet capture enables both high-level monitoring and deep inspection of network traffic between VMs.",
+              "Azure Advisor provides recommendations in several categories: Cost, Security, Reliability (formerly High Availability), Operational Excellence, and Performance. Use the Cost category to identify underutilized virtual machines (such as those with low usage) that could be resized or deallocated to reduce expenses. The Performance category focuses on metrics and configurations impacting speed, while Operational Excellence and High Availability (Reliability) focus on operations and uptime, respectively."
+
+            ]
+          },
+          {
+            "topic": "Implement backup and recovery",
+            "details": [
+              "Backup and recovery in Azure ensures data protection and business continuity for cloud resouarces.",
+              "A Recovery Services vault is an online storage entity used to manage and store backup copies, recovery points, and backup policies for Azure VMs, Managed Disks, Azure Files, SQL Server in Azure VMs, and SAP HANA in Azure VMs.",
+              "An Azure Backup vault is a newer type of vault specifically for services not fully supported by Recovery Services vault, such as Azure Disks, Azure Blobs, PostgreSQL, and Kubernetes.",
+              "Backup policies define the frequency of backups (e.g., daily, multiple times a day) and retention periods for recovery points.",
+              "Backup operations use Azure Backup, which involves taking snapshots of VM disks and then transferring data to the vault, often starting with a full backup followed by incremental backups.",
+              "The Microsoft Azure Recovery Services (MARS) agent is required for backing up specific files and folders from on-premises Windows Servers or from Azure VMs when you want to back up only files and folders, not the entire VM. The MARS agent communicates directly with the Recovery Services vault and supports file/folder-level backup and restore.",
+              "Microsoft Azure Backup Server (MABS) is a separate solution (deployed on-premises) for centralized backup of multiple workloads, but is not required for direct file/folder backup of a single VM.",
+              "The Azure Connected Machine agent is used to onboard on-premises or multicloud VMs to Azure Arc, not for Azure Backup.",
+              "Azure Site Recovery Provider is used for disaster recovery replication and failover, not for backup.",
+              "Restore operations allow creating a new VM, restoring disks to replace an existing one, or performing a file-level recovery.",
+              "Azure Site Recovery provides disaster recovery by replicating workloads from a primary region to a secondary region, enabling failover with minimal downtime.",
+              "Failover on a geo-redundant storage account (GRS/GZRS) will cause it to operate as Locally-redundant storage (LRS) in the new primary region, requiring manual re-configuration for geo-redundancy afterwards.",
+              "Azure Backup Center provides a unified console to manage backups across multiple workload types, vaults, subscriptions, and regions.",
+              "To delete a Recovery Services vault, you must first remove all backup items from the vault, as a vault cannot be deleted while it protects backup items such as VMs or file shares.",
+              "The steps to delete a Recovery Services vault are: 1) Stop (disable) backup for all protected items (such as VMs) in the vault. 2) Delete all backup data associated with these items. 3) If soft delete is enabled, the backup data will enter a soft delete state and will be retained for a retention period (e.g., 14 days for Azure VMs). You must permanently remove (purge) any items in the soft delete state before deletion. 4) Once all protected items and backup data (including soft deleted data) are removed, you can delete the vault.",
+              "Disabling soft delete for the vault is not required unless you wish to immediately and permanently delete backup data. A Read lock on the vault prevents deletion.",
+              "You do not need to delete the underlying virtual machines to delete a Recovery Services vault.",
+              "By default, when you delete backup data from a Recovery Services vault, the data is retained in a soft delete state for a retention period (such as 14 days for Azure VMs), preventing immediate permanent deletion. If you need to delete the vault right away and can't wait for the retention period, you must first disable the soft delete feature in the vault’s settings. After disabling soft delete, you can permanently remove (purge) any backup data that had been retained, allowing you to delete the Recovery Services vault immediately.",
+              "After failing over a virtual machine with Azure Site Recovery to a secondary region, you must commit the failover before you can perform reprotection. The reprotect operation becomes available only after the failover is committed, and the VM's status changes to 'Failover committed.'",
+              "The default backup policy for Azure virtual machines in a Recovery Services vault retains daily backups for 30 days.",
+              "Azure Backup VM backup policies have two policy subtypes: Standard and Enhanced. In a Standard policy, the minimum retention period for instant recovery snapshots is 5 days; you cannot configure the retention for instant recovery snapshots to be lower than 5 days when using the Standard policy subtype. To retain instant recovery snapshots for only 2 days, you must first change the policy subtype from Standard to Enhanced. Enhanced policies allow instant recovery snapshot retention to be set as low as 1 day. After switching to Enhanced, you can then lower the snapshot retention as desired. Changing other settings (like weekly retention or schedule frequency) does not affect the minimum allowed snapshot retention period for the Standard policy. No additional storage is required to change this policy setting.",
+              "When configuring instant recovery snapshot retention for VM backup policies: If your backup schedule frequency is set to 'Weekly,' you must retain exactly 5 instant recovery snapshots. If the schedule frequency is 'Daily,' you may choose to retain between 1 and 5 instant recovery snapshots, and the default is 2. The backup schedule frequency affects the allowed range for instant recovery snapshot retention."
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
