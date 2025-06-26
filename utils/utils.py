@@ -1,4 +1,5 @@
 # utils.py
+import os
 import textwrap
 import json
 import random
@@ -33,6 +34,136 @@ def generate_text_bar_chart(data, label_key, value_key, max_width=50, char='█'
         chart_lines.append(f"{label}: [{bar}{empty_space}] {value}%")
     
     return "\n".join(chart_lines)
+
+def validate_unique_question_ids(auto_delete_duplicates: bool = False) -> None:
+    """
+    Validate that all question_ids in content_updated.json are unique using set() validation.
+    
+    Args:
+        auto_delete_duplicates: If True, automatically removes duplicate question_ids
+    
+    Raises:
+        AssertionError: If duplicate question_ids are found and auto_delete_duplicates is False
+        FileNotFoundError: If content file doesn't exist
+        json.JSONDecodeError: If content file is malformed
+    """
+    # Get content file path
+    content_file = Path(os.getenv("EXAM_DATA_JSON_PATH"))
+    
+    print(f"🔍 Reading file: {content_file}")
+    
+    # Load content data
+    with open(content_file, 'r', encoding='utf-8') as f:
+        content_data = json.load(f)
+    
+    print(f"📁 Found {len(content_data)} exams in content file")
+    
+    # Extract all question_ids and track their locations
+    all_question_ids = []
+    question_locations = []  # Track where each question_id appears
+    
+    for exam_code, exam_data in content_data.items():
+        print(f"Processing exam: {exam_code}")
+            
+        skills = exam_data.get("skills_measured", [])
+        
+        for skill_idx, skill in enumerate(skills):
+            skill_area = skill.get("skill_area", "")
+            subtopics = skill.get("subtopics", [])
+            
+            for subtopic_idx, subtopic in enumerate(subtopics):
+                if isinstance(subtopic, dict):
+                    details = subtopic.get("details", [])
+                    
+                    for detail_idx, detail in enumerate(details):
+                        # Process main question
+                        if isinstance(detail, dict) and detail.get("question_id"):
+                            question_id = detail["question_id"]
+                            all_question_ids.append(question_id)
+                            question_locations.append({
+                                "exam": exam_code,
+                                "skill_idx": skill_idx,
+                                "subtopic_idx": subtopic_idx,
+                                "detail_idx": detail_idx,
+                                "is_alternative": False,
+                                "alt_idx": None
+                            })
+                        
+                        # Process alternative questions
+                        if isinstance(detail, dict) and isinstance(detail.get('alternative_questions'), list):
+                            for alt_idx, alt_question in enumerate(detail['alternative_questions']):
+                                if isinstance(alt_question, dict) and alt_question.get("question_id"):
+                                    question_id = alt_question["question_id"]
+                                    all_question_ids.append(question_id)
+                                    question_locations.append({
+                                        "exam": exam_code,
+                                        "skill_idx": skill_idx,
+                                        "subtopic_idx": subtopic_idx,
+                                        "detail_idx": detail_idx,
+                                        "is_alternative": True,
+                                        "alt_idx": alt_idx
+                                    })
+
+    # Find duplicates for detailed reporting
+    from collections import Counter
+    id_counts = Counter(all_question_ids)
+    duplicates = {qid: count for qid, count in id_counts.items() if count > 1}
+    
+    print(f"📊 Question ID Validation Report:")
+    print(f"  Total question_ids found: {len(all_question_ids)}")
+    print(f"  Unique question_ids: {len(set(all_question_ids))}")
+    print(f"  Duplicates: {len(duplicates)}")
+        
+    if duplicates:
+        print(f"\n⚠️  Duplicate question_ids found:")
+        for qid, count in list(duplicates.items()): 
+            print(f"    '{qid}': appears {count} times")
+        
+        if auto_delete_duplicates:
+            print(f"\n🗑️  Auto-deleting duplicates...")
+            
+            # Group locations by question_id for efficient removal
+            locations_by_id = {}
+            for i, qid in enumerate(all_question_ids):
+                if qid in duplicates:
+                    if qid not in locations_by_id:
+                        locations_by_id[qid] = []
+                    locations_by_id[qid].append(question_locations[i])
+            
+            removed_count = 0
+            for qid, locations in locations_by_id.items():
+                # Sort alternative question removals by alt_idx in descending order
+                # to avoid index shifting issues
+                locations_to_remove = sorted(locations[1:], 
+                                           key=lambda x: x.get("alt_idx", 0) if x["is_alternative"] else 0, 
+                                           reverse=True)
+                
+                for location in locations_to_remove:
+                    exam_data = content_data[location["exam"]]
+                    skill = exam_data["skills_measured"][location["skill_idx"]]
+                    subtopic = skill["subtopics"][location["subtopic_idx"]]
+                    detail = subtopic["details"][location["detail_idx"]]
+                    
+                    if location["is_alternative"]:
+                        # Remove from alternative_questions (safe with reverse order)
+                        if location["alt_idx"] < len(detail.get("alternative_questions", [])):
+                            detail["alternative_questions"].pop(location["alt_idx"])
+                    else:
+                        # Remove main question by setting question_id to None
+                        detail["question_id"] = None
+                        detail["question_text"] = None
+                        detail["expected_answer"] = None
+                    
+                    removed_count += 1
+            
+            # Save cleaned content back to file
+            with open(content_file, 'w', encoding='utf-8') as f:
+                json.dump(content_data, f, indent=2, ensure_ascii=False)
+            
+            print(f"✅ Removed {removed_count} duplicate question_ids")
+            print(f"✅ Cleaned content saved to {content_file}")
+    else:
+        print("✅ All question_ids are unique!")
 
 def stratified_sample_questions(questions_by_skill: dict, total_requested: int) -> list:
     """
