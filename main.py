@@ -99,6 +99,14 @@ def main():
                 print("No exam data loaded. Please check content.json path or its content.")
                 continue
 
+            # Filter to fundamentals in demo mode
+            if demo_mode:
+                available_exams = [(code, name) for code, name in available_exams 
+                                if code in ["AZ-900", "AI-900", "DP-900"]]  # TODO: Update this as we gather more fundamentals
+                if not available_exams:
+                    print("No fundamental exams available in demo mode.")
+                    continue
+
             print("Available Azure Certification Exams:")
             for i, (code, name) in enumerate(available_exams):
                 print(f"{i + 1}. {code} - {name}")
@@ -120,7 +128,6 @@ def main():
             if selected_exam_code:
                 try:
                     # Check if we're in demo mode
-                    demo_mode = os.getenv("DEMO_MODE", "false").lower() == "true"
                     num_yes_no = int(input("Enter number of Yes/No questions (e.g., 30): "))
                     
                     if demo_mode:

@@ -74,36 +74,63 @@ def home_page():
         st.warning(f"Image not found at: {image_path}. Please check the path.")
 
 def generate_diagnostic_questions_page():
-    """Logic for the Diagnostic Question Generation page."""
+    """Logic for the Diagnostic Question Generation page with dynamic defaults."""
     st.header("Generate Diagnostic Questions")
+    
     try:
         available_exams = exam_data_loader.get_available_exams()
         if available_exams:
-            exam_options = {f"{code} - {name}": code for code, name in available_exams}
-            selected_exam = st.selectbox("Select an Azure Certification Exam:", list(exam_options.keys()))
-
-            # Input for number of questions with validation
-            num_yes_no = st.number_input("Number of Yes/No questions:", min_value=1, max_value=100, value=30, step=1)
-            
-            # Check demo mode for qualitative questions
+            # Filter to fundamentals in demo mode
             demo_mode = os.getenv("DEMO_MODE", "false").lower() == "true"
             if demo_mode:
-                num_qualitative = 0
-                st.info("Demo mode only supports Yes/No questions. Qualitative questions disabled.")
-            else:
-                num_qualitative = st.number_input("Number of Qualitative questions:", min_value=1, max_value=100, value=30, step=1)
-
-            if st.button("Generate Questions"):
-                if not selected_exam:
-                    st.warning("Please select an exam.")
+                available_exams = [(code, name) for code, name in available_exams 
+                                  if code in ["AZ-900", "AI-900", "DP-900"]]
+                if not available_exams:
+                    st.warning("No fundamental exams available in demo mode.")
                     return
-
+            
+            exam_options = {f"{code} - {name}": code for code, name in available_exams}
+            
+            selected_exam = st.selectbox("Select an Azure Certification Exam:", list(exam_options.keys()))
+            
+            # Get dynamic defaults based on selected exam
+            if selected_exam:
                 selected_exam_code = exam_options[selected_exam]
                 question_service = QuestionService(exam_data_loader, ai_client)
+                defaults = question_service.get_exam_defaults(selected_exam_code)
+                
+                # Input for number of questions with dynamic defaults
+                num_yes_no = st.number_input(
+                    "Number of Yes/No questions:", 
+                    min_value=1, 
+                    max_value=50, # Sensible upper limit for demo purposes
+                    value=defaults["yes_no"], 
+                    step=1,
+                    help=f"Recommended for {selected_exam_code}: {defaults['yes_no']}"  # Recommendsed number of questions based on exam code
+                )
+                
+                # Check demo mode for qualitative questions
+                if demo_mode:
+                    num_qualitative = 0
+                    st.info("Demo mode only supports Yes/No questions. Qualitative questions disabled.")
+                else:
+                    num_qualitative = st.number_input(
+                        "Number of Qualitative questions:", 
+                        min_value=1, 
+                        max_value=100, 
+                        value=defaults["qualitative"], 
+                        step=1,
+                        help=f"Recommended for {selected_exam_code}: {defaults['qualitative']}"
+                    )
 
-                with st.spinner(f"Generating {num_yes_no + num_qualitative} questions for {selected_exam_code}..."):
-                    question_service.generate_diagnostic_questions(selected_exam_code, num_yes_no, num_qualitative)
-                st.success(f"Successfully generated {num_yes_no + num_qualitative} questions for {selected_exam_code}!")
+                if st.button("Generate Questions"):
+                    if not selected_exam:
+                        st.warning("Please select an exam.")
+                        return
+
+                    with st.spinner(f"Generating {num_yes_no + num_qualitative} questions for {selected_exam_code}..."):
+                        question_service.generate_diagnostic_questions(selected_exam_code, num_yes_no, num_qualitative)
+                    st.success(f"Successfully generated {num_yes_no + num_qualitative} questions for {selected_exam_code}!")
         else:
             st.error("No exam data loaded. Please check the 'content.json' path or its content.")
     except Exception as e:
@@ -111,11 +138,8 @@ def generate_diagnostic_questions_page():
 
 def conduct_simulation_page():
     st.header("Conduct Simulation", anchor=False)
-    
-    # Check demo mode
-    demo_mode = os.getenv("DEMO_MODE", "false").lower() == "true"
-    
-    # Initializes the service (use session_state for persistence)
+        
+    # Initialize service
     if 'simulation_service' not in st.session_state:
         st.session_state.simulation_service = SimulationWebService()
 
@@ -128,8 +152,9 @@ def conduct_simulation_page():
     if not st.session_state.simulation_loaded:
         
         # Special handling for demo mode
+        demo_mode = os.getenv("DEMO_MODE", "false").lower() == "true"
         if demo_mode:
-            st.info("Demo mode: Using curated yes/no questions from fundamentals exam content.")
+            st.info("Demo mode: Using stratified sampling from curated questions.")
             
             available_exams = exam_data_loader.get_available_exams()
             fundamentals_exams = [(code, name) for code, name in available_exams 
@@ -143,69 +168,50 @@ def conduct_simulation_page():
             selected_exam = st.selectbox(
                 "Select an Azure Fundamentals Certification:",
                 list(exam_options.keys()),
-                help="Demo mode uses curated yes/no questions only"
+                help="Demo mode ensures questions cover all skill areas proportionally"
             )
             
-            num_questions = st.number_input(
-                "Number of questions for simulation:", 
-                min_value=1, 
-                max_value=15, # lower max value 
-                value=5, 
-                step=1
-            )
-            
-            if st.button("🚀 Load Questions", type="primary"):
+            # Get dynamic defaults
+            if selected_exam:
                 selected_exam_code = exam_options[selected_exam]
+                question_service = QuestionService(exam_data_loader, ai_client)
+                defaults = question_service.get_exam_defaults(selected_exam_code)
                 
-                # Check if exam exists in content data
-                if selected_exam_code not in exam_data_loader.df.index:
-                    st.error(f"Exam {selected_exam_code} not found in content data.")
-                    return
+                num_questions = st.number_input(
+                    "Number of questions for simulation:", 
+                    min_value=1, 
+                    max_value=defaults["yes_no"], 
+                    value=min(10, defaults["yes_no"]), 
+                    step=1,
+                    help=f"Questions will be distributed across all skill areas. Max available: {defaults['yes_no']}"
+                )
                 
-                # Extract existing yes/no questions from content structure
-                demo_questions = []
-                exam_data = exam_data_loader.df.loc[selected_exam_code].to_dict()
-                
-                for skill_area in exam_data["skills_measured"]:
-                    for subtopic in skill_area["subtopics"]:
-                        for detail in subtopic.get("details", []):
-                            if isinstance(detail, dict) and detail.get("question_text") and detail.get("expected_answer"):
-                                # Only include if it's already a yes/no question
-                                if detail.get("expected_answer") in ["Yes", "No"]:
-                                    demo_questions.append({
-                                        "type": "yes_no",
-                                        "skill_area": skill_area["skill_area"],
-                                        "question": detail["question_text"],
-                                        "expected_answer": detail["expected_answer"]
-                                    })
-                
-                if not demo_questions:
-                    st.warning(f"No yes/no questions found in {selected_exam_code} content.")
-                    return
-                
-                # Create demo question data structure
-                demo_question_data = {
-                    "exam_code": selected_exam_code,
-                    "questions": demo_questions[:num_questions]  # Use user input
-                }
-                
-                # Save temp file and load into simulation service
-                temp_file = Path('files') / f"demo_{selected_exam_code}.json"
-                with open(temp_file, 'w', encoding='utf-8') as f:
-                    json.dump(demo_question_data, f, indent=2)
-                
-                success, message = sim_service.load_questions(temp_file)
-                
-                # Clean up temp file
-                if temp_file.exists():
-                    temp_file.unlink()
-                
-                if success:
-                    st.success(f"Loaded {len(demo_questions[:num_questions])} demo questions for {selected_exam_code}")
-                    st.session_state.simulation_loaded = True
-                    st.rerun()
-                else:
-                    st.error(message)
+                if st.button("🚀 Load Questions", type="primary"):
+                    # Check if exam exists in content data
+                    if selected_exam_code not in exam_data_loader.df.index:
+                        st.error(f"Exam {selected_exam_code} not found in content data.")
+                        return
+                    
+                    # Use the enhanced simulation service to generate demo questions
+                    question_service = QuestionService(exam_data_loader, ai_client)
+                    success, message = sim_service.generate_demo_questions(
+                        selected_exam_code, num_questions, question_service
+                    )
+                    
+                    if success:
+                        st.success(message)
+                        st.session_state.simulation_loaded = True
+                        
+                        # Show skill distribution
+                        distribution = sim_service.get_skill_distribution()
+                        if distribution:
+                            st.write("**Question distribution by skill area:**")
+                            for skill, count in distribution.items():
+                                st.write(f"• {skill}: {count} questions")
+                        
+                        st.rerun()
+                    else:
+                        st.error(message)
         
         # Normal mode: Use generated question files
         else:
@@ -220,17 +226,26 @@ def conduct_simulation_page():
                 if file.name.startswith("questions_") and file.name.endswith(".json"):
                     exam_code = file.name.replace("questions_", "").replace(".json", "")
                     
-                    exam_descriptions = {
-                        "AI-900": "AI-900 - Azure AI Fundamentals",
-                        "AZ-900": "AZ-900 - Azure Fundamentals", 
-                        "DP-900": "DP-900 - Azure Data Fundamentals",
-                        "AZ-104": "AZ-104 - Azure Administrator Associate",
-                        "AZ-204": "AZ-204 - Azure Developer Associate",
-                        "AZ-305": "AZ-305 - Azure Solutions Architect Expert"
-                    }
-                    
-                    friendly_name = exam_descriptions.get(exam_code, f"{exam_code} - Azure Certification")
-                    file_mapping[friendly_name] = file
+                    # Try to read file info for better display
+                    try:
+                        with open(file, 'r', encoding='utf-8') as f:
+                            data = json.load(f)
+                        question_count = len(data.get("questions", []))
+                        
+                        exam_descriptions = {
+                            "AI-900": "AI-900 - Azure AI Fundamentals",
+                            "AZ-900": "AZ-900 - Azure Fundamentals", 
+                            "DP-900": "DP-900 - Azure Data Fundamentals",
+                            "AZ-104": "AZ-104 - Azure Administrator Associate",
+                            "AZ-204": "AZ-204 - Azure Developer Associate",
+                            "AZ-305": "AZ-305 - Azure Solutions Architect Expert"
+                        }
+                        
+                        friendly_name = exam_descriptions.get(exam_code, f"{exam_code} - Azure Certification")
+                        display_name = f"{friendly_name} ({question_count} questions)"
+                        file_mapping[display_name] = file
+                    except:
+                        file_mapping[file.name] = file
                 else:
                     file_mapping[file.name] = file
             
@@ -253,15 +268,22 @@ def conduct_simulation_page():
                 else:
                     st.error(message)
     
-    # Step 2: Conducting the simulation
+    # Step 2: Conducting the simulation (rest remains the same but add sampling method display)
     else:
         progress = sim_service.get_simulation_progress()
         
-        # Shows progress
+        # Show progress with sampling method info
         st.progress(
             progress["current_question"] / progress["total_questions"] if not progress["is_complete"] else 1.0
         )
-        st.write(f"**Exam:** {progress['exam_code']}")
+        
+        col1, col2 = st.columns(2)
+        with col1:
+            st.write(f"**Exam:** {progress['exam_code']}")
+        with col2:
+            sampling_method = progress.get('sampling_method', 'unknown')
+            method_display = "Stratified Sampling" if sampling_method == "stratified" else "AI Generated"
+            st.write(f"**Method:** {method_display}")
 
         if progress["is_complete"]:
             st.write(f"**Progress:** {progress['current_question'] - 1}/{progress['total_questions']}")
