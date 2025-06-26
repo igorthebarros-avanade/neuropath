@@ -198,4 +198,62 @@ class FeedbackWebService:
         except json.JSONDecodeError as e:
             st.error(f"Error decoding JSON from API response: {e}")
         except Exception as e:
-            st.error(f"An unexpected error occurred: {e}")
+            st.error(f"An unexpected error occurred during feedback and question generation: {e}")
+
+    def get_feedback_data(self, selected_exam_code, results_file_suffix="results.json", output_file_suffix="targeted_questions.json"):
+        results_file = self.files_dir / f"{selected_exam_code}_{results_file_suffix}"
+        new_questions_output_file = self.files_dir / f"{selected_exam_code}_{output_file_suffix}"
+
+        try:
+            with open(results_file, 'r', encoding='utf-8') as f:
+                all_results = json.load(f)
+            if not all_results:
+                return None
+            latest_results = all_results[-1]
+            results_context = json.dumps(latest_results, indent=2)
+        except (FileNotFoundError, json.JSONDecodeError):
+            return None
+
+        exam_code = latest_results.get("exam_code", "Unknown Exam")
+        feedback_and_questions_instructions = FEEDBACK_AND_QUESTIONS_INSTRUCTIONS.format(
+            exam_code=exam_code
+        )
+        messages = [
+            {
+                "role": "system",
+                "content": "You are a comprehensive examiner and question generator for Azure certification exams. Provide detailed performance feedback, including a score for each question and per-category performance, and generate targeted new questions."
+            },
+            {
+                "role": "user",
+                "content": f"{feedback_and_questions_instructions}\n\nUser's Simulation Results:\n{results_context}"
+            }
+        ]
+        try:
+            response_content = self.ai_client.call_chat_completion(
+                messages=messages,
+                max_tokens=32768,
+                temperature=0.7,
+                response_format={"type": "json_object"}
+            )
+            if response_content is None:
+                return None
+            # Ensure response_content is a dict
+            if isinstance(response_content, str):
+                try:
+                    analysis_data = json.loads(response_content)
+                except Exception as e:
+                    print(f"[FeedbackWebService] Error parsing response_content: {e}\nRaw: {response_content}")
+                    return None
+            elif isinstance(response_content, dict):
+                analysis_data = response_content
+            else:
+                print(f"[FeedbackWebService] Unexpected response_content type: {type(response_content)}")
+                return None
+            # Save new targeted questions if present
+            if analysis_data.get("new_questions_for_weak_areas"):
+                with open(new_questions_output_file, 'w', encoding='utf-8') as f:
+                    json.dump(analysis_data["new_questions_for_weak_areas"], f, indent=2)
+            return analysis_data
+        except Exception as e:
+            print(f"[FeedbackWebService] Exception in get_feedback_data: {e}")
+            return None
