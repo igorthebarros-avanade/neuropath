@@ -2,8 +2,10 @@
 import sys
 from pathlib import Path
 import os
-from dotenv import load_dotenv
 import json
+
+# TODO: Remove after adding poetry as default environment manager
+from dotenv import load_dotenv
 
 # Adjust the path to import the new service classes
 current_dir = Path(__file__).resolve().parent
@@ -19,8 +21,6 @@ from services.flashcard_export_service import FlashcardExportService
 from services.concept_extractor import ConceptExtractor
 from services.image_generation_service import ImageGenerationService
 from services.podcast_generation_service import PodcastGenerationService
-from prompts.prompts import QUESTION_GENERATION_INSTRUCTIONS
-from utils.utils import wrap_text
 
 
 def display_menu():
@@ -50,7 +50,12 @@ def display_image_styles_menu():
 
 def main():
     load_dotenv()
-
+    
+    # Display demo mode status
+    demo_mode = os.getenv("DEMO_MODE", "false").lower() == "true"
+    mode_text = "DEMO MODE" if demo_mode else "LIVE MODE"
+    print(f"\n=== Welcome to Avanade's Azure Certification Buddy (Neuropath) [{mode_text}] ===")
+        
     files_dir = Path("files")
     files_dir.mkdir(parents=True, exist_ok=True)
     (files_dir / "images").mkdir(parents=True, exist_ok=True)
@@ -94,6 +99,14 @@ def main():
                 print("No exam data loaded. Please check content.json path or its content.")
                 continue
 
+            # Filter to fundamentals in demo mode
+            if demo_mode:
+                available_exams = [(code, name) for code, name in available_exams 
+                                if code in ["AZ-900", "AI-900", "DP-900"]]  # TODO: Update this as we gather more fundamentals
+                if not available_exams:
+                    print("No fundamental exams available in demo mode.")
+                    continue
+
             print("Available Azure Certification Exams:")
             for i, (code, name) in enumerate(available_exams):
                 print(f"{i + 1}. {code} - {name}")
@@ -114,8 +127,16 @@ def main():
             
             if selected_exam_code:
                 try:
+                    # Check if we're in demo mode
                     num_yes_no = int(input("Enter number of Yes/No questions (e.g., 30): "))
-                    num_qualitative = int(input("Enter number of Qualitative questions (e.g., 30): "))
+                    
+                    if demo_mode:
+                        # Demo mode only supports yes/no questions
+                        num_qualitative = 0
+                        print("Note: Demo mode currenlty only supports Yes/No questions. Qualitative questions set to 0.")
+                    else:
+                        num_qualitative = int(input("Enter number of Qualitative questions (e.g., 30): "))
+                    
                     question_service.generate_diagnostic_questions(selected_exam_code, num_yes_no, num_qualitative)
                 except ValueError:
                     print("Invalid input for number of questions. Please enter a number.")
