@@ -3,91 +3,104 @@
   "questions": [
     {
       "type": "yes_no",
-      "skill_area": "Describe cloud concepts",
-      "question": "Is high capital expenditure (CapEx) a typical advantage of cloud computing?",
+      "skill_area": "Describe Azure storage services",
+      "question": "Is Azure Table Storage a NoSQL data store?",
+      "expected_answer": "Yes"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe Azure storage services",
+      "question": "Can Azure Files be used to mount a shared drive in Windows and Linux virtual machines?",
+      "expected_answer": "Yes"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe Azure storage services",
+      "question": "Is data in Azure Blob Storage encrypted at rest by default?",
+      "expected_answer": "Yes"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe Azure storage services",
+      "question": "Does Azure Queue Storage support ordering of messages (FIFO)?",
       "expected_answer": "No"
     },
     {
       "type": "yes_no",
-      "skill_area": "Describe cloud concepts",
-      "question": "Does a public cloud deployment provide resources exclusively for one organization?",
-      "expected_answer": "No"
-    },
-    {
-      "type": "yes_no",
-      "skill_area": "Describe cloud concepts",
-      "question": "In PaaS, is the user responsible for the application and data only?",
-      "expected_answer": "Yes"
-    },
-    {
-      "type": "yes_no",
-      "skill_area": "Describe cloud concepts",
-      "question": "Does elasticity mean resources automatically scale up and down as needed?",
-      "expected_answer": "Yes"
-    },
-    {
-      "type": "yes_no",
-      "skill_area": "Describe cloud concepts",
-      "question": "Is Azure Stack an example of private cloud technology?",
+      "skill_area": "Describe Azure storage services",
+      "question": "Can Azure Blob Storage provide lifecycle management for automatic tiering to lower cost storage?",
       "expected_answer": "Yes"
     },
     {
       "type": "qualitative",
-      "skill_area": "Describe cloud concepts",
-      "question": "Compare the main differences between IaaS, PaaS, and SaaS in terms of user responsibilities.",
-      "purpose": "Test understanding of cloud service models and their shared responsibility.",
+      "skill_area": "Describe Azure storage services",
+      "question": "Compare Azure Blob Storage and Azure File Storage. When would you use each?",
+      "purpose": "Assess understanding of storage types and scenarios.",
       "scoring_criteria": [
-        "Correctly defines IaaS, PaaS, SaaS",
-        "Explains what users manage in each model",
-        "Explains what the provider manages in each model",
-        "Gives at least one example per model"
+        "Correctly describe Blob Storage as object storage for unstructured data.",
+        "Correctly describe File Storage as managed file shares (SMB/NFS).",
+        "Explain a scenario for using Blob Storage (e.g., storing backups, images, logs).",
+        "Explain a scenario for using File Storage (e.g., lift-and-shift applications needing shared drives)."
       ]
     },
     {
       "type": "qualitative",
-      "skill_area": "Describe cloud concepts",
-      "question": "List and describe three financial benefits of cloud computing compared to traditional on-premises IT.",
-      "purpose": "Assess knowledge of cloud financial advantages.",
+      "skill_area": "Describe Azure storage services",
+      "question": "Explain how geo-redundant storage (GRS) benefits business continuity in Azure.",
+      "purpose": "Evaluate understanding of redundancy and disaster recovery.",
       "scoring_criteria": [
-        "Mentions no upfront capital expense",
-        "Mentions pay-as-you-go/operational expense model",
-        "Mentions reduced IT maintenance/management costs",
-        "Provides clear descriptions"
+        "Define what GRS means (replication to a secondary region).",
+        "Describe the business benefit of increased data durability.",
+        "Mention disaster recovery/resiliency.",
+        "Provide a relevant example scenario."
       ]
     },
     {
       "type": "qualitative",
-      "skill_area": "Describe cloud concepts",
-      "question": "Explain what is meant by 'shared responsibility model' in cloud computing.",
-      "purpose": "Assess understanding of the division of responsibilities between cloud providers and customers.",
+      "skill_area": "Describe Azure storage services",
+      "question": "Outline the security features available in Azure Storage to protect data.",
+      "purpose": "Assess awareness of security capabilities.",
       "scoring_criteria": [
-        "Defines shared responsibility model",
-        "Distinguishes between provider and customer responsibilities",
-        "Mentions data security as a customer responsibility",
-        "Provides a relevant example"
+        "Mention encryption at rest.",
+        "Mention encryption in transit.",
+        "Mention access control via Azure AD/shared keys/SAS.",
+        "Mention firewalls and virtual network integration."
       ]
     },
     {
       "type": "qualitative",
-      "skill_area": "Describe cloud concepts",
-      "question": "Describe two scenarios where a hybrid cloud deployment is advantageous.",
-      "purpose": "Test ability to identify when hybrid cloud is beneficial.",
+      "skill_area": "Describe Azure compute and networking services",
+      "question": "Describe the main characteristics and use cases for Azure Virtual Machines versus Azure App Services.",
+      "purpose": "Assess ability to differentiate IaaS and PaaS compute.",
       "scoring_criteria": [
-        "Provides two different hybrid cloud scenarios",
-        "Explains the benefit in each scenario",
-        "Relates answer to business or compliance needs"
+        "State Azure VMs are IaaS, App Services are PaaS.",
+        "Mention VMs provide OS-level control; App Services abstract OS.",
+        "Describe typical use cases for VMs (custom software, legacy apps).",
+        "Describe use cases for App Services (web hosting, APIs)."
       ]
     },
     {
       "type": "qualitative",
-      "skill_area": "Describe cloud concepts",
-      "question": "What is the main difference between scalability and elasticity in cloud computing?",
-      "purpose": "Test understanding of key cloud characteristics.",
+      "skill_area": "Describe Azure compute and networking services",
+      "question": "Explain the benefits of using Azure Functions for event-driven workloads.",
+      "purpose": "Evaluate understanding of serverless advantages.",
       "scoring_criteria": [
-        "Defines scalability",
-        "Defines elasticity",
-        "Highlights the difference",
-        "Gives example for each"
+        "Identify that Functions are event-driven and serverless.",
+        "State automatic scaling.",
+        "Mention pay-per-execution billing.",
+        "Provide example event-driven use case."
+      ]
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe Azure compute and networking services",
+      "question": "What is Azure Virtual Network and why is it important?",
+      "purpose": "Check understanding of fundamental networking concepts in Azure.",
+      "scoring_criteria": [
+        "Define Azure Virtual Network as an isolated network in Azure.",
+        "Mention enables secure communication between resources.",
+        "Explain ability to connect on-premises networks.",
+        "Provide example scenarios."
       ]
     }
   ]

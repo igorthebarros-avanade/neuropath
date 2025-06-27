@@ -32,6 +32,10 @@ def questions(examCode, yesNoQuestions, qualitativeQuestions):
     questions = question_service.generate_diagnostic_questions(examCode, yesNoQuestions, qualitativeQuestions)
     return jsonify(questions), 200
 
+@app.route("/api/feedback", methods=["POST"])
+def feedback():
+    return jsonify({}), 200
+
 @app.route("/api/ask", methods=["POST"])
 def ask():
     body = request.get_json()

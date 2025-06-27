@@ -4,41 +4,41 @@
     {
       "type": "yes_no",
       "skill_area": "Describe Artificial Intelligence workloads and considerations",
-      "question": "Is anomaly detection primarily used to find outliers or unusual patterns within a dataset?",
+      "question": "Is anomaly detection considered a common AI workload within Azure AI Fundamentals?",
       "expected_answer": "Yes",
       "purpose": "Binary Assessment"
     },
     {
       "type": "yes_no",
-      "skill_area": "Describe fundamental principles of machine learning on Azure",
-      "question": "Can supervised learning be performed without labeled data?",
+      "skill_area": "Describe features of generative AI workloads on Azure",
+      "question": "Does tokenization in language models refer to encrypting user data for privacy?",
       "expected_answer": "No",
       "purpose": "Binary Assessment"
     },
     {
       "type": "qualitative",
-      "skill_area": "Describe features of computer vision workloads on Azure",
-      "question": "Describe the differences between image classification and object detection in computer vision solutions, and provide a practical example for each.",
+      "skill_area": "Describe fundamental principles of machine learning on Azure",
+      "question": "Discuss the differences between supervised and unsupervised learning, including typical use cases for each within Azure Machine Learning.",
       "purpose": "Scaled Assessment",
       "scoring_criteria": [
-        "Define image classification and its goal.",
-        "Define object detection and its goal.",
-        "Explain that classification assigns a single label to an entire image.",
-        "Explain that detection locates and labels multiple objects within an image.",
-        "Provide a real-world example for both image classification and object detection."
+        "Define supervised learning and its reliance on labeled data.",
+        "Define unsupervised learning and its use of unlabeled data.",
+        "Describe typical algorithms or tasks (e.g., classification/regression for supervised, clustering for unsupervised).",
+        "Explain when to use each approach in practical scenarios.",
+        "Provide at least one Azure ML example or service for each type."
       ]
     },
     {
       "type": "qualitative",
-      "skill_area": "Describe features of generative AI workloads on Azure",
-      "question": "Explain the role of tokenization and embeddings in large language models (LLMs) and why they are essential for understanding and generating human language.",
+      "skill_area": "Describe Azure Machine Learning capabilities",
+      "question": "Explain the role of Automated Machine Learning (AutoML) within Azure Machine Learning, and describe the main benefits it offers to data scientists and business users.",
       "purpose": "Scaled Assessment",
       "scoring_criteria": [
-        "Define tokenization and its function in processing text.",
-        "Describe how embeddings represent tokens as numeric vectors.",
-        "Explain why numeric representations enable mathematical processing of language.",
-        "Discuss how embeddings capture semantic similarity between words.",
-        "Highlight the importance of both concepts for LLMs to understand and generate text."
+        "Define what Automated Machine Learning (AutoML) is.",
+        "Describe how AutoML simplifies model selection and tuning.",
+        "List supported tasks (classification, regression, time series forecasting).",
+        "Explain how AutoML benefits users with limited ML expertise.",
+        "Mention integration with Azure ML Studio or Designer for streamlined workflows."
       ]
     }
   ]

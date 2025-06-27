@@ -3,36 +3,22 @@
   "questions": [
     {
       "type": "yes_no",
-      "skill_area": "Describe cloud concepts",
-      "question": "Does the public cloud model require organizations to maintain their own on-premise hardware infrastructure?",
+      "skill_area": "Describe Azure storage services",
+      "question": "Does Azure Blob Storage primarily store relational data?",
       "expected_answer": "No",
       "purpose": "Binary Assessment"
     },
     {
-      "type": "yes_no",
-      "skill_area": "Describe Azure storage services",
-      "question": "Is Azure Blob Storage designed to store large amounts of unstructured data such as text and binary files?",
-      "expected_answer": "Yes",
-      "purpose": "Binary Assessment"
-    },
-    {
-      "type": "yes_no",
-      "skill_area": "Describe Azure identity, access, and security",
-      "question": "Does enabling Multi-Factor Authentication (MFA) in Azure help protect user accounts from unauthorized access?",
-      "expected_answer": "Yes",
-      "purpose": "Binary Assessment"
-    },
-    {
       "type": "qualitative",
-      "skill_area": "Describe features and tools in Azure for governance and compliance",
-      "question": "Describe how Azure Policy can help organizations maintain compliance and enforce standards across their Azure resources.",
+      "skill_area": "Describe Azure compute and networking services",
+      "question": "Explain the key differences between Azure Functions and Azure App Services, including their ideal use cases.",
       "purpose": "Scaled Assessment",
       "scoring_criteria": [
-        "Explains that Azure Policy defines and enforces rules for resource configurations.",
-        "Mentions automatic assessment of compliance state.",
-        "Describes remediation of non-compliant resources.",
-        "Highlights use of policy assignments at scope levels (subscription, resource group).",
-        "Provides examples of policies (e.g., allowed regions, tag enforcement)."
+        "Mention serverless nature of Functions.",
+        "Mention PaaS nature of App Services.",
+        "Discuss billing models (consumption vs. plan).",
+        "Discuss typical workload sizes (short-lived tasks vs. web apps).",
+        "Provide relevant use cases for each."
       ]
     }
   ]

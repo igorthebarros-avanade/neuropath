@@ -700,5 +700,74 @@
         "expected_answer": "Yes"
       }
     ]
+  },
+  {
+    "exam_code": "AZ-900",
+    "timestamp": "2025-06-26T10:23:28.391762",
+    "questions_attempted": [
+      {
+        "question_number": 1,
+        "type": "yes_no",
+        "skill_area": "Describe the differences between categories of cloud services",
+        "question": "Does Platform as a Service (PaaS) require users to manage the underlying operating system and hardware?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "question_number": 2,
+        "type": "yes_no",
+        "skill_area": "Describe Azure identity, access, and security",
+        "question": "Is Multi-Factor Authentication (MFA) in Azure designed to provide an extra layer of security by requiring a secondary form of verification?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "Yes"
+      },
+      {
+        "question_number": 3,
+        "type": "qualitative",
+        "skill_area": "Describe Azure storage services",
+        "question": "Compare and contrast Azure Blob Storage and Azure File Storage, including the scenarios where each would be most appropriate.",
+        "user_answer": "a",
+        "user_score": null,
+        "scoring_criteria": [
+          "Describe that Blob Storage is optimized for massive amounts of unstructured object data.",
+          "Explain that File Storage provides shared file access using SMB/NFS protocols.",
+          "Discuss access patterns and protocols (REST for Blob, SMB/NFS for File).",
+          "Identify typical use cases for each (e.g., Blob for backup/media, File for lift-and-shift file shares).",
+          "Mention scalability and integration considerations."
+        ]
+      }
+    ]
+  },
+  {
+    "exam_code": "AZ-900",
+    "timestamp": "2025-06-26T22:08:55.803242",
+    "questions_attempted": [
+      {
+        "question_number": 1,
+        "type": "yes_no",
+        "skill_area": "Describe Azure storage services",
+        "question": "Does Azure Blob Storage primarily store relational data?",
+        "user_answer": "Yes",
+        "user_score": null,
+        "expected_answer": "No"
+      },
+      {
+        "question_number": 2,
+        "type": "qualitative",
+        "skill_area": "Describe Azure compute and networking services",
+        "question": "Explain the key differences between Azure Functions and Azure App Services, including their ideal use cases.",
+        "user_answer": "a",
+        "user_score": null,
+        "scoring_criteria": [
+          "Mention serverless nature of Functions.",
+          "Mention PaaS nature of App Services.",
+          "Discuss billing models (consumption vs. plan).",
+          "Discuss typical workload sizes (short-lived tasks vs. web apps).",
+          "Provide relevant use cases for each."
+        ]
+      }
+    ]
   }
 ]
