@@ -3,6 +3,7 @@ from pathlib import Path
 from datetime import datetime
 from typing import List, Dict, Optional, Tuple
 from dataclasses import dataclass
+import os
 
 @dataclass
 class SimulationQuestion:
@@ -16,6 +17,7 @@ class SimulationQuestion:
 class SimulationResult:
     exam_code: str
     timestamp: str
+    sampling_method: str
     questions_attempted: List[Dict]
     total_questions: int
     
@@ -25,6 +27,7 @@ class SimulationWebService:
         self.current_simulation = None
         self.questions = []
         self.current_question_index = 0
+        self.sampling_method = "unknown"
         
     def get_available_question_files(self) -> List[Path]:
         """Returns a list of available question files."""
@@ -32,7 +35,7 @@ class SimulationWebService:
     
     def load_questions(self, file_path: Path) -> Tuple[bool, str]:
         """
-        Loads questions from the selected file.
+        Loads questions from the selected file with enhanced validation.
         
         Returns:
             Tuple[bool, str]: (success, message)
@@ -47,7 +50,11 @@ class SimulationWebService:
             if not raw_questions:
                 return False, f"No questions found in {file_path.name}"
             
-            # Converts to structured objects
+            # Detect sampling method
+            demo_mode = os.getenv("DEMO_MODE", "false").lower() == "true"
+            self.sampling_method = "stratified" if demo_mode else "ai_generated"
+            
+            # Convert to structured objects
             self.questions = [
                 SimulationQuestion(
                     type=q['type'],
@@ -58,18 +65,50 @@ class SimulationWebService:
                 ) for q in raw_questions
             ]
             
-            # Initializes new simulation
+            # Initialize new simulation
             self.current_simulation = {
                 "exam_code": self.exam_code,
                 "timestamp": datetime.now().isoformat(),
+                "sampling_method": self.sampling_method,
                 "questions_attempted": []
             }
             self.current_question_index = 0
             
-            return True, f"Loaded {len(self.questions)} questions for {self.exam_code}"
+            # Provide sampling summary
+            if self.sampling_method == "stratified":
+                skill_distribution = {}
+                for q in self.questions:
+                    skill_area = q.skill_area
+                    skill_distribution[skill_area] = skill_distribution.get(skill_area, 0) + 1
+                
+                distribution_msg = "Stratified sampling distribution: " + ", ".join([f"{k}: {v}" for k, v in skill_distribution.items()])
+                return True, f"Loaded {len(self.questions)} questions for {self.exam_code}. {distribution_msg}"
+            else:
+                return True, f"Loaded {len(self.questions)} AI-generated questions for {self.exam_code}"
             
         except Exception as e:
             return False, f"Error loading questions: {str(e)}"
+    
+    def generate_demo_questions(self, exam_code: str, num_questions: int, question_service) -> Tuple[bool, str]:
+        """
+        Generate demo questions using stratified sampling.
+        
+        Returns:
+            Tuple[bool, str]: (success, message)
+        """
+        try:
+            # Use the enhanced question service to generate stratified questions
+            question_service._load_precomputed_questions(exam_code, num_questions, 0)
+            
+            # Load the generated file
+            temp_file = self.files_dir / f"questions_{exam_code}.json"
+            if temp_file.exists():
+                return self.load_questions(temp_file)
+            else:
+                return False, "Failed to generate demo questions"
+                
+        except Exception as e:
+            return False, f"Error generating demo questions: {str(e)}"
     
     def get_current_question(self) -> Optional[SimulationQuestion]:
         """Returns the current question."""
@@ -83,8 +122,17 @@ class SimulationWebService:
             "current_question": self.current_question_index + 1,
             "total_questions": len(self.questions),
             "exam_code": getattr(self, 'exam_code', 'Unknown'),
+            "sampling_method": self.sampling_method,
             "is_complete": self.current_question_index >= len(self.questions)
         }
+    
+    def get_skill_distribution(self) -> Dict[str, int]:
+        """Returns the distribution of questions by skill area."""
+        distribution = {}
+        for q in self.questions:
+            skill_area = q.skill_area
+            distribution[skill_area] = distribution.get(skill_area, 0) + 1
+        return distribution
     
     def go_back_one_question(self) -> bool:
         """
@@ -143,7 +191,7 @@ class SimulationWebService:
             exam_code = self.current_simulation["exam_code"]
             results_file = self.files_dir / f"{exam_code}_results.json"
             
-            # Loads existing results
+            # Load existing results
             all_results = []
             if results_file.exists():
                 try:
@@ -152,10 +200,10 @@ class SimulationWebService:
                 except json.JSONDecodeError:
                     all_results = []
             
-            # Adds current simulation
+            # Add current simulation
             all_results.append(self.current_simulation)
             
-            # Saves file
+            # Save file
             with open(results_file, 'w', encoding='utf-8') as f:
                 json.dump(all_results, f, indent=2)
             
@@ -169,3 +217,4 @@ class SimulationWebService:
         self.current_simulation = None
         self.questions = []
         self.current_question_index = 0
+        self.sampling_method = "unknown"

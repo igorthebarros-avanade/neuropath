@@ -3,6 +3,8 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 import json
+import pandas as pd
+import altair as alt
 
 from services.exam_data_loader import ExamDataLoader
 from services.azure_ai_client import AzureAIClient
@@ -72,36 +74,63 @@ def home_page():
         st.warning(f"Image not found at: {image_path}. Please check the path.")
 
 def generate_diagnostic_questions_page():
-    """Logic for the Diagnostic Question Generation page."""
+    """Logic for the Diagnostic Question Generation page with dynamic defaults."""
     st.header("Generate Diagnostic Questions")
+    
     try:
         available_exams = exam_data_loader.get_available_exams()
         if available_exams:
-            exam_options = {f"{code} - {name}": code for code, name in available_exams}
-            selected_exam = st.selectbox("Select an Azure Certification Exam:", list(exam_options.keys()))
-
-            # Input for number of questions with validation
-            num_yes_no = st.number_input("Number of Yes/No questions:", min_value=1, max_value=100, value=30, step=1)
-            
-            # Check demo mode for qualitative questions
+            # Filter to fundamentals in demo mode
             demo_mode = os.getenv("DEMO_MODE", "false").lower() == "true"
             if demo_mode:
-                num_qualitative = 0
-                st.info("Demo mode only supports Yes/No questions. Qualitative questions disabled.")
-            else:
-                num_qualitative = st.number_input("Number of Qualitative questions:", min_value=1, max_value=100, value=30, step=1)
-
-            if st.button("Generate Questions"):
-                if not selected_exam:
-                    st.warning("Please select an exam.")
+                available_exams = [(code, name) for code, name in available_exams 
+                                  if code in ["AZ-900", "AI-900", "DP-900"]]
+                if not available_exams:
+                    st.warning("No fundamental exams available in demo mode.")
                     return
-
+            
+            exam_options = {f"{code} - {name}": code for code, name in available_exams}
+            
+            selected_exam = st.selectbox("Select an Azure Certification Exam:", list(exam_options.keys()))
+            
+            # Get dynamic defaults based on selected exam
+            if selected_exam:
                 selected_exam_code = exam_options[selected_exam]
                 question_service = QuestionService(exam_data_loader, ai_client)
+                defaults = question_service.get_exam_defaults(selected_exam_code)
+                
+                # Input for number of questions with dynamic defaults
+                num_yes_no = st.number_input(
+                    "Number of Yes/No questions:", 
+                    min_value=1, 
+                    max_value=50, # Sensible upper limit for demo purposes
+                    value=defaults["yes_no"], 
+                    step=1,
+                    help=f"Recommended for {selected_exam_code}: {defaults['yes_no']}"  # Recommendsed number of questions based on exam code
+                )
+                
+                # Check demo mode for qualitative questions
+                if demo_mode:
+                    num_qualitative = 0
+                    st.info("Demo mode only supports Yes/No questions. Qualitative questions disabled.")
+                else:
+                    num_qualitative = st.number_input(
+                        "Number of Qualitative questions:", 
+                        min_value=1, 
+                        max_value=100, 
+                        value=defaults["qualitative"], 
+                        step=1,
+                        help=f"Recommended for {selected_exam_code}: {defaults['qualitative']}"
+                    )
 
-                with st.spinner(f"Generating {num_yes_no + num_qualitative} questions for {selected_exam_code}..."):
-                    question_service.generate_diagnostic_questions(selected_exam_code, num_yes_no, num_qualitative)
-                st.success(f"Successfully generated {num_yes_no + num_qualitative} questions for {selected_exam_code}!")
+                if st.button("Generate Questions"):
+                    if not selected_exam:
+                        st.warning("Please select an exam.")
+                        return
+
+                    with st.spinner(f"Generating {num_yes_no + num_qualitative} questions for {selected_exam_code}..."):
+                        question_service.generate_diagnostic_questions(selected_exam_code, num_yes_no, num_qualitative)
+                    st.success(f"Successfully generated {num_yes_no + num_qualitative} questions for {selected_exam_code}!")
         else:
             st.error("No exam data loaded. Please check the 'content.json' path or its content.")
     except Exception as e:
@@ -109,11 +138,8 @@ def generate_diagnostic_questions_page():
 
 def conduct_simulation_page():
     st.header("Conduct Simulation", anchor=False)
-    
-    # Check demo mode
-    demo_mode = os.getenv("DEMO_MODE", "false").lower() == "true"
-    
-    # Initializes the service (use session_state for persistence)
+        
+    # Initialize service
     if 'simulation_service' not in st.session_state:
         st.session_state.simulation_service = SimulationWebService()
 
@@ -126,8 +152,9 @@ def conduct_simulation_page():
     if not st.session_state.simulation_loaded:
         
         # Special handling for demo mode
+        demo_mode = os.getenv("DEMO_MODE", "false").lower() == "true"
         if demo_mode:
-            st.info("Demo mode: Using curated yes/no questions from fundamentals exam content.")
+            st.info("Demo mode: Using stratified sampling from curated questions.")
             
             available_exams = exam_data_loader.get_available_exams()
             fundamentals_exams = [(code, name) for code, name in available_exams 
@@ -141,69 +168,50 @@ def conduct_simulation_page():
             selected_exam = st.selectbox(
                 "Select an Azure Fundamentals Certification:",
                 list(exam_options.keys()),
-                help="Demo mode uses curated yes/no questions only"
+                help="Demo mode ensures questions cover all skill areas proportionally"
             )
             
-            num_questions = st.number_input(
-                "Number of questions for simulation:", 
-                min_value=1, 
-                max_value=15, # lower max value 
-                value=5, 
-                step=1
-            )
-            
-            if st.button("🚀 Load Questions", type="primary"):
+            # Get dynamic defaults
+            if selected_exam:
                 selected_exam_code = exam_options[selected_exam]
+                question_service = QuestionService(exam_data_loader, ai_client)
+                defaults = question_service.get_exam_defaults(selected_exam_code)
                 
-                # Check if exam exists in content data
-                if selected_exam_code not in exam_data_loader.df.index:
-                    st.error(f"Exam {selected_exam_code} not found in content data.")
-                    return
+                num_questions = st.number_input(
+                    "Number of questions for simulation:", 
+                    min_value=1, 
+                    max_value=defaults["yes_no"], 
+                    value=min(10, defaults["yes_no"]), 
+                    step=1,
+                    help=f"Questions will be distributed across all skill areas. Max available: {defaults['yes_no']}"
+                )
                 
-                # Extract existing yes/no questions from content structure
-                demo_questions = []
-                exam_data = exam_data_loader.df.loc[selected_exam_code].to_dict()
-                
-                for skill_area in exam_data["skills_measured"]:
-                    for subtopic in skill_area["subtopics"]:
-                        for detail in subtopic.get("details", []):
-                            if isinstance(detail, dict) and detail.get("question_text") and detail.get("expected_answer"):
-                                # Only include if it's already a yes/no question
-                                if detail.get("expected_answer") in ["Yes", "No"]:
-                                    demo_questions.append({
-                                        "type": "yes_no",
-                                        "skill_area": skill_area["skill_area"],
-                                        "question": detail["question_text"],
-                                        "expected_answer": detail["expected_answer"]
-                                    })
-                
-                if not demo_questions:
-                    st.warning(f"No yes/no questions found in {selected_exam_code} content.")
-                    return
-                
-                # Create demo question data structure
-                demo_question_data = {
-                    "exam_code": selected_exam_code,
-                    "questions": demo_questions[:num_questions]  # Use user input
-                }
-                
-                # Save temp file and load into simulation service
-                temp_file = Path('files') / f"demo_{selected_exam_code}.json"
-                with open(temp_file, 'w', encoding='utf-8') as f:
-                    json.dump(demo_question_data, f, indent=2)
-                
-                success, message = sim_service.load_questions(temp_file)
-                
-                # Clean up temp file
-                if temp_file.exists():
-                    temp_file.unlink()
-                
-                if success:
-                    st.success(f"Loaded {len(demo_questions[:num_questions])} demo questions for {selected_exam_code}")
-                    st.session_state.simulation_loaded = True
-                    st.rerun()
-                else:
-                    st.error(message)
+                if st.button("🚀 Load Questions", type="primary"):
+                    # Check if exam exists in content data
+                    if selected_exam_code not in exam_data_loader.df.index:
+                        st.error(f"Exam {selected_exam_code} not found in content data.")
+                        return
+                    
+                    # Use the enhanced simulation service to generate demo questions
+                    question_service = QuestionService(exam_data_loader, ai_client)
+                    success, message = sim_service.generate_demo_questions(
+                        selected_exam_code, num_questions, question_service
+                    )
+                    
+                    if success:
+                        st.success(message)
+                        st.session_state.simulation_loaded = True
+                        
+                        # Show skill distribution
+                        distribution = sim_service.get_skill_distribution()
+                        if distribution:
+                            st.write("**Question distribution by skill area:**")
+                            for skill, count in distribution.items():
+                                st.write(f"• {skill}: {count} questions")
+                        
+                        st.rerun()
+                    else:
+                        st.error(message)
         
         # Normal mode: Use generated question files
         else:
@@ -218,17 +226,26 @@ def conduct_simulation_page():
                 if file.name.startswith("questions_") and file.name.endswith(".json"):
                     exam_code = file.name.replace("questions_", "").replace(".json", "")
                     
-                    exam_descriptions = {
-                        "AI-900": "AI-900 - Azure AI Fundamentals",
-                        "AZ-900": "AZ-900 - Azure Fundamentals", 
-                        "DP-900": "DP-900 - Azure Data Fundamentals",
-                        "AZ-104": "AZ-104 - Azure Administrator Associate",
-                        "AZ-204": "AZ-204 - Azure Developer Associate",
-                        "AZ-305": "AZ-305 - Azure Solutions Architect Expert"
-                    }
-                    
-                    friendly_name = exam_descriptions.get(exam_code, f"{exam_code} - Azure Certification")
-                    file_mapping[friendly_name] = file
+                    # Try to read file info for better display
+                    try:
+                        with open(file, 'r', encoding='utf-8') as f:
+                            data = json.load(f)
+                        question_count = len(data.get("questions", []))
+                        
+                        exam_descriptions = {
+                            "AI-900": "AI-900 - Azure AI Fundamentals",
+                            "AZ-900": "AZ-900 - Azure Fundamentals", 
+                            "DP-900": "DP-900 - Azure Data Fundamentals",
+                            "AZ-104": "AZ-104 - Azure Administrator Associate",
+                            "AZ-204": "AZ-204 - Azure Developer Associate",
+                            "AZ-305": "AZ-305 - Azure Solutions Architect Expert"
+                        }
+                        
+                        friendly_name = exam_descriptions.get(exam_code, f"{exam_code} - Azure Certification")
+                        display_name = f"{friendly_name} ({question_count} questions)"
+                        file_mapping[display_name] = file
+                    except:
+                        file_mapping[file.name] = file
                 else:
                     file_mapping[file.name] = file
             
@@ -251,15 +268,22 @@ def conduct_simulation_page():
                 else:
                     st.error(message)
     
-    # Step 2: Conducting the simulation
+    # Step 2: Conducting the simulation (rest remains the same but add sampling method display)
     else:
         progress = sim_service.get_simulation_progress()
         
-        # Shows progress
+        # Show progress with sampling method info
         st.progress(
             progress["current_question"] / progress["total_questions"] if not progress["is_complete"] else 1.0
         )
-        st.write(f"**Exam:** {progress['exam_code']}")
+        
+        col1, col2 = st.columns(2)
+        with col1:
+            st.write(f"**Exam:** {progress['exam_code']}")
+        with col2:
+            sampling_method = progress.get('sampling_method', 'unknown')
+            method_display = "Stratified Sampling" if sampling_method == "stratified" else "AI Generated"
+            st.write(f"**Method:** {method_display}")
 
         if progress["is_complete"]:
             st.write(f"**Progress:** {progress['current_question'] - 1}/{progress['total_questions']}")
@@ -428,29 +452,163 @@ def conduct_simulation_page():
                             st.session_state.results_saved = False  
                             st.rerun()
 
-def feedback_and_reinforcement_page():
-    """Logic for the Feedback and Reinforcement page."""
-    st.header("Feedback and Reinforcement")
+def feedback_page():
+    """Feedback dashboard with interactive charts and improved UX."""
+    st.header("Feedback")
     try:
         result_files = list(Path('files').glob('*_results.json'))
-        if result_files:
-            # Ensures file names are readable and selectable
-            display_files = {file.name: file for file in result_files}
-            selected_result_name = st.selectbox("Select a results file to analyze:", list(display_files.keys()))
-
-            if st.button("Analyze Results"):
-                if not selected_result_name:
-                    st.warning("Please select a results file.")
-                    return
-
-                selected_result_file_path = display_files[selected_result_name]
-                # Extracts exam code from the file name
-                exam_code_for_feedback = selected_result_file_path.stem.split('_')[0]
-
-                feedback_web_service = FeedbackWebService(ai_client)
-                feedback_web_service.write_feedback_and_new_questions(exam_code_for_feedback)
-        else:
+        if not result_files:
             st.error("No simulation results found in the 'files' folder. Please conduct a simulation first.")
+            return
+
+        display_files = {file.name: file for file in result_files}
+        selected_result_name = st.selectbox("Select a results file to analyze:", list(display_files.keys()))
+        selected_exam_code = selected_result_name.split("_results.json")[0]
+
+        if st.button("Analyze Results"):
+            # Use the FeedbackWebService to get feedback data
+            feedback_service = FeedbackWebService(ai_client)
+            # The function will return the analysis data (dict) instead of rendering directly
+            analysis_data = feedback_service.get_feedback_data(selected_exam_code)
+
+            if not analysis_data:
+                st.error("No feedback data available.")
+                return
+
+            # --- Layout: Use columns for a clean dashboard ---
+            with st.container():
+                st.subheader("Performance by Exam Category")
+                perf_data = analysis_data.get("performance_by_category", [])
+                if perf_data:
+                    perf_df = pd.DataFrame(perf_data)
+                    # Convert score to numeric for charting
+                    perf_df["average_score_percent"] = perf_df["average_score_percent"].astype(float)
+                    # Bar chart with Altair for better customization
+                    bar_chart = alt.Chart(perf_df).mark_bar(size=35, cornerRadiusTopLeft=8, cornerRadiusTopRight=8).encode(
+                        x=alt.X("average_score_percent:Q", title="Average Score (%)", scale=alt.Scale(domain=[0, 100])),
+                        y=alt.Y("skill_area:N", title="Skill Area", sort='-x'),
+                        color=alt.Color("average_score_percent:Q", scale=alt.Scale(scheme='blues'), legend=None),
+                        tooltip=["skill_area", "average_score_percent"]
+                    ).properties(height=300)
+                    st.altair_chart(bar_chart, use_container_width=True)
+                else:
+                    st.info("No category performance data available.")
+
+            st.markdown("---")
+
+            with st.container():
+                st.subheader("Detailed Question Review")
+                scored_questions = analysis_data.get("scored_questions", [])
+                if scored_questions:
+                    q_df = pd.DataFrame(scored_questions)
+                    
+                    # Fix: handle both numeric and percentage string values for score
+                    def parse_score(val):
+                        if isinstance(val, str) and val.strip().endswith('%'):
+                            try:
+                                return float(val.strip().replace('%', ''))
+                            except Exception:
+                                return 0.0
+                        try:
+                            return float(val)
+                        except Exception:
+                            return 0.0
+                    q_df["score"] = q_df["score"].apply(parse_score)
+                    q_df["Correct"] = q_df["score"] > 0
+                    cards_per_row = 3
+                    card_min_height = 220  # px, adjust as needed
+                    # Add custom CSS for tooltip and icon
+                    st.markdown(
+                        '''<style>
+                        .card-tooltip-container { position: relative; display: flex; flex-direction: column; justify-content: space-between; height: ''' + str(card_min_height) + '''px; }
+                        .info-icon {
+                            position: absolute;
+                            right: 18px;
+                            bottom: 18px;
+                            width: 28px;
+                            height: 28px;
+                            background: #fff;
+                            border-radius: 50%;
+                            border: 2px solid #888;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 1.2em;
+                            color: #388e3c;
+                            cursor: pointer;
+                            box-shadow: 0 2px 8px #0001;
+                            z-index: 2;
+                        }
+                        .info-icon.incorrect { color: #c62828; border-color: #c62828; }
+                        .card-tooltip {
+                            visibility: hidden;
+                            opacity: 0;
+                            width: 320px;
+                            background: #fff;
+                            color: #222;
+                            text-align: left;
+                            border-radius: 8px;
+                            border: 1.5px solid #888;
+                            box-shadow: 0 4px 16px #0002;
+                            padding: 1em 1.2em 1em 1.2em;
+                            position: absolute;
+                            bottom: 38px;
+                            right: 0;
+                            z-index: 10;
+                            transition: opacity 0.2s;
+                        }
+                        .info-icon:hover + .card-tooltip, .info-icon:focus + .card-tooltip {
+                            visibility: visible;
+                            opacity: 1;
+                        }
+                        .card-tooltip strong { color: #222; }
+                        .card-tooltip .score {
+                            background: #f1f8e9;
+                            border-radius: 6px;
+                            padding: 0.4em 0.8em;
+                            margin: 0.5em 0 0.5em 0;
+                            display: inline-block;
+                            font-weight: bold;
+                        }
+                        .card-tooltip .notes {
+                            background: #fff3cd;
+                            border-radius: 6px;
+                            padding: 0.7em 1em;
+                            margin-top: 0.7em;
+                            margin-bottom: 0.2em;
+                            display: block;
+                        }
+                        </style>''', unsafe_allow_html=True
+                    )
+                    for i in range(0, len(q_df), cards_per_row):
+                        cols = st.columns(cards_per_row)
+                        for j, row in enumerate(q_df.iloc[i:i+cards_per_row].itertuples()):
+                            color = "#d0f5dd" if row.Correct else "#ffebee"
+                            border_color = "#388e3c" if row.Correct else "#c62828"
+                            icon_class = "info-icon" + (" incorrect" if not row.Correct else "")
+                            tooltip_html = f'''
+                                <div class="{icon_class}" tabindex="0" title="Show details">&#9432;</div>
+                                <div class="card-tooltip">
+                                    <div><strong>Type:</strong> {row.type}</div>
+                                    <div><strong>Your Answer:</strong> {row.user_answer}</div>
+                                    <div class="score">Score: {row.score}</div>
+                                    <div class="notes"><strong>Notes:</strong> {row.notes}</div>
+                                </div>
+                            '''
+
+                            with cols[j]:
+                                st.markdown(
+                                    f"""
+                                    <div class='card-tooltip-container' style='background-color:{color};border:2px solid {border_color};padding:1em 1em 0.5em 1em;border-radius:10px;margin-bottom:16px;box-shadow:0 2px 8px #0001;position:relative;'>
+                                        <div style='font-size:1.1em;font-weight:bold;margin-bottom:0.5em;'>Q{i+j+1}: {row.question}</div>
+                                        <div style='flex:1'></div>
+                                    </div>
+                                        {tooltip_html}
+                                    """, unsafe_allow_html=True
+                                )
+                else:
+                    st.info("No detailed question data available.")
+
     except Exception as e:
         st.error(f"Error processing feedback and reinforcement: {e}")
 
@@ -495,7 +653,7 @@ menu_options = {
     "Home": home_page,
     "Generate Diagnostic Questions": generate_diagnostic_questions_page,
     "Conduct Simulation": conduct_simulation_page,
-    "Feedback and Reinforcement": feedback_and_reinforcement_page,
+    "Feedback": feedback_page,
     "Ask a Question": ask_question_page,
     "Exit": exit_page,
 }
