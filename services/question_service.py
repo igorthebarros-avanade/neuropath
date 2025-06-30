@@ -210,4 +210,4 @@ class QuestionService:
         if self.demo_mode:
             self._load_precomputed_questions(selected_exam_code, num_yes_no, num_qualitative)
         else:
-            self._generate_questions_live(selected_exam_code, num_yes_no, num_qualitative)
+            return self._generate_questions_live(selected_exam_code, num_yes_no, num_qualitative)

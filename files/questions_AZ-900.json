@@ -4,21 +4,41 @@
     {
       "type": "yes_no",
       "skill_area": "Describe Azure storage services",
-      "question": "Does Azure Blob Storage primarily store relational data?",
+      "question": "Is Azure Archive Storage recommended for storing frequently accessed application data?",
       "expected_answer": "No",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe cloud concepts",
+      "question": "Does a hybrid cloud deployment always require connectivity between on-premises infrastructure and the public cloud?",
+      "expected_answer": "Yes",
       "purpose": "Binary Assessment"
     },
     {
       "type": "qualitative",
       "skill_area": "Describe Azure compute and networking services",
-      "question": "Explain the key differences between Azure Functions and Azure App Services, including their ideal use cases.",
+      "question": "Explain the differences between Azure Virtual Machines and Azure Container Instances, and describe scenarios where each is more appropriate.",
       "purpose": "Scaled Assessment",
       "scoring_criteria": [
-        "Mention serverless nature of Functions.",
-        "Mention PaaS nature of App Services.",
-        "Discuss billing models (consumption vs. plan).",
-        "Discuss typical workload sizes (short-lived tasks vs. web apps).",
-        "Provide relevant use cases for each."
+        "Describe what Azure Virtual Machines are and their management responsibilities.",
+        "Describe what Azure Container Instances are and their managed nature.",
+        "Discuss use cases for Virtual Machines (e.g., persistent workloads, full OS control).",
+        "Discuss use cases for Container Instances (e.g., short-lived, stateless workloads, microservices).",
+        "Mention differences in scalability, deployment speed, and infrastructure management."
+      ]
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe features and tools in Azure for governance and compliance",
+      "question": "Describe how Azure Policy helps organizations enforce compliance and give an example of a policy that could be implemented.",
+      "purpose": "Scaled Assessment",
+      "scoring_criteria": [
+        "Define Azure Policy and its enforcement of rules.",
+        "Explain how policies can assess and remediate non-compliance.",
+        "Describe assignment of policies at different scopes (subscription, resource group).",
+        "Give an example of a policy (e.g., only allow resources in specific regions).",
+        "Mention integration with compliance reporting or remediation actions."
       ]
     }
   ]

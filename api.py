@@ -7,6 +7,8 @@ from flask_cors import CORS
 from services.question_service import QuestionService
 from services.exam_data_loader import ExamDataLoader
 from services.azure_ai_client import AzureAIClient
+from services.feedback_service import FeedbackService
+from services.concept_extractor import ConceptExtractor
 
 load_dotenv()
 exam_data_loader = ExamDataLoader(json_file_path=os.getenv("EXAM_DATA_JSON_PATH"))
@@ -23,6 +25,8 @@ ai_client = AzureAIClient(
 )
 
 question_service = QuestionService(exam_data_loader, ai_client)
+feedback_service = FeedbackService(ai_client)
+concept_extractor = ConceptExtractor()
 
 app = Flask(__name__)
 CORS(app)
@@ -32,9 +36,11 @@ def questions(examCode, yesNoQuestions, qualitativeQuestions):
     questions = question_service.generate_diagnostic_questions(examCode, yesNoQuestions, qualitativeQuestions)
     return jsonify(questions), 200
 
-@app.route("/api/feedback", methods=["POST"])
-def feedback():
-    return jsonify({}), 200
+@app.route("/api/feedback/<exam>", methods=["POST"])
+def feedback(exam):
+    body = request.get_json()
+    newFeedback = feedback_service.provide_feedback_and_new_questions(exam, frontend_results=body.get("results"))
+    return jsonify(newFeedback), 200
 
 @app.route("/api/ask", methods=["POST"])
 def ask():
