@@ -3,6 +3,11 @@ from openai import AzureOpenAI
 import os
 from pathlib import Path
 from tenacity import retry, wait_exponential, stop_after_attempt, retry_if_exception_type
+from typing import Literal, Optional
+
+VALID_SIZES = {"auto","1024x1024","1536x1024","1024x1536","256x256","512x512","1792x1024","1024x1792"}
+VALID_QUALITIES = {"standard", "hd", "low", "medium", "high", "auto"} 
+VALID_STYLES = {"vivid", "natural"}
 
 class AzureAIClient:
     def __init__(self,
@@ -78,6 +83,12 @@ class AzureAIClient:
             print("Text/Audio/Whisper client not initialized. Cannot make chat completion call.")
             return None
         
+        if not self.deployment_text:
+            raise ValueError("Deployment name is not set for text model.")
+        
+        if not response_format:
+            raise ValueError("Response format must be specified for chat completions.")
+        
         try:
             completion = self.text_audio_whisper_client.chat.completions.create(
                 model=self.deployment_text,
@@ -94,7 +105,9 @@ class AzureAIClient:
     # Apply retry decorator to API calls
     @retry(wait=wait_exponential(multiplier=1, min=4, max=10), stop=stop_after_attempt(5),
            retry=retry_if_exception_type(Exception))
-    def generate_image(self, prompt: str, style: str = "vivid", size: str = "1024x1024", quality: str = "standard"):
+    def generate_image(self, prompt: str, style: Literal["vivid", "natural"] = "vivid",
+                        size: Literal["auto", "1024x1024", "1536x1024", "1024x1536","256x256", "512x512", "1792x1024", "1024x1792" ] = "1024x1024",
+                        quality: Literal["standard", "hd", "low", "medium", "high", "auto"] = "standard"):
         """
         Generates an image using the DALL-E model via Azure OpenAI.
         Uses the image_client.
@@ -102,9 +115,19 @@ class AzureAIClient:
         if not self.image_client:
             print("Image client not initialized. Cannot generate image.")
             return None
+        
         if not self.deployment_image:
             print("Azure OpenAI image deployment name not configured. Cannot generate image.")
             return None
+
+        if size not in VALID_SIZES:
+           raise ValueError(f"Invalid image size: {size}")
+        
+        if quality not in VALID_QUALITIES:
+            raise ValueError(f"Invalid image quality: {quality}")
+        
+        if style not in VALID_STYLES:
+            raise ValueError(f"Invalid image style: {style}")
 
         try:
             response = self.image_client.images.generate( # Use image_client
@@ -115,7 +138,14 @@ class AzureAIClient:
                 quality=quality,
                 style=style
             )
-            return response.data[0].url
+
+            if response.data is not None:
+                return response.data[0].url
+            
+            else:
+                print("Result is type is None and it can't be accessible.")
+                raise 
+
         except Exception as e:
             print(f"An error occurred during image generation API call (retrying): {e}")
             raise

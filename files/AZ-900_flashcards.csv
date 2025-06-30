@@ -1,0 +1,154 @@
+Question,Answer
+What is 'Describe cloud concepts' in Azure?,"This skill area covers: Identify the benefits and considerations of using cloud services, Describe the differences between categories of cloud services, Describe the differences between types of cloud computing"
+Explain 'Identify the benefits and considerations of using cloud services' in Azure.,"Cost Effectiveness: Pay for what you consume, no upfront cost, pay-as-you-go, and shared costs with thousands of customers.
+Global Reach: Launch workloads anywhere in the world by choosing a region.
+Security: Cloud providers handle physical security, and cloud services can be secured by default or configured with granular access controls.
+Reliability: Features include data backups, disaster recovery, data replication, and fault tolerance.
+Scalability: Ability to increase or decrease resources and services based on demand.
+Elasticity: Automated scaling during spikes and drops in demand.
+Current: Underlying hardware and software are patched, upgraded, and replaced by the cloud provider without interruption.
+Cost Effectiveness: Pay for what you consume, no upfront cost, pay-as-you-go, and shared costs with thousands of customers.
+Security: Cloud providers handle physical security, and cloud services can be secured by default or configured with granular access controls.
+Current: Underlying hardware and software are patched, upgraded, and replaced by the cloud provider without interruption.
+Elasticity: Automated scaling during spikes and drops in demand.
+Reliability: Features include data backups, disaster recovery, data replication, and fault tolerance.
+Scalability: Ability to increase or decrease resources and services based on demand.
+Global Reach: Launch workloads anywhere in the world by choosing a region."
+Explain 'Describe the differences between categories of cloud services' in Azure.,"Software as a Service (SaaS): A product run and managed by the service provider; users don't worry about maintenance. Examples include Salesforce, Gmail, and Office 365.
+Platform as a Service (PaaS): Focuses on application development and management, abstracting hardware and OS provisioning. Examples include AWS Elastic Beanstalk, Heroku, and Google App Engine.
+Infrastructure as a Service (IaaS): Provides basic building blocks like networking, compute, and storage; users don't worry about IT staff or data centers. Examples include Microsoft Azure, AWS, and Oracle Cloud.
+Platform as a Service (PaaS): Focuses on application development and management, abstracting hardware and OS provisioning. Examples include AWS Elastic Beanstalk, Heroku, and Google App Engine.
+Infrastructure as a Service (IaaS): Provides basic building blocks like networking, compute, and storage; users don't worry about IT staff or data centers. Examples include Microsoft Azure, AWS, and Oracle Cloud.
+Software as a Service (SaaS): A product run and managed by the service provider; users don't worry about maintenance. Examples include Salesforce, Gmail, and Office 365."
+Explain 'Describe the differences between types of cloud computing' in Azure.,"Public Cloud: Everything is built on the cloud service provider's infrastructure (e.g., Azure), with no on-premise components.
+Private Cloud: Everything is built on the company's own data centers (on-premise), potentially running open-source cloud software like OpenStack.
+Hybrid Cloud: Uses a combination of both on-premise infrastructure and cloud service providers, connected together (e.g., via ExpressRoute).
+Hybrid Cloud: Uses a combination of both on-premise infrastructure and cloud service providers, connected together (e.g., via ExpressRoute).
+Public Cloud: Everything is built on the cloud service provider's infrastructure (e.g., Azure), with no on-premise components.
+Private Cloud: Everything is built on the company's own data centers (on-premise), potentially running open-source cloud software like OpenStack."
+What is 'Describe Azure architecture and services' in Azure?,"This skill area covers: Describe the core architectural components of Azure, Describe Azure compute and networking services, Describe Azure storage services, Describe Azure identity, access, and security"
+Explain 'Describe the core architectural components of Azure' in Azure.,"Regions and Geographies: A region is a grouping of multiple datacenters (availability zones). Azure has 58 regions across 140 countries. A geography is a discrete market of two or more regions preserving data residency and compliance boundaries (e.g., United States, Canada).
+Paired Regions: Each region is paired with another region ~300 miles away for disaster recovery and higher availability during updates.
+Availability Zones (AZs): A physical location made up of one or more datacenters within an Azure region. Generally, a region contains three AZs for high availability.
+Fault Domains: Logical grouping of hardware within an AZ to avoid single points of failure (e.g., VMs sharing a common power source).
+Update Domains: Logical grouping of hardware ensuring that Azure applies updates to underlying infrastructure without taking all machines offline simultaneously.
+Resource Groups: A logical grouping of multiple resources within a subscription.
+Subscriptions: An Azure subscription is the equivalent of an Azure account, granting access to Azure services based on billing and support.
+Management Groups: A way of managing multiple subscriptions in a hierarchical structure.
+Azure Resource Manager (ARM): A service that allows you to manage Azure resources (create, update, delete resources, apply access controls, locks, tags).
+Paired Regions: Each region is paired with another region ~300 miles away for disaster recovery and higher availability during updates.
+Resource Groups: A logical grouping of multiple resources within a subscription.
+Regions and Geographies: A region is a grouping of multiple datacenters (availability zones). Azure has 58 regions across 140 countries. A geography is a discrete market of two or more regions preserving data residency and compliance boundaries (e.g., United States, Canada).
+Subscriptions: An Azure subscription is the equivalent of an Azure account, granting access to Azure services based on billing and support.
+Fault Domains: Logical grouping of hardware within an AZ to avoid single points of failure (e.g., VMs sharing a common power source).
+Update Domains: Logical grouping of hardware ensuring that Azure applies updates to underlying infrastructure without taking all machines offline simultaneously.
+Availability Zones (AZs): A physical location made up of one or more datacenters within an Azure region. Generally, a region contains three AZs for high availability.
+Management Groups: A way of managing multiple subscriptions in a hierarchical structure.
+Azure Resource Manager (ARM): A service that allows you to manage Azure resources (create, update, delete resources, apply access controls, locks, tags)."
+Explain 'Describe Azure compute and networking services' in Azure.,"Azure Virtual Machines (VMs): Highly configurable servers that run Windows or Linux OS, offering choices for memory, CPU, and storage.
+Azure Container Instances (ACI): Fully managed Docker as a service, allowing deployment of containerized apps without managing underlying VMs.
+Azure Kubernetes Service (AKS): Kubernetes as a service, for deploying, managing, and scaling containerized applications using the open-source Kubernetes orchestration.
+Azure Functions: Event-driven serverless compute, running small bits of code (functions) in various languages, paying only for the execution time.
+Azure Batch: Enables planning, scheduling, and executing batch compute workloads across hundreds of jobs in parallel, often using low-priority VMs for cost savings.
+Azure Virtual Network (VNet): A logically isolated section of your Azure Network where you launch your Azure resources.
+Network Interfaces (NICs): Virtual network devices that allow VMs to communicate using IP protocols.
+Subnets: Logical divisions of an address space within a VNet, allowing for virtual isolation and application of Network Security Groups.
+Azure DNS: A hosting service for DNS domains, providing name resolution. Can be public (internet-facing) or private (internal-facing).
+Virtual Private Networks (VPNs): Extend a private network across a public network securely.
+Virtual Network Gateway: The software VPN device for your Azure Virtual Network, facilitating VPN connections.
+Azure ExpressRoute: Creates private connections between Azure data centers and on-premise infrastructure, offering reliability, faster speeds, consistent latencies, and higher security compared to the public internet.
+Azure Private Link: Establishes secure connections between Azure resources, keeping traffic within your Azure Network.
+Azure Load Balancer: Operates at OSI layer 4 (transport), distributing TCP and UDP network traffic.
+Azure Application Gateway: Operates at OSI layer 7 (application), providing HTTP/HTTPS web traffic load balancing and advanced routing based on request content.
+Azure Virtual Machines (VMs): Highly configurable servers that run Windows or Linux OS, offering choices for memory, CPU, and storage.
+Azure Container Instances (ACI): Fully managed Docker as a service, allowing deployment of containerized apps without managing underlying VMs.
+Network Interfaces (NICs): Virtual network devices that allow VMs to communicate using IP protocols.
+Subnets: Logical divisions of an address space within a VNet, allowing for virtual isolation and application of Network Security Groups.
+Azure Functions: Event-driven serverless compute, running small bits of code (functions) in various languages, paying only for the execution time.
+Azure Virtual Network (VNet): A logically isolated section of your Azure Network where you launch your Azure resources.
+Azure Kubernetes Service (AKS): Kubernetes as a service, for deploying, managing, and scaling containerized applications using the open-source Kubernetes orchestration.
+Azure Batch: Enables planning, scheduling, and executing batch compute workloads across hundreds of jobs in parallel, often using low-priority VMs for cost savings.
+Azure DNS: A hosting service for DNS domains, providing name resolution. Can be public (internet-facing) or private (internal-facing).
+Azure ExpressRoute: Creates private connections between Azure data centers and on-premise infrastructure, offering reliability, faster speeds, consistent latencies, and higher security compared to the public internet.
+Virtual Private Networks (VPNs): Extend a private network across a public network securely.
+Virtual Network Gateway: The software VPN device for your Azure Virtual Network, facilitating VPN connections.
+Azure Private Link: Establishes secure connections between Azure resources, keeping traffic within your Azure Network.
+Azure Load Balancer: Operates at OSI layer 4 (transport), distributing TCP and UDP network traffic.
+Azure Application Gateway: Operates at OSI layer 7 (application), providing HTTP/HTTPS web traffic load balancing and advanced routing based on request content."
+Explain 'Describe Azure storage services' in Azure.,"Azure Blob Storage: Object serverless storage optimized for storing massive amounts of unstructured data (text and binary), with unlimited capacity.
+Azure Disk Storage: Virtual volumes (SSD or HDD) attached to Virtual Machines, providing encryption by default.
+Azure File Storage: A shared volume accessible and managed like a file server using protocols like SMB and NFS, useful for sharing files among multiple VMs or users.
+Azure Queue Storage: A messaging queue service for reliably delivering messages between applications; categorized under storage but used for application integration.
+Azure Table Storage: A NoSQL database (wide column) for unstructured data, independent of any schema; also listed under storage.
+Azure Data Box: A rugged briefcase computer and storage device designed for moving terabytes or petabytes of data physically when internet transfer is too slow.
+Azure Archive Storage: Long-term cold storage for infrequently accessed data, offering the cheapest storage options.
+Azure Data Lake Storage: A centralized repository for vast amounts of raw structured and unstructured data at any scale, extended from Azure Blob Storage.
+Azure Blob Storage: Object serverless storage optimized for storing massive amounts of unstructured data (text and binary), with unlimited capacity.
+Azure Disk Storage: Virtual volumes (SSD or HDD) attached to Virtual Machines, providing encryption by default.
+Azure Table Storage: A NoSQL database (wide column) for unstructured data, independent of any schema; also listed under storage.
+Azure Data Box: A rugged briefcase computer and storage device designed for moving terabytes or petabytes of data physically when internet transfer is too slow.
+Azure Queue Storage: A messaging queue service for reliably delivering messages between applications; categorized under storage but used for application integration.
+Azure File Storage: A shared volume accessible and managed like a file server using protocols like SMB and NFS, useful for sharing files among multiple VMs or users.
+Azure Data Lake Storage: A centralized repository for vast amounts of raw structured and unstructured data at any scale, extended from Azure Blob Storage.
+Azure Archive Storage: Long-term cold storage for infrequently accessed data, offering the cheapest storage options."
+"Explain 'Describe Azure identity, access, and security' in Azure.","Azure Active Directory (Azure AD) / Microsoft Entra ID: A cloud-based identity and access management service for managing users, sign-ins, and access to resources (internal and external SaaS apps).
+Single Sign-On (SSO): Allows users to authenticate once with Entra ID and access multiple applications without re-authenticating.
+Multi-Factor Authentication (MFA): A security control requiring a second device (e.g., phone) to confirm identity after entering username and password.
+Conditional Access: Provides an extra layer of security by setting policies that specify conditions under which authenticated users can access data or assets.
+Azure Key Vault: Safeguards cryptographic keys and other secrets (tokens, passwords, certificates, API keys) used by cloud apps and services.
+Azure Defender: Provides advanced protection for Azure and on-premise workloads, found within the Azure Security Center, offering security alerts and insights.
+DDoS Protection: Protects Azure resources from Distributed Denial of Service (DDoS) attacks, which flood websites with fake traffic.
+Azure Firewall: A managed cloud-based network security service that protects Azure VNets and resources, acting as a fully stateful firewall as a service.
+Role-Based Access Control (RBAC): Manages who has access to Azure resources, what they can do with them, and what areas they have access to, through role assignments.
+Single Sign-On (SSO): Allows users to authenticate once with Entra ID and access multiple applications without re-authenticating.
+Azure Defender: Provides advanced protection for Azure and on-premise workloads, found within the Azure Security Center, offering security alerts and insights.
+Multi-Factor Authentication (MFA): A security control requiring a second device (e.g., phone) to confirm identity after entering username and password.
+Azure Key Vault: Safeguards cryptographic keys and other secrets (tokens, passwords, certificates, API keys) used by cloud apps and services.
+Azure Active Directory (Azure AD) / Microsoft Entra ID: A cloud-based identity and access management service for managing users, sign-ins, and access to resources (internal and external SaaS apps).
+Role-Based Access Control (RBAC): Manages who has access to Azure resources, what they can do with them, and what areas they have access to, through role assignments.
+DDoS Protection: Protects Azure resources from Distributed Denial of Service (DDoS) attacks, which flood websites with fake traffic.
+Azure Firewall: A managed cloud-based network security service that protects Azure VNets and resources, acting as a fully stateful firewall as a service.
+Conditional Access: Provides an extra layer of security by setting policies that specify conditions under which authenticated users can access data or assets."
+What is 'Describe Azure management and governance' in Azure?,"This skill area covers: Describe cost management in Azure, Describe features and tools in Azure for governance and compliance, Describe features and tools for managing and deploying Azure resources, Describe monitoring tools in Azure"
+Explain 'Describe cost management in Azure' in Azure.,"Total Cost of Ownership (TCO) Calculator: Estimates cost savings by migrating on-premise workloads to Azure.
+Azure Pricing Calculator: Configures and estimates the cost of Azure products without signing in, allowing export of cost estimates.
+Azure Cost Management: Allows visualization of Azure spending and creation of budgets with alerts for thresholds.
+Azure Hybrid Benefit (HUB): Allows customers to repurpose existing Windows Server and SQL Server licenses for virtual machines on Azure to save costs.
+Service Level Agreements (SLAs): Describes Azure's commitment to uptime and connectivity for individual services, expressed as performance targets (e.g., 99.9% availability).
+Service Credits: Discounts on Azure bills as compensation for underperforming Azure products or services that fall below their SLA guarantees.
+Service Credits: Discounts on Azure bills as compensation for underperforming Azure products or services that fall below their SLA guarantees.
+Azure Pricing Calculator: Configures and estimates the cost of Azure products without signing in, allowing export of cost estimates.
+Service Level Agreements (SLAs): Describes Azure's commitment to uptime and connectivity for individual services, expressed as performance targets (e.g., 99.9% availability).
+Azure Cost Management: Allows visualization of Azure spending and creation of budgets with alerts for thresholds.
+Azure Hybrid Benefit (HUB): Allows customers to repurpose existing Windows Server and SQL Server licenses for virtual machines on Azure to save costs.
+Total Cost of Ownership (TCO) Calculator: Estimates cost savings by migrating on-premise workloads to Azure."
+Explain 'Describe features and tools in Azure for governance and compliance' in Azure.,"Resource Tags: Key-value pairs assigned to Azure resources for organization, cost management, operations management, and security classification.
+Azure Policy: Enforces organizational standards and assesses compliance at scale by defining rules for resource configurations.
+Resource Locks: Prevents accidental deletion or modification of critical Azure resources at the subscription, resource group, or resource level (CannotDelete, ReadOnly).
+Azure Blueprints: Enables quick creation of governed subscriptions by composing artifacts (role assignments, policy assignments, ARM templates) into reusable blueprints.
+Resource Tags: Key-value pairs assigned to Azure resources for organization, cost management, operations management, and security classification.
+Azure Blueprints: Enables quick creation of governed subscriptions by composing artifacts (role assignments, policy assignments, ARM templates) into reusable blueprints.
+Resource Locks: Prevents accidental deletion or modification of critical Azure resources at the subscription, resource group, or resource level (CannotDelete, ReadOnly).
+Azure Policy: Enforces organizational standards and assesses compliance at scale by defining rules for resource configurations."
+Explain 'Describe features and tools for managing and deploying Azure resources' in Azure.,"Azure Portal: A web-based, unified console for managing Azure subscriptions and resources through a graphical interface.
+Azure Cloud Shell: An interactive, authenticated, browser-accessible shell (Bash or PowerShell) for managing Azure resources.
+Azure PowerShell: A command-line shell and scripting language, primarily developed for Windows, with cmdlets for managing Azure resources. Microsoft introduced Az PowerShell module and PowerShell is now cross-platform, because it runs on .Net Core and is available for macOS and Linux.
+Azure CLI: A command-line interface (for Windows, Mac, Linux) for processing commands to Azure resources via text lines, allowing programmatic creation, update, and deletion.
+Azure Resource Manager (ARM) Templates: JSON files that define Azure resources and configurations for provisioning, acting as infrastructure as code (IaC) in a declarative way.
+Azure Bicep: A more productive way to write infrastructure as code for Azure, compiling down to ARM templates.
+Terraform: A popular third-party IaC tool that works with Azure and other cloud providers.
+Azure Bicep: A more productive way to write infrastructure as code for Azure, compiling down to ARM templates.
+Azure Resource Manager (ARM) Templates: JSON files that define Azure resources and configurations for provisioning, acting as infrastructure as code (IaC) in a declarative way.
+Azure Cloud Shell: An interactive, authenticated, browser-accessible shell (Bash or PowerShell) for managing Azure resources.
+Azure PowerShell: A command-line shell and scripting language (for Windows) with cmdlets for managing Azure resources.
+Azure Portal: A web-based, unified console for managing Azure subscriptions and resources through a graphical interface.
+Azure CLI: A command-line interface (for Windows, Mac, Linux) for processing commands to Azure resources via text lines, allowing programmatic creation, update, and deletion.
+Terraform: A popular third-party IaC tool that works with Azure and other cloud providers."
+Explain 'Describe monitoring tools in Azure' in Azure.,"Azure Monitor: A comprehensive solution for collecting, analyzing, and acting on telemetry data from cloud and on-premise environments, including metrics, logs, and traces.
+Azure Service Health: Provides information about current and upcoming issues that may affect Azure service availability (service-impacting events, planned maintenance).
+Azure Advisor: A personalized cloud consultant that provides recommendations to optimize Azure deployments across categories like high availability, security, performance, cost, and operational excellence.
+Application Insights: An Application Performance Management (APM) service that automatically detects performance anomalies and provides analytics tools for diagnosing issues in web applications.
+Azure Monitor: A comprehensive solution for collecting, analyzing, and acting on telemetry data from cloud and on-premise environments, including metrics, logs, and traces.
+Application Insights: An Application Performance Management (APM) service that automatically detects performance anomalies and provides analytics tools for diagnosing issues in web applications.
+Azure Service Health: Provides information about current and upcoming issues that may affect Azure service availability (service-impacting events, planned maintenance).
+Azure Advisor: A personalized cloud consultant that provides recommendations to optimize Azure deployments across categories like high availability, security, performance, cost, and operational excellence."
