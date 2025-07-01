@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Segoe UI';
+  src: url('/fonts/Segoe UI.ttf') format('truetype');
+}
+
+@theme {
+  --color-a-orange: #ff5800;
+  --color-a-darkOrange: #dc4600;
+  --color-a-darkGray: #333;
+  --color-a-gray: #7f7f7f;
+  --color-a-lightGray: #e5e5e5;
+  --text: 'Segoe UI', sans-serif;
+}
+
+*{
+  accent-color: var(--color-a-orange);
+  color: var(--color-a-lightGray);
+  font-family: var(--text);
+  outline: none;
+  text-decoration: none;
+  transition: all .3s ease-in-out
+}

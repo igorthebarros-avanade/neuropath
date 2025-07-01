@@ -3,153 +3,135 @@
   "questions": [
     {
       "type": "yes_no",
-      "skill_area": "Describe Azure storage services",
-      "question": "Can Azure Blob Storage be configured to use lifecycle management policies to automatically move data to the Archive tier?",
-      "expected_answer": "Yes"
-    },
-    {
-      "type": "yes_no",
-      "skill_area": "Describe Azure storage services",
-      "question": "Is Azure Files suitable for mounting file shares from on-premises Windows servers?",
-      "expected_answer": "Yes"
-    },
-    {
-      "type": "yes_no",
-      "skill_area": "Describe Azure storage services",
-      "question": "Does Azure Table Storage support complex relational queries and joins?",
-      "expected_answer": "No"
-    },
-    {
-      "type": "yes_no",
-      "skill_area": "Describe Azure storage services",
-      "question": "Is data stored in Azure Blob Storage encrypted at rest by default?",
-      "expected_answer": "Yes"
-    },
-    {
-      "type": "yes_no",
-      "skill_area": "Describe Azure storage services",
-      "question": "Is Azure Queue Storage used for long-term archival of large documents?",
-      "expected_answer": "No"
-    },
-    {
-      "type": "qualitative",
-      "skill_area": "Describe Azure storage services",
-      "question": "Explain the main differences between Azure Blob Storage and Azure Disk Storage, including use cases for each.",
-      "purpose": "Assess understanding of Azure storage types and their best-fit scenarios.",
-      "scoring_criteria": [
-        "Describe what Azure Blob Storage is and its use cases (unstructured data, backups, media files, data lakes).",
-        "Describe what Azure Disk Storage is and its use cases (VM disks, high-performance workloads).",
-        "Compare scalability, performance, and typical consumers.",
-        "Mention supported access methods (object vs block access).",
-        "Give an example scenario for each storage type."
-      ]
-    },
-    {
-      "type": "qualitative",
-      "skill_area": "Describe Azure storage services",
-      "question": "List at least three redundancy options provided by Azure Storage and briefly describe each.",
-      "purpose": "Assess knowledge of Azure Storage redundancy models.",
-      "scoring_criteria": [
-        "Identify Locally Redundant Storage (LRS) and explain.",
-        "Identify Geo-Redundant Storage (GRS) and explain.",
-        "Identify Zone-Redundant Storage (ZRS) and explain.",
-        "Mention Read-Access Geo-Redundant Storage (RA-GRS) as a possible point.",
-        "Briefly compare geographic coverage/protection."
-      ]
-    },
-    {
-      "type": "qualitative",
-      "skill_area": "Describe Azure storage services",
-      "question": "Describe the process for securing access to Azure Storage accounts and give two examples of access control methods.",
-      "purpose": "Assess understanding of authentication and security best practices for Azure Storage.",
-      "scoring_criteria": [
-        "Mention the use of Shared Access Signatures (SAS) or Azure AD for access control.",
-        "Describe network security options (firewall, virtual networks).",
-        "Explain storage account keys and their security implications.",
-        "Give at least two concrete examples (e.g., using SAS tokens, configuring firewall rules).",
-        "Mention monitoring or auditing storage access."
-      ]
+      "skill_area": "Describe Azure compute and networking services",
+      "question": "Can Azure Container Instances run Windows and Linux containers?"
     },
     {
       "type": "yes_no",
       "skill_area": "Describe Azure compute and networking services",
-      "question": "Is Azure Container Instances designed for running persistent, stateful workloads that require long-term storage?",
-      "expected_answer": "No"
+      "question": "Do Azure Virtual Machines require you to manage operating system updates?"
     },
     {
       "type": "yes_no",
       "skill_area": "Describe Azure compute and networking services",
-      "question": "Can a single Azure Virtual Machine be scaled automatically to multiple instances using Azure Autoscale?",
-      "expected_answer": "No"
+      "question": "Is it possible to autoscale Azure Virtual Machines out of the box without additional services?"
     },
     {
       "type": "yes_no",
       "skill_area": "Describe Azure compute and networking services",
-      "question": "Does Azure App Service support hosting both Windows and Linux web applications?",
-      "expected_answer": "Yes"
+      "question": "Are Azure Container Instances well-suited for ephemeral workloads?"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe Azure compute and networking services",
+      "question": "Do Azure Virtual Machines provide faster startup times than Azure Container Instances?"
     },
     {
       "type": "qualitative",
       "skill_area": "Describe Azure compute and networking services",
-      "question": "Explain the benefits of using Azure Virtual Networks in securing application workloads.",
-      "purpose": "Assess understanding of networking security in Azure.",
+      "question": "List and briefly describe three scenarios where you would use Azure Container Instances instead of Azure Virtual Machines.",
+      "purpose": "Test understanding of container vs VM use cases.",
       "scoring_criteria": [
-        "Describe Azure Virtual Network isolation.",
-        "Mention use of subnets and network security groups.",
-        "Explain how traffic can be restricted or segmented.",
-        "Discuss integration with on-premises networks (VPN/ExpressRoute).",
-        "Give at least one example of a security benefit (e.g., restricting exposure of VMs to the internet)."
+        "Identifies at least three scenarios for using ACI (e.g., batch jobs, development/testing, microservices).",
+        "For each scenario, provides relevant details explaining why ACI is better than VMs.",
+        "Mentions at least one benefit of ACI (e.g., no OS management, fast startup, cost-efficiency)."
       ]
     },
     {
       "type": "qualitative",
       "skill_area": "Describe Azure compute and networking services",
-      "question": "Differentiate between Azure Load Balancer and Azure Application Gateway.",
-      "purpose": "Test knowledge of Azure networking services and their use cases.",
+      "question": "Explain the management differences between Azure Virtual Machines and Azure Container Instances.",
+      "purpose": "Evaluate understanding of operational overhead.",
       "scoring_criteria": [
-        "Define Azure Load Balancer and its layer (Layer 4).",
-        "Define Azure Application Gateway and its layer (Layer 7).",
-        "Discuss scenarios for each (e.g., TCP/UDP for Load Balancer, HTTP(S) for App Gateway).",
-        "Mention application-level features (WAF, SSL offload) for Application Gateway.",
-        "Compare health probing and routing capabilities."
-      ]
-    },
-    {
-      "type": "yes_no",
-      "skill_area": "Describe features and tools in Azure for governance and compliance",
-      "question": "Can Azure Policy be used to automatically remediate non-compliant resources?",
-      "expected_answer": "Yes"
-    },
-    {
-      "type": "yes_no",
-      "skill_area": "Describe features and tools in Azure for governance and compliance",
-      "question": "Is Azure Blueprints used to assign and track policy and role assignments as part of a deployment template?",
-      "expected_answer": "Yes"
-    },
-    {
-      "type": "qualitative",
-      "skill_area": "Describe features and tools in Azure for governance and compliance",
-      "question": "Describe the relationship between Azure Policy and Azure Initiative.",
-      "purpose": "Assess understanding of policy grouping and governance in Azure.",
-      "scoring_criteria": [
-        "Define what an Azure Policy is.",
-        "Define what an Azure Initiative is.",
-        "Explain how initiatives group multiple policies.",
-        "Give an example of when to use an initiative.",
-        "Mention benefits of using initiatives (e.g., simplified management)."
+        "Describes that VMs require OS patching, updates, and configuration.",
+        "Describes that ACI abstracts OS and infrastructure management.",
+        "Mentions differences in scaling and maintenance."
       ]
     },
     {
       "type": "qualitative",
-      "skill_area": "Describe features and tools in Azure for governance and compliance",
-      "question": "Explain how Azure Resource Locks can help prevent accidental deletion or modification of critical resources.",
-      "purpose": "Assess knowledge of Azure governance tools.",
+      "skill_area": "Describe Azure compute and networking services",
+      "question": "Compare the ideal use cases for Azure Virtual Machines and Azure Container Instances.",
+      "purpose": "Assess ability to match workloads to the correct Azure compute option.",
       "scoring_criteria": [
-        "Describe what a Resource Lock is and available lock levels.",
-        "Explain the impact of locks on resource actions.",
-        "Give at least one real-world example of lock usage.",
-        "Mention how locks interact with role-based access control.",
-        "Discuss best practices for applying locks."
+        "Correctly matches persistent, stateful workloads to VMs.",
+        "Identifies quick, short-lived, or burst workloads as ideal for ACI.",
+        "Discusses at least one example for each."
+      ]
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe Azure compute and networking services",
+      "question": "Describe how Azure Container Instances can benefit DevOps teams.",
+      "purpose": "Assess knowledge of ACI in modern application development.",
+      "scoring_criteria": [
+        "Mentions rapid provisioning or scaling for CI/CD pipelines.",
+        "Highlights simplified environment setup (no VM management needed).",
+        "Describes integration with other Azure services (e.g., Logic Apps, Functions)."
+      ]
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe cost management in Azure",
+      "question": "Can Azure Cost Management set up alerts when spending exceeds a defined budget?"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe cost management in Azure",
+      "question": "Does the Azure Pricing Calculator provide real-time alerts on actual spending?"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe cost management in Azure",
+      "question": "Can you export Azure Pricing Calculator estimates to share with stakeholders?"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe cost management in Azure",
+      "question": "Is Azure Cost Management only available for Enterprise Agreement customers?"
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe cost management in Azure",
+      "question": "Outline the steps to use Azure Cost Management to monitor and optimize cloud spending.",
+      "purpose": "Assess knowledge of Azure cost monitoring and optimization workflow.",
+      "scoring_criteria": [
+        "Describes reviewing cost analysis and actual usage.",
+        "Explains setting up budgets and alerts.",
+        "Mentions identifying cost optimization opportunities (e.g., reserved instances, right sizing).",
+        "Refers to exporting or sharing reports."
+      ]
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe cost management in Azure",
+      "question": "Explain the difference between the Azure Pricing Calculator and Azure Cost Management.",
+      "purpose": "Evaluate understanding of Azure cost estimation versus monitoring.",
+      "scoring_criteria": [
+        "Identifies Pricing Calculator as a pre-deployment estimation tool.",
+        "Describes Cost Management as tracking and analyzing actual spend.",
+        "Mentions how both are used together for planning and ongoing management."
+      ]
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe cost management in Azure",
+      "question": "Describe how setting up budgets in Azure Cost Management can help an organization.",
+      "purpose": "Assess understanding of budget features and business impact.",
+      "scoring_criteria": [
+        "Explains how budgets enable proactive cost control.",
+        "Mentions email or service alerts when thresholds are reached.",
+        "Describes impact on financial planning."
+      ]
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe cost management in Azure",
+      "question": "Provide two examples of actions you can take if Azure Cost Management shows your spending is higher than expected.",
+      "purpose": "Evaluate knowledge of corrective cost actions.",
+      "scoring_criteria": [
+        "Lists at least two appropriate actions (e.g., review resource usage, delete unused resources, switch to reserved instances, adjust scaling).",
+        "Briefly explains each action."
       ]
     }
   ]
