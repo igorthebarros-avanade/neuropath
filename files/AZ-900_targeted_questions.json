@@ -4,139 +4,152 @@
     {
       "type": "yes_no",
       "skill_area": "Describe Azure storage services",
-      "question": "Can Azure Blob Storage be used to store unstructured data such as images and documents?",
+      "question": "Can Azure Blob Storage be configured to use lifecycle management policies to automatically move data to the Archive tier?",
       "expected_answer": "Yes"
     },
     {
       "type": "yes_no",
       "skill_area": "Describe Azure storage services",
-      "question": "Is Azure Files designed to provide shared file system access to multiple VMs?",
+      "question": "Is Azure Files suitable for mounting file shares from on-premises Windows servers?",
       "expected_answer": "Yes"
     },
     {
       "type": "yes_no",
       "skill_area": "Describe Azure storage services",
-      "question": "Does Azure Table Storage support relational database features like joins and foreign keys?",
+      "question": "Does Azure Table Storage support complex relational queries and joins?",
       "expected_answer": "No"
     },
     {
       "type": "yes_no",
       "skill_area": "Describe Azure storage services",
-      "question": "Is Azure Disk Storage typically used to store operating system and data disks for virtual machines?",
+      "question": "Is data stored in Azure Blob Storage encrypted at rest by default?",
       "expected_answer": "Yes"
     },
     {
       "type": "yes_no",
       "skill_area": "Describe Azure storage services",
-      "question": "Does Azure Storage automatically replicate data across regions by default?",
+      "question": "Is Azure Queue Storage used for long-term archival of large documents?",
+      "expected_answer": "No"
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe Azure storage services",
+      "question": "Explain the main differences between Azure Blob Storage and Azure Disk Storage, including use cases for each.",
+      "purpose": "Assess understanding of Azure storage types and their best-fit scenarios.",
+      "scoring_criteria": [
+        "Describe what Azure Blob Storage is and its use cases (unstructured data, backups, media files, data lakes).",
+        "Describe what Azure Disk Storage is and its use cases (VM disks, high-performance workloads).",
+        "Compare scalability, performance, and typical consumers.",
+        "Mention supported access methods (object vs block access).",
+        "Give an example scenario for each storage type."
+      ]
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe Azure storage services",
+      "question": "List at least three redundancy options provided by Azure Storage and briefly describe each.",
+      "purpose": "Assess knowledge of Azure Storage redundancy models.",
+      "scoring_criteria": [
+        "Identify Locally Redundant Storage (LRS) and explain.",
+        "Identify Geo-Redundant Storage (GRS) and explain.",
+        "Identify Zone-Redundant Storage (ZRS) and explain.",
+        "Mention Read-Access Geo-Redundant Storage (RA-GRS) as a possible point.",
+        "Briefly compare geographic coverage/protection."
+      ]
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe Azure storage services",
+      "question": "Describe the process for securing access to Azure Storage accounts and give two examples of access control methods.",
+      "purpose": "Assess understanding of authentication and security best practices for Azure Storage.",
+      "scoring_criteria": [
+        "Mention the use of Shared Access Signatures (SAS) or Azure AD for access control.",
+        "Describe network security options (firewall, virtual networks).",
+        "Explain storage account keys and their security implications.",
+        "Give at least two concrete examples (e.g., using SAS tokens, configuring firewall rules).",
+        "Mention monitoring or auditing storage access."
+      ]
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe Azure compute and networking services",
+      "question": "Is Azure Container Instances designed for running persistent, stateful workloads that require long-term storage?",
       "expected_answer": "No"
     },
     {
       "type": "yes_no",
       "skill_area": "Describe Azure compute and networking services",
-      "question": "Is Azure Virtual Machine Scale Set used to automatically scale the number of VMs based on demand?",
-      "expected_answer": "Yes"
+      "question": "Can a single Azure Virtual Machine be scaled automatically to multiple instances using Azure Autoscale?",
+      "expected_answer": "No"
     },
     {
       "type": "yes_no",
       "skill_area": "Describe Azure compute and networking services",
-      "question": "Can Azure Container Instances run multiple containers in a single group with shared network and storage?",
+      "question": "Does Azure App Service support hosting both Windows and Linux web applications?",
       "expected_answer": "Yes"
     },
     {
-      "type": "yes_no",
+      "type": "qualitative",
       "skill_area": "Describe Azure compute and networking services",
-      "question": "Do Azure Virtual Machines require users to manage operating system updates manually unless configured otherwise?",
-      "expected_answer": "Yes"
-    },
-    {
-      "type": "yes_no",
-      "skill_area": "Describe features and tools in Azure for governance and compliance",
-      "question": "Can Azure Policy block the creation of resources that do not comply with organizational standards?",
-      "expected_answer": "Yes"
-    },
-    {
-      "type": "yes_no",
-      "skill_area": "Describe features and tools in Azure for governance and compliance",
-      "question": "Is Azure Blueprints used to define a repeatable set of Azure resources and policies for compliance?",
-      "expected_answer": "Yes"
-    },
-    {
-      "type": "qualitative",
-      "skill_area": "Describe Azure storage services",
-      "question": "Explain the main differences between Azure Blob Storage and Azure Disk Storage, and describe an ideal use case for each.",
-      "purpose": "Assess understanding of storage services and their scenarios.",
+      "question": "Explain the benefits of using Azure Virtual Networks in securing application workloads.",
+      "purpose": "Assess understanding of networking security in Azure.",
       "scoring_criteria": [
-        "Define Azure Blob Storage and its primary purpose.",
-        "Define Azure Disk Storage and its primary use.",
-        "Describe a suitable use case for Blob Storage (e.g., unstructured data, backups).",
-        "Describe a suitable use case for Disk Storage (e.g., VM OS/data disks).",
-        "Mention performance or durability differences."
-      ]
-    },
-    {
-      "type": "qualitative",
-      "skill_area": "Describe Azure storage services",
-      "question": "Describe the different Azure Storage redundancy options and when you would use each.",
-      "purpose": "Test knowledge of redundancy and data protection options in Azure Storage.",
-      "scoring_criteria": [
-        "List at least three redundancy options (LRS, GRS, RA-GRS, ZRS).",
-        "Explain what each acronym stands for.",
-        "Describe when to use locally-redundant storage (LRS).",
-        "Describe when to use geo-redundant storage (GRS or RA-GRS).",
-        "Explain scenarios for zone-redundant storage (ZRS)."
+        "Describe Azure Virtual Network isolation.",
+        "Mention use of subnets and network security groups.",
+        "Explain how traffic can be restricted or segmented.",
+        "Discuss integration with on-premises networks (VPN/ExpressRoute).",
+        "Give at least one example of a security benefit (e.g., restricting exposure of VMs to the internet)."
       ]
     },
     {
       "type": "qualitative",
       "skill_area": "Describe Azure compute and networking services",
-      "question": "Compare Azure Virtual Machines and Azure App Service in terms of management, scalability, and typical workloads.",
-      "purpose": "Assess ability to differentiate core compute offerings.",
+      "question": "Differentiate between Azure Load Balancer and Azure Application Gateway.",
+      "purpose": "Test knowledge of Azure networking services and their use cases.",
       "scoring_criteria": [
-        "Explain management responsibility differences (IaaS vs PaaS).",
-        "Discuss scalability options for each service.",
-        "Provide example workloads for VMs (e.g., legacy apps, custom OS needs).",
-        "Provide example workloads for App Service (e.g., web apps, APIs).",
-        "Mention cost or operational considerations."
+        "Define Azure Load Balancer and its layer (Layer 4).",
+        "Define Azure Application Gateway and its layer (Layer 7).",
+        "Discuss scenarios for each (e.g., TCP/UDP for Load Balancer, HTTP(S) for App Gateway).",
+        "Mention application-level features (WAF, SSL offload) for Application Gateway.",
+        "Compare health probing and routing capabilities."
       ]
     },
     {
+      "type": "yes_no",
+      "skill_area": "Describe features and tools in Azure for governance and compliance",
+      "question": "Can Azure Policy be used to automatically remediate non-compliant resources?",
+      "expected_answer": "Yes"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe features and tools in Azure for governance and compliance",
+      "question": "Is Azure Blueprints used to assign and track policy and role assignments as part of a deployment template?",
+      "expected_answer": "Yes"
+    },
+    {
       "type": "qualitative",
-      "skill_area": "Describe Azure compute and networking services",
-      "question": "Describe the main benefits of using Azure Container Instances versus deploying containers on Azure Virtual Machines.",
-      "purpose": "Evaluate understanding of container services and serverless options.",
+      "skill_area": "Describe features and tools in Azure for governance and compliance",
+      "question": "Describe the relationship between Azure Policy and Azure Initiative.",
+      "purpose": "Assess understanding of policy grouping and governance in Azure.",
       "scoring_criteria": [
-        "Explain the serverless nature of Container Instances.",
-        "Compare setup and management effort between the two.",
-        "Discuss billing or cost differences.",
-        "Mention use case suitability (short-lived vs persistent workloads).",
-        "Note limitations such as feature set or scaling."
+        "Define what an Azure Policy is.",
+        "Define what an Azure Initiative is.",
+        "Explain how initiatives group multiple policies.",
+        "Give an example of when to use an initiative.",
+        "Mention benefits of using initiatives (e.g., simplified management)."
       ]
     },
     {
       "type": "qualitative",
       "skill_area": "Describe features and tools in Azure for governance and compliance",
-      "question": "Explain how Azure Policy and Azure Role-Based Access Control (RBAC) differ in controlling resources.",
-      "purpose": "Assess understanding of core governance features.",
+      "question": "Explain how Azure Resource Locks can help prevent accidental deletion or modification of critical resources.",
+      "purpose": "Assess knowledge of Azure governance tools.",
       "scoring_criteria": [
-        "Define Azure Policy and its use for resource compliance.",
-        "Define RBAC and its use for access control.",
-        "Describe how each is assigned (e.g., to users, groups, resources).",
-        "Give an example scenario for each.",
-        "Mention any overlap or key differences."
-      ]
-    },
-    {
-      "type": "qualitative",
-      "skill_area": "Describe features and tools in Azure for governance and compliance",
-      "question": "Provide steps to create and assign a custom Azure Policy to restrict the deployment of resources to a specific region.",
-      "purpose": "Test ability to apply governance controls in Azure.",
-      "scoring_criteria": [
-        "Describe creating a custom policy definition.",
-        "Explain setting the policy rule to restrict locations.",
-        "Explain assigning the policy at a scope (e.g., subscription).",
-        "Mention monitoring compliance status.",
-        "Describe remediation options or actions."
+        "Describe what a Resource Lock is and available lock levels.",
+        "Explain the impact of locks on resource actions.",
+        "Give at least one real-world example of lock usage.",
+        "Mention how locks interact with role-based access control.",
+        "Discuss best practices for applying locks."
       ]
     }
   ]

@@ -138,7 +138,7 @@ class FeedbackService:
         )
         print(bar_chart)
 
-        return {"questionsFeedback": table_data, "performanceForSkill": performance_data}
+        return {"detailedQuestionReview": table_data, "performanceBySkill": performance_data}
 
     def provide_feedback_and_new_questions(self, selected_exam_code: str, 
                                          results_file_suffix: str = "results.json", 
