@@ -3,132 +3,139 @@
   "questions": [
     {
       "type": "yes_no",
-      "skill_area": "Describe Artificial Intelligence workloads and considerations",
-      "question": "Is image classification considered a computer vision workload in Azure?",
-      "expected_answer": "Yes"
-    },
-    {
-      "type": "yes_no",
-      "skill_area": "Describe Artificial Intelligence workloads and considerations",
-      "question": "Can natural language processing be used to analyze sentiment in customer feedback?",
-      "expected_answer": "Yes"
-    },
-    {
-      "type": "yes_no",
-      "skill_area": "Describe Artificial Intelligence workloads and considerations",
-      "question": "Is speech recognition a type of anomaly detection workload?",
-      "expected_answer": "No"
-    },
-    {
-      "type": "yes_no",
-      "skill_area": "Describe Artificial Intelligence workloads and considerations",
-      "question": "Do Azure AI services include tools for knowledge mining?",
-      "expected_answer": "Yes"
-    },
-    {
-      "type": "yes_no",
-      "skill_area": "Describe Artificial Intelligence workloads and considerations",
-      "question": "Are recommendation engines typically considered part of computer vision workloads?",
-      "expected_answer": "No"
-    },
-    {
-      "type": "yes_no",
-      "skill_area": "Describe fundamental principles of machine learning on Azure",
-      "question": "Does unsupervised learning require labeled data for training?",
-      "expected_answer": "No"
-    },
-    {
-      "type": "yes_no",
-      "skill_area": "Describe Azure Machine Learning capabilities",
-      "question": "Can Azure Machine Learning automate hyperparameter tuning?",
-      "expected_answer": "Yes"
-    },
-    {
-      "type": "yes_no",
-      "skill_area": "Describe features of computer vision workloads on Azure",
-      "question": "Can Azure Computer Vision service extract text from images using OCR?",
-      "expected_answer": "Yes"
-    },
-    {
-      "type": "yes_no",
-      "skill_area": "Describe features of generative AI workloads on Azure",
-      "question": "Is GPT-4 a model available in Azure OpenAI Service for text generation tasks?",
+      "skill_area": "Describe guiding principles for responsible AI",
+      "question": "Is transparency a key principle of responsible AI according to Microsoft Azure's guidelines?",
       "expected_answer": "Yes"
     },
     {
       "type": "yes_no",
       "skill_area": "Describe guiding principles for responsible AI",
-      "question": "Is transparency a principle included in responsible AI guidelines?",
+      "question": "Does responsible AI require that model predictions are always explainable to users?",
       "expected_answer": "Yes"
     },
     {
-      "type": "qualitative",
-      "skill_area": "Describe Artificial Intelligence workloads and considerations",
-      "question": "Compare computer vision and natural language processing workloads, and give an Azure service example for each.",
-      "purpose": "Assess understanding of different AI workload types and Azure services.",
-      "scoring_criteria": [
-        "Defines computer vision workloads.",
-        "Defines natural language processing workloads.",
-        "Provides a relevant Azure service for computer vision (e.g., Azure Computer Vision, Face API).",
-        "Provides a relevant Azure service for NLP (e.g., Azure Text Analytics, Language Service)."
-      ]
+      "type": "yes_no",
+      "skill_area": "Describe guiding principles for responsible AI",
+      "question": "Is 'accuracy' the only principle considered under responsible AI?",
+      "expected_answer": "No"
     },
     {
-      "type": "qualitative",
-      "skill_area": "Describe fundamental principles of machine learning on Azure",
-      "question": "Describe the difference between supervised and unsupervised learning and provide a real-world example for each using Azure services.",
-      "purpose": "Test knowledge of ML paradigms and Azure application.",
-      "scoring_criteria": [
-        "Defines supervised learning.",
-        "Defines unsupervised learning.",
-        "Gives a real-world example of supervised learning with Azure (e.g., classification with Azure ML).",
-        "Gives a real-world example of unsupervised learning with Azure (e.g., clustering with Azure ML)."
-      ]
+      "type": "yes_no",
+      "skill_area": "Describe guiding principles for responsible AI",
+      "question": "Can documenting data sources help improve transparency in AI systems?",
+      "expected_answer": "Yes"
     },
     {
-      "type": "qualitative",
-      "skill_area": "Describe Azure Machine Learning capabilities",
-      "question": "Explain how Azure Machine Learning supports the end-to-end machine learning lifecycle.",
-      "purpose": "Evaluate understanding of Azure ML platform features.",
-      "scoring_criteria": [
-        "Mentions data preparation.",
-        "Describes model training.",
-        "Covers model deployment.",
-        "Explains monitoring and management.",
-        "References automation features (e.g., AutoML, pipelines)."
-      ]
+      "type": "yes_no",
+      "skill_area": "Describe guiding principles for responsible AI",
+      "question": "Is user privacy unrelated to the principles of responsible AI?",
+      "expected_answer": "No"
     },
     {
-      "type": "qualitative",
+      "type": "yes_no",
       "skill_area": "Describe features of computer vision workloads on Azure",
-      "question": "Explain how Azure Video Indexer can be used to analyze video content and extract insights.",
-      "purpose": "Assess knowledge of Azure's computer vision analysis tools.",
-      "scoring_criteria": [
-        "Describes Azure Video Indexer's capabilities (e.g., speech-to-text, face detection).",
-        "Mentions extraction of metadata (e.g., keywords, topics).",
-        "Explains practical use cases (e.g., content moderation, accessibility)."
-      ]
+      "question": "Does image classification assign a single label to an entire image?",
+      "expected_answer": "Yes"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe features of computer vision workloads on Azure",
+      "question": "Is object detection limited to identifying the presence of an object without locating it in the image?",
+      "expected_answer": "No"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe features of computer vision workloads on Azure",
+      "question": "Can Azure Custom Vision be used to train both image classification and object detection models?",
+      "expected_answer": "Yes"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe features of computer vision workloads on Azure",
+      "question": "Is face detection considered a type of object detection?",
+      "expected_answer": "Yes"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe features of computer vision workloads on Azure",
+      "question": "Does image classification output the location of objects in the image?",
+      "expected_answer": "No"
     },
     {
       "type": "qualitative",
-      "skill_area": "Describe features of generative AI workloads on Azure",
-      "question": "Describe a scenario where prompt engineering is critical for using Azure OpenAI Service effectively, and explain best practices.",
-      "purpose": "Evaluate understanding of prompt engineering with generative AI on Azure.",
+      "skill_area": "Describe guiding principles for responsible AI",
+      "question": "Explain what is meant by transparency in AI and provide two concrete ways it can be implemented within an Azure AI solution.",
+      "purpose": "Assess understanding of transparency and real-world application in Azure AI.",
       "scoring_criteria": [
-        "Provides a scenario requiring prompt engineering (e.g., customer support bot).",
-        "Explains why prompt clarity matters.",
-        "Lists at least two best practices (e.g., using examples, context)."
+        "Clearly defines transparency in AI.",
+        "Describes why transparency is important (e.g., trust, accountability).",
+        "Mentions at least one Azure tool or feature that aids transparency (e.g., interpretability tools, model explanations).",
+        "Provides two specific examples or methods to implement transparency.",
+        "Links transparency to positive impacts for users or stakeholders."
       ]
     },
     {
       "type": "qualitative",
       "skill_area": "Describe guiding principles for responsible AI",
-      "question": "Outline the key principles of responsible AI and briefly explain the importance of each in the context of Azure AI solutions.",
-      "purpose": "Test knowledge of responsible AI principles.",
+      "question": "List three other principles of responsible AI besides transparency and briefly describe each.",
+      "purpose": "Test knowledge of the breadth of responsible AI principles.",
       "scoring_criteria": [
-        "Lists at least three responsible AI principles (e.g., fairness, reliability, privacy, transparency, accountability).",
-        "Explains each principle's importance in AI solutions.",
-        "References how Azure supports or enforces these principles."
+        "Names at least three principles (e.g., fairness, privacy, accountability, reliability, inclusiveness, safety).",
+        "Briefly describes each principle.",
+        "Relates principles to AI system design or use.",
+        "Provides an example or context for at least one principle."
+      ]
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe guiding principles for responsible AI",
+      "question": "Describe how documenting data sources and model decisions helps support responsible AI practices in Azure.",
+      "purpose": "Assess understanding of documentation as a transparency mechanism.",
+      "scoring_criteria": [
+        "Explains the role of documentation in responsible AI.",
+        "Connects documentation to transparency and accountability.",
+        "Mentions Azure tools or best practices for documentation.",
+        "Provides a concrete example of documentation aiding responsible AI.",
+        "Describes potential risks if documentation is lacking."
+      ]
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe features of computer vision workloads on Azure",
+      "question": "Define image classification and object detection in Azure AI, and give a real-world example for each.",
+      "purpose": "Test understanding of basic computer vision tasks and their application.",
+      "scoring_criteria": [
+        "Correctly defines image classification.",
+        "Correctly defines object detection.",
+        "Provides an accurate real-world example for image classification.",
+        "Provides an accurate real-world example for object detection.",
+        "Mentions an Azure service or tool relevant to each task."
+      ]
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe features of computer vision workloads on Azure",
+      "question": "Explain the main difference between image classification and object detection, including how outputs differ.",
+      "purpose": "Assess knowledge of the distinction and practical ramifications.",
+      "scoring_criteria": [
+        "Describes output of image classification (single/multiple labels per image).",
+        "Describes output of object detection (bounding boxes, labels, locations).",
+        "Highlights main functional difference (classifying vs. locating).",
+        "Provides an example scenario that would require object detection.",
+        "Mentions at least one Azure service supporting these tasks."
+      ]
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe features of computer vision workloads on Azure",
+      "question": "How can Azure Custom Vision be used to create a custom object detection model? Outline the main steps involved.",
+      "purpose": "Evaluate understanding of Azure Custom Vision's capabilities and workflow.",
+      "scoring_criteria": [
+        "Mentions data collection and labeling.",
+        "Describes uploading data to Azure Custom Vision.",
+        "Explains setting the project to object detection mode.",
+        "Includes training and evaluation steps.",
+        "Mentions deployment or integration with applications."
       ]
     }
   ]

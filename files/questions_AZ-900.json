@@ -3,42 +3,42 @@
   "questions": [
     {
       "type": "yes_no",
-      "skill_area": "Describe core architectural components of Azure",
-      "question": "Is an Azure Availability Zone typically made up of multiple datacenters within a single Azure region?",
-      "expected_answer": "Yes",
-      "purpose": "Binary Assessment"
-    },
-    {
-      "type": "yes_no",
       "skill_area": "Describe Azure storage services",
-      "question": "Does Azure Queue Storage provide file sharing capabilities similar to Azure File Storage?",
+      "question": "Does Azure Blob Storage primarily store relational data?",
       "expected_answer": "No",
       "purpose": "Binary Assessment"
     },
     {
-      "type": "qualitative",
+      "type": "yes_no",
       "skill_area": "Describe the differences between categories of cloud services",
-      "question": "Compare and contrast Infrastructure as a Service (IaaS) and Platform as a Service (PaaS) in the context of Azure. What are the main responsibilities of the user versus Microsoft in each model?",
+      "question": "Is Platform as a Service (PaaS) responsible for managing the underlying operating system and hardware for you?",
+      "expected_answer": "Yes",
+      "purpose": "Binary Assessment"
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe Azure compute and networking services",
+      "question": "Explain the key differences between Azure Virtual Machines and Azure Container Instances, and when you would choose one over the other.",
       "purpose": "Scaled Assessment",
       "scoring_criteria": [
-        "Define both IaaS and PaaS in Azure context.",
-        "Describe what the user manages in IaaS versus PaaS.",
-        "Describe what Microsoft manages in IaaS versus PaaS.",
-        "Give at least one Azure example for each category.",
-        "Discuss a use case suitable for each model."
+        "Describe Azure Virtual Machines as highly configurable servers requiring OS management.",
+        "Describe Azure Container Instances as serverless, managed Docker containers.",
+        "Highlight management overhead differences (VMs require patching and maintenance, ACI does not).",
+        "Discuss typical use cases (persistent workloads for VMs, lightweight/ephemeral workloads for ACI).",
+        "Mention scalability and startup time differences."
       ]
     },
     {
       "type": "qualitative",
       "skill_area": "Describe cost management in Azure",
-      "question": "Explain how the Azure Pricing Calculator and Azure Cost Management tool can be used together to help control and predict cloud spending.",
+      "question": "Discuss how the Azure Pricing Calculator and Azure Cost Management tools help organizations control and forecast cloud spending.",
       "purpose": "Scaled Assessment",
       "scoring_criteria": [
-        "Describe the function of the Azure Pricing Calculator.",
-        "Describe the function of Azure Cost Management.",
-        "Explain how estimates from the Pricing Calculator inform budgeting.",
-        "Explain ongoing monitoring and alerts via Cost Management.",
-        "Discuss the benefits of using both tools throughout a project's lifecycle."
+        "Explain the purpose of the Azure Pricing Calculator for estimating costs before deployment.",
+        "Describe how Azure Cost Management provides visibility into actual spending.",
+        "Discuss the role of budgets and alerts in Azure Cost Management.",
+        "Mention exporting and sharing estimates with stakeholders.",
+        "Explain how these tools support planning and ongoing cost optimization."
       ]
     }
   ]

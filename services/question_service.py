@@ -150,6 +150,8 @@ class QuestionService:
             output_file = self._save_questions_to_file(questions_data, selected_exam_code)
             print(f"Successfully generated and saved questions to {output_file}")
 
+            return questions_data
+
         except json.JSONDecodeError as e:
             print(f"Error decoding JSON from API response during question generation: {e}")
             print(f"Raw response content: {response_content}")
@@ -208,4 +210,4 @@ class QuestionService:
         if self.demo_mode:
             self._load_precomputed_questions(selected_exam_code, num_yes_no, num_qualitative)
         else:
-            self._generate_questions_live(selected_exam_code, num_yes_no, num_qualitative)
+            return self._generate_questions_live(selected_exam_code, num_yes_no, num_qualitative)

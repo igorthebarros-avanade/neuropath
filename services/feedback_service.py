@@ -138,9 +138,12 @@ class FeedbackService:
         )
         print(bar_chart)
 
+        return {"detailedQuestionReview": table_data, "performanceBySkill": performance_data}
+
     def provide_feedback_and_new_questions(self, selected_exam_code: str, 
                                          results_file_suffix: str = "results.json", 
-                                         output_file_suffix: str = "targeted_questions.json"):
+                                         output_file_suffix: str = "targeted_questions.json",
+                                         frontend_results = []):
         """Provide performance feedback with analysis and generate new questions."""
         
         # Construct file paths
@@ -148,12 +151,17 @@ class FeedbackService:
         new_questions_output_file = construct_file_path(self.files_dir, selected_exam_code, output_file_suffix)
 
         # Load simulation results
-        all_results = load_json_file(results_file)
+        all_results = None
+        if len(frontend_results) == 0:
+            all_results = load_json_file(results_file)
+        else:
+            all_results = frontend_results
+
         if not all_results:
             print("Please run a simulation first.")
             return
 
-        latest_results = all_results[-1] 
+        latest_results = all_results[-1]
         exam_code = latest_results.get("exam_code", "Unknown Exam")
         timestamp = latest_results.get("timestamp", datetime.now().isoformat())
         results_context = json.dumps(latest_results, indent=2)
@@ -170,18 +178,20 @@ class FeedbackService:
             analysis_data = json.loads(response_content)
             
             # Display feedback report
-            self._display_feedback_report(analysis_data, exam_code)
+            feedbackReport = self._display_feedback_report(analysis_data, exam_code)
             
             # Save to CSV
             self._save_feedback_to_csv(analysis_data, exam_code, timestamp)
 
+            targetedQuestions = analysis_data.get("new_questions_for_weak_areas")
             # Save new targeted questions
-            if analysis_data.get("new_questions_for_weak_areas"):
+            if targetedQuestions:
                 if save_json_file(analysis_data["new_questions_for_weak_areas"], new_questions_output_file):
                     print(f"\nNew targeted questions saved to '{new_questions_output_file}'.")
             else:
                 print("\nNo new targeted questions were generated.")
 
+            return {"feedbackReport": feedbackReport, "targetedQuestions": targetedQuestions.get("questions")}
         except json.JSONDecodeError as e:
             print(f"Error decoding JSON from API response: {e}")
             print(f"Raw response content: {response_content}")

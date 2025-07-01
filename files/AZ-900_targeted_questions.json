@@ -3,91 +3,135 @@
   "questions": [
     {
       "type": "yes_no",
-      "skill_area": "Describe cloud concepts",
-      "question": "Is high capital expenditure (CapEx) a typical advantage of cloud computing?",
-      "expected_answer": "No"
+      "skill_area": "Describe Azure compute and networking services",
+      "question": "Can Azure Container Instances run Windows and Linux containers?"
     },
     {
       "type": "yes_no",
-      "skill_area": "Describe cloud concepts",
-      "question": "Does a public cloud deployment provide resources exclusively for one organization?",
-      "expected_answer": "No"
+      "skill_area": "Describe Azure compute and networking services",
+      "question": "Do Azure Virtual Machines require you to manage operating system updates?"
     },
     {
       "type": "yes_no",
-      "skill_area": "Describe cloud concepts",
-      "question": "In PaaS, is the user responsible for the application and data only?",
-      "expected_answer": "Yes"
+      "skill_area": "Describe Azure compute and networking services",
+      "question": "Is it possible to autoscale Azure Virtual Machines out of the box without additional services?"
     },
     {
       "type": "yes_no",
-      "skill_area": "Describe cloud concepts",
-      "question": "Does elasticity mean resources automatically scale up and down as needed?",
-      "expected_answer": "Yes"
+      "skill_area": "Describe Azure compute and networking services",
+      "question": "Are Azure Container Instances well-suited for ephemeral workloads?"
     },
     {
       "type": "yes_no",
-      "skill_area": "Describe cloud concepts",
-      "question": "Is Azure Stack an example of private cloud technology?",
-      "expected_answer": "Yes"
+      "skill_area": "Describe Azure compute and networking services",
+      "question": "Do Azure Virtual Machines provide faster startup times than Azure Container Instances?"
     },
     {
       "type": "qualitative",
-      "skill_area": "Describe cloud concepts",
-      "question": "Compare the main differences between IaaS, PaaS, and SaaS in terms of user responsibilities.",
-      "purpose": "Test understanding of cloud service models and their shared responsibility.",
+      "skill_area": "Describe Azure compute and networking services",
+      "question": "List and briefly describe three scenarios where you would use Azure Container Instances instead of Azure Virtual Machines.",
+      "purpose": "Test understanding of container vs VM use cases.",
       "scoring_criteria": [
-        "Correctly defines IaaS, PaaS, SaaS",
-        "Explains what users manage in each model",
-        "Explains what the provider manages in each model",
-        "Gives at least one example per model"
+        "Identifies at least three scenarios for using ACI (e.g., batch jobs, development/testing, microservices).",
+        "For each scenario, provides relevant details explaining why ACI is better than VMs.",
+        "Mentions at least one benefit of ACI (e.g., no OS management, fast startup, cost-efficiency)."
       ]
     },
     {
       "type": "qualitative",
-      "skill_area": "Describe cloud concepts",
-      "question": "List and describe three financial benefits of cloud computing compared to traditional on-premises IT.",
-      "purpose": "Assess knowledge of cloud financial advantages.",
+      "skill_area": "Describe Azure compute and networking services",
+      "question": "Explain the management differences between Azure Virtual Machines and Azure Container Instances.",
+      "purpose": "Evaluate understanding of operational overhead.",
       "scoring_criteria": [
-        "Mentions no upfront capital expense",
-        "Mentions pay-as-you-go/operational expense model",
-        "Mentions reduced IT maintenance/management costs",
-        "Provides clear descriptions"
+        "Describes that VMs require OS patching, updates, and configuration.",
+        "Describes that ACI abstracts OS and infrastructure management.",
+        "Mentions differences in scaling and maintenance."
       ]
     },
     {
       "type": "qualitative",
-      "skill_area": "Describe cloud concepts",
-      "question": "Explain what is meant by 'shared responsibility model' in cloud computing.",
-      "purpose": "Assess understanding of the division of responsibilities between cloud providers and customers.",
+      "skill_area": "Describe Azure compute and networking services",
+      "question": "Compare the ideal use cases for Azure Virtual Machines and Azure Container Instances.",
+      "purpose": "Assess ability to match workloads to the correct Azure compute option.",
       "scoring_criteria": [
-        "Defines shared responsibility model",
-        "Distinguishes between provider and customer responsibilities",
-        "Mentions data security as a customer responsibility",
-        "Provides a relevant example"
+        "Correctly matches persistent, stateful workloads to VMs.",
+        "Identifies quick, short-lived, or burst workloads as ideal for ACI.",
+        "Discusses at least one example for each."
       ]
     },
     {
       "type": "qualitative",
-      "skill_area": "Describe cloud concepts",
-      "question": "Describe two scenarios where a hybrid cloud deployment is advantageous.",
-      "purpose": "Test ability to identify when hybrid cloud is beneficial.",
+      "skill_area": "Describe Azure compute and networking services",
+      "question": "Describe how Azure Container Instances can benefit DevOps teams.",
+      "purpose": "Assess knowledge of ACI in modern application development.",
       "scoring_criteria": [
-        "Provides two different hybrid cloud scenarios",
-        "Explains the benefit in each scenario",
-        "Relates answer to business or compliance needs"
+        "Mentions rapid provisioning or scaling for CI/CD pipelines.",
+        "Highlights simplified environment setup (no VM management needed).",
+        "Describes integration with other Azure services (e.g., Logic Apps, Functions)."
+      ]
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe cost management in Azure",
+      "question": "Can Azure Cost Management set up alerts when spending exceeds a defined budget?"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe cost management in Azure",
+      "question": "Does the Azure Pricing Calculator provide real-time alerts on actual spending?"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe cost management in Azure",
+      "question": "Can you export Azure Pricing Calculator estimates to share with stakeholders?"
+    },
+    {
+      "type": "yes_no",
+      "skill_area": "Describe cost management in Azure",
+      "question": "Is Azure Cost Management only available for Enterprise Agreement customers?"
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe cost management in Azure",
+      "question": "Outline the steps to use Azure Cost Management to monitor and optimize cloud spending.",
+      "purpose": "Assess knowledge of Azure cost monitoring and optimization workflow.",
+      "scoring_criteria": [
+        "Describes reviewing cost analysis and actual usage.",
+        "Explains setting up budgets and alerts.",
+        "Mentions identifying cost optimization opportunities (e.g., reserved instances, right sizing).",
+        "Refers to exporting or sharing reports."
       ]
     },
     {
       "type": "qualitative",
-      "skill_area": "Describe cloud concepts",
-      "question": "What is the main difference between scalability and elasticity in cloud computing?",
-      "purpose": "Test understanding of key cloud characteristics.",
+      "skill_area": "Describe cost management in Azure",
+      "question": "Explain the difference between the Azure Pricing Calculator and Azure Cost Management.",
+      "purpose": "Evaluate understanding of Azure cost estimation versus monitoring.",
       "scoring_criteria": [
-        "Defines scalability",
-        "Defines elasticity",
-        "Highlights the difference",
-        "Gives example for each"
+        "Identifies Pricing Calculator as a pre-deployment estimation tool.",
+        "Describes Cost Management as tracking and analyzing actual spend.",
+        "Mentions how both are used together for planning and ongoing management."
+      ]
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe cost management in Azure",
+      "question": "Describe how setting up budgets in Azure Cost Management can help an organization.",
+      "purpose": "Assess understanding of budget features and business impact.",
+      "scoring_criteria": [
+        "Explains how budgets enable proactive cost control.",
+        "Mentions email or service alerts when thresholds are reached.",
+        "Describes impact on financial planning."
+      ]
+    },
+    {
+      "type": "qualitative",
+      "skill_area": "Describe cost management in Azure",
+      "question": "Provide two examples of actions you can take if Azure Cost Management shows your spending is higher than expected.",
+      "purpose": "Evaluate knowledge of corrective cost actions.",
+      "scoring_criteria": [
+        "Lists at least two appropriate actions (e.g., review resource usage, delete unused resources, switch to reserved instances, adjust scaling).",
+        "Briefly explains each action."
       ]
     }
   ]
